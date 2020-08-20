@@ -1,47 +1,47 @@
-body.rtl {
+#about-us-insert-2020 .content.rtl {
   text-align: right;
 }
-body.rtl .content .main-content {
+#about-us-insert-2020 .content.rtl .content .main-content {
   flex-direction: row-reverse;
 }
-body.rtl .content .main-content .content-el {
+#about-us-insert-2020 .content.rtl .content .main-content .content-el {
   padding-right: 16px;
   padding-left: 0;
 }
-body.rtl .header {
+#about-us-insert-2020 .content.rtl .header {
   flex-direction: row-reverse;
 }
-.header {
+#about-us-insert-2020 .header {
   height: 44px;
   text-align: center;
   display: flex;
 }
-.header .title {
+#about-us-insert-2020 .header .title {
   font-size: 17px;
   font-weight: 500;
   line-height: 1.29;
   letter-spacing: -0.41px;
   color: #1a2f43;
 }
-.content {
+#about-us-insert-2020 .content {
   height: 90%;
 }
-.content-el {
+#about-us-insert-2020 .content-el {
   padding: 0 16px;
 }
-.content,
-.header {
+#about-us-insert-2020 .content,
+#about-us-insert-2020 .header {
   margin: 0 auto;
 }
-.main-content .subheader {
+#about-us-insert-2020 .main-content .subheader {
   font-size: 14px;
   font-weight: 300;
   color: #1a2f43;
 }
-.menu {
+#about-us-insert-2020 .menu {
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.05);
 }
-.menu .elem-menu {
+#about-us-insert-2020 .menu .elem-menu {
   width: 114px;
   text-align: center;
   vertical-align: middle;
@@ -54,86 +54,86 @@ body.rtl .header {
   font-weight: 500;
   color: #6e767e;
 }
-.menu .active {
+#about-us-insert-2020 .menu .active {
   border-bottom: 2px solid #1a2f43;
   color: #1a2f43;
   transition: 0.5s;
 }
-.main-content .text {
+#about-us-insert-2020 .main-content .text {
   width: 300px;
   font-family: Ubuntu;
   font-size: 18px;
   font-weight: 500;
   color: #1a2f43;
 }
-.main-content .subheader {
+#about-us-insert-2020 .main-content .subheader {
   font-size: 14px;
   font-weight: 300;
   color: #1a2f43;
   margin-bottom: 24px;
 }
-.content-el.active {
+#about-us-insert-2020 .content-el.active {
   display: block;
 }
 @media only screen and (max-width: 460px) {
-  .menu {
+  #about-us-insert-2020 .menu {
     display: flex;
     flex-wrap: wrap;
     width: 90%;
   }
-  .menu .elem-menu {
+  #about-us-insert-2020 .menu .elem-menu {
     display: inline-block;
     width: 114px;
     margin: 0 auto;
   }
-  .content,
-  .header {
+  #about-us-insert-2020 .content,
+  #about-us-insert-2020 .header {
     width: 100%;
   }
-  .header .title {
+  #about-us-insert-2020 .header .title {
     width: 100%;
     height: 22px;
   }
-  .main-content {
+  #about-us-insert-2020 .main-content {
     width: 90%;
   }
-  .main-content img {
+  #about-us-insert-2020 .main-content img {
     width: 90%;
   }
-  .main-content .text {
+  #about-us-insert-2020 .main-content .text {
     width: 100%;
   }
-  .main-content .subheader {
+  #about-us-insert-2020 .main-content .subheader {
     width: 100%;
   }
 }
 @media only screen and (min-width: 461px) {
-  .main-content {
+  #about-us-insert-2020 .main-content {
     width: 100%;
     padding: 0 17px;
     display: flex;
     max-width: 868px;
     margin: 0 auto;
   }
-  .content,
-  .header {
+  #about-us-insert-2020 .content,
+  #about-us-insert-2020 .header {
     width: 90%;
   }
-  .content-el {
+  #about-us-insert-2020 .content-el {
     width: 100%;
   }
-  .header .title {
+  #about-us-insert-2020 .header .title {
     width: 100%;
     height: 22px;
   }
-  .main-content img {
+  #about-us-insert-2020 .main-content img {
     width: 90%;
   }
-  .main-content .text {
+  #about-us-insert-2020 .main-content .text {
     width: 100%;
     height: 21px;
   }
-  .main-content .subheader {
+  #about-us-insert-2020 .main-content .subheader {
     width: 100%;
     display: flex;
     margin-bottom: 24px;

@@ -98,5 +98,169 @@ function switchTab(newTab) {
 }
 
 window.addEventListener("load", function (event) {
+    initAboutUs();
     insertMenuData(arrAbout)
 });
+
+function initAboutUs() {
+  let rootElem = document.getElementById('about-us-insert-2020');
+  rootElem.innerHTML = "<div class=\"content\">\n" +
+      "    <style>\n" +
+      "        #about-us-insert-2020 .content.rtl {\n" +
+      "            text-align: right;\n" +
+      "        }\n" +
+      "        #about-us-insert-2020 .content.rtl .content .main-content {\n" +
+      "            flex-direction: row-reverse;\n" +
+      "        }\n" +
+      "        #about-us-insert-2020 .content.rtl .content .main-content .content-el {\n" +
+      "            padding-right: 16px;\n" +
+      "            padding-left: 0;\n" +
+      "        }\n" +
+      "        #about-us-insert-2020 .content.rtl .header {\n" +
+      "            flex-direction: row-reverse;\n" +
+      "        }\n" +
+      "        #about-us-insert-2020 .header {\n" +
+      "            height: 44px;\n" +
+      "            text-align: center;\n" +
+      "            display: flex;\n" +
+      "        }\n" +
+      "        #about-us-insert-2020 .header .title {\n" +
+      "            font-size: 17px;\n" +
+      "            font-weight: 500;\n" +
+      "            line-height: 1.29;\n" +
+      "            letter-spacing: -0.41px;\n" +
+      "            color: #1a2f43;\n" +
+      "        }\n" +
+      "        #about-us-insert-2020 .content {\n" +
+      "            height: 90%;\n" +
+      "        }\n" +
+      "        #about-us-insert-2020 .content-el {\n" +
+      "            padding: 0 16px;\n" +
+      "        }\n" +
+      "        #about-us-insert-2020 .content,\n" +
+      "        #about-us-insert-2020 .header {\n" +
+      "            margin: 0 auto;\n" +
+      "        }\n" +
+      "        #about-us-insert-2020 .main-content .subheader {\n" +
+      "            font-size: 14px;\n" +
+      "            font-weight: 300;\n" +
+      "            color: #1a2f43;\n" +
+      "        }\n" +
+      "        #about-us-insert-2020 .menu {\n" +
+      "            box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.05);\n" +
+      "        }\n" +
+      "        #about-us-insert-2020 .menu .elem-menu {\n" +
+      "            width: 114px;\n" +
+      "            text-align: center;\n" +
+      "            vertical-align: middle;\n" +
+      "            justify-content: center;\n" +
+      "            padding: 14px 0;\n" +
+      "            background-color: white;\n" +
+      "            cursor: pointer;\n" +
+      "            margin-bottom: 16px;\n" +
+      "            font-size: 16px;\n" +
+      "            font-weight: 500;\n" +
+      "            color: #6e767e;\n" +
+      "        }\n" +
+      "        #about-us-insert-2020 .menu .active {\n" +
+      "            border-bottom: 2px solid #1a2f43;\n" +
+      "            color: #1a2f43;\n" +
+      "            transition: 0.5s;\n" +
+      "        }\n" +
+      "        #about-us-insert-2020 .main-content .text {\n" +
+      "            width: 300px;\n" +
+      "            font-family: Ubuntu;\n" +
+      "            font-size: 18px;\n" +
+      "            font-weight: 500;\n" +
+      "            color: #1a2f43;\n" +
+      "        }\n" +
+      "        #about-us-insert-2020 .main-content .subheader {\n" +
+      "            font-size: 14px;\n" +
+      "            font-weight: 300;\n" +
+      "            color: #1a2f43;\n" +
+      "            margin-bottom: 24px;\n" +
+      "        }\n" +
+      "        #about-us-insert-2020 .content-el.active {\n" +
+      "            display: block;\n" +
+      "        }\n" +
+      "        @media only screen and (max-width: 460px) {\n" +
+      "            #about-us-insert-2020 .menu {\n" +
+      "                display: flex;\n" +
+      "                flex-wrap: wrap;\n" +
+      "                width: 90%;\n" +
+      "            }\n" +
+      "            #about-us-insert-2020 .menu .elem-menu {\n" +
+      "                display: inline-block;\n" +
+      "                width: 114px;\n" +
+      "                margin: 0 auto;\n" +
+      "            }\n" +
+      "            #about-us-insert-2020 .content,\n" +
+      "            #about-us-insert-2020 .header {\n" +
+      "                width: 100%;\n" +
+      "            }\n" +
+      "            #about-us-insert-2020 .header .title {\n" +
+      "                width: 100%;\n" +
+      "                height: 22px;\n" +
+      "            }\n" +
+      "            #about-us-insert-2020 .main-content {\n" +
+      "                width: 90%;\n" +
+      "            }\n" +
+      "            #about-us-insert-2020 .main-content img {\n" +
+      "                width: 90%;\n" +
+      "            }\n" +
+      "            #about-us-insert-2020 .main-content .text {\n" +
+      "                width: 100%;\n" +
+      "            }\n" +
+      "            #about-us-insert-2020 .main-content .subheader {\n" +
+      "                width: 100%;\n" +
+      "            }\n" +
+      "        }\n" +
+      "        @media only screen and (min-width: 461px) {\n" +
+      "            #about-us-insert-2020 .main-content {\n" +
+      "                width: 100%;\n" +
+      "                padding: 0 17px;\n" +
+      "                display: flex;\n" +
+      "                max-width: 868px;\n" +
+      "                margin: 0 auto;\n" +
+      "            }\n" +
+      "            #about-us-insert-2020 .content,\n" +
+      "            #about-us-insert-2020 .header {\n" +
+      "                width: 90%;\n" +
+      "            }\n" +
+      "            #about-us-insert-2020 .content-el {\n" +
+      "                width: 100%;\n" +
+      "            }\n" +
+      "            #about-us-insert-2020 .header .title {\n" +
+      "                width: 100%;\n" +
+      "                height: 22px;\n" +
+      "            }\n" +
+      "            #about-us-insert-2020 .main-content img {\n" +
+      "                width: 90%;\n" +
+      "            }\n" +
+      "            #about-us-insert-2020 .main-content .text {\n" +
+      "                width: 100%;\n" +
+      "                height: 21px;\n" +
+      "            }\n" +
+      "            #about-us-insert-2020 .main-content .subheader {\n" +
+      "                width: 100%;\n" +
+      "                display: flex;\n" +
+      "                margin-bottom: 24px;\n" +
+      "            }\n" +
+      "        }\n" +
+      "\n" +
+      "    </style>\n" +
+      "    <div class=\"main-content\">\n" +
+      "        <div class=\"menu\">\n" +
+      "            <div class=\"elem-menu active\" onclick=\"switchTab(this)\">1</div>\n" +
+      "        </div>\n" +
+      "        <div class=\"content-el\" id=\"cel-1\">\n" +
+      "            <p class=\"text\" id=\"elem-title\"></p>\n" +
+      "            <p class=\"subheader\" id=\"elem-text\"></p>\n" +
+      "            <img id=\"elem-img\"\n" +
+      "                 src=\"\"\n" +
+      "                 alt=\"\">\n" +
+      "        </div>\n" +
+      "    </div>\n" +
+      "</div>"
+}
+
