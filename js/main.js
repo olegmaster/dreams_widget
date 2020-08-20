@@ -5,7 +5,24 @@ let arrAbout = [
         "description": "Featuring expansive studio, 1- and 2-bedroom residences, 251 West 117th boasts high end finishes, state-of-the-art appliances, and panoramic views. Your luxury home will feature floor to ceiling windows, quartz kitchen countertops, stainless steel appliances, and closets outfitted for maximum storage. ",
         "chapter": "Chapter 1",
         "imageUrl": "https://dreamseu.z6.web.core.windows.net/251West117thStreet/about/greypfrut-vyalenyy_0.png",
-        "order": 0
+        "order": 0,
+        "advantages" : [
+            {
+                "iconSrc": "img/default-icon.svg",
+                "advantageTitle": "Advantage 1",
+                "explanation" : "Explanation Advantage 1 looooong"
+            },
+            {
+                "iconSrc": "img/default-icon.svg",
+                "advantageTitle": "Advantage 2",
+                "explanation" : "Explanation Advantage 2 looooong"
+            },
+            {
+                "iconSrc": "img/default-icon.svg",
+                "advantageTitle": "Advantage 3",
+                "explanation" : "Explanation Advantage 3 looooong"
+            },
+        ]
     },
     {
         "title": "Title 2",
@@ -28,7 +45,7 @@ let arrAbout = [
         "imageUrl": "https://image.shutterstock.com/image-photo/blue-sky-cloud-clearing-day-260nw-763628821.jpg",
         "order": 0
     }
-    ];
+];
 
 // insert menu items using arrAbout data
 function insertMenuData(arrAbout) {
@@ -70,7 +87,6 @@ function updateMainData(data) {
     let elemImg = document.getElementById('elem-img')
     elemImg.setAttribute('src', data['imageUrl'])
 }
-
 
 
 function switchTab(newTab) {
