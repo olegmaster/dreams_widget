@@ -1,0 +1,14 @@
+{
+  "name": "about_us_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "less-watch-compiler less css main.less"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "less-watch-compiler": "^1.14.6"
+  }
+}
