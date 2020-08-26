@@ -38,6 +38,13 @@ let arrAbout = [
         "imageUrl": "https://image.shutterstock.com/image-photo/blue-sky-cloud-clearing-day-260nw-763628821.jpg",
         "order": 0
     },
+    {
+        "title": "Title 4",
+        "description": "forEach does not wait for promises. Kindly make sure you are aware of the implications while using promises(or async functions) as forEach callback. Example Code",
+        "chapter": "Chapter 4",
+        "imageUrl": "https://image.shutterstock.com/image-photo/blue-sky-cloud-clearing-day-260nw-763628821.jpg",
+        "order": 0
+    },
 ];
 
 
@@ -69,7 +76,9 @@ function insertMenuData(arrAbout) {
         // set text
         newMenuItem.textContent = el['chapter'];
 
-        menuItem.after(newMenuItem)
+        menuItem.after(newMenuItem);
+
+        menuItem = newMenuItem;
     })
 }
 
