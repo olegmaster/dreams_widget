@@ -1,6 +1,37 @@
-#about-us-insert-2020 {
+
+@screen-sm: 576px;
+@screen-md: 768px;
+@screen-lg: 992px;
+@screen-xl: 1200px;
+
+@screen-xs-max: 575px;
+@screen-sm-max: 767px;
+@screen-md-max: 991px;
+@screen-lg-max: 1199px;
+
+.font-ubuntu {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+// === About Us page ===/
+#page-insert-elem-27636 {
+  @import "normalize";
+
+  .font-ubuntu();
+
+  .section-outer {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .menu {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
   .content.rtl {
     text-align: right;
+    direction: rtl;
 
     .content {
       .main-content {
@@ -34,7 +65,7 @@
   }
 
   .content {
-    height: 90%;
+    height: 100%;
   }
 
   .content-el {
@@ -54,17 +85,19 @@
   .menu {
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.05);
 
+    margin-bottom: 21px;
+
     .elem-menu {
-      width: 114px;
       text-align: center;
       vertical-align: middle;
       justify-content: center;
       padding: 14px 0;
-
       background-color: white;
       cursor: pointer;
+      height: 20px;
       margin-bottom: 16px;
       font-size: 16px;
+      line-height: 18px;
       font-weight: 500;
       color: #6e767e;
     }
@@ -80,8 +113,8 @@
   .main-content {
     .text {
       width: 300px;
-      font-family: Ubuntu;
       font-size: 18px;
+      line-height: 21px;
       font-weight: 500;
       color: #1a2f43;
     }
@@ -98,11 +131,11 @@
     display: block;
   }
 
-  @media only screen and (max-width: 460px) {
+  @media only screen and (max-width: @screen-xs-max) {
     .menu {
       display: flex;
-      flex-wrap: wrap;
-      width: 90%;
+      align-items: center;
+      margin-left: 38px;
 
       .elem-menu {
         display: inline-block;
@@ -121,12 +154,12 @@
     }
 
     .main-content {
-      width: 90%;
+      img {
+        width: 100%;
+      }
     }
 
-    .main-content img {
-      width: 90%;
-    }
+    .main-content
 
     .main-content .text {
       width: 100%;
@@ -137,18 +170,23 @@
     }
   }
 
-  @media only screen and (min-width: 461px) {
+  @media only screen and (min-width: @screen-sm) {
+
+    .elem-menu {
+      width: 114px;
+    }
+
+    .section-outer {
+      padding-right: 30px ;
+      padding-left: 38px;
+    }
 
     .main-content {
       width: 100%;
-      padding: 0 17px;
+
       display: flex;
       max-width: 868px;
       margin: 0 auto;
-    }
-
-    .content, .header {
-      width: 90%;
     }
 
     .content-el {
@@ -162,7 +200,7 @@
     }
 
     .main-content img {
-      width: 90%;
+      width: 100%;
     }
 
     .main-content .text {
@@ -178,3 +216,4 @@
   }
 }
 
+// === /About us page ===

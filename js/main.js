@@ -38,18 +38,12 @@ let arrAbout = [
         "imageUrl": "https://image.shutterstock.com/image-photo/blue-sky-cloud-clearing-day-260nw-763628821.jpg",
         "order": 0
     },
-    {
-        "title": "Title 4",
-        "description": "description 4 is very very very very very very very very very very long description will be here ...",
-        "chapter": "Chapter 4",
-        "imageUrl": "https://image.shutterstock.com/image-photo/blue-sky-cloud-clearing-day-260nw-763628821.jpg",
-        "order": 0
-    }
 ];
+
+
 
 // insert menu items using arrAbout data
 function insertMenuData(arrAbout) {
-
     if (!Array.isArray(arrAbout) || arrAbout.length === 0) {
         return false;
     }
@@ -98,12 +92,19 @@ function switchTab(newTab) {
 }
 
 window.addEventListener("load", function (event) {
-    initAboutUs();
-    insertMenuData(arrAbout)
+    //initAboutUs();
+    insertMenuData(arrAbout);
+    addUbuntuFont();
 });
 
+function addUbuntuFont() {
+    document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">';
+}
+
 function initAboutUs() {
-  let rootElem = document.getElementById('about-us-insert-2020');
+  let rootElem = document.getElementById('page-insert-elem-27636');
+
+
   rootElem.innerHTML = "<div class=\"content\">\n" +
       "    <style>\n" +
       "        #about-us-insert-2020 .content.rtl {\n" +
