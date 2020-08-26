@@ -13,6 +13,31 @@
 }
 
 // === About Us page ===/
+
+#page-insert-elem-27636.rtl {
+  text-align: right;
+  direction: rtl;
+
+  .content {
+    .main-content {
+      .section-inner {
+        .menu {
+            flex-direction: column-reverse;
+        }
+      }
+
+      .content-el {
+        padding-right: 16px;
+        padding-left: 0;
+      }
+    }
+  }
+
+  .header {
+    flex-direction: row-reverse;
+  }
+}
+
 #page-insert-elem-27636 {
   @import "normalize";
 
@@ -79,6 +104,7 @@
           font-weight: 300;
           color: #1a2f43;
           margin-bottom: 24px;
+          line-height: 20px;
         }
       }
 
@@ -89,26 +115,7 @@
 
   }
 
-  .content.rtl {
-    text-align: right;
-    direction: rtl;
 
-    .content {
-      .main-content {
-        flex-direction: row-reverse;
-
-        .content-el {
-          padding-right: 16px;
-          padding-left: 0;
-        }
-      }
-    }
-
-    .header {
-      flex-direction: row-reverse;
-    }
-
-  }
 
 
 
