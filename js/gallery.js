@@ -666,7 +666,6 @@ let glider = undefined;
 // insert menu items using galleryData data
 function insertMenuData(galleryData) {
     if (!Array.isArray(galleryData) || galleryData.length === 0) {
-        console.log('error')
         return false;
     }
 
