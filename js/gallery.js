@@ -661,13 +661,21 @@ let galleryData = [
     },
 ];
 
-
+let glider = undefined;
 
 // insert menu items using galleryData data
 function insertMenuData(galleryData) {
     if (!Array.isArray(galleryData) || galleryData.length === 0) {
         console.log('error')
         return false;
+    }
+
+    if(!glider){
+        glider = new Glider(document.querySelector('.glider'), {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            dots: '.dots',
+        });
     }
 
     // at the start we have 1 menu item
@@ -697,24 +705,45 @@ function insertMenuData(galleryData) {
     })
 }
 
+
+// on tab click, changes the content
 function updateMainData(data) {
     console.log(data);
-    let elemSlider = document.querySelector('.glider');
-    elemSlider.innerHTML = '';
+
+    //let elemSlider = document.querySelector('.glider');
+   // elemSlider.innerHTML = '';
+
+    cleanPreviousImages();
 
     data.images.forEach((el, index) => {
-        elemSlider.innerHTML += '<div><div style="background: url(' + el['imageUrl'] +') 50% 50% no-repeat;width:97%;height:400px; " ></div></div>';
-    })
+        let elem = document.createElement('div');
+        elem.innerHTML = '<div class="slider-img" style="background: url(' + el['imageUrl'] +') 50% 50% no-repeat;" ></div>'
+        console.log(elem)
+        glider.addItem(elem);
+        //elemSlider.innerHTML += '<div><div class="slider-img" style="background: url(' + el['imageUrl'] +') 50% 50% no-repeat;" ></div></div>';
+    });
 
     setTimeout(()=>{
-        let status = new Glider(document.querySelector('.glider'), {
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            dots: '.dots',
+        if(!glider){
+            glider = new Glider(document.querySelector('.glider'), {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                dots: '.dots',
             });
-        console.log(status)
-    }, 2000)
+        } else{
+            glider.refresh(true);
+        }
 
+        console.log(status)
+    }, 10)
+
+}
+
+function cleanPreviousImages() {
+    let slides = glider.slides.length;
+    for( let i = 0; i < slides; i++){
+        glider.removeItem(0);
+    }
 }
 
 
