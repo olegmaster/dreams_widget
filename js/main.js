@@ -4,7 +4,7 @@ let arrAbout = [
         "title": "Title 1",
         "description": "Featuring expansive studio, 1- and 2-bedroom residences, 251 West 117th boasts high end finishes, state-of-the-art appliances, and panoramic views. Your luxury home will feature floor to ceiling windows, quartz kitchen countertops, stainless steel appliances, and closets outfitted for maximum storage. ",
         "chapter": "Chapter 1",
-        "imageUrl": "https://dreamseu.z6.web.core.windows.net/251West117thStreet/about/greypfrut-vyalenyy_0.png",
+        "imageUrl": "https://barnes-newyork.com/wp-content/uploads/2018/09/barnes-new-york-all-buroughs-luxury-real-estate-property-1600x1068-1024x684.jpg",
         "order": 0,
         "advantages" : [
             {
@@ -28,21 +28,21 @@ let arrAbout = [
         "title": "Title 2",
         "description": "description 2 is very very very very very very very very very very long description will be here ...",
         "chapter": "Chapter 2",
-        "imageUrl": "https://image.shutterstock.com/image-photo/blue-sky-cloud-clearing-day-260nw-763628821.jpg",
+        "imageUrl": "https://media.equityapartments.com/images/c_crop,x_0,y_0,w_1920,h_1080/c_fill,w_737,h_414/q_80/4208-72/340-fremont-apartments-exterior.jpg",
         "order": 0
     },
     {
         "title": "Title 3",
         "description": "forEach does not wait for promises. Kindly make sure you are aware of the implications while using promises(or async functions) as forEach callback. Example Code",
         "chapter": "Chapter 3",
-        "imageUrl": "https://image.shutterstock.com/image-photo/blue-sky-cloud-clearing-day-260nw-763628821.jpg",
+        "imageUrl": "https://img.staticmb.com/mbphoto/property/cropped_images/2020/Mar/03/Photo_h300_w450/48463433_1_lub_and_infra_300_450.jpg",
         "order": 0
     },
     {
         "title": "Title 4",
         "description": "forEach does not wait for promises. Kindly make sure you are aware of the implications while using promises(or async functions) as forEach callback. Example Code",
         "chapter": "Chapter 4",
-        "imageUrl": "https://image.shutterstock.com/image-photo/blue-sky-cloud-clearing-day-260nw-763628821.jpg",
+        "imageUrl": "https://strana.ua/img/article/1245/8_main.jpeg",
         "order": 0
     },
 ];
@@ -111,166 +111,8 @@ function addUbuntuFont() {
 }
 
 function initAboutUs() {
-  let rootElem = document.getElementById('page-insert-elem-27636');
-
-
-  rootElem.innerHTML = "<div class=\"content\">\n" +
-      "    <style>\n" +
-      "        #about-us-insert-2020 .content.rtl {\n" +
-      "            text-align: right;\n" +
-      "        }\n" +
-      "        #about-us-insert-2020 .content.rtl .content .main-content {\n" +
-      "            flex-direction: row-reverse;\n" +
-      "        }\n" +
-      "        #about-us-insert-2020 .content.rtl .content .main-content .content-el {\n" +
-      "            padding-right: 16px;\n" +
-      "            padding-left: 0;\n" +
-      "        }\n" +
-      "        #about-us-insert-2020 .content.rtl .header {\n" +
-      "            flex-direction: row-reverse;\n" +
-      "        }\n" +
-      "        #about-us-insert-2020 .header {\n" +
-      "            height: 44px;\n" +
-      "            text-align: center;\n" +
-      "            display: flex;\n" +
-      "        }\n" +
-      "        #about-us-insert-2020 .header .title {\n" +
-      "            font-size: 17px;\n" +
-      "            font-weight: 500;\n" +
-      "            line-height: 1.29;\n" +
-      "            letter-spacing: -0.41px;\n" +
-      "            color: #1a2f43;\n" +
-      "        }\n" +
-      "        #about-us-insert-2020 .content {\n" +
-      "            height: 90%;\n" +
-      "        }\n" +
-      "        #about-us-insert-2020 .content-el {\n" +
-      "            padding: 0 16px;\n" +
-      "        }\n" +
-      "        #about-us-insert-2020 .content,\n" +
-      "        #about-us-insert-2020 .header {\n" +
-      "            margin: 0 auto;\n" +
-      "        }\n" +
-      "        #about-us-insert-2020 .main-content .subheader {\n" +
-      "            font-size: 14px;\n" +
-      "            font-weight: 300;\n" +
-      "            color: #1a2f43;\n" +
-      "        }\n" +
-      "        #about-us-insert-2020 .menu {\n" +
-      "            box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.05);\n" +
-      "        }\n" +
-      "        #about-us-insert-2020 .menu .elem-menu {\n" +
-      "            width: 114px;\n" +
-      "            text-align: center;\n" +
-      "            vertical-align: middle;\n" +
-      "            justify-content: center;\n" +
-      "            padding: 14px 0;\n" +
-      "            background-color: white;\n" +
-      "            cursor: pointer;\n" +
-      "            margin-bottom: 16px;\n" +
-      "            font-size: 16px;\n" +
-      "            font-weight: 500;\n" +
-      "            color: #6e767e;\n" +
-      "        }\n" +
-      "        #about-us-insert-2020 .menu .active {\n" +
-      "            border-bottom: 2px solid #1a2f43;\n" +
-      "            color: #1a2f43;\n" +
-      "            transition: 0.5s;\n" +
-      "        }\n" +
-      "        #about-us-insert-2020 .main-content .text {\n" +
-      "            width: 300px;\n" +
-      "            font-family: Ubuntu;\n" +
-      "            font-size: 18px;\n" +
-      "            font-weight: 500;\n" +
-      "            color: #1a2f43;\n" +
-      "        }\n" +
-      "        #about-us-insert-2020 .main-content .subheader {\n" +
-      "            font-size: 14px;\n" +
-      "            font-weight: 300;\n" +
-      "            color: #1a2f43;\n" +
-      "            margin-bottom: 24px;\n" +
-      "        }\n" +
-      "        #about-us-insert-2020 .content-el.active {\n" +
-      "            display: block;\n" +
-      "        }\n" +
-      "        @media only screen and (max-width: 460px) {\n" +
-      "            #about-us-insert-2020 .menu {\n" +
-      "                display: flex;\n" +
-      "                flex-wrap: wrap;\n" +
-      "                width: 90%;\n" +
-      "            }\n" +
-      "            #about-us-insert-2020 .menu .elem-menu {\n" +
-      "                display: inline-block;\n" +
-      "                width: 114px;\n" +
-      "                margin: 0 auto;\n" +
-      "            }\n" +
-      "            #about-us-insert-2020 .content,\n" +
-      "            #about-us-insert-2020 .header {\n" +
-      "                width: 100%;\n" +
-      "            }\n" +
-      "            #about-us-insert-2020 .header .title {\n" +
-      "                width: 100%;\n" +
-      "                height: 22px;\n" +
-      "            }\n" +
-      "            #about-us-insert-2020 .main-content {\n" +
-      "                width: 90%;\n" +
-      "            }\n" +
-      "            #about-us-insert-2020 .main-content img {\n" +
-      "                width: 90%;\n" +
-      "            }\n" +
-      "            #about-us-insert-2020 .main-content .text {\n" +
-      "                width: 100%;\n" +
-      "            }\n" +
-      "            #about-us-insert-2020 .main-content .subheader {\n" +
-      "                width: 100%;\n" +
-      "            }\n" +
-      "        }\n" +
-      "        @media only screen and (min-width: 461px) {\n" +
-      "            #about-us-insert-2020 .main-content {\n" +
-      "                width: 100%;\n" +
-      "                padding: 0 17px;\n" +
-      "                display: flex;\n" +
-      "                max-width: 868px;\n" +
-      "                margin: 0 auto;\n" +
-      "            }\n" +
-      "            #about-us-insert-2020 .content,\n" +
-      "            #about-us-insert-2020 .header {\n" +
-      "                width: 90%;\n" +
-      "            }\n" +
-      "            #about-us-insert-2020 .content-el {\n" +
-      "                width: 100%;\n" +
-      "            }\n" +
-      "            #about-us-insert-2020 .header .title {\n" +
-      "                width: 100%;\n" +
-      "                height: 22px;\n" +
-      "            }\n" +
-      "            #about-us-insert-2020 .main-content img {\n" +
-      "                width: 90%;\n" +
-      "            }\n" +
-      "            #about-us-insert-2020 .main-content .text {\n" +
-      "                width: 100%;\n" +
-      "                height: 21px;\n" +
-      "            }\n" +
-      "            #about-us-insert-2020 .main-content .subheader {\n" +
-      "                width: 100%;\n" +
-      "                display: flex;\n" +
-      "                margin-bottom: 24px;\n" +
-      "            }\n" +
-      "        }\n" +
-      "\n" +
-      "    </style>\n" +
-      "    <div class=\"main-content\">\n" +
-      "        <div class=\"menu\">\n" +
-      "            <div class=\"elem-menu active\" onclick=\"switchTab(this)\">1</div>\n" +
-      "        </div>\n" +
-      "        <div class=\"content-el\" id=\"cel-1\">\n" +
-      "            <p class=\"text\" id=\"elem-title\"></p>\n" +
-      "            <p class=\"subheader\" id=\"elem-text\"></p>\n" +
-      "            <img id=\"elem-img\"\n" +
-      "                 src=\"\"\n" +
-      "                 alt=\"\">\n" +
-      "        </div>\n" +
-      "    </div>\n" +
-      "</div>"
+  document.head.innerHTML += '<style>' +
+      '.font-ubuntu{font-family:Ubuntu,sans-serif}#page-insert-elem-27636.rtl{text-align:right;direction:rtl}#page-insert-elem-27636.rtl .content .main-content .section-inner .menu{flex-direction:column-reverse}#page-insert-elem-27636.rtl .content .main-content .content-el{padding-right:16px;padding-left:0}#page-insert-elem-27636.rtl .header{flex-direction:row-reverse}#page-insert-elem-27636{/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */font-family:Ubuntu,sans-serif}#page-insert-elem-27636 html{line-height:1.15;-webkit-text-size-adjust:100%}#page-insert-elem-27636 body{margin:0}#page-insert-elem-27636 main{display:block}#page-insert-elem-27636 h1{font-size:2em;margin:.67em 0}#page-insert-elem-27636 hr{box-sizing:content-box;height:0;overflow:visible}#page-insert-elem-27636 pre{font-family:monospace,monospace;font-size:1em}#page-insert-elem-27636 a{background-color:transparent}#page-insert-elem-27636 abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}#page-insert-elem-27636 b,#page-insert-elem-27636 strong{font-weight:bolder}#page-insert-elem-27636 code,#page-insert-elem-27636 kbd,#page-insert-elem-27636 samp{font-family:monospace,monospace;font-size:1em}#page-insert-elem-27636 small{font-size:80%}#page-insert-elem-27636 sub,#page-insert-elem-27636 sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}#page-insert-elem-27636 sub{bottom:-.25em}#page-insert-elem-27636 sup{top:-.5em}#page-insert-elem-27636 img{border-style:none}#page-insert-elem-27636 button,#page-insert-elem-27636 input,#page-insert-elem-27636 optgroup,#page-insert-elem-27636 select,#page-insert-elem-27636 textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}#page-insert-elem-27636 button,#page-insert-elem-27636 input{overflow:visible}#page-insert-elem-27636 button,#page-insert-elem-27636 select{text-transform:none}#page-insert-elem-27636 [type=button],#page-insert-elem-27636 [type=reset],#page-insert-elem-27636 [type=submit],#page-insert-elem-27636 button{-webkit-appearance:button}#page-insert-elem-27636 [type=button]::-moz-focus-inner,#page-insert-elem-27636 [type=reset]::-moz-focus-inner,#page-insert-elem-27636 [type=submit]::-moz-focus-inner,#page-insert-elem-27636 button::-moz-focus-inner{border-style:none;padding:0}#page-insert-elem-27636 [type=button]:-moz-focusring,#page-insert-elem-27636 [type=reset]:-moz-focusring,#page-insert-elem-27636 [type=submit]:-moz-focusring,#page-insert-elem-27636 button:-moz-focusring{outline:1px dotted ButtonText}#page-insert-elem-27636 fieldset{padding:.35em .75em .625em}#page-insert-elem-27636 legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}#page-insert-elem-27636 progress{vertical-align:baseline}#page-insert-elem-27636 textarea{overflow:auto}#page-insert-elem-27636 [type=checkbox],#page-insert-elem-27636 [type=radio]{box-sizing:border-box;padding:0}#page-insert-elem-27636 [type=number]::-webkit-inner-spin-button,#page-insert-elem-27636 [type=number]::-webkit-outer-spin-button{height:auto}#page-insert-elem-27636 [type=search]{-webkit-appearance:textfield;outline-offset:-2px}#page-insert-elem-27636 [type=search]::-webkit-search-decoration{-webkit-appearance:none}#page-insert-elem-27636 ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}#page-insert-elem-27636 details{display:block}#page-insert-elem-27636 summary{display:list-item}#page-insert-elem-27636 template{display:none}#page-insert-elem-27636 [hidden]{display:none}#page-insert-elem-27636 .section-outer{padding-left:38px;padding-right:30px}#page-insert-elem-27636 .section-outer .section-inner{display:flex;width:100%;margin:0 auto}#page-insert-elem-27636 .section-outer .section-inner .menu{box-shadow:0 0 2px 0 rgba(0,0,0,.05);margin-top:36px;margin-bottom:21px}#page-insert-elem-27636 .section-outer .section-inner .menu .content-el{padding:0 16px}#page-insert-elem-27636 .section-outer .section-inner .menu .elem-menu{text-align:center;vertical-align:middle;justify-content:center;padding:14px 0;background-color:#fff;cursor:pointer;height:20px;margin-bottom:16px;font-size:16px;line-height:18px;font-weight:500;color:silver}#page-insert-elem-27636 .section-outer .section-inner .menu .active{border-bottom:2px solid #1a2f43;color:#1a2f43;transition:.5s}#page-insert-elem-27636 .section-outer .section-inner .content-el{padding:0 16px;margin-top:29px}#page-insert-elem-27636 .section-outer .section-inner .content-el .text{width:300px;font-size:18px;line-height:21px;font-weight:500;color:#1a2f43}#page-insert-elem-27636 .section-outer .section-inner .content-el .subheader{font-size:14px;font-weight:300;color:#1a2f43;margin-bottom:24px}#page-insert-elem-27636 .section-outer .section-inner .content-el.active{display:block}@media only screen and (max-width:575px){#page-insert-elem-27636 .section-outer{padding:0 16px}#page-insert-elem-27636 .section-outer .section-inner{flex-direction:column}#page-insert-elem-27636 .section-outer .section-inner .menu{display:flex;align-items:center;margin-top:10px;margin-bottom:0}#page-insert-elem-27636 .section-outer .section-inner .menu .elem-menu{display:inline-block;width:114px;margin:0 auto}#page-insert-elem-27636 .section-outer .section-inner .content-el{margin-top:12px}#page-insert-elem-27636 .header .title{width:100%;height:22px}#page-insert-elem-27636 .main-content img{width:100%}#page-insert-elem-27636 .main-content .text{width:100%}#page-insert-elem-27636 .main-content .subheader{width:100%}}@media only screen and (min-width:576px){#page-insert-elem-27636 .main-content{display:flex;margin:0 auto}#page-insert-elem-27636 .main-content .section-inner .menu .elem-menu{width:114px}#page-insert-elem-27636 .main-content .section-inner .content-el{width:100%}#page-insert-elem-27636 .main-content .section-inner .content-el img{width:100%}#page-insert-elem-27636 .main-content .section-inner .content-el .subheader{width:100%;display:flex;margin-bottom:24px}#page-insert-elem-27636 .main-content .section-inner .content-el .text{width:100%;height:21px}}' +
+      '</style>';
 }
 
