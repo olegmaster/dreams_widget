@@ -342,6 +342,13 @@
     background-repeat: no-repeat;
     background-position: 50% 50%;
     width: 97%;
+    background-size: cover;
+  }
+
+  .slider-img:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
   }
 
   .slider-container {
@@ -350,15 +357,10 @@
 
   @media only screen and (max-width: @screen-lg) {
 
-    .slider-img {
-      height: 200px;
-    }
   }
 
   @media only screen and (min-width: @screen-lg) {
-    .slider-img {
-      height: 400px;
-    }
+
   }
 }
 
