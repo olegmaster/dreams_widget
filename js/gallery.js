@@ -718,7 +718,7 @@ function updateMainData(data) {
 
     data.images.forEach((el, index) => {
         let elem = document.createElement('div');
-        elem.innerHTML = '<div class="slider-img" style="background: url(' + el['imageUrl'] +') 50% 50% no-repeat;" ></div>'
+        elem.innerHTML = '<div class="slider-img" style="background: url(' + el['imageUrl'] +') 50% 50% no-repeat;background-size: cover" ></div>'
         console.log(elem)
         glider.addItem(elem);
         //elemSlider.innerHTML += '<div><div class="slider-img" style="background: url(' + el['imageUrl'] +') 50% 50% no-repeat;" ></div></div>';
