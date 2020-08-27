@@ -572,27 +572,19 @@ let galleryData = [
         "images" : [
             {
                 "title": "Home 1",
-                "imageUrl": "https://media.equityapartments.com/images/c_crop,x_0,y_0,w_1920,h_1080/c_fill,w_737,h_414/q_80/4208-72/340-fremont-apartments-exterior.jpg",
+                "imageUrl": "https://img.lunstatic.net/building-800x600/4935.jpg",
             },
             {
                 "title": "Home 2",
-                "imageUrl": "https://img.staticmb.com/mbphoto/property/cropped_images/2020/Mar/03/Photo_h300_w450/48463433_1_lub_and_infra_300_450.jpg",
+                "imageUrl": "https://www.bild.ua/images/thumb/full/00005bb4ebbb3497e31e",
             },
             {
                 "title": "Interier",
-                "imageUrl": "https://strana.ua/img/article/1245/8_main.jpeg",
+                "imageUrl": "https://zabudovnyk.com.ua/img/news/2019/07/54153-campus.jpg",
             },
             {
                 "title": "Home 1",
-                "imageUrl": "https://media.equityapartments.com/images/c_crop,x_0,y_0,w_1920,h_1080/c_fill,w_737,h_414/q_80/4208-72/340-fremont-apartments-exterior.jpg",
-            },
-            {
-                "title": "Home 2",
-                "imageUrl": "https://img.staticmb.com/mbphoto/property/cropped_images/2020/Mar/03/Photo_h300_w450/48463433_1_lub_and_infra_300_450.jpg",
-            },
-            {
-                "title": "Interier",
-                "imageUrl": "https://strana.ua/img/article/1245/8_main.jpeg",
+                "imageUrl": "https://img.lunstatic.net/building-800x600/19560.jpg",
             },
         ]
     },
@@ -613,28 +605,37 @@ let galleryData = [
             },
             {
                 "title": "Home 1",
-                "imageUrl": "https://media.equityapartments.com/images/c_crop,x_0,y_0,w_1920,h_1080/c_fill,w_737,h_414/q_80/4208-72/340-fremont-apartments-exterior.jpg",
+                "imageUrl": "https://bn.ua/img/data/img587b30c48aca0_1484468420_2.jpg",
+            },
+            {
+                "title": "Home 2",
+                "imageUrl": "https://pro-novostroyki.com.ua/upload/resize_cache/iblock/254/624_396_2/254a00e17c246fb42336eed27883b667.jpg",
+            },
+            {
+                "title": "Interier",
+                "imageUrl": "https://mayertrade.com.ua/img/leoblog/b/lg-b-mono_skyline_main.jpg",
             },
         ]
+
     },
     {
         "title": "Neighbourhood",
         "images" : [
             {
                 "title": "Home 1",
-                "imageUrl": "https://media.equityapartments.com/images/c_crop,x_0,y_0,w_1920,h_1080/c_fill,w_737,h_414/q_80/4208-72/340-fremont-apartments-exterior.jpg",
+                "imageUrl": "https://img.tsn.ua/cached/1533896471/tsn-ec97a3c0a2ace5bfabc1ed73666af320/thumbs/1340x530/59/76/d26337e6c9a12772e9cf1861c0877659.jpg",
             },
             {
                 "title": "Home 2",
-                "imageUrl": "https://img.staticmb.com/mbphoto/property/cropped_images/2020/Mar/03/Photo_h300_w450/48463433_1_lub_and_infra_300_450.jpg",
+                "imageUrl": "https://img.tsn.ua/cached/1432884187/tsn-01f773897a640af2a4247ac9175b2cf4/thumbs/315x210/78/94/9b405053a3af6ea22f6b10592d5d9478.jpg",
             },
             {
                 "title": "Interier",
-                "imageUrl": "https://strana.ua/img/article/1245/8_main.jpeg",
+                "imageUrl": "https://img.lunstatic.net/building-800x600/35681.jpg",
             },
             {
                 "title": "Home 1",
-                "imageUrl": "https://media.equityapartments.com/images/c_crop,x_0,y_0,w_1920,h_1080/c_fill,w_737,h_414/q_80/4208-72/340-fremont-apartments-exterior.jpg",
+                "imageUrl": "https://novostroyki.realt.ua/store/novostroyki/57a060bfb03660345040af15/photos/267a08a1387dc3d147e425a61781f5b8.jpg",
             },
         ]
     },
@@ -643,19 +644,19 @@ let galleryData = [
         "images" : [
             {
                 "title": "Home 1",
-                "imageUrl": "https://media.equityapartments.com/images/c_crop,x_0,y_0,w_1920,h_1080/c_fill,w_737,h_414/q_80/4208-72/340-fremont-apartments-exterior.jpg",
+                "imageUrl": "https://dom-plus.ua/images/kupit-kvartiru-v-kieve-vugodno-i-bistro-dom-plus.jpg",
             },
             {
                 "title": "Home 2",
-                "imageUrl": "https://img.staticmb.com/mbphoto/property/cropped_images/2020/Mar/03/Photo_h300_w450/48463433_1_lub_and_infra_300_450.jpg",
+                "imageUrl": "https://static.ukrinform.com/photos/2018_02/thumb_files/630_360_1519217360-2461.jpg",
             },
             {
                 "title": "Interier",
-                "imageUrl": "https://strana.ua/img/article/1245/8_main.jpeg",
+                "imageUrl": "https://mistechko.com/files/images/items/0/119ve9d4b8a1.jpg",
             },
             {
                 "title": "Home 1",
-                "imageUrl": "https://media.equityapartments.com/images/c_crop,x_0,y_0,w_1920,h_1080/c_fill,w_737,h_414/q_80/4208-72/340-fremont-apartments-exterior.jpg",
+                "imageUrl": "https://www.real-estate.lviv.ua/img/objects/400x300/a4/2e/a42e978f659e8d48bef377e89c6e8b97.jpg",
             },
         ]
     },
