@@ -223,7 +223,7 @@
         if (!_.opt.arrows) {
             Object.keys(_.arrows).forEach(function (direction) {
                 var element = _.arrows[direction]
-                _.event(element, 'remove', { click: element._func })
+                _.event(element, 'remove', {click: element._func})
             })
             return
         }
@@ -564,12 +564,11 @@
 })
 
 
-
 let galleryData = [
 
     {
         "title": "Exterior",
-        "images" : [
+        "images": [
             {
                 "title": "Home 1",
                 "imageUrl": "https://img.lunstatic.net/building-800x600/4935.jpg",
@@ -590,7 +589,7 @@ let galleryData = [
     },
     {
         "title": "Interiors",
-        "images" : [
+        "images": [
             {
                 "title": "Home 1",
                 "imageUrl": "https://media.equityapartments.com/images/c_crop,x_0,y_0,w_1920,h_1080/c_fill,w_737,h_414/q_80/4208-72/340-fremont-apartments-exterior.jpg",
@@ -620,7 +619,7 @@ let galleryData = [
     },
     {
         "title": "Neighbourhood",
-        "images" : [
+        "images": [
             {
                 "title": "Home 1",
                 "imageUrl": "https://img.tsn.ua/cached/1533896471/tsn-ec97a3c0a2ace5bfabc1ed73666af320/thumbs/1340x530/59/76/d26337e6c9a12772e9cf1861c0877659.jpg",
@@ -641,7 +640,7 @@ let galleryData = [
     },
     {
         "title": "Neighbourhood2",
-        "images" : [
+        "images": [
             {
                 "title": "Home 1",
                 "imageUrl": "https://dom-plus.ua/images/kupit-kvartiru-v-kieve-vugodno-i-bistro-dom-plus.jpg",
@@ -671,9 +670,14 @@ function insertMenuData(galleryData) {
         return false;
     }
 
-    if(!glider){
+    let slidesCount = 1;
+    if (window.screen.width > 860) {
+        slidesCount = 3;
+    }
+
+    if (!glider) {
         glider = new Glider(document.querySelector('.glider'), {
-            slidesToShow: 3,
+            slidesToShow: slidesCount,
             slidesToScroll: 1,
             dots: '.dots',
         });
@@ -712,26 +716,26 @@ function updateMainData(data) {
     console.log(data);
 
     //let elemSlider = document.querySelector('.glider');
-   // elemSlider.innerHTML = '';
+    // elemSlider.innerHTML = '';
 
     cleanPreviousImages();
 
     data.images.forEach((el, index) => {
         let elem = document.createElement('div');
-        elem.innerHTML = '<div class="slider-img" style="background: url(' + el['imageUrl'] +') 50% 50% no-repeat;background-size: cover" ></div>'
+        elem.innerHTML = '<div class="slider-img" style="background: url(' + el['imageUrl'] + ') 50% 50% no-repeat;background-size: cover" ></div>'
         console.log(elem)
         glider.addItem(elem);
         //elemSlider.innerHTML += '<div><div class="slider-img" style="background: url(' + el['imageUrl'] +') 50% 50% no-repeat;" ></div></div>';
     });
 
-    setTimeout(()=>{
-        if(!glider){
+    setTimeout(() => {
+        if (!glider) {
             glider = new Glider(document.querySelector('.glider'), {
                 slidesToShow: 3,
                 slidesToScroll: 1,
                 dots: '.dots',
             });
-        } else{
+        } else {
             glider.refresh(true);
         }
 
@@ -742,7 +746,7 @@ function updateMainData(data) {
 
 function cleanPreviousImages() {
     let slides = glider.slides.length;
-    for( let i = 0; i < slides; i++){
+    for (let i = 0; i < slides; i++) {
         glider.removeItem(0);
     }
 }
