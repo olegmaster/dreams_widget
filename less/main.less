@@ -215,8 +215,9 @@
   .font-ubuntu();
 
   .section-outer {
-    padding-left: 5%;
-    padding-right: 30px;
+
+    padding-right: 4%;
+    padding-left: 4%;
 
     .section-inner {
       display: flex;
@@ -341,7 +342,7 @@
   .slider-img {
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    width: 97%;
+    width: 100%;
     background-size: cover;
     cursor: pointer;
   }
@@ -360,8 +361,10 @@
 
   }
 
-  @media only screen and (min-width: @screen-lg) {
-
+  @media only screen and (min-width: @screen-sm-max) {
+    .slider-img {
+      width: 97%;
+    }
   }
 }
 

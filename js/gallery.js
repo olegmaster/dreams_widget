@@ -670,7 +670,7 @@ function insertMenuData(galleryData) {
     }
 
     let slidesCount = 1;
-    if (window.screen.width > 860) {
+    if (window.screen.width > 767) {
         slidesCount = 3;
     }
 
