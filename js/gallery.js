@@ -703,7 +703,7 @@ function updateMainData(data) {
     elemSlider.innerHTML = '';
 
     data.images.forEach((el, index) => {
-        elemSlider.innerHTML += '<div><img src="' + el['imageUrl'] + '" + alt="' + el['title'] + '"/></div>';
+        elemSlider.innerHTML += '<div><div style="background: url(' + el['imageUrl'] +') 50% 50% no-repeat;width:97%;height:400px; " ></div></div>';
     })
 
     setTimeout(()=>{
@@ -711,7 +711,7 @@ function updateMainData(data) {
             slidesToShow: 3,
             slidesToScroll: 1,
             dots: '.dots',
-            })
+            });
         console.log(status)
     }, 2000)
 
