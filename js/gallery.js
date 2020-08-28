@@ -710,7 +710,7 @@ function updateMainData(data) {
 
     data.images.forEach((el, index) => {
         let elem = document.createElement('div');
-        elem.innerHTML = '<div class="slider-img" style="background: url(' + el['imageUrl'] + ') 50% 50% no-repeat;background-size: cover" ></div>'
+        elem.innerHTML = '<div class="slider-img" style="background: url(' + el['imageUrl'] + ') 50% 50% no-repeat;background-size: cover" onclick="makeFullScrean(this)" ></div>'
         console.log(elem)
         glider.addItem(elem);
         //elemSlider.innerHTML += '<div><div class="slider-img" style="background: url(' + el['imageUrl'] +') 50% 50% no-repeat;" ></div></div>';
@@ -765,7 +765,7 @@ function initAboutUs() {
 }
 
 // creates glider slider or redefines sliderToShow count
-function initSlider(){
+function initSlider() {
     let slidesCount = 1;
     if (window.screen.width > 767) {
         slidesCount = 3;
@@ -782,9 +782,26 @@ function initSlider(){
     }
 }
 
+function makeFullScrean(divObj) {
+    //Use the specification method before using prefixed versions
+    if (divObj.requestFullscreen) {
+        divObj.requestFullscreen();
+    } else if (divObj.msRequestFullscreen) {
+        divObj.msRequestFullscreen();
+    } else if (divObj.mozRequestFullScreen) {
+        divObj.mozRequestFullScreen();
+    } else if (divObj.webkitRequestFullscreen) {
+        divObj.webkitRequestFullscreen();
+    } else {
+        console.log("Fullscreen API is not supported");
+    }
+}
+
 // on changing page orientation we re define glider items count
-window.addEventListener("orientationchange", function(event) {
-     initSlider()
+window.addEventListener("orientationchange", function (event) {
+    initSlider()
 });
+
+
 
 
