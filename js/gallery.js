@@ -97,20 +97,16 @@ let galleryData = [
 
 let canvasClass = 'bmby-gallery';
 
-let containers = document.getElementsByClassName(canvasClass);
+let hasUbuntuFont = false;
 
-if (!containers) {
-    return;
-}
-
-containers.forEach((container, index) => {
-
-});
-
+// add galleries on document load
 window.addEventListener("load", function (event) {
-    //initAboutUs();
-    insertMenuData(galleryData);
-    addUbuntuFont();
+    let containers = document.getElementsByClassName(canvasClass);
+    if(containers !== undefined && containers.length > 0) {
+        for(let container of containers) {
+            new GalleryBuilder(container, galleryData);
+        }
+    }
 });
 
 class GalleryBuilder {
@@ -121,8 +117,25 @@ class GalleryBuilder {
         this.container = container;
         this.galleryData = galleryData;
 
+        HTMLCollection.prototype.forEach = Array.prototype.forEach;
+
+        HTMLCollection.prototype.getElementsByClassName = function( name ){
+            var all = [];
+            this.forEach( function( el ){
+                if( el )
+                    all.concat( el.getElementsByClassName( name ) );
+            });
+            return all;
+        };
+
         this.initSlider();
 
+        this.insertMenuData();
+
+        if (!hasUbuntuFont) {
+            this.addUbuntuFont();
+            hasUbuntuFont = true;
+        }
     }
 
     // insert menu items using galleryData data
@@ -131,12 +144,11 @@ class GalleryBuilder {
             return false;
         }
 
-
-
         // at the start we have 1 menu item
         // we will clone it
         // to make necessary menu items
         let menuItem = this.container.getElementsByClassName('elem-menu')[0];
+
         menuItem.textContent = galleryData[0]['title'];
 
         galleryData.forEach((el, index) => {
@@ -144,7 +156,7 @@ class GalleryBuilder {
             let newMenuItem;
             if (index === 0) {
                 newMenuItem = menuItem;
-                updateMainData(el)
+                this.updateMainData(el)
             } else {
                 newMenuItem = menuItem.cloneNode(true);
                 // set active false
@@ -168,6 +180,11 @@ class GalleryBuilder {
         }
 
         if (!this.glider) {
+
+            console.log(this.container.querySelector('.glider'))
+
+            //return;
+
             this.glider = new Glider(this.container.querySelector('.glider'), {
                 slidesToShow: slidesCount,
                 slidesToScroll: 1,
@@ -216,7 +233,7 @@ class GalleryBuilder {
 
     // this is the HTML skeleton that has to be inserted in the container
     // menu items will be cloned to change them depending on the galleryData array
-    getElementBaseDom(){
+    getElementBaseDom() {
         return "<div class=\"section-outer main-content\">\n" +
             "    <div class=\"section-inner\">\n" +
             "        <div class=\"menu\">\n" +
