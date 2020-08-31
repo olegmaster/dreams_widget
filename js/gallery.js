@@ -111,6 +111,25 @@ window.addEventListener("load", function (event) {
     }
 });
 
+// on changing page orientation we reinit sliders to set 3 or 1 image showing depending on the page's size
+window.addEventListener("orientationchange", function (event) {
+    galleries.forEach((item) => {
+        item.initSlider();
+    });
+});
+
+HTMLCollection.prototype.forEach = Array.prototype.forEach;
+
+HTMLCollection.prototype.getElementsByClassName = function( name ){
+    var all = [];
+    this.forEach( function( el ){
+        if( el )
+            all.concat( el.getElementsByClassName( name ) );
+    });
+    return all;
+};
+
+// this class builds gallery on container and gallery data
 class GalleryBuilder {
     constructor(container, galleryData) {
 
@@ -119,17 +138,6 @@ class GalleryBuilder {
         this.container = container;
         this.galleryData = galleryData;
         this.initBaseDomSkeleton();
-
-        HTMLCollection.prototype.forEach = Array.prototype.forEach;
-
-        HTMLCollection.prototype.getElementsByClassName = function( name ){
-            var all = [];
-            this.forEach( function( el ){
-                if( el )
-                    all.concat( el.getElementsByClassName( name ) );
-            });
-            return all;
-        };
 
         this.initSlider();
 
@@ -186,10 +194,6 @@ class GalleryBuilder {
 
         if (!this.glider) {
 
-            console.log(this.container.querySelector('.glider'))
-
-            //return;
-
             this.glider = new Glider(this.container.querySelector('.glider'), {
                 slidesToShow: slidesCount,
                 slidesToScroll: 1,
@@ -223,7 +227,6 @@ class GalleryBuilder {
             } else {
                 this.glider.refresh(true);
             }
-            console.log(status)
         }, 10)
 
     }
@@ -231,8 +234,12 @@ class GalleryBuilder {
     initBaseDomSkeleton(){
         console.log(this.container);
         //return;
-        this.container.insertAdjacentHTML('afterbegin',this.getElementBaseDom());
+        this.container.insertAdjacentHTML('afterbegin',this.getElementBaseDom(this.container.id));
         //this.container.id = this.makeId(9);
+    }
+
+    getId(){
+        return this.container.id;
     }
 
     // this is the HTML skeleton that has to be inserted in the container
@@ -245,7 +252,7 @@ class GalleryBuilder {
         return "<div class=\"section-outer main-content\">\n" +
             "    <div class=\"section-inner\">\n" +
             "        <div class=\"menu\">\n" +
-            "            <div class=\"elem-menu active\" onclick=\"switchTab(this, "+ containerId +")\"></div>\n" +
+            "            <div class=\"elem-menu active\" onclick=\"switchTab(this, '"+ containerId +"')\"></div>\n" +
             "        </div>\n" +
             "        <div class=\"slider-container\">\n" +
             "            <div class=\"glider-contain\">\n" +
@@ -295,14 +302,22 @@ class GalleryBuilder {
     }
 }
 
-function switchTab(newTab) {
-    console.log(this)
-    return;
-    let activeTab = this.container.querySelector('.elem-menu.active')
-    activeTab.classList.remove('active')
-    this.updateMainData(galleryData[newTab.dataset.index])
-    newTab.classList.add('active')
+function switchTab(newTab, containerId) {
+    let container = document.getElementById(containerId);
+    console.log(container)
+    let allTabs = container.getElementsByClassName('.elem-menu');
 
+    for(let tab of allTabs) {
+        if(tab.classList.contains('active')){
+            tab.classList.remove('active');
+        }
+    }
+    galleries.forEach((item) => {
+        if(item.getId() === containerId) {
+            item.updateMainData(galleryData[newTab.dataset.index])
+        }
+    });
+    newTab.classList.add('active');
 }
 
 
@@ -313,9 +328,7 @@ function initAboutUs() {
 }
 
 // on changing page orientation we re define glider items count
-window.addEventListener("orientationchange", function (event) {
-    initSlider()
-});
+
 
 
 /* @preserve
