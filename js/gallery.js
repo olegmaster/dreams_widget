@@ -1,3 +1,244 @@
+let galleryData = [
+
+    {
+        "title": "Exterior",
+        "images": [
+            {
+                "title": "Home 1",
+                "imageUrl": "https://img.lunstatic.net/building-800x600/4935.jpg",
+            },
+            {
+                "title": "Home 2",
+                "imageUrl": "https://www.bild.ua/images/thumb/full/00005bb4ebbb3497e31e",
+            },
+            {
+                "title": "Interier",
+                "imageUrl": "https://zabudovnyk.com.ua/img/news/2019/07/54153-campus.jpg",
+            },
+            {
+                "title": "Home 1",
+                "imageUrl": "https://img.lunstatic.net/building-800x600/19560.jpg",
+            },
+        ]
+    },
+    {
+        "title": "Interiors",
+        "images": [
+            {
+                "title": "Home 1",
+                "imageUrl": "https://media.equityapartments.com/images/c_crop,x_0,y_0,w_1920,h_1080/c_fill,w_737,h_414/q_80/4208-72/340-fremont-apartments-exterior.jpg",
+            },
+            {
+                "title": "Home 2",
+                "imageUrl": "https://img.staticmb.com/mbphoto/property/cropped_images/2020/Mar/03/Photo_h300_w450/48463433_1_lub_and_infra_300_450.jpg",
+            },
+            {
+                "title": "Interier",
+                "imageUrl": "https://strana.ua/img/article/1245/8_main.jpeg",
+            },
+            {
+                "title": "Home 1",
+                "imageUrl": "https://bn.ua/img/data/img587b30c48aca0_1484468420_2.jpg",
+            },
+            {
+                "title": "Home 2",
+                "imageUrl": "https://pro-novostroyki.com.ua/upload/resize_cache/iblock/254/624_396_2/254a00e17c246fb42336eed27883b667.jpg",
+            },
+            {
+                "title": "Interier",
+                "imageUrl": "https://mayertrade.com.ua/img/leoblog/b/lg-b-mono_skyline_main.jpg",
+            },
+        ]
+
+    },
+    {
+        "title": "Neighbourhood",
+        "images": [
+            {
+                "title": "Home 1",
+                "imageUrl": "https://img.tsn.ua/cached/1533896471/tsn-ec97a3c0a2ace5bfabc1ed73666af320/thumbs/1340x530/59/76/d26337e6c9a12772e9cf1861c0877659.jpg",
+            },
+            {
+                "title": "Home 2",
+                "imageUrl": "https://img.tsn.ua/cached/1432884187/tsn-01f773897a640af2a4247ac9175b2cf4/thumbs/315x210/78/94/9b405053a3af6ea22f6b10592d5d9478.jpg",
+            },
+            {
+                "title": "Interier",
+                "imageUrl": "https://img.lunstatic.net/building-800x600/35681.jpg",
+            },
+            {
+                "title": "Home 1",
+                "imageUrl": "https://novostroyki.realt.ua/store/novostroyki/57a060bfb03660345040af15/photos/267a08a1387dc3d147e425a61781f5b8.jpg",
+            },
+        ]
+    },
+    {
+        "title": "Neighbourhood2",
+        "images": [
+            {
+                "title": "Home 1",
+                "imageUrl": "https://dom-plus.ua/images/kupit-kvartiru-v-kieve-vugodno-i-bistro-dom-plus.jpg",
+            },
+            {
+                "title": "Home 2",
+                "imageUrl": "https://static.ukrinform.com/photos/2018_02/thumb_files/630_360_1519217360-2461.jpg",
+            },
+            {
+                "title": "Interier",
+                "imageUrl": "https://mistechko.com/files/images/items/0/119ve9d4b8a1.jpg",
+            },
+            {
+                "title": "Home 1",
+                "imageUrl": "https://www.real-estate.lviv.ua/img/objects/400x300/a4/2e/a42e978f659e8d48bef377e89c6e8b97.jpg",
+            },
+        ]
+    },
+];
+
+let glider = undefined;
+
+// insert menu items using galleryData data
+function insertMenuData(galleryData) {
+    if (!Array.isArray(galleryData) || galleryData.length === 0) {
+        return false;
+    }
+
+    initSlider();
+
+    // at the start we have 1 menu item
+    // we will clone it
+    // to make necessary menu items
+    let menuItem = document.getElementsByClassName('elem-menu')[0];
+    menuItem.textContent = galleryData[0]['title'];
+
+    galleryData.forEach((el, index) => {
+        // if first, use base menu item, else clone and create new
+        let newMenuItem;
+        if (index === 0) {
+            newMenuItem = menuItem;
+            updateMainData(el)
+        } else {
+            newMenuItem = menuItem.cloneNode(true);
+            // set active false
+            newMenuItem.classList.remove('active')
+        }
+        newMenuItem.dataset.index = index;
+        // set text
+        newMenuItem.textContent = el['title'];
+
+        menuItem.after(newMenuItem);
+
+        menuItem = newMenuItem;
+    })
+}
+
+
+// on tab click, changes the content
+function updateMainData(data) {
+    console.log(data);
+
+    //let elemSlider = document.querySelector('.glider');
+    // elemSlider.innerHTML = '';
+
+    cleanPreviousImages();
+
+    data.images.forEach((el, index) => {
+        let elem = document.createElement('div');
+        elem.innerHTML = '<div class="slider-img" style="background: url(' + el['imageUrl'] + ') 50% 50% no-repeat;background-size: cover" onclick="makeFullScrean(this)" ></div>'
+        console.log(elem)
+        glider.addItem(elem);
+        //elemSlider.innerHTML += '<div><div class="slider-img" style="background: url(' + el['imageUrl'] +') 50% 50% no-repeat;" ></div></div>';
+    });
+
+    setTimeout(() => {
+        if (!glider) {
+            glider = new Glider(document.querySelector('.glider'), {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                dots: '.dots',
+            });
+        } else {
+            glider.refresh(true);
+        }
+
+        console.log(status)
+    }, 10)
+
+}
+
+function cleanPreviousImages() {
+    let slides = glider.slides.length;
+    for (let i = 0; i < slides; i++) {
+        glider.removeItem(0);
+    }
+}
+
+
+function switchTab(newTab) {
+    let activeTab = document.querySelector('.elem-menu.active')
+    activeTab.classList.remove('active')
+    updateMainData(galleryData[newTab.dataset.index])
+    newTab.classList.add('active')
+
+}
+
+window.addEventListener("load", function (event) {
+    //initAboutUs();
+    insertMenuData(galleryData);
+    addUbuntuFont();
+});
+
+function addUbuntuFont() {
+    document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">';
+}
+
+function initAboutUs() {
+    document.head.innerHTML += '<style>' +
+        '.font-ubuntu{font-family:Ubuntu,sans-serif}#page-insert-elem-27636.rtl{text-align:right;direction:rtl}#page-insert-elem-27636.rtl .content .main-content .section-inner .menu{flex-direction:column-reverse}#page-insert-elem-27636.rtl .content .main-content .content-el{padding-right:16px;padding-left:0}#page-insert-elem-27636.rtl .header{flex-direction:row-reverse}#page-insert-elem-27636{/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */font-family:Ubuntu,sans-serif}#page-insert-elem-27636 html{line-height:1.15;-webkit-text-size-adjust:100%}#page-insert-elem-27636 body{margin:0}#page-insert-elem-27636 main{display:block}#page-insert-elem-27636 h1{font-size:2em;margin:.67em 0}#page-insert-elem-27636 hr{box-sizing:content-box;height:0;overflow:visible}#page-insert-elem-27636 pre{font-family:monospace,monospace;font-size:1em}#page-insert-elem-27636 a{background-color:transparent}#page-insert-elem-27636 abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}#page-insert-elem-27636 b,#page-insert-elem-27636 strong{font-weight:bolder}#page-insert-elem-27636 code,#page-insert-elem-27636 kbd,#page-insert-elem-27636 samp{font-family:monospace,monospace;font-size:1em}#page-insert-elem-27636 small{font-size:80%}#page-insert-elem-27636 sub,#page-insert-elem-27636 sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}#page-insert-elem-27636 sub{bottom:-.25em}#page-insert-elem-27636 sup{top:-.5em}#page-insert-elem-27636 img{border-style:none}#page-insert-elem-27636 button,#page-insert-elem-27636 input,#page-insert-elem-27636 optgroup,#page-insert-elem-27636 select,#page-insert-elem-27636 textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}#page-insert-elem-27636 button,#page-insert-elem-27636 input{overflow:visible}#page-insert-elem-27636 button,#page-insert-elem-27636 select{text-transform:none}#page-insert-elem-27636 [type=button],#page-insert-elem-27636 [type=reset],#page-insert-elem-27636 [type=submit],#page-insert-elem-27636 button{-webkit-appearance:button}#page-insert-elem-27636 [type=button]::-moz-focus-inner,#page-insert-elem-27636 [type=reset]::-moz-focus-inner,#page-insert-elem-27636 [type=submit]::-moz-focus-inner,#page-insert-elem-27636 button::-moz-focus-inner{border-style:none;padding:0}#page-insert-elem-27636 [type=button]:-moz-focusring,#page-insert-elem-27636 [type=reset]:-moz-focusring,#page-insert-elem-27636 [type=submit]:-moz-focusring,#page-insert-elem-27636 button:-moz-focusring{outline:1px dotted ButtonText}#page-insert-elem-27636 fieldset{padding:.35em .75em .625em}#page-insert-elem-27636 legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}#page-insert-elem-27636 progress{vertical-align:baseline}#page-insert-elem-27636 textarea{overflow:auto}#page-insert-elem-27636 [type=checkbox],#page-insert-elem-27636 [type=radio]{box-sizing:border-box;padding:0}#page-insert-elem-27636 [type=number]::-webkit-inner-spin-button,#page-insert-elem-27636 [type=number]::-webkit-outer-spin-button{height:auto}#page-insert-elem-27636 [type=search]{-webkit-appearance:textfield;outline-offset:-2px}#page-insert-elem-27636 [type=search]::-webkit-search-decoration{-webkit-appearance:none}#page-insert-elem-27636 ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}#page-insert-elem-27636 details{display:block}#page-insert-elem-27636 summary{display:list-item}#page-insert-elem-27636 template{display:none}#page-insert-elem-27636 [hidden]{display:none}#page-insert-elem-27636 .section-outer{padding-left:38px;padding-right:30px}#page-insert-elem-27636 .section-outer .section-inner{display:flex;width:100%;margin:0 auto}#page-insert-elem-27636 .section-outer .section-inner .menu{box-shadow:0 0 2px 0 rgba(0,0,0,.05);margin-top:36px;margin-bottom:21px}#page-insert-elem-27636 .section-outer .section-inner .menu .content-el{padding:0 16px}#page-insert-elem-27636 .section-outer .section-inner .menu .elem-menu{text-align:center;vertical-align:middle;justify-content:center;padding:14px 0;background-color:#fff;cursor:pointer;height:20px;margin-bottom:16px;font-size:16px;line-height:18px;font-weight:500;color:silver}#page-insert-elem-27636 .section-outer .section-inner .menu .active{border-bottom:2px solid #1a2f43;color:#1a2f43;transition:.5s}#page-insert-elem-27636 .section-outer .section-inner .content-el{padding:0 16px;margin-top:29px}#page-insert-elem-27636 .section-outer .section-inner .content-el .text{width:300px;font-size:18px;line-height:21px;font-weight:500;color:#1a2f43}#page-insert-elem-27636 .section-outer .section-inner .content-el .subheader{font-size:14px;font-weight:300;color:#1a2f43;margin-bottom:24px}#page-insert-elem-27636 .section-outer .section-inner .content-el.active{display:block}@media only screen and (max-width:575px){#page-insert-elem-27636 .section-outer{padding:0 16px}#page-insert-elem-27636 .section-outer .section-inner{flex-direction:column}#page-insert-elem-27636 .section-outer .section-inner .menu{display:flex;align-items:center;margin-top:10px;margin-bottom:0}#page-insert-elem-27636 .section-outer .section-inner .menu .elem-menu{display:inline-block;width:114px;margin:0 auto}#page-insert-elem-27636 .section-outer .section-inner .content-el{margin-top:12px}#page-insert-elem-27636 .header .title{width:100%;height:22px}#page-insert-elem-27636 .main-content img{width:100%}#page-insert-elem-27636 .main-content .text{width:100%}#page-insert-elem-27636 .main-content .subheader{width:100%}}@media only screen and (min-width:576px){#page-insert-elem-27636 .main-content{display:flex;margin:0 auto}#page-insert-elem-27636 .main-content .section-inner .menu .elem-menu{width:114px}#page-insert-elem-27636 .main-content .section-inner .content-el{width:100%}#page-insert-elem-27636 .main-content .section-inner .content-el img{width:100%}#page-insert-elem-27636 .main-content .section-inner .content-el .subheader{width:100%;display:flex;margin-bottom:24px}#page-insert-elem-27636 .main-content .section-inner .content-el .text{width:100%;height:21px}}' +
+        '</style>';
+}
+
+// creates glider slider or redefines sliderToShow count
+function initSlider() {
+    let slidesCount = 1;
+    if (window.screen.width > 767) {
+        slidesCount = 3;
+    }
+
+    if (!glider) {
+        glider = new Glider(document.querySelector('.glider'), {
+            slidesToShow: slidesCount,
+            slidesToScroll: 1,
+            dots: '.dots',
+        });
+    } else {
+        glider.setOption({slidesToShow: slidesCount})
+    }
+}
+
+function makeFullScrean(divObj) {
+    //Use the specification method before using prefixed versions
+    if (divObj.requestFullscreen) {
+        divObj.requestFullscreen();
+    } else if (divObj.msRequestFullscreen) {
+        divObj.msRequestFullscreen();
+    } else if (divObj.mozRequestFullScreen) {
+        divObj.mozRequestFullScreen();
+    } else if (divObj.webkitRequestFullscreen) {
+        divObj.webkitRequestFullscreen();
+    } else {
+        console.log("Fullscreen API is not supported");
+    }
+}
+
+// on changing page orientation we re define glider items count
+window.addEventListener("orientationchange", function (event) {
+    initSlider()
+});
+
+
+
+
 /* @preserve
     _____ __ _     __                _
    / ___// /(_)___/ /___  ____      (_)___
@@ -562,246 +803,3 @@
 
     return Glider
 })
-
-
-let galleryData = [
-
-    {
-        "title": "Exterior",
-        "images": [
-            {
-                "title": "Home 1",
-                "imageUrl": "https://img.lunstatic.net/building-800x600/4935.jpg",
-            },
-            {
-                "title": "Home 2",
-                "imageUrl": "https://www.bild.ua/images/thumb/full/00005bb4ebbb3497e31e",
-            },
-            {
-                "title": "Interier",
-                "imageUrl": "https://zabudovnyk.com.ua/img/news/2019/07/54153-campus.jpg",
-            },
-            {
-                "title": "Home 1",
-                "imageUrl": "https://img.lunstatic.net/building-800x600/19560.jpg",
-            },
-        ]
-    },
-    {
-        "title": "Interiors",
-        "images": [
-            {
-                "title": "Home 1",
-                "imageUrl": "https://media.equityapartments.com/images/c_crop,x_0,y_0,w_1920,h_1080/c_fill,w_737,h_414/q_80/4208-72/340-fremont-apartments-exterior.jpg",
-            },
-            {
-                "title": "Home 2",
-                "imageUrl": "https://img.staticmb.com/mbphoto/property/cropped_images/2020/Mar/03/Photo_h300_w450/48463433_1_lub_and_infra_300_450.jpg",
-            },
-            {
-                "title": "Interier",
-                "imageUrl": "https://strana.ua/img/article/1245/8_main.jpeg",
-            },
-            {
-                "title": "Home 1",
-                "imageUrl": "https://bn.ua/img/data/img587b30c48aca0_1484468420_2.jpg",
-            },
-            {
-                "title": "Home 2",
-                "imageUrl": "https://pro-novostroyki.com.ua/upload/resize_cache/iblock/254/624_396_2/254a00e17c246fb42336eed27883b667.jpg",
-            },
-            {
-                "title": "Interier",
-                "imageUrl": "https://mayertrade.com.ua/img/leoblog/b/lg-b-mono_skyline_main.jpg",
-            },
-        ]
-
-    },
-    {
-        "title": "Neighbourhood",
-        "images": [
-            {
-                "title": "Home 1",
-                "imageUrl": "https://img.tsn.ua/cached/1533896471/tsn-ec97a3c0a2ace5bfabc1ed73666af320/thumbs/1340x530/59/76/d26337e6c9a12772e9cf1861c0877659.jpg",
-            },
-            {
-                "title": "Home 2",
-                "imageUrl": "https://img.tsn.ua/cached/1432884187/tsn-01f773897a640af2a4247ac9175b2cf4/thumbs/315x210/78/94/9b405053a3af6ea22f6b10592d5d9478.jpg",
-            },
-            {
-                "title": "Interier",
-                "imageUrl": "https://img.lunstatic.net/building-800x600/35681.jpg",
-            },
-            {
-                "title": "Home 1",
-                "imageUrl": "https://novostroyki.realt.ua/store/novostroyki/57a060bfb03660345040af15/photos/267a08a1387dc3d147e425a61781f5b8.jpg",
-            },
-        ]
-    },
-    {
-        "title": "Neighbourhood2",
-        "images": [
-            {
-                "title": "Home 1",
-                "imageUrl": "https://dom-plus.ua/images/kupit-kvartiru-v-kieve-vugodno-i-bistro-dom-plus.jpg",
-            },
-            {
-                "title": "Home 2",
-                "imageUrl": "https://static.ukrinform.com/photos/2018_02/thumb_files/630_360_1519217360-2461.jpg",
-            },
-            {
-                "title": "Interier",
-                "imageUrl": "https://mistechko.com/files/images/items/0/119ve9d4b8a1.jpg",
-            },
-            {
-                "title": "Home 1",
-                "imageUrl": "https://www.real-estate.lviv.ua/img/objects/400x300/a4/2e/a42e978f659e8d48bef377e89c6e8b97.jpg",
-            },
-        ]
-    },
-];
-
-let glider = undefined;
-
-// insert menu items using galleryData data
-function insertMenuData(galleryData) {
-    if (!Array.isArray(galleryData) || galleryData.length === 0) {
-        return false;
-    }
-
-    initSlider();
-
-    // at the start we have 1 menu item
-    // we will clone it
-    // to make necessary menu items
-    let menuItem = document.getElementsByClassName('elem-menu')[0];
-    menuItem.textContent = galleryData[0]['title'];
-
-    galleryData.forEach((el, index) => {
-        // if first, use base menu item, else clone and create new
-        let newMenuItem;
-        if (index === 0) {
-            newMenuItem = menuItem;
-            updateMainData(el)
-        } else {
-            newMenuItem = menuItem.cloneNode(true);
-            // set active false
-            newMenuItem.classList.remove('active')
-        }
-        newMenuItem.dataset.index = index;
-        // set text
-        newMenuItem.textContent = el['title'];
-
-        menuItem.after(newMenuItem);
-
-        menuItem = newMenuItem;
-    })
-}
-
-
-// on tab click, changes the content
-function updateMainData(data) {
-    console.log(data);
-
-    //let elemSlider = document.querySelector('.glider');
-    // elemSlider.innerHTML = '';
-
-    cleanPreviousImages();
-
-    data.images.forEach((el, index) => {
-        let elem = document.createElement('div');
-        elem.innerHTML = '<div class="slider-img" style="background: url(' + el['imageUrl'] + ') 50% 50% no-repeat;background-size: cover" onclick="makeFullScrean(this)" ></div>'
-        console.log(elem)
-        glider.addItem(elem);
-        //elemSlider.innerHTML += '<div><div class="slider-img" style="background: url(' + el['imageUrl'] +') 50% 50% no-repeat;" ></div></div>';
-    });
-
-    setTimeout(() => {
-        if (!glider) {
-            glider = new Glider(document.querySelector('.glider'), {
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                dots: '.dots',
-            });
-        } else {
-            glider.refresh(true);
-        }
-
-        console.log(status)
-    }, 10)
-
-}
-
-function cleanPreviousImages() {
-    let slides = glider.slides.length;
-    for (let i = 0; i < slides; i++) {
-        glider.removeItem(0);
-    }
-}
-
-
-function switchTab(newTab) {
-    let activeTab = document.querySelector('.elem-menu.active')
-    activeTab.classList.remove('active')
-    updateMainData(galleryData[newTab.dataset.index])
-    newTab.classList.add('active')
-
-}
-
-window.addEventListener("load", function (event) {
-    //initAboutUs();
-    insertMenuData(galleryData);
-    addUbuntuFont();
-});
-
-function addUbuntuFont() {
-    document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">';
-}
-
-function initAboutUs() {
-    document.head.innerHTML += '<style>' +
-        '.font-ubuntu{font-family:Ubuntu,sans-serif}#page-insert-elem-27636.rtl{text-align:right;direction:rtl}#page-insert-elem-27636.rtl .content .main-content .section-inner .menu{flex-direction:column-reverse}#page-insert-elem-27636.rtl .content .main-content .content-el{padding-right:16px;padding-left:0}#page-insert-elem-27636.rtl .header{flex-direction:row-reverse}#page-insert-elem-27636{/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */font-family:Ubuntu,sans-serif}#page-insert-elem-27636 html{line-height:1.15;-webkit-text-size-adjust:100%}#page-insert-elem-27636 body{margin:0}#page-insert-elem-27636 main{display:block}#page-insert-elem-27636 h1{font-size:2em;margin:.67em 0}#page-insert-elem-27636 hr{box-sizing:content-box;height:0;overflow:visible}#page-insert-elem-27636 pre{font-family:monospace,monospace;font-size:1em}#page-insert-elem-27636 a{background-color:transparent}#page-insert-elem-27636 abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}#page-insert-elem-27636 b,#page-insert-elem-27636 strong{font-weight:bolder}#page-insert-elem-27636 code,#page-insert-elem-27636 kbd,#page-insert-elem-27636 samp{font-family:monospace,monospace;font-size:1em}#page-insert-elem-27636 small{font-size:80%}#page-insert-elem-27636 sub,#page-insert-elem-27636 sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}#page-insert-elem-27636 sub{bottom:-.25em}#page-insert-elem-27636 sup{top:-.5em}#page-insert-elem-27636 img{border-style:none}#page-insert-elem-27636 button,#page-insert-elem-27636 input,#page-insert-elem-27636 optgroup,#page-insert-elem-27636 select,#page-insert-elem-27636 textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}#page-insert-elem-27636 button,#page-insert-elem-27636 input{overflow:visible}#page-insert-elem-27636 button,#page-insert-elem-27636 select{text-transform:none}#page-insert-elem-27636 [type=button],#page-insert-elem-27636 [type=reset],#page-insert-elem-27636 [type=submit],#page-insert-elem-27636 button{-webkit-appearance:button}#page-insert-elem-27636 [type=button]::-moz-focus-inner,#page-insert-elem-27636 [type=reset]::-moz-focus-inner,#page-insert-elem-27636 [type=submit]::-moz-focus-inner,#page-insert-elem-27636 button::-moz-focus-inner{border-style:none;padding:0}#page-insert-elem-27636 [type=button]:-moz-focusring,#page-insert-elem-27636 [type=reset]:-moz-focusring,#page-insert-elem-27636 [type=submit]:-moz-focusring,#page-insert-elem-27636 button:-moz-focusring{outline:1px dotted ButtonText}#page-insert-elem-27636 fieldset{padding:.35em .75em .625em}#page-insert-elem-27636 legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}#page-insert-elem-27636 progress{vertical-align:baseline}#page-insert-elem-27636 textarea{overflow:auto}#page-insert-elem-27636 [type=checkbox],#page-insert-elem-27636 [type=radio]{box-sizing:border-box;padding:0}#page-insert-elem-27636 [type=number]::-webkit-inner-spin-button,#page-insert-elem-27636 [type=number]::-webkit-outer-spin-button{height:auto}#page-insert-elem-27636 [type=search]{-webkit-appearance:textfield;outline-offset:-2px}#page-insert-elem-27636 [type=search]::-webkit-search-decoration{-webkit-appearance:none}#page-insert-elem-27636 ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}#page-insert-elem-27636 details{display:block}#page-insert-elem-27636 summary{display:list-item}#page-insert-elem-27636 template{display:none}#page-insert-elem-27636 [hidden]{display:none}#page-insert-elem-27636 .section-outer{padding-left:38px;padding-right:30px}#page-insert-elem-27636 .section-outer .section-inner{display:flex;width:100%;margin:0 auto}#page-insert-elem-27636 .section-outer .section-inner .menu{box-shadow:0 0 2px 0 rgba(0,0,0,.05);margin-top:36px;margin-bottom:21px}#page-insert-elem-27636 .section-outer .section-inner .menu .content-el{padding:0 16px}#page-insert-elem-27636 .section-outer .section-inner .menu .elem-menu{text-align:center;vertical-align:middle;justify-content:center;padding:14px 0;background-color:#fff;cursor:pointer;height:20px;margin-bottom:16px;font-size:16px;line-height:18px;font-weight:500;color:silver}#page-insert-elem-27636 .section-outer .section-inner .menu .active{border-bottom:2px solid #1a2f43;color:#1a2f43;transition:.5s}#page-insert-elem-27636 .section-outer .section-inner .content-el{padding:0 16px;margin-top:29px}#page-insert-elem-27636 .section-outer .section-inner .content-el .text{width:300px;font-size:18px;line-height:21px;font-weight:500;color:#1a2f43}#page-insert-elem-27636 .section-outer .section-inner .content-el .subheader{font-size:14px;font-weight:300;color:#1a2f43;margin-bottom:24px}#page-insert-elem-27636 .section-outer .section-inner .content-el.active{display:block}@media only screen and (max-width:575px){#page-insert-elem-27636 .section-outer{padding:0 16px}#page-insert-elem-27636 .section-outer .section-inner{flex-direction:column}#page-insert-elem-27636 .section-outer .section-inner .menu{display:flex;align-items:center;margin-top:10px;margin-bottom:0}#page-insert-elem-27636 .section-outer .section-inner .menu .elem-menu{display:inline-block;width:114px;margin:0 auto}#page-insert-elem-27636 .section-outer .section-inner .content-el{margin-top:12px}#page-insert-elem-27636 .header .title{width:100%;height:22px}#page-insert-elem-27636 .main-content img{width:100%}#page-insert-elem-27636 .main-content .text{width:100%}#page-insert-elem-27636 .main-content .subheader{width:100%}}@media only screen and (min-width:576px){#page-insert-elem-27636 .main-content{display:flex;margin:0 auto}#page-insert-elem-27636 .main-content .section-inner .menu .elem-menu{width:114px}#page-insert-elem-27636 .main-content .section-inner .content-el{width:100%}#page-insert-elem-27636 .main-content .section-inner .content-el img{width:100%}#page-insert-elem-27636 .main-content .section-inner .content-el .subheader{width:100%;display:flex;margin-bottom:24px}#page-insert-elem-27636 .main-content .section-inner .content-el .text{width:100%;height:21px}}' +
-        '</style>';
-}
-
-// creates glider slider or redefines sliderToShow count
-function initSlider() {
-    let slidesCount = 1;
-    if (window.screen.width > 767) {
-        slidesCount = 3;
-    }
-
-    if (!glider) {
-        glider = new Glider(document.querySelector('.glider'), {
-            slidesToShow: slidesCount,
-            slidesToScroll: 1,
-            dots: '.dots',
-        });
-    } else {
-        glider.setOption({slidesToShow: slidesCount})
-    }
-}
-
-function makeFullScrean(divObj) {
-    //Use the specification method before using prefixed versions
-    if (divObj.requestFullscreen) {
-        divObj.requestFullscreen();
-    } else if (divObj.msRequestFullscreen) {
-        divObj.msRequestFullscreen();
-    } else if (divObj.mozRequestFullScreen) {
-        divObj.mozRequestFullScreen();
-    } else if (divObj.webkitRequestFullscreen) {
-        divObj.webkitRequestFullscreen();
-    } else {
-        console.log("Fullscreen API is not supported");
-    }
-}
-
-// on changing page orientation we re define glider items count
-window.addEventListener("orientationchange", function (event) {
-    initSlider()
-});
-
-
-
-
