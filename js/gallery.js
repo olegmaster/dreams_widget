@@ -99,12 +99,14 @@ let canvasClass = 'bmby-gallery';
 
 let hasUbuntuFont = false;
 
+let galleries = [];
+
 // add galleries on document load
 window.addEventListener("load", function (event) {
     let containers = document.getElementsByClassName(canvasClass);
     if(containers !== undefined && containers.length > 0) {
         for(let container of containers) {
-            new GalleryBuilder(container, galleryData);
+            galleries.push(new GalleryBuilder(container, galleryData));
         }
     }
 });
@@ -116,6 +118,7 @@ class GalleryBuilder {
 
         this.container = container;
         this.galleryData = galleryData;
+        this.initBaseDomSkeleton();
 
         HTMLCollection.prototype.forEach = Array.prototype.forEach;
 
@@ -136,6 +139,8 @@ class GalleryBuilder {
             this.addUbuntuFont();
             hasUbuntuFont = true;
         }
+
+        return this;
     }
 
     // insert menu items using galleryData data
@@ -195,14 +200,6 @@ class GalleryBuilder {
         }
     }
 
-    switchTab(newTab) {
-        let activeTab = this.container.querySelector('.elem-menu.active')
-        activeTab.classList.remove('active')
-        this.updateMainData(galleryData[newTab.dataset.index])
-        newTab.classList.add('active')
-
-    }
-
     // on tab click, changes the content
     updateMainData(data) {
 
@@ -231,13 +228,24 @@ class GalleryBuilder {
 
     }
 
+    initBaseDomSkeleton(){
+        console.log(this.container);
+        //return;
+        this.container.insertAdjacentHTML('afterbegin',this.getElementBaseDom());
+        //this.container.id = this.makeId(9);
+    }
+
     // this is the HTML skeleton that has to be inserted in the container
     // menu items will be cloned to change them depending on the galleryData array
-    getElementBaseDom() {
+    // containerId it is generated id of a container where we insert the gallery
+    // this id is generated to have difference between containers
+    // when we insert the gallery by the container class
+    // we can insert the gallery in more than one container
+    getElementBaseDom(containerId) {
         return "<div class=\"section-outer main-content\">\n" +
             "    <div class=\"section-inner\">\n" +
             "        <div class=\"menu\">\n" +
-            "            <div class=\"elem-menu active\" onclick=\"switchTab(this)\"></div>\n" +
+            "            <div class=\"elem-menu active\" onclick=\"switchTab(this, "+ containerId +")\"></div>\n" +
             "        </div>\n" +
             "        <div class=\"slider-container\">\n" +
             "            <div class=\"glider-contain\">\n" +
@@ -276,6 +284,24 @@ class GalleryBuilder {
         }
     }
 
+    makeId(length) {
+        var result           = '';
+        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for ( var i = 0; i < length; i++ ) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+    }
+}
+
+function switchTab(newTab) {
+    console.log(this)
+    return;
+    let activeTab = this.container.querySelector('.elem-menu.active')
+    activeTab.classList.remove('active')
+    this.updateMainData(galleryData[newTab.dataset.index])
+    newTab.classList.add('active')
 
 }
 
