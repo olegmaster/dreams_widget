@@ -95,110 +95,17 @@ let galleryData = [
     },
 ];
 
-let glider = undefined;
+let canvasClass = 'bmby-gallery';
 
-// this is the HTML skeleton that has to be inserted in the container
-// menu items will be cloned to change them depending on the galleryData array
-let elemBaseDom = "<div class=\"section-outer main-content\">\n" +
-    "    <div class=\"section-inner\">\n" +
-    "        <div class=\"menu\">\n" +
-    "            <div class=\"elem-menu active\" onclick=\"switchTab(this)\"></div>\n" +
-    "        </div>\n" +
-    "        <div class=\"slider-container\">\n" +
-    "            <div class=\"glider-contain\">\n" +
-    "                <div class=\"glider\">\n" +
-    "                </div>\n" +
-    "                <div role=\"tablist\" class=\"dots\"></div>\n" +
-    "            </div>\n" +
-    "        </div>\n" +
-    "    </div>\n" +
-    "</div>";
+let containers = document.getElementsByClassName(canvasClass);
 
-
-// insert menu items using galleryData data
-function insertMenuData(galleryData) {
-    if (!Array.isArray(galleryData) || galleryData.length === 0) {
-        return false;
-    }
-
-    initSlider();
-
-    // at the start we have 1 menu item
-    // we will clone it
-    // to make necessary menu items
-    let menuItem = document.getElementsByClassName('elem-menu')[0];
-    menuItem.textContent = galleryData[0]['title'];
-
-    galleryData.forEach((el, index) => {
-        // if first, use base menu item, else clone and create new
-        let newMenuItem;
-        if (index === 0) {
-            newMenuItem = menuItem;
-            updateMainData(el)
-        } else {
-            newMenuItem = menuItem.cloneNode(true);
-            // set active false
-            newMenuItem.classList.remove('active')
-        }
-        newMenuItem.dataset.index = index;
-        // set text
-        newMenuItem.textContent = el['title'];
-
-        menuItem.after(newMenuItem);
-
-        menuItem = newMenuItem;
-    })
+if (!containers) {
+    return;
 }
 
+containers.forEach((container, index) => {
 
-// on tab click, changes the content
-function updateMainData(data) {
-    console.log(data);
-
-    //let elemSlider = document.querySelector('.glider');
-    // elemSlider.innerHTML = '';
-
-    cleanPreviousImages();
-
-    data.images.forEach((el, index) => {
-        let elem = document.createElement('div');
-        elem.innerHTML = '<div class="slider-img" style="background: url(' + el['imageUrl'] + ') 50% 50% no-repeat;background-size: cover" onclick="makeFullScrean(this)" ></div>'
-        console.log(elem)
-        glider.addItem(elem);
-        //elemSlider.innerHTML += '<div><div class="slider-img" style="background: url(' + el['imageUrl'] +') 50% 50% no-repeat;" ></div></div>';
-    });
-
-    setTimeout(() => {
-        if (!glider) {
-            glider = new Glider(document.querySelector('.glider'), {
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                dots: '.dots',
-            });
-        } else {
-            glider.refresh(true);
-        }
-
-        console.log(status)
-    }, 10)
-
-}
-
-function cleanPreviousImages() {
-    let slides = glider.slides.length;
-    for (let i = 0; i < slides; i++) {
-        glider.removeItem(0);
-    }
-}
-
-
-function switchTab(newTab) {
-    let activeTab = document.querySelector('.elem-menu.active')
-    activeTab.classList.remove('active')
-    updateMainData(galleryData[newTab.dataset.index])
-    newTab.classList.add('active')
-
-}
+});
 
 window.addEventListener("load", function (event) {
     //initAboutUs();
@@ -206,9 +113,155 @@ window.addEventListener("load", function (event) {
     addUbuntuFont();
 });
 
-function addUbuntuFont() {
-    document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">';
+class GalleryBuilder {
+    constructor(container, galleryData) {
+
+        this.glider = undefined;
+
+        this.container = container;
+        this.galleryData = galleryData;
+
+        this.initSlider();
+
+    }
+
+    // insert menu items using galleryData data
+    insertMenuData() {
+        if (!Array.isArray(this.galleryData) || this.galleryData.length === 0) {
+            return false;
+        }
+
+
+
+        // at the start we have 1 menu item
+        // we will clone it
+        // to make necessary menu items
+        let menuItem = this.container.getElementsByClassName('elem-menu')[0];
+        menuItem.textContent = galleryData[0]['title'];
+
+        galleryData.forEach((el, index) => {
+            // if first, use base menu item, else clone and create new
+            let newMenuItem;
+            if (index === 0) {
+                newMenuItem = menuItem;
+                updateMainData(el)
+            } else {
+                newMenuItem = menuItem.cloneNode(true);
+                // set active false
+                newMenuItem.classList.remove('active')
+            }
+            newMenuItem.dataset.index = index;
+            // set text
+            newMenuItem.textContent = el['title'];
+
+            menuItem.after(newMenuItem);
+
+            menuItem = newMenuItem;
+        })
+    }
+
+    // creates glider slider or redefines sliderToShow count
+    initSlider() {
+        let slidesCount = 1;
+        if (window.screen.width > 767) {
+            slidesCount = 3;
+        }
+
+        if (!this.glider) {
+            this.glider = new Glider(this.container.querySelector('.glider'), {
+                slidesToShow: slidesCount,
+                slidesToScroll: 1,
+                dots: '.dots',
+            });
+        } else {
+            this.glider.setOption({slidesToShow: slidesCount})
+        }
+    }
+
+    switchTab(newTab) {
+        let activeTab = this.container.querySelector('.elem-menu.active')
+        activeTab.classList.remove('active')
+        this.updateMainData(galleryData[newTab.dataset.index])
+        newTab.classList.add('active')
+
+    }
+
+    // on tab click, changes the content
+    updateMainData(data) {
+
+        this.cleanPreviousImages();
+
+        data.images.forEach((el, index) => {
+            let elem = document.createElement('div');
+            elem.innerHTML = '<div class="slider-img" style="background: url(' + el['imageUrl'] + ') 50% 50% no-repeat;background-size: cover" onclick="makeFullScrean(this)" ></div>'
+            console.log(elem)
+            this.glider.addItem(elem);
+            //elemSlider.innerHTML += '<div><div class="slider-img" style="background: url(' + el['imageUrl'] +') 50% 50% no-repeat;" ></div></div>';
+        });
+
+        setTimeout(() => {
+            if (!this.glider) {
+                this.glider = new Glider(this.container.querySelector('.glider'), {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    dots: '.dots',
+                });
+            } else {
+                this.glider.refresh(true);
+            }
+            console.log(status)
+        }, 10)
+
+    }
+
+    // this is the HTML skeleton that has to be inserted in the container
+    // menu items will be cloned to change them depending on the galleryData array
+    getElementBaseDom(){
+        return "<div class=\"section-outer main-content\">\n" +
+            "    <div class=\"section-inner\">\n" +
+            "        <div class=\"menu\">\n" +
+            "            <div class=\"elem-menu active\" onclick=\"switchTab(this)\"></div>\n" +
+            "        </div>\n" +
+            "        <div class=\"slider-container\">\n" +
+            "            <div class=\"glider-contain\">\n" +
+            "                <div class=\"glider\">\n" +
+            "                </div>\n" +
+            "                <div role=\"tablist\" class=\"dots\"></div>\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "    </div>\n" +
+            "</div>";
+    }
+
+    addUbuntuFont() {
+        document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">';
+    }
+
+    cleanPreviousImages() {
+        let slides = this.glider.slides.length;
+        for (let i = 0; i < slides; i++) {
+            this.glider.removeItem(0);
+        }
+    }
+
+    makeFullScrean(divObj) {
+        //Use the specification method before using prefixed versions
+        if (divObj.requestFullscreen) {
+            divObj.requestFullscreen();
+        } else if (divObj.msRequestFullscreen) {
+            divObj.msRequestFullscreen();
+        } else if (divObj.mozRequestFullScreen) {
+            divObj.mozRequestFullScreen();
+        } else if (divObj.webkitRequestFullscreen) {
+            divObj.webkitRequestFullscreen();
+        } else {
+            console.log("Fullscreen API is not supported");
+        }
+    }
+
+
 }
+
 
 function initAboutUs() {
     document.head.innerHTML += '<style>' +
@@ -216,45 +269,10 @@ function initAboutUs() {
         '</style>';
 }
 
-// creates glider slider or redefines sliderToShow count
-function initSlider() {
-    let slidesCount = 1;
-    if (window.screen.width > 767) {
-        slidesCount = 3;
-    }
-
-    if (!glider) {
-        glider = new Glider(document.querySelector('.glider'), {
-            slidesToShow: slidesCount,
-            slidesToScroll: 1,
-            dots: '.dots',
-        });
-    } else {
-        glider.setOption({slidesToShow: slidesCount})
-    }
-}
-
-function makeFullScrean(divObj) {
-    //Use the specification method before using prefixed versions
-    if (divObj.requestFullscreen) {
-        divObj.requestFullscreen();
-    } else if (divObj.msRequestFullscreen) {
-        divObj.msRequestFullscreen();
-    } else if (divObj.mozRequestFullScreen) {
-        divObj.mozRequestFullScreen();
-    } else if (divObj.webkitRequestFullscreen) {
-        divObj.webkitRequestFullscreen();
-    } else {
-        console.log("Fullscreen API is not supported");
-    }
-}
-
 // on changing page orientation we re define glider items count
 window.addEventListener("orientationchange", function (event) {
     initSlider()
 });
-
-
 
 
 /* @preserve
