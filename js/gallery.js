@@ -97,6 +97,24 @@ let galleryData = [
 
 let glider = undefined;
 
+// this is the HTML skeleton that has to be inserted in the container
+// menu items will be cloned to change them depending on the galleryData array
+let elemBaseDom = "<div class=\"section-outer main-content\">\n" +
+    "    <div class=\"section-inner\">\n" +
+    "        <div class=\"menu\">\n" +
+    "            <div class=\"elem-menu active\" onclick=\"switchTab(this)\"></div>\n" +
+    "        </div>\n" +
+    "        <div class=\"slider-container\">\n" +
+    "            <div class=\"glider-contain\">\n" +
+    "                <div class=\"glider\">\n" +
+    "                </div>\n" +
+    "                <div role=\"tablist\" class=\"dots\"></div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "</div>";
+
+
 // insert menu items using galleryData data
 function insertMenuData(galleryData) {
     if (!Array.isArray(galleryData) || galleryData.length === 0) {
