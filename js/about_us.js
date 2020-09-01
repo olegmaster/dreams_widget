@@ -50,7 +50,7 @@ let canvasClass = 'bmby-about-us';
 let hasUbuntuFont = false;
 let aboutUsSections = [];
 
-// add galleries on document load
+// add about us on document load
 window.addEventListener("load", function (event) {
     let containers = document.getElementsByClassName(canvasClass);
     if (containers !== undefined && containers.length > 0) {
