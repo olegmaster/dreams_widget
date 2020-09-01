@@ -138,6 +138,7 @@ class GalleryBuilder {
         this.container = container;
         this.galleryData = galleryData;
         this.canvasClass = canvasClass;
+        this.container.id = this.makeId(9);
         this.initBaseDomSkeleton();
 
         this.initSlider();
@@ -149,8 +150,6 @@ class GalleryBuilder {
             this.addStyels();
             hasUbuntuFont = true;
         }
-
-
 
         return this;
     }
@@ -274,21 +273,6 @@ class GalleryBuilder {
         }
     }
 
-    makeFullScrean(divObj) {
-        //Use the specification method before using prefixed versions
-        if (divObj.requestFullscreen) {
-            divObj.requestFullscreen();
-        } else if (divObj.msRequestFullscreen) {
-            divObj.msRequestFullscreen();
-        } else if (divObj.mozRequestFullScreen) {
-            divObj.mozRequestFullScreen();
-        } else if (divObj.webkitRequestFullscreen) {
-            divObj.webkitRequestFullscreen();
-        } else {
-            console.log("Fullscreen API is not supported");
-        }
-    }
-
     makeId(length) {
         var result           = '';
         var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -323,7 +307,20 @@ function switchTab(newTab, containerId) {
     newTab.classList.add('active');
 }
 
-
+function makeFullScrean(divObj) {
+    //Use the specification method before using prefixed versions
+    if (divObj.requestFullscreen) {
+        divObj.requestFullscreen();
+    } else if (divObj.msRequestFullscreen) {
+        divObj.msRequestFullscreen();
+    } else if (divObj.mozRequestFullScreen) {
+        divObj.mozRequestFullScreen();
+    } else if (divObj.webkitRequestFullscreen) {
+        divObj.webkitRequestFullscreen();
+    } else {
+        console.log("Fullscreen API is not supported");
+    }
+}
 
 
 function initAboutUs() {
