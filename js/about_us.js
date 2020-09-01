@@ -102,7 +102,7 @@ class AboutUsBuilder {
         // at the start we have 1 menu item
         // we will clone it
         // to make necessary menu items
-        let menuItem = document.getElementsByClassName('elem-menu')[0];
+        let menuItem = this.container.getElementsByClassName('elem-menu')[0];
         menuItem.textContent = aboutUsData[0]['chapter'];
 
         aboutUsData.forEach((el, index) => {
