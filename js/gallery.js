@@ -206,15 +206,12 @@ class GalleryBuilder {
 
     // on tab click, changes the content
     updateMainData(data) {
-
         this.cleanPreviousImages();
 
         data.images.forEach((el, index) => {
             let elem = document.createElement('div');
-            elem.innerHTML = '<div class="slider-img" style="background: url(' + el['imageUrl'] + ') 50% 50% no-repeat;background-size: cover" onclick="makeFullScrean(this)" ></div>'
-            console.log(elem)
+            elem.innerHTML = '<div class="slider-img" style="background: url(' + el['imageUrl'] + ') 50% 50% no-repeat;background-size: cover" onclick="makeFullScrean(this)" ></div>';
             this.glider.addItem(elem);
-            //elemSlider.innerHTML += '<div><div class="slider-img" style="background: url(' + el['imageUrl'] +') 50% 50% no-repeat;" ></div></div>';
         });
 
         setTimeout(() => {
@@ -232,10 +229,7 @@ class GalleryBuilder {
     }
 
     initBaseDomSkeleton(){
-        console.log(this.container);
-        //return;
         this.container.insertAdjacentHTML('afterbegin',this.getElementBaseDom(this.container.id));
-        //this.container.id = this.makeId(9);
     }
 
     getId(){
@@ -304,13 +298,9 @@ class GalleryBuilder {
 
 function switchTab(newTab, containerId) {
     let container = document.getElementById(containerId);
-    console.log(container)
-    let allTabs = container.getElementsByClassName('.elem-menu');
-
+    let allTabs = container.querySelectorAll('.elem-menu');
     for(let tab of allTabs) {
-        if(tab.classList.contains('active')){
             tab.classList.remove('active');
-        }
     }
     galleries.forEach((item) => {
         if(item.getId() === containerId) {
