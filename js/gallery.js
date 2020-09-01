@@ -118,6 +118,7 @@ window.addEventListener("orientationchange", function (event) {
     });
 });
 
+// add function to be able search in HTMLCollection by class name
 HTMLCollection.prototype.forEach = Array.prototype.forEach;
 
 HTMLCollection.prototype.getElementsByClassName = function( name ){
