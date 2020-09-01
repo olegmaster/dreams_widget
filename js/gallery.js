@@ -139,6 +139,8 @@ class GalleryBuilder {
         this.galleryData = galleryData;
         this.canvasClass = canvasClass;
         this.container.id = this.makeId(9);
+        this.gliderClass =this.makeId(9);
+        this.gliderDotsClass = this.makeId(4);
         this.initBaseDomSkeleton();
 
         this.initSlider();
@@ -197,10 +199,10 @@ class GalleryBuilder {
 
         if (!this.glider) {
 
-            this.glider = new Glider(this.container.querySelector('.glider'), {
+            this.glider = new Glider(this.container.querySelector('.' + this.gliderClass), {
                 slidesToShow: slidesCount,
                 slidesToScroll: 1,
-                dots: '.dots',
+                dots: "." + this.gliderDotsClass,
             });
         } else {
             this.glider.setOption({slidesToShow: slidesCount})
@@ -219,10 +221,10 @@ class GalleryBuilder {
 
         setTimeout(() => {
             if (!this.glider) {
-                this.glider = new Glider(this.container.querySelector('.glider'), {
+                this.glider = new Glider(this.container.querySelector('.' + this.gliderClass), {
                     slidesToShow: 3,
                     slidesToScroll: 1,
-                    dots: '.dots',
+                    dots: '.' + this.gliderDotsClass,
                 });
             } else {
                 this.glider.refresh(true);
@@ -246,6 +248,7 @@ class GalleryBuilder {
     // when we insert the gallery by the container class
     // we can insert the gallery in more than one container
     getElementBaseDom(containerId) {
+
         return "<div class=\"section-outer main-content\">\n" +
             "    <div class=\"section-inner\">\n" +
             "        <div class=\"menu\">\n" +
@@ -253,9 +256,9 @@ class GalleryBuilder {
             "        </div>\n" +
             "        <div class=\"slider-container\">\n" +
             "            <div class=\"glider-contain\">\n" +
-            "                <div class=\"glider\">\n" +
+            "                <div class=\""+ this.gliderClass+"\">\n" +
             "                </div>\n" +
-            "                <div role=\"tablist\" class=\"dots\"></div>\n" +
+            "                <div role=\"tablist\" class=\""+this.gliderDotsClass+"\"></div>\n" +
             "            </div>\n" +
             "        </div>\n" +
             "    </div>\n" +
@@ -280,7 +283,7 @@ class GalleryBuilder {
         for ( var i = 0; i < length; i++ ) {
             result += characters.charAt(Math.floor(Math.random() * charactersLength));
         }
-        return result;
+        return "id" + result;
     }
 
     addStyels() {
