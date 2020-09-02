@@ -391,14 +391,32 @@
     width: 100%;
   }
 
-  @media only screen and (max-width: @screen-lg) {
 
-  }
+  @media only screen and (max-width: @screen-sm-max) {
+      .section-outer {
+        padding: 0 ;
 
-  @media only screen and (min-width: @screen-sm-max) {
-    .slider-img {
-      width: 97%;
-    }
+        .section-inner {
+          .menu {
+            .elem-menu {
+              margin-bottom: 0;
+            }
+
+          }
+        }
+
+        .slider-container {
+          padding-top: 0;
+          height: 93vh;
+          overflow-y: scroll;
+
+          .glider-contain{
+            .slider-img {
+              margin-bottom: 8px;
+            }
+          }
+        }
+      }
   }
 }
 
