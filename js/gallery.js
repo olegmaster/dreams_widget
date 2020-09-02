@@ -196,7 +196,7 @@ class GalleryBuilder {
     // creates glider slider or redefines sliderToShow count
     initSlider() {
         let slidesCount = 3;
-        if (window.screen.width > 575) {
+        if (window.screen.width > 1575) {
             slidesCount = 3;
 
             if (!this.glider) {
@@ -265,7 +265,7 @@ class GalleryBuilder {
             "        </div>\n" +
             "        <div class=\"slider-container\">\n" +
             "            <div class=\"glider-contain\">\n" +
-            "                <div class=\""+ this.gliderClass+"\">\n" +
+            "                <div class=\"img-container "+ this.gliderClass+"\">\n" +
             "                </div>\n" +
             "                <div role=\"tablist\" class=\""+this.gliderDotsClass+"\"></div>\n" +
             "            </div>\n" +
