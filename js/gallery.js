@@ -205,6 +205,10 @@ class GalleryBuilder {
                     slidesToShow: slidesCount,
                     slidesToScroll: 1,
                     dots: "." + this.gliderDotsClass,
+                    arrows: {
+                        prev: '.glider-prev',
+                        next: '.glider-next'
+                    }
                 });
             } else {
                 this.glider.setOption({slidesToShow: slidesCount})
@@ -267,6 +271,8 @@ class GalleryBuilder {
             "            <div class=\"glider-contain\">\n" +
             "                <div class=\"img-container "+ this.gliderClass+"\">\n" +
             "                </div>\n" +
+            "                <button aria-label=\"Previous\" class=\"glider-prev\">\<</button>"+
+            "                <button aria-label=\"Next\" class=\"glider-next\">\></button>"+
             "                <div role=\"tablist\" class=\""+this.gliderDotsClass+"\"></div>\n" +
             "            </div>\n" +
             "        </div>\n" +
