@@ -195,9 +195,9 @@ class GalleryBuilder {
 
     // creates glider slider or redefines sliderToShow count
     initSlider() {
-        let slidesCount = 3;
+        let slidesCount = 1;
         if (window.screen.width > 1575) {
-            slidesCount = 3;
+            slidesCount = 1;
 
             if (!this.glider) {
 
