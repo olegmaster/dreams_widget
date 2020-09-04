@@ -116,7 +116,7 @@ class AboutUsBuilder {
                 // set active false
                 newMenuItem.classList.remove('active')
             }
-            newMenuItem.dataset.index = index
+            newMenuItem.dataset.index = index;
             // set text
             newMenuItem.textContent = el['chapter'];
 
@@ -130,7 +130,7 @@ class AboutUsBuilder {
         let elemTitle = document.getElementById(this.getId() + '__elem-title');
         elemTitle.textContent = data['title'];
         let elemText = document.getElementById(this.getId() + '__elem-text');
-        elemText.textContent = data['description']
+        elemText.textContent = data['description'];
         let elemImg = document.getElementById(this.getId() + '__elem-img');
         elemImg.setAttribute('src', data['imageUrl'])
     }
