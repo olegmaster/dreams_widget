@@ -196,7 +196,7 @@ class GalleryBuilder {
     // creates glider slider or redefines sliderToShow count
     initSlider() {
         let slidesCount = 1;
-        if (window.screen.width > 1575) {
+        if (window.screen.width > 1199) {
             slidesCount = 1;
 
             if (!this.glider) {
@@ -210,12 +210,10 @@ class GalleryBuilder {
                         next: '.glider-next'
                     }
                 });
-            } else {
+            } else if(this.glider) {
                 this.glider.setOption({slidesToShow: slidesCount})
             }
         }
-
-
     }
 
     // on tab click, changes the content
