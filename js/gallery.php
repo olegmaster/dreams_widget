@@ -2,6 +2,90 @@
 
 header('Content-Type: application/javascript');
 
+$canvas = $_GET['canvas'] ?? 'bmby-gallery';
+$key = $_GET['key'] ?? null;
+$type = $_GET['type'] ?? 'US';
+
+interface JsGenerator
+{
+    public function showJs();
+}
+
+class ApiHelper
+{
+    /**
+     * @param string $url
+     * @return bool|string
+     */
+    public function sendGetRequest(string $url)
+    {
+        $ch = curl_init();
+
+        $headers = array(
+            'Accept: application/json',
+            'Content-Type: application/json',
+
+        );
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($ch);
+
+        return $response;
+    }
+}
+
+class WidgetApiInteractor extends ApiHelper
+{
+    private $galleryApiEndPoint = 'https://dreamsapi.bmby.com/api/dreamsv2/gallery';
+    private $aboutApiEndPoint = 'https://dreamsapi.bmby.com/api/dreamsv2/about/';
+
+    /**
+     * @param string $apiKey
+     * @return bool|string
+     */
+    public function getGalleryApiData(string $apiKey)
+    {
+        return $this->sendGetRequest($this->galleryApiEndPoint . "/" . $apiKey);
+    }
+
+    /**
+     * @param string $apiKey
+     * @return bool|string
+     */
+    public function getAboutUsPageData(string $apiKey)
+    {
+        return $this->sendGetRequest($this->aboutApiEndPoint . "/" . $apiKey);
+    }
+}
+
+class GalleryJsGenerator implements JsGenerator
+{
+
+    private $jsString;
+
+    public function __construct(string $galleryData)
+    {
+        $this->jsString = '';
+    }
+
+    public function showJs()
+    {
+        // TODO: Implement showJs() method.
+    }
+}
+
+class AboutUsJsGenerator implements JsGenerator
+{
+    public function showJs()
+    {
+        // TODO: Implement showJs() method.
+    }
+}
+
 $js = <<<EOD
 let galleryData = [
 
@@ -100,7 +184,7 @@ let galleryData = [
     },
 ];
 
-let canvasClass = 'bmby-gallery';
+let canvasClass = '$canvas';
 
 let hasUbuntuFont = false;
 
