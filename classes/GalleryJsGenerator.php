@@ -28,7 +28,7 @@ class GalleryJsGenerator implements JsGenerator
     {
         $this->jsString = <<<EOD
 let galleryData = $this->galleryData;
-
+console.log(galleryData);
 let canvasClass = '$this->canvasClass';
 
 let hasUbuntuFont = false;

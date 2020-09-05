@@ -6,10 +6,10 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php if(isset($_GET['page']) && $_GET['page'] === 'about_us'): ?>
-        <script src="js/about_us.php"></script>
+        <script src="js/about_us.php?key=4CEFC377-5791-41BD-9BB1-6E431F11F5D9"></script>
     <?php endif; ?>
     <?php if(isset($_GET['page']) && $_GET['page'] === 'gallery'): ?>
-        <script src="js/gallery.php"></script>
+        <script src="js/gallery.php?key=4CEFC377-5791-41BD-9BB1-6E431F11F5D9"></script>
     <?php endif; ?>
     <title>Document</title>
 </head>
@@ -22,7 +22,7 @@
 <?php endif; ?>
 
 <?php if(isset($_GET['page']) && $_GET['page'] === 'about_us'): ?>
-    <div class="bmby-about-us"></div>
+    <div class="bmby-about"></div>
 <?php endif; ?>
 <?php if(isset($_GET['page']) && $_GET['page'] === 'gallery'): ?>
     <div class="bmby-gallery"></div>
