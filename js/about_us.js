@@ -1,52 +1,7 @@
-let aboutUsData = [
-    {
-        "title": "Title 1",
-        "description": "Featuring expansive studio, 1- and 2-bedroom residences, 251 West 117th boasts high end finishes, state-of-the-art appliances, and panoramic views. Your luxury home will feature floor to ceiling windows, quartz kitchen countertops, stainless steel appliances, and closets outfitted for maximum storage. ",
-        "chapter": "Chapter 1",
-        "imageUrl": "https://barnes-newyork.com/wp-content/uploads/2018/09/barnes-new-york-all-buroughs-luxury-real-estate-property-1600x1068-1024x684.jpg",
-        "order": 0,
-        "advantages": [
-            {
-                "iconSrc": "img/default-icon.svg",
-                "advantageTitle": "Advantage 1",
-                "explanation": "Explanation Advantage 1 looooong"
-            },
-            {
-                "iconSrc": "img/default-icon.svg",
-                "advantageTitle": "Advantage 2",
-                "explanation": "Explanation Advantage 2 looooong"
-            },
-            {
-                "iconSrc": "img/default-icon.svg",
-                "advantageTitle": "Advantage 3",
-                "explanation": "Explanation Advantage 3 looooong"
-            },
-        ]
-    },
-    {
-        "title": "Title 2",
-        "description": "description 2 is very very very very very very very very very very long description will be here ...",
-        "chapter": "Chapter 2",
-        "imageUrl": "https://media.equityapartments.com/images/c_crop,x_0,y_0,w_1920,h_1080/c_fill,w_737,h_414/q_80/4208-72/340-fremont-apartments-exterior.jpg",
-        "order": 0
-    },
-    {
-        "title": "Title 3",
-        "description": "forEach does not wait for promises. Kindly make sure you are aware of the implications while using promises(or async functions) as forEach callback. Example Code",
-        "chapter": "Chapter 3",
-        "imageUrl": "https://img.staticmb.com/mbphoto/property/cropped_images/2020/Mar/03/Photo_h300_w450/48463433_1_lub_and_infra_300_450.jpg",
-        "order": 0
-    },
-    {
-        "title": "Title 4",
-        "description": "forEach does not wait for promises. Kindly make sure you are aware of the implications while using promises(or async functions) as forEach callback. Example Code",
-        "chapter": "Chapter 4",
-        "imageUrl": "https://strana.ua/img/article/1245/8_main.jpeg",
-        "order": 0
-    },
-];
-
+let aboutUsData =  [{"title":{"en":"About 2"},"description":{"en":"xcvcxvcxvczv"},"chapter":{"en":"Chapter 2"},"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/about\/greypfrut-vyalenyy_0.png","order":0},{"title":{"en":"Title 355"},"description":{"en":""},"chapter":{"en":"Chapter 3"},"imageUrl":"","order":1},{"title":{"en":"Title 55555"},"description":{"en":"dc dc d d "},"chapter":{"en":"Chapter 4"},"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/about\/461_0.png","order":2},{"title":{"en":"Title 355"},"description":{"en":""},"chapter":{"en":"Chapter 1"},"imageUrl":"","order":3}];
+console.log(aboutUsData);
 let canvasClass = 'bmby-about-us';
+let lang = 'en';
 let hasUbuntuFont = false;
 let aboutUsSections = [];
 
@@ -103,7 +58,7 @@ class AboutUsBuilder {
         // we will clone it
         // to make necessary menu items
         let menuItem = this.container.getElementsByClassName('elem-menu')[0];
-        menuItem.textContent = aboutUsData[0]['chapter'];
+        menuItem.textContent = aboutUsData[0]['chapter'][lang];
 
         aboutUsData.forEach((el, index) => {
             // if first, use base menu item, else clone and create new
@@ -118,7 +73,7 @@ class AboutUsBuilder {
             }
             newMenuItem.dataset.index = index;
             // set text
-            newMenuItem.textContent = el['chapter'];
+            newMenuItem.textContent = el['chapter'][lang];
 
             menuItem.after(newMenuItem);
 
@@ -128,9 +83,9 @@ class AboutUsBuilder {
 
     updateMainData(data) {
         let elemTitle = document.getElementById(this.getId() + '__elem-title');
-        elemTitle.textContent = data['title'];
+        elemTitle.textContent = data['title'][lang];
         let elemText = document.getElementById(this.getId() + '__elem-text');
-        elemText.textContent = data['description'];
+        elemText.textContent = data['description'][lang];
         let elemImg = document.getElementById(this.getId() + '__elem-img');
         elemImg.setAttribute('src', data['imageUrl'])
     }
