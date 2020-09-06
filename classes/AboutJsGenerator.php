@@ -10,7 +10,7 @@ class AboutJsGenerator implements JsGenerator
     private $lang;
     private $callbackFunctionName;
 
-    public function __construct(string $aboutData = '', string $canvasClass = 'bmby-about', string $lang = 'en', string $callbackFunctionName = '')
+    public function __construct(string $aboutData = '', string $canvasClass = 'bmby-about', string $callbackFunctionName = '', string $lang = 'en')
     {
         $this->jsString = '';
         $this->aboutData = $aboutData;
@@ -31,8 +31,12 @@ class AboutJsGenerator implements JsGenerator
         $this->jsString = <<<EOD
 let aboutUsData = $this->aboutData;
 
+console.log(aboutUsData);
+
 let canvasClass = '$this->canvasClass';
 let lang = '$this->lang';
+
+console.log(lang);
 let hasUbuntuFont = false;
 let aboutUsSections = [];
 
