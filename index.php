@@ -1,3 +1,5 @@
 <?php
 
-echo "Hello from about us widget";
+header('Location: ' . '/demo.php');
+
+
