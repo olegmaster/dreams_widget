@@ -103,6 +103,14 @@ let galleries = [];
 
 let mode = 'dev';
 
+try{
+    callbackFunction();
+} catch (e) {
+    if(mode === 'dev'){
+        console.log('unable to run callback');
+    }
+}
+
 // add galleries on document load
 window.addEventListener("load", function (event) {
     let containers = document.getElementsByClassName(canvasClass);
