@@ -8,12 +8,14 @@ class GalleryJsGenerator implements JsGenerator
     private $jsString;
     private $galleryData;
     private $canvasClass;
+    private $callbackFunctionName;
 
-    public function __construct(string $galleryData, string $canvasClass)
+    public function __construct(string $galleryData, string $canvasClass = 'bmby-gallery', string $callbackFunctionName = '')
     {
         $this->jsString = '';
         $this->galleryData = $galleryData;
         $this->canvasClass = $canvasClass;
+        $this->callbackFunctionName = empty($callbackFunctionName) ? 'nonExistentFunction' : $callbackFunctionName ;
         $this->setJs();
 
     }
@@ -35,7 +37,15 @@ let hasUbuntuFont = false;
 
 let galleries = [];
 
-let mode = 'dev';
+let mode = 'prod';
+
+try{
+    $this->callbackFunctionName();
+} catch (e) {
+    if(mode === 'dev'){
+        console.log('unable to run callback');
+    }
+}
 
 // add galleries on document load
 window.addEventListener("load", function (event) {

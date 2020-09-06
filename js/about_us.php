@@ -7,11 +7,12 @@ require_once '../classes/AboutJsGenerator.php';
 $canvasClass = $_GET['canvas'] ?? 'bmby-about';
 $key = $_GET['key'] ?? null;
 $type = $_GET['type'] ?? 'US';
+$callback = $_GET['callback'] ?? '';
 
 
 $apiInteractor = new WidgetApiInteractor();
 $aboutData = $apiInteractor->getAboutUsPageData($_GET['key'] ?? '');
 
-$aboutJsGenerator = new AboutJsGenerator($aboutData, $canvasClass);
+$aboutJsGenerator = new AboutJsGenerator($aboutData, $canvasClass, $callback);
 
 $aboutJsGenerator->showJs();

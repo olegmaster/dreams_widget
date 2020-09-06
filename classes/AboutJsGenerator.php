@@ -8,13 +8,15 @@ class AboutJsGenerator implements JsGenerator
     private $aboutData;
     private $canvasClass;
     private $lang;
+    private $callbackFunctionName;
 
-    public function __construct(string $aboutData = '', string $canvasClass = 'bmby-about', string $lang = 'en')
+    public function __construct(string $aboutData = '', string $canvasClass = 'bmby-about', string $lang = 'en', string $callbackFunctionName = '')
     {
         $this->jsString = '';
         $this->aboutData = $aboutData;
         $this->canvasClass = $canvasClass;
         $this->lang = $lang;
+        $this->callbackFunctionName = empty($callbackFunctionName) ? 'nonExistentFunction' : $callbackFunctionName ;
         $this->setJs();
     }
 
@@ -33,6 +35,16 @@ let canvasClass = '$this->canvasClass';
 let lang = '$this->lang';
 let hasUbuntuFont = false;
 let aboutUsSections = [];
+
+let mode = 'prod';
+
+try{
+    $this->callbackFunctionName();
+} catch (e) {
+    if(mode === 'dev'){
+        console.log('unable to run callback');
+    }
+}
 
 // add about us on document load
 window.addEventListener("load", function (event) {
