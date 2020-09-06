@@ -1,3 +1,9 @@
+<?php
+    if(empty($_GET['page'])){
+        $_GET['page'] = 'about_us';
+    }
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
