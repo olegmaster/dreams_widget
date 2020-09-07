@@ -42,9 +42,6 @@ const galleryData = categoriesData.map((el) => {
     return el;
 });
 
-console.log(galleryData);
-
-
 let canvasClass = 'bmby-gallery';
 
 let hasUbuntuFont = false;

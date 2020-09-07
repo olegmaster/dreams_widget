@@ -30,9 +30,6 @@ class AboutJsGenerator implements JsGenerator
     {
         $this->jsString = <<<EOD
 let aboutUsData = $this->aboutData;
-
-console.log(aboutUsData);
-
 let canvasClass = '$this->canvasClass';
 let lang = '$this->lang';
 
