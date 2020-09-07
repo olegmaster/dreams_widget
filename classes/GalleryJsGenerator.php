@@ -51,7 +51,7 @@ let hasUbuntuFont = false;
 
 let galleries = [];
 
-let mode = 'dev';
+let mode = 'prod';
 
 try{
     callbackFunction();
