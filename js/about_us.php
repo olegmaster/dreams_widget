@@ -10,8 +10,8 @@ $type = $_GET['type'] ?? 'US';
 $callback = $_GET['callback'] ?? '';
 
 
-$apiInteractor = new WidgetApiInteractor();
-$aboutData = $apiInteractor->getAboutUsPageData($_GET['key'] ?? '');
+$apiInteractor = new WidgetApiInteractor($_GET['key'] ?? '');
+$aboutData = $apiInteractor->getAboutUsPageData();
 
 $aboutJsGenerator = new AboutJsGenerator($aboutData, $canvasClass, $callback);
 

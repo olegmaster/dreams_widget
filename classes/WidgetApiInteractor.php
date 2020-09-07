@@ -5,28 +5,39 @@ class WidgetApiInteractor extends ApiHelper
 {
     private $galleryApiEndPoint = 'dreamsapi.bmby.com/api/dreamsv2/gallery';
     private $aboutApiEndPoint = 'dreamsapi.bmby.com/api/dreamsv2/about/';
+    private $galleryCategoriesApiEndPoint = 'dreamsapi.bmby.com/api/dreamsv2/galleryCategories/';
+    private $apiKey;
 
-    /**
-     * @param string $apiKey
-     * @return bool|string
-     */
-    public function getGalleryApiData(string $apiKey)
+    public function __construct(string $apiKey)
     {
-        if(empty($apiKey)){
-            throw new InvalidArgumentException('Api key cannot be empty');
-        }
-        return $this->sendGetRequest($this->galleryApiEndPoint . "/" . $apiKey);
+        $this->apiKey = $apiKey;
     }
 
     /**
-     * @param string $apiKey
      * @return bool|string
      */
-    public function getAboutUsPageData(string $apiKey)
+    public function getGalleryApiData()
     {
-        if(empty($apiKey)){
-            throw new InvalidArgumentException('Api key cannot be empty');
-        }
-        return $this->sendGetRequest($this->aboutApiEndPoint . "/" . $apiKey);
+        return $this->sendRequest($this->galleryApiEndPoint);
+    }
+
+    /**
+     * @return bool|string
+     */
+    public function getGalleryCategoriesApiData()
+    {
+        return $this->sendRequest($this->galleryCategoriesApiEndPoint);
+    }
+
+    /**
+     * @return bool|string
+     */
+    public function getAboutUsPageData()
+    {
+        return $this->sendRequest($this->aboutApiEndPoint);
+    }
+
+    private function sendRequest(string $url){
+        return $this->sendGetRequest($url . "/" . $this->apiKey);
     }
 }

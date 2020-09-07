@@ -7,14 +7,18 @@ class GalleryJsGenerator implements JsGenerator
 
     private $jsString;
     private $galleryData;
+    private $galleryCategoriesData;
+    private $lang;
     private $canvasClass;
     private $callbackFunctionName;
 
-    public function __construct(string $galleryData, string $canvasClass = 'bmby-gallery', string $callbackFunctionName = '')
+    public function __construct(string $galleryData, string $galleryCategoriesData, string $canvasClass = 'bmby-gallery', string $lang = 'en', string $callbackFunctionName = '')
     {
         $this->jsString = '';
         $this->galleryData = $galleryData;
+        $this->galleryCategoriesData = $galleryCategoriesData;
         $this->canvasClass = $canvasClass;
+        $this->lang = $lang;
         $this->callbackFunctionName = empty($callbackFunctionName) ? 'nonExistentFunction' : $callbackFunctionName ;
         $this->setJs();
 
@@ -29,18 +33,28 @@ class GalleryJsGenerator implements JsGenerator
     private function setJs()
     {
         $this->jsString = <<<EOD
-let galleryData = $this->galleryData;
+const categoriesData = $this->galleryCategoriesData;
+const imgData = $this->galleryData;
+const lang = '$this->lang';
+
+const galleryData = categoriesData.map((el) => {
+    el.images = imgData.filter(imgEl => imgEl.categoryId === el.categoryId);
+    return el;
+});
+
 console.log(galleryData);
-let canvasClass = '$this->canvasClass';
+
+
+let canvasClass = 'bmby-gallery';
 
 let hasUbuntuFont = false;
 
 let galleries = [];
 
-let mode = 'prod';
+let mode = 'dev';
 
 try{
-    $this->callbackFunctionName();
+    callbackFunction();
 } catch (e) {
     if(mode === 'dev'){
         console.log('unable to run callback');
@@ -114,7 +128,7 @@ class GalleryBuilder {
         // to make necessary menu items
         let menuItem = this.container.getElementsByClassName('elem-menu')[0];
 
-        menuItem.textContent = galleryData[0]['title'];
+        menuItem.textContent = galleryData[0]['name'];
 
         galleryData.forEach((el, index) => {
             // if first, use base menu item, else clone and create new
@@ -129,7 +143,7 @@ class GalleryBuilder {
             }
             newMenuItem.dataset.index = index;
             // set text
-            newMenuItem.textContent = el['title'];
+            newMenuItem.textContent = el['name'];
 
             menuItem.after(newMenuItem);
 
@@ -166,7 +180,7 @@ class GalleryBuilder {
 
         data.images.forEach((el, index) => {
             let elem = document.createElement('div');
-            elem.innerHTML = '<div class="slider-img" style="background: url(' + el['imageUrl'] + ') 50% 50% no-repeat;background-size: cover" onclick="makeFullScrean(this)" ></div>';
+            elem.innerHTML = '<div class="slider-img" style="background: url(' +  encodeURI(el['imageUrl']) + ') 50% 50% no-repeat;background-size: cover" onclick="makeFullScrean(this)" ></div>';
             if(this.glider){
                 this.glider.addItem(elem);
             } else {

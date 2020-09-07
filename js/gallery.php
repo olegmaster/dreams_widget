@@ -8,10 +8,11 @@ $key = $_GET['key'] ?? null;
 $type = $_GET['type'] ?? 'US';
 $callback = $_GET['callback'] ?? '';
 
-$apiInteractor = new WidgetApiInteractor();
-$galleryData = $apiInteractor->getGalleryApiData($_GET['key'] ?? '');
+$apiInteractor = new WidgetApiInteractor($_GET['key'] ?? '');
+$galleryData = $apiInteractor->getGalleryApiData();
+$galleryCategoriesData = $apiInteractor->getGalleryCategoriesApiData();
 
-$galleryJsGenerator = new GalleryJsGenerator($galleryData, $canvasClass, $callback);
+$galleryJsGenerator = new GalleryJsGenerator($galleryData, $galleryCategoriesData, $canvasClass, $callback);
 
 $galleryJsGenerator->showJs();
 
