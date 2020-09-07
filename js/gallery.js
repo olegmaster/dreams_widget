@@ -1,99 +1,16 @@
-let galleryData = [
+const categoriesData = [{"categoryId":1,"name":"Interior"},{"categoryId":2,"name":"Exterior"},{"categoryId":3,"name":"Amenities"},{"categoryId":4,"name":"Neighborhood"}];
 
-    {
-        "title": "Exterior",
-        "images": [
-            {
-                "title": "Home 1",
-                "imageUrl": "https://img.lunstatic.net/building-800x600/4935.jpg",
-            },
-            {
-                "title": "Home 2",
-                "imageUrl": "https://www.bild.ua/images/thumb/full/00005bb4ebbb3497e31e",
-            },
-            {
-                "title": "Interier",
-                "imageUrl": "https://zabudovnyk.com.ua/img/news/2019/07/54153-campus.jpg",
-            },
-            {
-                "title": "Home 1",
-                "imageUrl": "https://img.lunstatic.net/building-800x600/19560.jpg",
-            },
-        ]
-    },
-    {
-        "title": "Interiors",
-        "images": [
-            {
-                "title": "Home 1",
-                "imageUrl": "https://media.equityapartments.com/images/c_crop,x_0,y_0,w_1920,h_1080/c_fill,w_737,h_414/q_80/4208-72/340-fremont-apartments-exterior.jpg",
-            },
-            {
-                "title": "Home 2",
-                "imageUrl": "https://img.staticmb.com/mbphoto/property/cropped_images/2020/Mar/03/Photo_h300_w450/48463433_1_lub_and_infra_300_450.jpg",
-            },
-            {
-                "title": "Interier",
-                "imageUrl": "https://strana.ua/img/article/1245/8_main.jpeg",
-            },
-            {
-                "title": "Home 1",
-                "imageUrl": "https://bn.ua/img/data/img587b30c48aca0_1484468420_2.jpg",
-            },
-            {
-                "title": "Home 2",
-                "imageUrl": "https://pro-novostroyki.com.ua/upload/resize_cache/iblock/254/624_396_2/254a00e17c246fb42336eed27883b667.jpg",
-            },
-            {
-                "title": "Interier",
-                "imageUrl": "https://mayertrade.com.ua/img/leoblog/b/lg-b-mono_skyline_main.jpg",
-            },
-        ]
+const imgData = [{"title":{"en":"Image 1"},"categoryId":4,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/460_1.jpg","order":0},{"title":{"en":"Image 27","ru":"Image 27"},"categoryId":3,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/461_1.jpg","order":1},{"title":{"en":"Image 3"},"categoryId":2,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/461_0.jpg","order":2},{"title":{"en":"Image 4"},"categoryId":3,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/antiko-1l_0.png","order":3},{"title":{"en":"Title 355","ru":"Title 355"},"categoryId":1,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/Model - dreams files.png","order":4},{"title":{"en":"Image 7","ru":"\u041a\u0430\u0440\u0442\u0438\u043d\u043a\u0430 7"},"categoryId":1,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/0_1.jpg","order":6}];
 
-    },
-    {
-        "title": "Neighbourhood",
-        "images": [
-            {
-                "title": "Home 1",
-                "imageUrl": "https://img.tsn.ua/cached/1533896471/tsn-ec97a3c0a2ace5bfabc1ed73666af320/thumbs/1340x530/59/76/d26337e6c9a12772e9cf1861c0877659.jpg",
-            },
-            {
-                "title": "Home 2",
-                "imageUrl": "https://img.tsn.ua/cached/1432884187/tsn-01f773897a640af2a4247ac9175b2cf4/thumbs/315x210/78/94/9b405053a3af6ea22f6b10592d5d9478.jpg",
-            },
-            {
-                "title": "Interier",
-                "imageUrl": "https://img.lunstatic.net/building-800x600/35681.jpg",
-            },
-            {
-                "title": "Home 1",
-                "imageUrl": "https://novostroyki.realt.ua/store/novostroyki/57a060bfb03660345040af15/photos/267a08a1387dc3d147e425a61781f5b8.jpg",
-            },
-        ]
-    },
-    {
-        "title": "Neighbourhood2",
-        "images": [
-            {
-                "title": "Home 1",
-                "imageUrl": "https://dom-plus.ua/images/kupit-kvartiru-v-kieve-vugodno-i-bistro-dom-plus.jpg",
-            },
-            {
-                "title": "Home 2",
-                "imageUrl": "https://static.ukrinform.com/photos/2018_02/thumb_files/630_360_1519217360-2461.jpg",
-            },
-            {
-                "title": "Interier",
-                "imageUrl": "https://mistechko.com/files/images/items/0/119ve9d4b8a1.jpg",
-            },
-            {
-                "title": "Home 1",
-                "imageUrl": "https://www.real-estate.lviv.ua/img/objects/400x300/a4/2e/a42e978f659e8d48bef377e89c6e8b97.jpg",
-            },
-        ]
-    },
-];
+const lang = 'en';
+
+const galleryData = categoriesData.map((el) => {
+    el.images = imgData.filter(imgEl => imgEl.categoryId === el.categoryId);
+    return el;
+});
+
+console.log(galleryData);
+
 
 let canvasClass = 'bmby-gallery';
 
@@ -178,7 +95,7 @@ class GalleryBuilder {
         // to make necessary menu items
         let menuItem = this.container.getElementsByClassName('elem-menu')[0];
 
-        menuItem.textContent = galleryData[0]['title'];
+        menuItem.textContent = galleryData[0]['name'];
 
         galleryData.forEach((el, index) => {
             // if first, use base menu item, else clone and create new
@@ -193,7 +110,7 @@ class GalleryBuilder {
             }
             newMenuItem.dataset.index = index;
             // set text
-            newMenuItem.textContent = el['title'];
+            newMenuItem.textContent = el['name'];
 
             menuItem.after(newMenuItem);
 
@@ -230,7 +147,7 @@ class GalleryBuilder {
 
         data.images.forEach((el, index) => {
             let elem = document.createElement('div');
-            elem.innerHTML = '<div class="slider-img" style="background: url(' + el['imageUrl'] + ') 50% 50% no-repeat;background-size: cover" onclick="makeFullScrean(this)" ></div>';
+            elem.innerHTML = '<div class="slider-img" style="background: url(' +  encodeURI(el['imageUrl']) + ') 50% 50% no-repeat;background-size: cover" onclick="makeFullScrean(this)" ></div>';
             if(this.glider){
                 this.glider.addItem(elem);
             } else {
