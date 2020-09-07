@@ -51,7 +51,7 @@ let galleries = [];
 let mode = 'prod';
 
 try{
-    callbackFunction();
+    $this->callbackFunctionName();
 } catch (e) {
     if(mode === 'dev'){
         console.log('unable to run callback');
