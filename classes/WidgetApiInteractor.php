@@ -3,14 +3,18 @@ require_once 'ApiHelper.php';
 
 class WidgetApiInteractor extends ApiHelper
 {
-    private $galleryApiEndPoint = 'dreamsapi.bmby.com/api/dreamsv2/gallery';
-    private $aboutApiEndPoint = 'dreamsapi.bmby.com/api/dreamsv2/about/';
-    private $galleryCategoriesApiEndPoint = 'dreamsapi.bmby.com/api/dreamsv2/galleryCategories/';
+    private $apiEndPoint = '';
+
+    private $galleryFnc = 'api/dreamsv2/gallery';
+    private $aboutFnc = 'api/dreamsv2/about/';
+    private $galleryCategoriesFnc = 'api/dreamsv2/galleryCategories/';
     private $apiKey;
 
-    public function __construct(string $apiKey)
+    public function __construct(string $apiKey, string $type)
     {
         $this->apiKey = $apiKey;
+        //$this->apiEndPoint = ($type == 'US')?$_SERVER['endpoint_US']:$_SERVER['endpoint_IL']; // uncomment on production server
+        $this->apiEndPoint = 'https://dreamsapi.bmby.com';   // temporary code, remove on production
     }
 
     /**
@@ -18,7 +22,7 @@ class WidgetApiInteractor extends ApiHelper
      */
     public function getGalleryApiData()
     {
-        return $this->sendRequest($this->galleryApiEndPoint);
+        return $this->sendRequest($this->galleryFnc);
     }
 
     /**
@@ -26,7 +30,7 @@ class WidgetApiInteractor extends ApiHelper
      */
     public function getGalleryCategoriesApiData()
     {
-        return $this->sendRequest($this->galleryCategoriesApiEndPoint);
+        return $this->sendRequest($this->galleryCategoriesFnc);
     }
 
     /**
@@ -34,10 +38,11 @@ class WidgetApiInteractor extends ApiHelper
      */
     public function getAboutUsPageData()
     {
-        return $this->sendRequest($this->aboutApiEndPoint);
+        return $this->sendRequest($this->aboutFnc);
     }
 
     private function sendRequest(string $url){
-        return $this->sendGetRequest($url . "/" . $this->apiKey);
+
+        return $this->sendGetRequest($this->apiEndPoint . "/" . $url . "/" . $this->apiKey);
     }
 }

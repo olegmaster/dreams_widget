@@ -36,13 +36,12 @@ class GalleryJsGenerator implements JsGenerator
 const categoriesData = $this->galleryCategoriesData;
 const imgData = $this->galleryData;
 const lang = '$this->lang';
+let canvasClass = '$this->canvasClass';
 
 const galleryData = categoriesData.map((el) => {
     el.images = imgData.filter(imgEl => imgEl.categoryId === el.categoryId);
     return el;
 });
-
-let canvasClass = 'bmby-gallery';
 
 let hasUbuntuFont = false;
 
