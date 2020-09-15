@@ -46,29 +46,34 @@ document.addEventListener("DOMContentLoaded", function (event) {
     addScripts();
     galleryContainer = document.querySelectorAll('.'+canvasClass);
     addUbuntuFont();
-    addBasicStyle();
+    // addBasicStyle();
     insertMenu();
     initGallery();
 });
 
-// window.addEventListener('scroll',anhorActivity);
+window.addEventListener('scroll',anchorActivity);
 
 
-function anhorActivity () {
+function anchorActivity (e) {
     galleryContainer.forEach(gallery=>{
-        // const a = isScrolledIntoView(gallery);
-        console.log(gallery, gallery.getBoundingClientRect());
-        console.log(window.innerHeight);
-        const imagesCollection = gallery.querySelectorAll('.images__container > .image__href');
-        // console.log(imagesCollection);
-       // console.log(gallery.dataset.index,gallery.getBoundingClientRect());
+        const galleryImages = gallery.querySelectorAll('.images__container > .image__href');
+        galleryImages.forEach((image,index)=>{
+            const isVisible = isScrolledIntoView(image);
+            if (isVisible){
+                setActiveTab(image.dataset.categoryId);
+            }
+        });
     });
 
 }
 
 function isScrolledIntoView(el) {
-    const { top, bottom } = el.getBoundingClientRect();
-    return top >= 0 && bottom <= window.innerHeight;
+    const orientation = getWindowOrientation();
+    if (orientation === 'portrait-primary'){
+        return el.getBoundingClientRect().top <= window.innerHeight;
+    } else {
+        return el.getBoundingClientRect().left + el.getBoundingClientRect().width <= window.innerWidth;
+    }
 }
 
 function insertMenu () {
@@ -93,18 +98,15 @@ function initGallery () {
     galleryContainer.forEach((container,index)=>{
         container.dataset.index = index;
         const imagesContainer = creatHtmlElement(container,'','div',['images__container']);
+        imagesContainer.addEventListener('touchmove',touchGallery);
         imagesContainer.dataset.index = index;
         imgData.sort((prev,next)=>prev.categoryId - next.categoryId);
         imgData.forEach(img =>{
             const a = creatHtmlElement(imagesContainer,'','a',['image__href']);
             a.href = img.imageUrl;
             a.dataset.categoryId = img.categoryId;
-            // if (activeTab.dataset.categoryId !== a.dataset.categoryId ){
-            //     a.classList.add('hide-image-id');
-            // }
             a.dataset.fancybox=`gallery-${index}`;
             const hrefImg = creatHtmlElement(a,'','img',['img__tumbs']);
-            // const hrefImg = creatHtmlElement(a,'','img',`width: 100%; height:100%`);
             hrefImg.src= img.imageUrl;
         });
     });
@@ -124,6 +126,10 @@ function initGallery () {
             })
         }
     },100);
+}
+
+function touchGallery (e) {
+    anchorActivity();
 }
 
 function addUbuntuFont() {
@@ -159,6 +165,10 @@ function addScripts () {
 
 }
 
+function getWindowOrientation() {
+    return window.screen.orientation.type;
+}
+
 function scrollToImages (activeElement) {
     let i=0;
     const parentIndex = activeElement.parentElement.dataset.index;
@@ -166,10 +176,16 @@ function scrollToImages (activeElement) {
     imageCollection.forEach((img) =>{
         if (activeElement.dataset.categoryId === img.dataset.categoryId){
             if (i===0){
-                img.scrollIntoView({
-                    behavior:'smooth',
-                    block:'start',
-                });
+                // if (orientation ==='portrait-primary'){
+                //     const y = img.getBoundingClientRect().top;
+                //     const menuHeight = document.querySelector('.menu__container').getBoundingClientRect().height;
+                //     const childImgHeight = img.firstChild.getBoundingClientRect().height;
+                //     window.scrollBy(0,y - childImgHeight - menuHeight + 15 );
+                // } else {
+                    img.scrollIntoView({
+                        behavior:'smooth',
+                        block:'start',
+                    });
             }
             i++;
         }
@@ -188,16 +204,32 @@ function getActiveTab () {
     return activeTab;
 }
 
+function setActiveTab (id) {
+    const activeTab = getActiveTab();
+        const tabCollection = document.querySelectorAll('.menu__item');
+        tabCollection.forEach(tab => {
+            if (tab.dataset.categoryId === id){
+                activeTab.classList.remove('active');
+                tab.classList.add('active');
+            }
+        });
+}
+
 function switchTab(e) {
+    const orientation = getWindowOrientation();
     const parent = e.parentElement;
     if (e.classList.contains('menu__item')){
         const menuCollection = parent.querySelectorAll('.menu__item');
         menuCollection.forEach(menu =>{
             if (e === menu){
-                menu.classList.add('active');
+                if (orientation !=='portrait-primary'){
+                    menu.classList.add('active');
+                }
                 scrollToImages(menu);
             }else{
-                menu.classList.remove('active');
+                if (orientation !=='portrait-primary'){
+                    menu.classList.remove('active');
+                }
             }
         });
     }
@@ -205,6 +237,10 @@ function switchTab(e) {
 }
 
 const basicStyle =`
+html{
+scroll-behavior: smooth;
+}
+
 .main-container-gallery {
   font-family: 'Ubuntu', sans-serif;
   font-size: 16px;
@@ -215,6 +251,13 @@ const basicStyle =`
   width: 100%;
   height: 100%;
 }
+
+.menu__container{
+  position: fixed;
+  top:0;
+  background: #fff;
+}
+
 .menu__items {
   list-style: none;
   display: flex;
@@ -238,7 +281,6 @@ const basicStyle =`
 .active {
   border-bottom: 2px solid #1a2f43;
   color: #1a2f43;
-  transition: 0.5s;
 }
 .hide-image-id {
   display: none;
