@@ -162,7 +162,7 @@ function addScripts () {
 function scrollToImages (activeElement) {
     let i=0;
     const parentIndex = activeElement.parentElement.dataset.index;
-    const imageCollection = document.querySelectorAll(`.images__container[data-index="${parentIndex}"] >.image__href`);
+    const imageCollection = document.querySelectorAll('.images__container[data-index="'+parentIndex+'"] >.image__href');
     imageCollection.forEach((img) =>{
         if (activeElement.dataset.categoryId === img.dataset.categoryId){
             if (i===0){
