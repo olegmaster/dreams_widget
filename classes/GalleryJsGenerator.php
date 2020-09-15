@@ -78,7 +78,7 @@ function creatHtmlElement(parent, elementName, elementTag, elementClass) {
 // add galleries on document load
 document.addEventListener("DOMContentLoaded", function (event) {
     addScripts();
-    galleryContainer = document.querySelectorAll(`.${canvasClass}`);
+    galleryContainer = document.querySelectorAll('.'+canvasClass);
     addUbuntuFont();
     addBasicStyle();
     insertMenu();
@@ -136,7 +136,7 @@ function initGallery () {
             // if (activeTab.dataset.categoryId !== a.dataset.categoryId ){
             //     a.classList.add('hide-image-id');
             // }
-            a.dataset.fancybox=`gallery-${index}`;
+            a.dataset.fancybox='gallery-'+index;
             const hrefImg = creatHtmlElement(a,'','img',['img__tumbs']);
             // const hrefImg = creatHtmlElement(a,'','img',`width: 100%; height:100%`);
             hrefImg.src= img.imageUrl;
@@ -165,7 +165,8 @@ function addUbuntuFont() {
 }
 
 function addBasicStyle () {
-    document.head.innerHTML +=`<style>${basicStyle}</style>`;
+    const replacedStyle = basicStyle.replace('main-container-gallery', canvasClass);
+    document.head.innerHTML +='<style>'+replacedStyle+'</style>';
 
 }
 
@@ -195,7 +196,7 @@ function addScripts () {
 function scrollToImages (activeElement) {
     let i=0;
     const parentIndex = activeElement.parentElement.dataset.index;
-    const imageCollection = document.querySelectorAll(`.images__container[data-index="${parentIndex}"] >.image__href`);
+    const imageCollection = document.querySelectorAll(`.images__container[data-index="+parentIndex+"] >.image__href`);
     imageCollection.forEach((img) =>{
         if (activeElement.dataset.categoryId === img.dataset.categoryId){
             if (i===0){
@@ -238,7 +239,7 @@ function switchTab(e) {
 }
 
 const basicStyle =`
-.bmby-gallery {
+.main-container-gallery {
   font-family: 'Ubuntu', sans-serif;
   font-size: 16px;
   color: #C0C0C0;

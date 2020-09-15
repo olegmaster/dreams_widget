@@ -9,7 +9,7 @@ const galleryData = categoriesData.map((el) => {
     return el;
 });
 
-let canvasClass = 'bmby-gallery';
+let canvasClass = 'bmby-gallery-wrapp';
 let galleryContainer;
 let checkInterval;
 
@@ -44,7 +44,7 @@ function creatHtmlElement(parent, elementName, elementTag, elementClass) {
 // add galleries on document load
 document.addEventListener("DOMContentLoaded", function (event) {
     addScripts();
-    galleryContainer = document.querySelectorAll(`.${canvasClass}`);
+    galleryContainer = document.querySelectorAll('.'+canvasClass);
     addUbuntuFont();
     addBasicStyle();
     insertMenu();
@@ -131,7 +131,8 @@ function addUbuntuFont() {
 }
 
 function addBasicStyle () {
-    document.head.innerHTML +=`<style>${basicStyle}</style>`;
+    const replacedStyle = basicStyle.replace('main-container-gallery', canvasClass);
+    document.head.innerHTML +=`<style>${replacedStyle}</style>`;
 
 }
 
@@ -204,7 +205,7 @@ function switchTab(e) {
 }
 
 const basicStyle =`
-.bmby-gallery {
+.main-container-gallery {
   font-family: 'Ubuntu', sans-serif;
   font-size: 16px;
   color: #C0C0C0;
