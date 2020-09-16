@@ -13,6 +13,7 @@
 }
 .menu__container {
   position: fixed;
+  top: 0;
   background: #fff;
   width: 100%;
 }

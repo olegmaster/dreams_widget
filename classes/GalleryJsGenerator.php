@@ -335,6 +335,7 @@ const basicStyle =`
 }
 .menu__container {
   position: fixed;
+  top:0;
   background: #fff;
   width: 100%;
 }
@@ -381,21 +382,7 @@ const basicStyle =`
   text-align: right;
   direction: rtl;
 }
-.menu__items__two-elements {
-  text-align: center;
-  flex-basis: 50%;
-}
-.menu__items__one-element {
-  text-align: center;
-  flex-basis: 50%;
-}
-.menu__items__three-elements {
-  text-align: center;
-  flex-basis: 33.333%;
-}
-.menu__items__four-or-more-elements {
-  text-align: center;
-}
+
 @media (orientation: landscape) {
   .images__container {
     overflow-x: scroll;
