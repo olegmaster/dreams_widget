@@ -138,19 +138,19 @@ function setMenuStyle (menuItems) {
 
     if (orientation === 'portrait-primary'){
 
-    if (scrollWidth <= currentView && lengthItems > 1){
-        menuItems.style.justifyContent = 'space-between';
-        for (let child of childrenItems){
-            child.style.flexBasis= 100 / lengthItems+'%';
-            child.style.textAlign='center';
+        if (scrollWidth <= currentView && lengthItems > 1){
+            menuItems.style.justifyContent = 'space-between';
+            for (let child of childrenItems){
+                child.style.flexBasis= 100 / lengthItems+'%';
+                child.style.textAlign='center';
+            }
+        } else if ( scrollWidth <= currentView && lengthItems === 1){
+            menuItems.style.justifyContent = 'center';
+            for (let child of childrenItems){
+                child.style.flexBasis= 100 / lengthItems+'%';
+                child.style.textAlign='center';
+            }
         }
-    } else if ( scrollWidth <= currentView && lengthItems === 1){
-        menuItems.style.justifyContent = 'center';
-        for (let child of childrenItems){
-            child.style.flexBasis= 100 / lengthItems+'%';
-            child.style.textAlign='center';
-        }
-    }
     }
 }
 
@@ -180,8 +180,8 @@ function initGallery () {
             window.jQuery = window.$ = jQuery;
             $('[data-fancybox]').fancybox({
                 buttons:[
-                  // 'zoom',
-                  'close'
+                    // 'zoom',
+                    'close'
                 ],
                 arrows:false,
                 infobar: false,
@@ -205,7 +205,7 @@ function checkFromImagesContainerLandscape () {
             }
         },100);
     }else{
-    clearInterval(interval);
+        clearInterval(interval);
     }
 }
 
@@ -257,10 +257,10 @@ function scrollToImages (activeElement) {
     imageCollection.forEach((img) =>{
         if (activeElement.dataset.categoryId === img.dataset.categoryId){
             if (i===0){
-                    img.scrollIntoView({
-                        behavior:'smooth',
-                        block:'start',
-                    });
+                img.scrollIntoView({
+                    behavior:'smooth',
+                    block:'start',
+                });
             }
             i++;
         }
@@ -272,22 +272,23 @@ function getActiveTab () {
     let activeTab;
     const tabCollection = document.querySelectorAll('.menu__item');
     tabCollection.forEach(tab => {
-       if (tab.classList.contains('active')){
-           activeTab = tab;
-       }
+        if (tab.classList.contains('active')){
+            activeTab = tab;
+        }
     });
     return activeTab;
 }
 
 function setActiveTab (id) {
     const activeTab = getActiveTab();
-        const tabCollection = document.querySelectorAll('.menu__item');
-        tabCollection.forEach(tab => {
-            if (tab.dataset.categoryId === id){
-                activeTab.classList.remove('active');
-                tab.classList.add('active');
-            }
-        });
+    const tabCollection = document.querySelectorAll('.menu__item');
+    tabCollection.forEach(tab => {
+        if (tab.dataset.categoryId === id){
+            activeTab.classList.remove('active');
+            tab.classList.add('active');
+            scrollContainer(tab);
+        }
+    });
 }
 
 function switchTab(e) {
@@ -297,7 +298,6 @@ function switchTab(e) {
         const menuCollection = parent.querySelectorAll('.menu__item');
         menuCollection.forEach(menu =>{
             if (e === menu){
-                scrollContainer(e);
                 scrollToImages(menu);
                 if (orientation !=='portrait-primary'){
                     checkFromImagesContainerLandscape();
@@ -320,6 +320,10 @@ function scrollContainer (container) {
 }
 
 const basicStyle =`
+body{
+  margin: 0;
+}
+
 .main-container-gallery {
   font-family: 'Ubuntu', sans-serif;
   font-size: 16px;

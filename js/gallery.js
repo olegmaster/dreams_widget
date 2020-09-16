@@ -252,6 +252,7 @@ function setActiveTab (id) {
         if (tab.dataset.categoryId === id){
             activeTab.classList.remove('active');
             tab.classList.add('active');
+            scrollContainer(tab);
         }
     });
 }
@@ -263,7 +264,6 @@ function switchTab(e) {
         const menuCollection = parent.querySelectorAll('.menu__item');
         menuCollection.forEach(menu =>{
             if (e === menu){
-                scrollContainer(e);
                 scrollToImages(menu);
                 if (orientation !=='portrait-primary'){
                     checkFromImagesContainerLandscape();
@@ -286,6 +286,10 @@ function scrollContainer (container) {
 }
 
 const basicStyle =`
+body{
+  margin: 0;
+}
+
 .main-container-gallery {
   font-family: 'Ubuntu', sans-serif;
   font-size: 16px;
