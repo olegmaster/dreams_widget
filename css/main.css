@@ -1,16 +1,15 @@
-html {
-  scroll-behavior: smooth;
-}
 .bmby-gallery-wrapp {
   font-family: 'Ubuntu', sans-serif;
   font-size: 16px;
   color: #C0C0C0;
   font-weight: 500;
+  position: relative;
 }
 .img__tumbs {
   object-fit: cover;
-  width: 375px;
-  height: 375px;
+  width: 100vw;
+  height: 100vw;
+  margin-bottom: 8px;
 }
 .menu__container {
   position: fixed;
@@ -33,11 +32,14 @@ html {
   overflow-x: hidden;
 }
 .menu__item {
-  margin-left: 24px;
+  text-align: center;
   padding: 12px 0;
+  margin: 0 12px;
 }
-.menu__item:first-child {
-  margin-left: 10px;
+.menu__plug {
+  content: '';
+  min-width: 1px;
+  max-width: 1px;
 }
 .active {
   border-bottom: 2px solid #1a2f43;
@@ -57,9 +59,31 @@ html {
   text-align: right;
   direction: rtl;
 }
+.menu__items__two-elements {
+  text-align: center;
+  flex-basis: 50%;
+}
+.menu__items__one-element {
+  text-align: center;
+  flex-basis: 50%;
+}
+.menu__items__three-elements {
+  text-align: center;
+  flex-basis: 33.333%;
+}
+.menu__items__four-or-more-elements {
+  text-align: center;
+}
 @media (orientation: landscape) {
   .images__container {
     overflow-x: scroll;
     display: flex;
+  }
+  .img__tumbs {
+    object-fit: cover;
+    width: calc(100vh - 46px);
+    height: calc(100vh - 46px);
+    margin-right: 8px;
+    margin-bottom: 0;
   }
 }

@@ -85,24 +85,29 @@ document.addEventListener("DOMContentLoaded", function (event) {
     initGallery();
 });
 
-// window.addEventListener('scroll',anhorActivity);
+window.addEventListener('scroll',anchorActivity);
 
 
-function anhorActivity () {
+function anchorActivity (e) {
     galleryContainer.forEach(gallery=>{
-        // const a = isScrolledIntoView(gallery);
-        console.log(gallery, gallery.getBoundingClientRect());
-        console.log(window.innerHeight);
-        const imagesCollection = gallery.querySelectorAll('.images__container > .image__href');
-        // console.log(imagesCollection);
-       // console.log(gallery.dataset.index,gallery.getBoundingClientRect());
+        const galleryImages = gallery.querySelectorAll('.images__container > .image__href');
+        galleryImages.forEach((image,index)=>{
+            const isVisible = isScrolledIntoView(image);
+            if (isVisible){
+                setActiveTab(image.dataset.categoryId);
+            }
+        });
     });
 
 }
 
 function isScrolledIntoView(el) {
-    const { top, bottom } = el.getBoundingClientRect();
-    return top >= 0 && bottom <= window.innerHeight;
+    const orientation = getWindowOrientation();
+    if (orientation === 'portrait-primary'){
+        return el.getBoundingClientRect().top <= window.innerHeight;
+    } else {
+        return el.getBoundingClientRect().left + el.getBoundingClientRect().width -20 <= window.innerWidth;
+    }
 }
 
 function insertMenu () {
@@ -117,28 +122,53 @@ function insertMenu () {
                 li.classList.add('active');
             }
         });
+        creatHtmlElement(ul,'','div',['menu__plug']);
+        setMenuStyle(ul);
         ul.addEventListener('click', (e) =>switchTab(e.target));
     });
 
 }
 
+function setMenuStyle (menuItems) {
+    const orientation = getWindowOrientation();
+    const childrenItems = menuItems.children;
+    const lengthItems = menuItems.children.length;
+    const scrollWidth = menuItems.scrollWidth;
+    const currentView = menuItems.offsetWidth;
+
+    if (orientation === 'portrait-primary'){
+
+    if (scrollWidth <= currentView && lengthItems > 1){
+        menuItems.style.justifyContent = 'space-between';
+        for (let child of childrenItems){
+            child.style.flexBasis= 100 / lengthItems+'%';
+            child.style.textAlign='center';
+        }
+    } else if ( scrollWidth <= currentView && lengthItems === 1){
+        menuItems.style.justifyContent = 'center';
+        for (let child of childrenItems){
+            child.style.flexBasis= 100 / lengthItems+'%';
+            child.style.textAlign='center';
+        }
+    }
+    }
+}
+
 function initGallery () {
-    const activeTab = getActiveTab();
+    const menuHeight = document.querySelector('.menu__container').scrollHeight;
     galleryContainer.forEach((container,index)=>{
         container.dataset.index = index;
         const imagesContainer = creatHtmlElement(container,'','div',['images__container']);
+        imagesContainer.style.paddingTop = menuHeight+'px';
+        imagesContainer.addEventListener('touchmove',touchGallery);
         imagesContainer.dataset.index = index;
         imgData.sort((prev,next)=>prev.categoryId - next.categoryId);
         imgData.forEach(img =>{
             const a = creatHtmlElement(imagesContainer,'','a',['image__href']);
             a.href = img.imageUrl;
             a.dataset.categoryId = img.categoryId;
-            // if (activeTab.dataset.categoryId !== a.dataset.categoryId ){
-            //     a.classList.add('hide-image-id');
-            // }
             a.dataset.fancybox='gallery-'+index;
             const hrefImg = creatHtmlElement(a,'','img',['img__tumbs']);
-            // const hrefImg = creatHtmlElement(a,'','img',`width: 100%; height:100%`);
             hrefImg.src= img.imageUrl;
         });
     });
@@ -155,9 +185,32 @@ function initGallery () {
                 ],
                 arrows:false,
                 infobar: false,
+                animationEffect: 'fade',
+                animationDuration: 150,
             })
         }
     },100);
+}
+
+function checkFromImagesContainerLandscape () {
+    let interval;
+    const orientation = getWindowOrientation();
+    if (orientation !== 'portrait-primary'){
+        const imgContainer = document.querySelector('.images__container');
+        interval = setInterval(()=>{
+            if (imgContainer.scrollLeft > 0 &&  Math.round(imgContainer.scrollLeft) !== imgContainer.scrollWidth - window.innerWidth){
+                anchorActivity();
+            } else {
+                clearInterval(interval);
+            }
+        },100);
+    }else{
+    clearInterval(interval);
+    }
+}
+
+function touchGallery (e) {
+    checkFromImagesContainerLandscape();
 }
 
 function addUbuntuFont() {
@@ -193,6 +246,10 @@ function addScripts () {
 
 }
 
+function getWindowOrientation() {
+    return window.screen.orientation.type;
+}
+
 function scrollToImages (activeElement) {
     let i=0;
     const parentIndex = activeElement.parentElement.dataset.index;
@@ -200,10 +257,10 @@ function scrollToImages (activeElement) {
     imageCollection.forEach((img) =>{
         if (activeElement.dataset.categoryId === img.dataset.categoryId){
             if (i===0){
-                img.scrollIntoView({
-                    behavior:'smooth',
-                    block:'start',
-                });
+                    img.scrollIntoView({
+                        behavior:'smooth',
+                        block:'start',
+                    });
             }
             i++;
         }
@@ -222,20 +279,44 @@ function getActiveTab () {
     return activeTab;
 }
 
+function setActiveTab (id) {
+    const activeTab = getActiveTab();
+        const tabCollection = document.querySelectorAll('.menu__item');
+        tabCollection.forEach(tab => {
+            if (tab.dataset.categoryId === id){
+                activeTab.classList.remove('active');
+                tab.classList.add('active');
+            }
+        });
+}
+
 function switchTab(e) {
+    const orientation = getWindowOrientation();
     const parent = e.parentElement;
     if (e.classList.contains('menu__item')){
         const menuCollection = parent.querySelectorAll('.menu__item');
         menuCollection.forEach(menu =>{
             if (e === menu){
-                menu.classList.add('active');
+                scrollContainer(e);
                 scrollToImages(menu);
-            }else{
-                menu.classList.remove('active');
+                if (orientation !=='portrait-primary'){
+                    checkFromImagesContainerLandscape();
+                }
             }
         });
     }
 
+}
+
+function scrollContainer (container) {
+    const main = container.parentElement;
+    const menuItem = container.getBoundingClientRect();
+
+    if (menuItem.right > main.offsetWidth){
+        container.parentElement.scrollTo(menuItem.right - main.offsetWidth+ menuItem.width,0);
+    } else if (menuItem.left < 0){
+        container.parentElement.scrollTo(menuItem.left,0);
+    }
 }
 
 const basicStyle =`
@@ -244,15 +325,22 @@ const basicStyle =`
   font-size: 16px;
   color: #C0C0C0;
   font-weight: 500;
+  position: relative;
 }
 .img__tumbs {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vw;
+  margin-bottom: 8px;
+}
+.menu__container {
+  position: fixed;
+  background: #fff;
   width: 100%;
-  height: 100%;
 }
 .menu__items {
   list-style: none;
   display: flex;
-  justify-content: space-between;
   padding: 0;
   overflow-x: scroll;
   margin: 0;
@@ -262,17 +350,22 @@ const basicStyle =`
 .menu__items::-webkit-scrollbar {
   display: none;
 }
-.menu__item {
-  margin-left: 24px;
-  padding: 12px 0;
+.images__container {
+  overflow-x: hidden;
 }
-.menu__item:first-child {
-  margin-left: 10px;
+.menu__item {
+  text-align: center;
+  padding: 12px 0;
+  margin: 0 12px;
+}
+.menu__plug {
+  content: '';
+  min-width: 1px;
+  max-width: 1px;
 }
 .active {
   border-bottom: 2px solid #1a2f43;
   color: #1a2f43;
-  transition: 0.5s;
 }
 .hide-image-id {
   display: none;
@@ -287,6 +380,34 @@ const basicStyle =`
 .rtl {
   text-align: right;
   direction: rtl;
+}
+.menu__items__two-elements {
+  text-align: center;
+  flex-basis: 50%;
+}
+.menu__items__one-element {
+  text-align: center;
+  flex-basis: 50%;
+}
+.menu__items__three-elements {
+  text-align: center;
+  flex-basis: 33.333%;
+}
+.menu__items__four-or-more-elements {
+  text-align: center;
+}
+@media (orientation: landscape) {
+  .images__container {
+    overflow-x: scroll;
+    display: flex;
+  }
+  .img__tumbs {
+    object-fit: cover;
+    width: calc(100vh - 46px);
+    height: calc(100vh - 46px);
+    margin-right: 8px;
+    margin-bottom: 0;
+  }
 }
 `;
 EOD;
