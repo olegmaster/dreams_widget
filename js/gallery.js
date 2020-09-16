@@ -223,6 +223,7 @@ function scrollToImages (activeElement) {
     imageCollection.forEach((img) =>{
         if (activeElement.dataset.categoryId === img.dataset.categoryId){
             if (i===0){
+                scrollContainer(activeElement);
                 img.scrollIntoView({
                     behavior:'smooth',
                     block:'start',
@@ -252,7 +253,6 @@ function setActiveTab (id) {
         if (tab.dataset.categoryId === id){
             activeTab.classList.remove('active');
             tab.classList.add('active');
-            scrollContainer(tab);
         }
     });
 }
@@ -264,6 +264,7 @@ function switchTab(e) {
         const menuCollection = parent.querySelectorAll('.menu__item');
         menuCollection.forEach(menu =>{
             if (e === menu){
+                scrollContainer(e);
                 scrollToImages(menu);
                 if (orientation !=='portrait-primary'){
                     checkFromImagesContainerLandscape();
@@ -283,6 +284,7 @@ function scrollContainer (container) {
     } else if (menuItem.left < 0){
         container.parentElement.scrollTo(menuItem.left,0);
     }
+
 }
 
 const basicStyle =`
