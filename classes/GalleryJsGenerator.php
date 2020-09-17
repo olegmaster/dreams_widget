@@ -42,6 +42,8 @@ const dir = '$this->dir';
 let canvasClass = '$this->canvasClass';
 let galleryContainer;
 let checkInterval;
+let timer = null;
+let anchorIdent=0;
 
 const galleryData = categoriesData.map((el) => {
     el.images = imgData.filter(imgEl => imgEl.categoryId === el.categoryId);
@@ -82,49 +84,70 @@ function creatHtmlElement(parent, elementName, elementTag, elementClass) {
 document.addEventListener("DOMContentLoaded", function (event) {
     addScripts();
     galleryContainer = document.querySelectorAll('.'+canvasClass);
-    
-    [].forEach.call(galleryContainer, function(div) {
-        div.classList.add(dir);
-    });
-    
     addUbuntuFont();
     addBasicStyle();
     insertMenu();
     initGallery();
 });
 
-window.addEventListener('scroll',anchorActivity);
 
 
-function anchorActivity (e) {
+window.onscroll = ()=>onScrollGallery();
+window.addEventListener('orientationchange',orientationHandler);
+
+
+function orientationHandler (e) {
+    document.querySelector('.menu__container').remove();
+    insertMenu();
+}
+
+function anchorActivity () {
+    anchorIdent =0;
+    const orientation = getWindowOrientation();
+    const menuItems = document.querySelectorAll('.menu__item');
     galleryContainer.forEach(gallery=>{
         const galleryImages = gallery.querySelectorAll('.images__container > .image__href');
         galleryImages.forEach((image,index)=>{
             const isVisible = isScrolledIntoView(image);
             if (isVisible){
-                setActiveTab(image.dataset.categoryId);
+                    if (orientation === 'portrait-primary'){
+                        setActiveTab(image.dataset.categoryId);
+                    }else{
+                        menuItems.forEach(menu =>{
+                            if (menu.dataset.categoryId === image.dataset.categoryId){
+                                if (anchorIdent === 0){
+                                    switchTab(menu,false);
+                                    anchorIdent++;
+                                }
+                            }
+                        });
+                    }
             }
         });
     });
 
 }
 
+
 function isScrolledIntoView(el) {
     const orientation = getWindowOrientation();
     if (orientation === 'portrait-primary'){
         return el.getBoundingClientRect().top <= window.innerHeight;
     } else {
-        return el.getBoundingClientRect().left + el.getBoundingClientRect().width -20 <= window.innerWidth;
+        if (el.getBoundingClientRect().left >= 0 ) {
+            return el.getBoundingClientRect().left + el.getBoundingClientRect().width <= window.innerWidth;
+        }
     }
 }
 
 function insertMenu () {
     galleryContainer.forEach((container,index) =>{
+        container.classList.add(dir);
         const menuContainer = creatHtmlElement(container,'','div',['menu__container']);
         const ul = creatHtmlElement(menuContainer,'','ul',['menu__items']);
         ul.dataset.index = index;
         galleryData.forEach((element,index) => {
-            const li = creatHtmlElement(ul,element.name,'li',['menu__item']);
+            const li = creatHtmlElement(ul,element.name[lang],'li',['menu__item']);
             li.dataset.categoryId = element.categoryId;
             if (index ===0){
                 li.classList.add('active');
@@ -135,6 +158,15 @@ function insertMenu () {
         ul.addEventListener('click', (e) =>switchTab(e.target));
     });
 
+}
+
+function onScrollGallery (e) {
+    if(timer !== null) {
+        clearTimeout(timer);
+    }
+    timer = setTimeout(function() {
+        anchorActivity(e);
+    }, 100);
 }
 
 function setMenuStyle (menuItems) {
@@ -163,19 +195,18 @@ function setMenuStyle (menuItems) {
 }
 
 function initGallery () {
-    const menuHeight = document.querySelector('.menu__container').scrollHeight;
     galleryContainer.forEach((container,index)=>{
         container.dataset.index = index;
         const imagesContainer = creatHtmlElement(container,'','div',['images__container']);
-        imagesContainer.style.paddingTop = menuHeight+'px';
-        imagesContainer.addEventListener('touchmove',touchGallery);
         imagesContainer.dataset.index = index;
+        imagesContainer.onscroll = ()=>onScrollGallery();
         imgData.sort((prev,next)=>prev.categoryId - next.categoryId);
         imgData.forEach(img =>{
             const a = creatHtmlElement(imagesContainer,'','a',['image__href']);
             a.href = img.imageUrl;
             a.dataset.categoryId = img.categoryId;
             a.dataset.fancybox='gallery-'+index;
+            a.dataset.caption = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec, vel curabitur metus facilisi elementum morbi.';
             const hrefImg = creatHtmlElement(a,'','img',['img__tumbs']);
             hrefImg.src= img.imageUrl;
         });
@@ -189,7 +220,7 @@ function initGallery () {
             $('[data-fancybox]').fancybox({
                 buttons:[
                     // 'zoom',
-                    'close'
+                    // 'close'
                 ],
                 arrows:false,
                 infobar: false,
@@ -200,33 +231,13 @@ function initGallery () {
     },100);
 }
 
-function checkFromImagesContainerLandscape () {
-    let interval;
-    const orientation = getWindowOrientation();
-    if (orientation !== 'portrait-primary'){
-        const imgContainer = document.querySelector('.images__container');
-        interval = setInterval(()=>{
-            if (imgContainer.scrollLeft > 0 &&  Math.round(imgContainer.scrollLeft) !== imgContainer.scrollWidth - window.innerWidth){
-                anchorActivity();
-            } else {
-                clearInterval(interval);
-            }
-        },100);
-    }else{
-        clearInterval(interval);
-    }
-}
-
-function touchGallery (e) {
-    checkFromImagesContainerLandscape();
-}
-
 function addUbuntuFont() {
-    document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">';
+    // document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">';
+    document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@600&family=Ubuntu:wght@300&display=swap" rel="stylesheet">';
 }
 
 function addBasicStyle () {
-    const replacedStyle = basicStyle.replace('main-container-gallery', canvasClass );
+    const replacedStyle = basicStyle.replace('main-container-gallery', canvasClass);
     document.head.innerHTML +='<style>'+replacedStyle+'</style>';
 
 }
@@ -265,8 +276,7 @@ function scrollToImages (activeElement) {
     imageCollection.forEach((img) =>{
         if (activeElement.dataset.categoryId === img.dataset.categoryId){
             if (i===0){
-                scrollContainer(activeElement);
-                img.scrollIntoView({
+                    img.scrollIntoView({
                     behavior:'smooth',
                     block:'start',
                 });
@@ -293,13 +303,14 @@ function setActiveTab (id) {
     const tabCollection = document.querySelectorAll('.menu__item');
     tabCollection.forEach(tab => {
         if (tab.dataset.categoryId === id){
+            scrollContainer(tab);
             activeTab.classList.remove('active');
             tab.classList.add('active');
         }
     });
 }
 
-function switchTab(e) {
+function switchTab(e,scrollToImage = true) {
     const orientation = getWindowOrientation();
     const parent = e.parentElement;
     if (e.classList.contains('menu__item')){
@@ -307,10 +318,10 @@ function switchTab(e) {
         menuCollection.forEach(menu =>{
             if (e === menu){
                 scrollContainer(e);
+                if (scrollToImage){
                 scrollToImages(menu);
-                if (orientation !=='portrait-primary'){
-                    checkFromImagesContainerLandscape();
                 }
+                setActiveTab(e.dataset.categoryId);
             }
         });
     }
@@ -332,14 +343,16 @@ function scrollContainer (container) {
 const basicStyle =`
 body{
   margin: 0;
+  box-sizing: border-box;
 }
 
 .main-container-gallery {
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 16px;
-  color: #C0C0C0;
-  font-weight: 500;
+  font-family: 'Assistant', sans-serif;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 600;
   position: relative;
+  background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%);
 }
 .img__tumbs {
   object-fit: cover;
@@ -350,7 +363,7 @@ body{
 .menu__container {
   position: fixed;
   top:0;
-  background: #fff;
+  background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%);
   width: 100%;
 }
 .menu__items {
@@ -367,10 +380,11 @@ body{
 }
 .images__container {
   overflow-x: hidden;
+  padding-top: 47px;
 }
 .menu__item {
   text-align: center;
-  padding: 12px 0;
+  padding: 11px 0;
   margin: 0 12px;
 }
 .menu__plug {
@@ -379,8 +393,8 @@ body{
   max-width: 1px;
 }
 .active {
-  border-bottom: 2px solid #1a2f43;
-  color: #1a2f43;
+  border-bottom: 3px solid #603EF2;
+  color: #603EF2;
 }
 .hide-image-id {
   display: none;
@@ -389,12 +403,27 @@ body{
   font-family: 'Ubuntu', sans-serif;
 }
 .fancybox-bg {
-  background: #fff !important;
+  background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%) !important;
   opacity: 1 !important;
 }
+
+.fancybox-caption{
+  background: rgba(17, 23, 45, 0.8);
+  padding: 12px 16px 37px 16px;
+  color: #fff;
+  font-weight: 300;
+  text-align: start;
+  line-height: 16px;
+}
+
 .rtl {
   text-align: right;
   direction: rtl;
+}
+
+.ltr{
+  text-align: left;
+  direction: ltr;
 }
 
 @media (orientation: landscape) {
