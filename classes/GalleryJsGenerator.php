@@ -124,7 +124,7 @@ function insertMenu () {
         const ul = creatHtmlElement(menuContainer,'','ul',['menu__items']);
         ul.dataset.index = index;
         galleryData.forEach((element,index) => {
-            const li = creatHtmlElement(ul,element.name,'li',['menu__item']);
+            const li = creatHtmlElement(ul,element['name'][lang],'li',['menu__item']);
             li.dataset.categoryId = element.categoryId;
             if (index ===0){
                 li.classList.add('active');

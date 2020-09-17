@@ -1,4 +1,4 @@
-const categoriesData = [{"categoryId":1,"name":"Interior"},{"categoryId":2,"name":"Exterior"},{"categoryId":3,"name":"Amenities"},{"categoryId":4,"name":"Neighborhood"}];
+const categoriesData = [{"categoryId":1,"name":{"en":"Interior","he":"Interior","ru":"Interior"}},{"categoryId":2,"name":{"en":"Exterior","he":"Exterior","ru":"Exterior"}},{"categoryId":3,"name":{"en":"Amenities","he":"Amenities","ru":"Amenities"}},{"categoryId":4,"name":{"en":"Neighborhood","he":"Neighborhood","ru":"Neighborhood"}}];
 
 const imgData = [{"title":{"en":"Image 27","he":"fdwdf","ru":"Image 27","cz":"dsfdsf"},"categoryId":3,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/avatar_2_movie_2021-wallpaper-1600x900.jpg","order":0},{"title":{"en":"Image 7","he":"fwf","ru":"\u041a\u0430\u0440\u0442\u0438\u043d\u043a\u0430 7","cz":"wefew"},"categoryId":1,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/daenerys_game_of_thrones_painting_art-wallpaper-1600x900.jpg","order":1},{"title":{"en":"Image 3","he":"wefew","ru":"wef","cz":"wefew"},"categoryId":2,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/mulan_2020_film-wallpaper-1600x900.jpg","order":2},{"title":{"en":"Image 4","he":"wef","ru":"wef","cz":"wef"},"categoryId":3,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/inzhir_vinograd_chernika_101724_1400x1050.jpg","order":3},{"title":{"en":"Image 1","he":"wef","ru":"\u0424\u041e\u0442\u043e 1","cz":"wef"},"categoryId":4,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/kitajskaya_grusha_frukty_razdelochnaya_doska_108809_1024x768.jpg","order":4},{"title":{"en":"Title 355","he":"wef","ru":"Title 355","cz":"wef"},"categoryId":1,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/the_lion_king_2021-wallpaper-1600x900.jpg","order":5}];
 
@@ -82,7 +82,7 @@ function insertMenu () {
         const ul = creatHtmlElement(menuContainer,'','ul',['menu__items']);
         ul.dataset.index = index;
         galleryData.forEach((element,index) => {
-            const li = creatHtmlElement(ul,element.name,'li',['menu__item']);
+            const li = creatHtmlElement(ul,element['name'][lang],'li',['menu__item']);
             li.dataset.categoryId = element.categoryId;
             if (index ===0){
                 li.classList.add('active');
