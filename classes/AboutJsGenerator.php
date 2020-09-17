@@ -9,6 +9,8 @@ class AboutJsGenerator implements JsGenerator
     private $canvasClass;
     private $lang;
     private $callbackFunctionName;
+    private $dir;
+    private $rtlLangs = ['he'];
 
     public function __construct(string $aboutData = '', string $canvasClass = 'bmby-about', string $callbackFunctionName = '', string $lang = 'en')
     {
@@ -16,7 +18,8 @@ class AboutJsGenerator implements JsGenerator
         $this->aboutData = $aboutData;
         $this->canvasClass = $canvasClass;
         $this->lang = $lang;
-        $this->callbackFunctionName = empty($callbackFunctionName) ? 'nonExistentFunction' : $callbackFunctionName ;
+        $this->callbackFunctionName = empty($callbackFunctionName) ? 'nonExistentFunction' : $callbackFunctionName;
+        $this->dir = (in_array($lang, $this->rtlLangs))?'rtl':'ltr';
         $this->setJs();
     }
 
@@ -32,6 +35,7 @@ class AboutJsGenerator implements JsGenerator
 let aboutUsData = $this->aboutData;
 let canvasClass = '$this->canvasClass';
 let lang = '$this->lang';
+let dir = '$this->dir';
 
 console.log(lang);
 let hasUbuntuFont = false;
@@ -77,10 +81,11 @@ class AboutUsBuilder {
         this.container = container;
         this.aboutUsData = aboutUsData;
         this.canvasClass = canvasClass;
+        this.dir = dir;
         this.container.id = this.makeId(9);
         this.initBaseDomSkeleton();
         this.insertMenuData(aboutUsData);
-
+        
         if (!hasUbuntuFont) {
             this.addUbuntuFont();
             this.addStyles();
@@ -147,6 +152,7 @@ class AboutUsBuilder {
 
     initBaseDomSkeleton(){
         this.container.insertAdjacentHTML('afterbegin',this.getElementBaseDom(this.container.id));
+        document.getElementById(this.container.id).classList.add(dir);
     }
 
     getId(){

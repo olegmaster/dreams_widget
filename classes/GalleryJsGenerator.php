@@ -11,6 +11,8 @@ class GalleryJsGenerator implements JsGenerator
     private $lang;
     private $canvasClass;
     private $callbackFunctionName;
+    private $dir;
+    private $rtlLangs = ['he'];
 
     public function __construct(string $galleryData, string $galleryCategoriesData, string $canvasClass = 'bmby-gallery', string $lang = 'en', string $callbackFunctionName = '')
     {
@@ -20,8 +22,8 @@ class GalleryJsGenerator implements JsGenerator
         $this->canvasClass = $canvasClass;
         $this->lang = $lang;
         $this->callbackFunctionName = empty($callbackFunctionName) ? 'nonExistentFunction' : $callbackFunctionName ;
+        $this->dir = (in_array($lang, $this->rtlLangs))?'rtl':'ltr';
         $this->setJs();
-
     }
 
     public function showJs()
@@ -36,6 +38,7 @@ class GalleryJsGenerator implements JsGenerator
 const categoriesData = $this->galleryCategoriesData;
 const imgData = $this->galleryData;
 const lang = '$this->lang';
+const dir = '$this->dir';
 let canvasClass = '$this->canvasClass';
 let galleryContainer;
 let checkInterval;
@@ -79,6 +82,11 @@ function creatHtmlElement(parent, elementName, elementTag, elementClass) {
 document.addEventListener("DOMContentLoaded", function (event) {
     addScripts();
     galleryContainer = document.querySelectorAll('.'+canvasClass);
+    
+    [].forEach.call(galleryContainer, function(div) {
+        div.classList.add(dir);
+    });
+    
     addUbuntuFont();
     addBasicStyle();
     insertMenu();
@@ -218,7 +226,7 @@ function addUbuntuFont() {
 }
 
 function addBasicStyle () {
-    const replacedStyle = basicStyle.replace('main-container-gallery', canvasClass);
+    const replacedStyle = basicStyle.replace('main-container-gallery', canvasClass );
     document.head.innerHTML +='<style>'+replacedStyle+'</style>';
 
 }
