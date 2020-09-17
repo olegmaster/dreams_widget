@@ -102,26 +102,12 @@ function orientationHandler (e) {
 }
 
 function anchorActivity () {
-    anchorIdent =0;
-    const orientation = getWindowOrientation();
-    const menuItems = document.querySelectorAll('.menu__item');
     galleryContainer.forEach(gallery=>{
         const galleryImages = gallery.querySelectorAll('.images__container > .image__href');
         galleryImages.forEach((image,index)=>{
-            const isVisible = isScrolledIntoView(image);
+            const isVisible = isScrolledIntoView(image.firstElementChild);
             if (isVisible){
-                    if (orientation === 'portrait-primary'){
-                        setActiveTab(image.dataset.categoryId);
-                    }else{
-                        menuItems.forEach(menu =>{
-                            if (menu.dataset.categoryId === image.dataset.categoryId){
-                                if (anchorIdent === 0){
-                                    switchTab(menu,false);
-                                    anchorIdent++;
-                                }
-                            }
-                        });
-                    }
+                setActiveTab(image.dataset.categoryId);
             }
         });
     });
@@ -131,12 +117,16 @@ function anchorActivity () {
 
 function isScrolledIntoView(el) {
     const orientation = getWindowOrientation();
+    const imagesScrollHeight = document.querySelector('.images__container').scrollHeight;
+    const imagesScrollTop = window.scrollY;
+    const windowInnerHeight = window.innerHeight;
     if (orientation === 'portrait-primary'){
-        return el.getBoundingClientRect().top <= window.innerHeight;
-    } else {
-        if (el.getBoundingClientRect().left >= 0 ) {
-            return el.getBoundingClientRect().left + el.getBoundingClientRect().width <= window.innerWidth;
+        if (Math.round(imagesScrollTop) + windowInnerHeight === imagesScrollHeight && el.getBoundingClientRect().bottom > windowInnerHeight / 2 ){
+            return true;
         }
+        return el.getBoundingClientRect().top < window.innerHeight / 2 && el.getBoundingClientRect().top > 0;
+    } else {
+        return el.getBoundingClientRect().right <= window.innerWidth && el.getBoundingClientRect().left > 1;
     }
 }
 
@@ -270,16 +260,23 @@ function getWindowOrientation() {
 }
 
 function scrollToImages (activeElement) {
+    const orientation = getWindowOrientation();
     let i=0;
     const parentIndex = activeElement.parentElement.dataset.index;
     const imageCollection = document.querySelectorAll('.images__container[data-index="'+parentIndex+'"] >.image__href');
     imageCollection.forEach((img) =>{
         if (activeElement.dataset.categoryId === img.dataset.categoryId){
             if (i===0){
-                    img.scrollIntoView({
-                    behavior:'smooth',
-                    block:'start',
-                });
+                if (orientation !== 'portrait-primary'){
+                    const imagesContainer = img.parentElement;
+                    const imageStartPos = img.getBoundingClientRect().left;
+                    imagesContainer.scrollTo(Math.ceil(imagesContainer.scrollLeft + imageStartPos - img.getBoundingClientRect().width),0);
+                    setActiveTab(img.dataset.categoryId);
+                }else {
+                    const imageStartPos = img.firstElementChild.getBoundingClientRect().top;
+                    window.scrollTo(0,window.scrollY + imageStartPos - 47);
+                    setActiveTab(img.dataset.categoryId);
+                }
             }
             i++;
         }
@@ -310,18 +307,14 @@ function setActiveTab (id) {
     });
 }
 
-function switchTab(e,scrollToImage = true) {
-    const orientation = getWindowOrientation();
+function switchTab(e) {
     const parent = e.parentElement;
     if (e.classList.contains('menu__item')){
         const menuCollection = parent.querySelectorAll('.menu__item');
         menuCollection.forEach(menu =>{
             if (e === menu){
                 scrollContainer(e);
-                if (scrollToImage){
                 scrollToImages(menu);
-                }
-                setActiveTab(e.dataset.categoryId);
             }
         });
     }
@@ -341,6 +334,10 @@ function scrollContainer (container) {
 }
 
 const basicStyle =`
+html{
+  scroll-behavior: smooth;
+}
+
 body{
   margin: 0;
   box-sizing: border-box;
@@ -381,6 +378,7 @@ body{
 .images__container {
   overflow-x: hidden;
   padding-top: 47px;
+  scroll-behavior: smooth;
 }
 .menu__item {
   text-align: center;
