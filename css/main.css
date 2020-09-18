@@ -1,6 +1,10 @@
 body {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
 }
 .bmby-gallery-wrapp {
   font-family: 'Assistant', sans-serif;
@@ -17,7 +21,7 @@ body {
   margin-bottom: 8px;
 }
 .menu__container {
-  position: fixed;
+  position: sticky;
   top: 0;
   background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%);
   width: 100%;
@@ -51,6 +55,26 @@ body {
 .active {
   border-bottom: 2px solid #603EF2;
   color: #603EF2;
+}
+.hide-tab {
+  display: none;
+}
+.tab-content__image {
+  width: 100%;
+}
+.tab-content__title {
+  font-size: 18px;
+  color: #1A2F43;
+  margin: 24px 16px 12px 16px;
+}
+.tab-content__text {
+  font-size: 14px;
+  font-weight: 300;
+  color: #1A2F43;
+  padding: 0 16px 24px 16px;
+}
+.landscape__main-container {
+  display: flex;
 }
 .hide-image-id {
   display: none;

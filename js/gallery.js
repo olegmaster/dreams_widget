@@ -143,13 +143,13 @@ function setMenuStyle (menuItems) {
     const currentView = menuItems.offsetWidth;
 
     if (orientation === 'portrait-primary'){
-        if (scrollWidth <= currentView && lengthItems > 1){
+        if (scrollWidth <= currentView && lengthItems > 2){
             menuItems.style.justifyContent = 'space-between';
             for (let child of childrenItems){
                 child.style.flexBasis= 100 / lengthItems+'%';
                 child.style.textAlign='center';
             }
-        } else if ( scrollWidth <= currentView && lengthItems === 1){
+        } else if ( scrollWidth <= currentView && lengthItems === 2){
             menuItems.style.justifyContent = 'center';
             for (let child of childrenItems){
                 child.style.flexBasis= 100 / lengthItems+'%';
