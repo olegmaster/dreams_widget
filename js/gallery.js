@@ -13,7 +13,6 @@ let canvasClass = 'bmby-gallery-wrapp';
 let galleryContainer;
 let checkInterval;
 let timer = null;
-let anchorIdent=0;
 
 let galleries = [];
 
@@ -53,15 +52,28 @@ document.addEventListener("DOMContentLoaded", function (event) {
     initGallery();
 });
 
-
+const fancyBoxTemplate =`
+<div class="fancybox-container" role="dialog" tabindex="-1">
+<div class="fancybox-bg"></div>
+<div class="fancybox-inner">
+<div class="fancybox-infobar"><span data-fancybox-index></span>&nbsp;/&nbsp;<span data-fancybox-count></span></div>
+<div class="fancybox-toolbar">{{buttons}}</div>
+<div class="fancybox-navigation">{{arrows}}</div>
+<div class="fancybox-stage"></div>
+<div class="fancybox-caption langDirection "><div class=""fancybox-caption__body"></div></div>
+</div>
+</div>`;
 
 window.onscroll = ()=>onScrollGallery();
 window.addEventListener('orientationchange',orientationHandler);
 
 
 function orientationHandler (e) {
-    document.querySelector('.menu__container').remove();
-    insertMenu();
+    const menus = document.querySelectorAll('.menu__container');
+    menus.forEach((menu,index) =>{
+       menu.remove();
+       insertMenu(index);
+    });
 }
 
 function anchorActivity () {
@@ -70,11 +82,23 @@ function anchorActivity () {
         galleryImages.forEach((image,index)=>{
             const isVisible = isScrolledIntoView(image.firstElementChild);
             if (isVisible){
-                setActiveTab(image.dataset.categoryId);
+                setActiveTab(image.dataset.categoryId,gallery.dataset.index);
             }
         });
     });
 
+}
+
+function cords () {
+    const imagesContainer = document.querySelector('.images__container');
+    const images = document.querySelectorAll('.img__tumbs');
+    const imagesScrollHeight = imagesContainer.scrollHeight;
+    const imagesScrollTop = window.scrollY;
+    const windowInnerHeight = window.innerHeight;
+    images.forEach(image =>{
+        console.log(image,image.getBoundingClientRect());
+    });
+    console.log(`imagesScrollHeight=${imagesScrollHeight}, imagesScrollTop = ${imagesScrollTop}, windowInnerHeight = ${windowInnerHeight}`);
 }
 
 
@@ -84,21 +108,20 @@ function isScrolledIntoView(el) {
     const imagesScrollTop = window.scrollY;
     const windowInnerHeight = window.innerHeight;
     if (orientation === 'portrait-primary'){
-        if (Math.round(imagesScrollTop) + windowInnerHeight === imagesScrollHeight && el.getBoundingClientRect().bottom > windowInnerHeight / 2 ){
-            return true;
-        }
-        return el.getBoundingClientRect().top < window.innerHeight / 2 && el.getBoundingClientRect().top > 0;
+        return el.getBoundingClientRect().top < window.innerHeight / 2 && el.getBoundingClientRect().top > 0 && el.getBoundingClientRect().top > window.innerHeight / 4;
     } else {
         return el.getBoundingClientRect().right <= window.innerWidth && el.getBoundingClientRect().left > 1;
     }
 }
 
-function insertMenu () {
+function insertMenu (indexMenu) {
     galleryContainer.forEach((container,index) =>{
         container.classList.add(dir);
-        const menuContainer = creatHtmlElement(container,'','div',['menu__container']);
+        const menuContainer = creatHtmlElement('','','div',['menu__container']);
+        container.insertAdjacentElement('afterbegin',menuContainer);
+        menuContainer.dataset.index = indexMenu || index;
         const ul = creatHtmlElement(menuContainer,'','ul',['menu__items']);
-        ul.dataset.index = index;
+        ul.dataset.index = indexMenu || index;
         galleryData.forEach((element,index) => {
             const li = creatHtmlElement(ul,element.name[lang],'li',['menu__item']);
             li.dataset.categoryId = element.categoryId;
@@ -130,7 +153,6 @@ function setMenuStyle (menuItems) {
     const currentView = menuItems.offsetWidth;
 
     if (orientation === 'portrait-primary'){
-
         if (scrollWidth <= currentView && lengthItems > 1){
             menuItems.style.justifyContent = 'space-between';
             for (let child of childrenItems){
@@ -179,6 +201,7 @@ function initGallery () {
                 infobar: false,
                 animationEffect: 'fade',
                 animationDuration: 150,
+                baseTpl: fancyBoxTemplate.replace('langDirection', dir),
             })
         }
     },100);
@@ -223,6 +246,7 @@ function getWindowOrientation() {
 }
 
 function scrollToImages (activeElement) {
+    const menuHeight =activeElement.parentElement.offsetHeight;
     const orientation = getWindowOrientation();
     let i=0;
     const parentIndex = activeElement.parentElement.dataset.index;
@@ -234,11 +258,11 @@ function scrollToImages (activeElement) {
                     const imagesContainer = img.parentElement;
                     const imageStartPos = img.getBoundingClientRect().left;
                     imagesContainer.scrollTo(Math.ceil(imagesContainer.scrollLeft + imageStartPos - img.getBoundingClientRect().width),0);
-                    setActiveTab(img.dataset.categoryId);
+                    setActiveTab(img.dataset.categoryId,parentIndex);
                 }else {
                     const imageStartPos = img.firstElementChild.getBoundingClientRect().top;
-                    window.scrollTo(0,window.scrollY + imageStartPos - 47);
-                    setActiveTab(img.dataset.categoryId);
+                    window.scrollTo(0,window.scrollY + imageStartPos - menuHeight);
+                    setActiveTab(img.dataset.categoryId,parentIndex);
                 }
             }
             i++;
@@ -247,9 +271,10 @@ function scrollToImages (activeElement) {
     i=0;
 }
 
-function getActiveTab () {
+function getActiveTab (parentIndex) {
     let activeTab;
-    const tabCollection = document.querySelectorAll('.menu__item');
+    const menu = document.querySelector('.menu__items[data-index="'+parentIndex+'"]');
+    const tabCollection = menu.querySelectorAll('.menu__item');
     tabCollection.forEach(tab => {
         if (tab.classList.contains('active')){
             activeTab = tab;
@@ -258,9 +283,9 @@ function getActiveTab () {
     return activeTab;
 }
 
-function setActiveTab (id) {
-    const activeTab = getActiveTab();
-    const tabCollection = document.querySelectorAll('.menu__item');
+function setActiveTab (id,parentIndex) {
+    const activeTab = getActiveTab(parentIndex);
+    const tabCollection = document.querySelectorAll('.menu__items[data-index="'+parentIndex+'"] > .menu__item');
     tabCollection.forEach(tab => {
         if (tab.dataset.categoryId === id){
             scrollContainer(tab);
@@ -273,7 +298,8 @@ function setActiveTab (id) {
 function switchTab(e) {
     const parent = e.parentElement;
     if (e.classList.contains('menu__item')){
-        const menuCollection = parent.querySelectorAll('.menu__item');
+        const menuCollection = parent.querySelectorAll('.menu__items[data-index="'+parent.dataset.index+'"]' +
+          ' > .menu__item');
         menuCollection.forEach(menu =>{
             if (e === menu){
                 scrollContainer(e);
@@ -321,7 +347,7 @@ body{
   margin-bottom: 8px;
 }
 .menu__container {
-  position: fixed;
+  position: sticky;
   top:0;
   background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%);
   width: 100%;
@@ -340,7 +366,7 @@ body{
 }
 .images__container {
   overflow-x: hidden;
-  padding-top: 47px;
+  // padding-top: 47px;
   scroll-behavior: smooth;
 }
 .menu__item {
