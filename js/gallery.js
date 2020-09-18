@@ -89,26 +89,16 @@ function anchorActivity () {
 
 }
 
-function cords () {
-    const imagesContainer = document.querySelector('.images__container');
-    const images = document.querySelectorAll('.img__tumbs');
-    const imagesScrollHeight = imagesContainer.scrollHeight;
-    const imagesScrollTop = window.scrollY;
-    const windowInnerHeight = window.innerHeight;
-    images.forEach(image =>{
-        console.log(image,image.getBoundingClientRect());
-    });
-    console.log(`imagesScrollHeight=${imagesScrollHeight}, imagesScrollTop = ${imagesScrollTop}, windowInnerHeight = ${windowInnerHeight}`);
-}
-
-
 function isScrolledIntoView(el) {
     const orientation = getWindowOrientation();
     const imagesScrollHeight = document.querySelector('.images__container').scrollHeight;
     const imagesScrollTop = window.scrollY;
     const windowInnerHeight = window.innerHeight;
     if (orientation === 'portrait-primary'){
-        return el.getBoundingClientRect().top < window.innerHeight / 2 && el.getBoundingClientRect().top > 0 && el.getBoundingClientRect().top > window.innerHeight / 4;
+        if (Math.round(imagesScrollTop) + windowInnerHeight === imagesScrollHeight && el.getBoundingClientRect().bottom > windowInnerHeight / 2 ){
+            return true;
+        }
+        return el.getBoundingClientRect().top < window.innerHeight / 2  && el.getBoundingClientRect().top > 0;
     } else {
         return el.getBoundingClientRect().right <= window.innerWidth && el.getBoundingClientRect().left > 1;
     }
@@ -347,7 +337,7 @@ body{
   margin-bottom: 8px;
 }
 .menu__container {
-  position: sticky;
+  position: fixed;
   top:0;
   background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%);
   width: 100%;
@@ -366,7 +356,7 @@ body{
 }
 .images__container {
   overflow-x: hidden;
-  // padding-top: 47px;
+  padding-top: 47px;
   scroll-behavior: smooth;
 }
 .menu__item {
