@@ -58,6 +58,7 @@ window.addEventListener("DOMContentLoaded", function (event) {
     addUFont();
     addBasicStyle();
     insertMenu();
+    orientationHandler();
 });
 
 window.addEventListener('orientationchange',orientationHandler);
