@@ -20,7 +20,7 @@ try{
 window.addEventListener("DOMContentLoaded", function (event) {
     aboutUsMainContainer = document.querySelector('.'+canvasClass);
     aboutUsMainContainer.classList.add(dir);
-    addUFont();
+    addFont();
     addBasicStyle();
     insertMenu();
     orientationHandler();
@@ -28,7 +28,7 @@ window.addEventListener("DOMContentLoaded", function (event) {
 
 window.addEventListener('orientationchange',orientationHandler);
 
-function orientationHandler (e) {
+function orientationHandler () {
     const menus = document.querySelectorAll('.menu__items');
     menus.forEach((menu,index) =>{
         menu.remove();
@@ -37,9 +37,9 @@ function orientationHandler (e) {
 
     const contentWrapper = document.querySelector('.tabs-data-content__wrapper');
     if (window.screen.orientation.type !== 'portrait-primary' && dir === 'ltr'){
-        contentWrapper.style.marginLeft = 90+'px';
+        contentWrapper.style.marginLeft = 114+'px';
     } else if (window.screen.orientation.type !== 'portrait-primary' && dir === 'rtl'){
-        contentWrapper.style.marginRight = 90+'px';
+        contentWrapper.style.marginRight = 114+'px';
     }else{
         contentWrapper.style.marginRight = 0+'px';
         contentWrapper.style.marginLeft = 0+'px';
@@ -62,13 +62,13 @@ function creatHtmlElement(parent, elementName, elementTag, elementClass) {
     return el;
 }
 
-function addUFont() {
-    document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">';
-    // document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@600&family=Ubuntu:wght@300&display=swap" rel="stylesheet">';
+function addFont() {
+    // document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">';
+    document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@600&family=Ubuntu:wght@300&display=swap" rel="stylesheet">';
 }
 
 function addBasicStyle () {
-    const replacedStyle = basicStyle.replaceAll('main-container-gallery', canvasClass);
+    const replacedStyle = basicStyle.replaceAll('main-container-about', canvasClass);
     document.head.innerHTML +='<style>'+replacedStyle+'</style>';
 }
 
@@ -205,9 +205,6 @@ function scrollContainer (container) {
 }
 
 const basicStyle =`
-html{
-  scroll-behavior: smooth;
-}
 
 body{
   margin: 0;
@@ -215,30 +212,19 @@ body{
   box-sizing: border-box;
 }
 
-.main-container-gallery p, h3{
+.main-container-about p, h3{
     margin: 0;
 }
 
-.main-container-gallery {
-  font-family: 'Ubuntu', sans-serif;
+.main-container-about {
+  font-family: 'Assistant', sans-serif;
   font-size: 18px;
-  color: #C0C0C0;
+  color: #FFFFFF;
   font-weight: 600;
   position: relative;
-  background: #fff;
-}
-.img__tumbs {
-  object-fit: cover;
-  width: 100vw;
-  height: 100vw;
-  margin-bottom: 8px;
-}
-.menu__container {
-  position: fixed;
-  top:0;
   background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%);
-  width: 100%;
 }
+
 .menu__items {
   list-style: none;
   display: flex;
@@ -251,11 +237,7 @@ body{
 .menu__items::-webkit-scrollbar {
   display: none;
 }
-.images__container {
-  overflow-x: hidden;
-  padding-top: 47px;
-  scroll-behavior: smooth;
-}
+
 .menu__item {
   text-align: center;
   padding: 11px 0;
@@ -269,26 +251,24 @@ body{
   min-width: 1px;
   max-width: 1px;
 }
+
 .active {
-  border-bottom: 3px solid #1A2F43;
-  color: #1A2F43;
+  border-bottom: 3px solid #603EF2;
+  color: #603EF2;
 }
 
 .hide-tab{
  display: none;  
 }
 
-.hide-image-id {
-  display: none;
-}
-
 .tab-content__image{
-  width: 100%;
+  padding: 0 16px;
+  width: 90%;
 }
 
 .tab-content__title{
   font-size: 18px;
-  color: #1A2F43;
+  color: #fff;
   margin: 24px 16px 12px 16px;
 }
 
@@ -296,25 +276,8 @@ body{
   font-size: 14px;
   font-weight: 300;
   line-height: 16px;
-  color: #1A2F43;
-  padding: 0 16px 24px 16px;
-}
-
-.fancybox-container {
-  font-family: 'Ubuntu', sans-serif;
-}
-.fancybox-bg {
-  background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%) !important;
-  opacity: 1 !important;
-}
-
-.fancybox-caption{
-  background: rgba(17, 23, 45, 0.8);
-  padding: 12px 16px 37px 16px;
   color: #fff;
-  font-weight: 300;
-  text-align: start;
-  line-height: 16px;
+  padding: 0 16px 24px 16px;
 }
 
 .rtl {
@@ -328,36 +291,25 @@ body{
 }
 
 @media (orientation: landscape) {
-.main-container-gallery {
-    display: flex;
-}
 
 .menu__items {
     display: block;
     flex-basis: 40%;
     position: fixed;
+    width: 114px;
     top: 0;
 }
 
 .menu__item{
     margin-bottom: 19px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .tab-content__title{
-    margin: 12px 16px 12px 16px;
+    margin: 0 16px 12px 16px;
+    padding-top: 12px;
 }
-    
-  .images__container {
-    overflow-x: scroll;
-    display: flex;
-  }
-  .img__tumbs {
-    object-fit: cover;
-    width: calc(100vh - 46px);
-    height: calc(100vh - 46px);
-    margin-right: 8px;
-    margin-bottom: 0;
-  }
 }
 `;
 
