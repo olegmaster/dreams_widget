@@ -1,8 +1,8 @@
-const categoriesData = [{"categoryId":1,"name":"Interior"},{"categoryId":2,"name":"Exterior"},{"categoryId":3,"name":"Amenities"},{"categoryId":4,"name":"Neighborhood"}];
+const categoriesData = [{"categoryId":1,"name":{"en":"Interior","he":"Interior","ru":"Interior"}},{"categoryId":2,"name":{"en":"Exterior","he":"Exterior","ru":"Exterior"}},{"categoryId":3,"name":{"en":"Amenities","he":"Amenities","ru":"Amenities"}},{"categoryId":4,"name":{"en":"Neighborhood","he":"Neighborhood","ru":"Neighborhood"}}];
 
-const imgData = [{"title":{"en":"Image 27","he":"fdwdf","ru":"Image 27","cz":"dsfdsf"},"categoryId":3,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/avatar_2_movie_2021-wallpaper-1600x900.jpg","order":0},{"title":{"en":"Image 7","he":"fwf","ru":"\u041a\u0430\u0440\u0442\u0438\u043d\u043a\u0430 7","cz":"wefew"},"categoryId":1,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/daenerys_game_of_thrones_painting_art-wallpaper-1600x900.jpg","order":1},{"title":{"en":"Image 3","he":"wefew","ru":"wef","cz":"wefew"},"categoryId":2,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/mulan_2020_film-wallpaper-1600x900.jpg","order":2},{"title":{"en":"Image 4","he":"wef","ru":"wef","cz":"wef"},"categoryId":3,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/inzhir_vinograd_chernika_101724_1400x1050.jpg","order":3},{"title":{"en":"Image 1","he":"wef","ru":"\u0424\u041e\u0442\u043e 1","cz":"wef"},"categoryId":4,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/kitajskaya_grusha_frukty_razdelochnaya_doska_108809_1024x768.jpg","order":4},{"title":{"en":"Title 355","he":"wef","ru":"Title 355","cz":"wef"},"categoryId":1,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/the_lion_king_2021-wallpaper-1600x900.jpg","order":5}];
-
+const imgData = [{"title":{"en":"kukusiki","he":"kukusiki)))","ru":"Image 27","cz":"dsfdsf"},"categoryId":3,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/doroga_razmetka_pasmurno_124093_720x1280.jpg","order":0},{"title":{"en":"Image 7","he":"fwf","ru":"\u041a\u0430\u0440\u0442\u0438\u043d\u043a\u0430 7","cz":"wefew"},"categoryId":1,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/daenerys_game_of_thrones_painting_art-wallpaper-1600x900.jpg","order":1},{"title":{"en":"Image 3","he":"wefew","ru":"wef","cz":"wefew"},"categoryId":2,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/mulan_2020_film-wallpaper-1600x900.jpg","order":2},{"title":{"en":"Image 4","he":"wef","ru":"wef","cz":"wef"},"categoryId":3,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/inzhir_vinograd_chernika_101724_1400x1050.jpg","order":3},{"title":{"en":"Image 1","he":"wef","ru":"\u0424\u041e\u0442\u043e 1","cz":"wef"},"categoryId":4,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/kitajskaya_grusha_frukty_razdelochnaya_doska_108809_1024x768.jpg","order":4},{"title":{"en":"Title 355","he":"wef","ru":"Title 355","cz":"wef"},"categoryId":1,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/the_lion_king_2021-wallpaper-1600x900.jpg","order":5}];
 const lang = 'en';
+const dir = 'ltr';
 
 const galleryData = categoriesData.map((el) => {
     el.images = imgData.filter(imgEl => imgEl.categoryId === el.categoryId);
@@ -12,6 +12,7 @@ const galleryData = categoriesData.map((el) => {
 let canvasClass = 'bmby-gallery-wrapp';
 let galleryContainer;
 let checkInterval;
+let timer = null;
 
 let galleries = [];
 
@@ -51,16 +52,37 @@ document.addEventListener("DOMContentLoaded", function (event) {
     initGallery();
 });
 
-window.addEventListener('scroll',anchorActivity);
+const fancyBoxTemplate =`
+<div class="fancybox-container" role="dialog" tabindex="-1">
+<div class="fancybox-bg"></div>
+<div class="fancybox-inner">
+<div class="fancybox-infobar"><span data-fancybox-index></span>&nbsp;/&nbsp;<span data-fancybox-count></span></div>
+<div class="fancybox-toolbar">{{buttons}}</div>
+<div class="fancybox-navigation">{{arrows}}</div>
+<div class="fancybox-stage"></div>
+<div class="fancybox-caption langDirection "><div class=""fancybox-caption__body"></div></div>
+</div>
+</div>`;
+
+window.onscroll = ()=>onScrollGallery();
+window.addEventListener('orientationchange',orientationHandler);
 
 
-function anchorActivity (e) {
+function orientationHandler (e) {
+    const menus = document.querySelectorAll('.menu__container');
+    menus.forEach((menu,index) =>{
+       menu.remove();
+       insertMenu(index);
+    });
+}
+
+function anchorActivity () {
     galleryContainer.forEach(gallery=>{
         const galleryImages = gallery.querySelectorAll('.images__container > .image__href');
         galleryImages.forEach((image,index)=>{
-            const isVisible = isScrolledIntoView(image);
+            const isVisible = isScrolledIntoView(image.firstElementChild);
             if (isVisible){
-                setActiveTab(image.dataset.categoryId);
+                setActiveTab(image.dataset.categoryId,gallery.dataset.index);
             }
         });
     });
@@ -69,20 +91,29 @@ function anchorActivity (e) {
 
 function isScrolledIntoView(el) {
     const orientation = getWindowOrientation();
+    const imagesScrollHeight = document.querySelector('.images__container').scrollHeight;
+    const imagesScrollTop = window.scrollY;
+    const windowInnerHeight = window.innerHeight;
     if (orientation === 'portrait-primary'){
-        return el.getBoundingClientRect().top <= window.innerHeight;
+        if (Math.round(imagesScrollTop) + windowInnerHeight === imagesScrollHeight && el.getBoundingClientRect().bottom > windowInnerHeight / 2 ){
+            return true;
+        }
+        return el.getBoundingClientRect().top < window.innerHeight / 2  && el.getBoundingClientRect().top > 0;
     } else {
-        return el.getBoundingClientRect().left + el.getBoundingClientRect().width -20 <= window.innerWidth;
+        return el.getBoundingClientRect().right <= window.innerWidth && el.getBoundingClientRect().left > 1;
     }
 }
 
-function insertMenu () {
+function insertMenu (indexMenu) {
     galleryContainer.forEach((container,index) =>{
-        const menuContainer = creatHtmlElement(container,'','div',['menu__container']);
+        container.classList.add(dir);
+        const menuContainer = creatHtmlElement('','','div',['menu__container']);
+        container.insertAdjacentElement('afterbegin',menuContainer);
+        menuContainer.dataset.index = indexMenu || index;
         const ul = creatHtmlElement(menuContainer,'','ul',['menu__items']);
-        ul.dataset.index = index;
+        ul.dataset.index = indexMenu || index;
         galleryData.forEach((element,index) => {
-            const li = creatHtmlElement(ul,element.name,'li',['menu__item']);
+            const li = creatHtmlElement(ul,element.name[lang],'li',['menu__item']);
             li.dataset.categoryId = element.categoryId;
             if (index ===0){
                 li.classList.add('active');
@@ -95,6 +126,15 @@ function insertMenu () {
 
 }
 
+function onScrollGallery (e) {
+    if(timer !== null) {
+        clearTimeout(timer);
+    }
+    timer = setTimeout(function() {
+        anchorActivity(e);
+    }, 100);
+}
+
 function setMenuStyle (menuItems) {
     const orientation = getWindowOrientation();
     const childrenItems = menuItems.children;
@@ -103,14 +143,13 @@ function setMenuStyle (menuItems) {
     const currentView = menuItems.offsetWidth;
 
     if (orientation === 'portrait-primary'){
-
-        if (scrollWidth <= currentView && lengthItems > 1){
+        if (scrollWidth <= currentView && lengthItems > 2){
             menuItems.style.justifyContent = 'space-between';
             for (let child of childrenItems){
                 child.style.flexBasis= 100 / lengthItems+'%';
                 child.style.textAlign='center';
             }
-        } else if ( scrollWidth <= currentView && lengthItems === 1){
+        } else if ( scrollWidth <= currentView && lengthItems === 2){
             menuItems.style.justifyContent = 'center';
             for (let child of childrenItems){
                 child.style.flexBasis= 100 / lengthItems+'%';
@@ -121,19 +160,18 @@ function setMenuStyle (menuItems) {
 }
 
 function initGallery () {
-    const menuHeight = document.querySelector('.menu__container').scrollHeight;
     galleryContainer.forEach((container,index)=>{
         container.dataset.index = index;
         const imagesContainer = creatHtmlElement(container,'','div',['images__container']);
-        imagesContainer.style.paddingTop = menuHeight+'px';
-        imagesContainer.addEventListener('touchmove',touchGallery);
         imagesContainer.dataset.index = index;
+        imagesContainer.onscroll = ()=>onScrollGallery();
         imgData.sort((prev,next)=>prev.categoryId - next.categoryId);
         imgData.forEach(img =>{
             const a = creatHtmlElement(imagesContainer,'','a',['image__href']);
             a.href = img.imageUrl;
             a.dataset.categoryId = img.categoryId;
             a.dataset.fancybox='gallery-'+index;
+            a.dataset.caption = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec, vel curabitur metus facilisi elementum morbi.';
             const hrefImg = creatHtmlElement(a,'','img',['img__tumbs']);
             hrefImg.src= img.imageUrl;
         });
@@ -147,40 +185,21 @@ function initGallery () {
             $('[data-fancybox]').fancybox({
                 buttons:[
                     // 'zoom',
-                    'close'
+                    // 'close'
                 ],
                 arrows:false,
                 infobar: false,
                 animationEffect: 'fade',
                 animationDuration: 150,
+                baseTpl: fancyBoxTemplate.replace('langDirection', dir),
             })
         }
     },100);
 }
 
-function checkFromImagesContainerLandscape () {
-    let interval;
-    const orientation = getWindowOrientation();
-    if (orientation !== 'portrait-primary'){
-        const imgContainer = document.querySelector('.images__container');
-        interval = setInterval(()=>{
-            if (imgContainer.scrollLeft > 0 &&  Math.round(imgContainer.scrollLeft) !== imgContainer.scrollWidth - window.innerWidth){
-                anchorActivity();
-            } else {
-                clearInterval(interval);
-            }
-        },100);
-    }else{
-        clearInterval(interval);
-    }
-}
-
-function touchGallery (e) {
-    checkFromImagesContainerLandscape();
-}
-
 function addUbuntuFont() {
-    document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">';
+    // document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">';
+    document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@600&family=Ubuntu:wght@300&display=swap" rel="stylesheet">';
 }
 
 function addBasicStyle () {
@@ -217,17 +236,24 @@ function getWindowOrientation() {
 }
 
 function scrollToImages (activeElement) {
+    const menuHeight =activeElement.parentElement.offsetHeight;
+    const orientation = getWindowOrientation();
     let i=0;
     const parentIndex = activeElement.parentElement.dataset.index;
     const imageCollection = document.querySelectorAll('.images__container[data-index="'+parentIndex+'"] >.image__href');
     imageCollection.forEach((img) =>{
         if (activeElement.dataset.categoryId === img.dataset.categoryId){
             if (i===0){
-                scrollContainer(activeElement);
-                img.scrollIntoView({
-                    behavior:'smooth',
-                    block:'start',
-                });
+                if (orientation !== 'portrait-primary'){
+                    const imagesContainer = img.parentElement;
+                    const imageStartPos = img.getBoundingClientRect().left;
+                    imagesContainer.scrollTo(Math.ceil(imagesContainer.scrollLeft + imageStartPos - img.getBoundingClientRect().width),0);
+                    setActiveTab(img.dataset.categoryId,parentIndex);
+                }else {
+                    const imageStartPos = img.firstElementChild.getBoundingClientRect().top;
+                    window.scrollTo(0,window.scrollY + imageStartPos - menuHeight);
+                    setActiveTab(img.dataset.categoryId,parentIndex);
+                }
             }
             i++;
         }
@@ -235,9 +261,10 @@ function scrollToImages (activeElement) {
     i=0;
 }
 
-function getActiveTab () {
+function getActiveTab (parentIndex) {
     let activeTab;
-    const tabCollection = document.querySelectorAll('.menu__item');
+    const menu = document.querySelector('.menu__items[data-index="'+parentIndex+'"]');
+    const tabCollection = menu.querySelectorAll('.menu__item');
     tabCollection.forEach(tab => {
         if (tab.classList.contains('active')){
             activeTab = tab;
@@ -246,11 +273,12 @@ function getActiveTab () {
     return activeTab;
 }
 
-function setActiveTab (id) {
-    const activeTab = getActiveTab();
-    const tabCollection = document.querySelectorAll('.menu__item');
+function setActiveTab (id,parentIndex) {
+    const activeTab = getActiveTab(parentIndex);
+    const tabCollection = document.querySelectorAll('.menu__items[data-index="'+parentIndex+'"] > .menu__item');
     tabCollection.forEach(tab => {
         if (tab.dataset.categoryId === id){
+            scrollContainer(tab);
             activeTab.classList.remove('active');
             tab.classList.add('active');
         }
@@ -258,17 +286,14 @@ function setActiveTab (id) {
 }
 
 function switchTab(e) {
-    const orientation = getWindowOrientation();
     const parent = e.parentElement;
     if (e.classList.contains('menu__item')){
-        const menuCollection = parent.querySelectorAll('.menu__item');
+        const menuCollection = parent.querySelectorAll('.menu__items[data-index="'+parent.dataset.index+'"]' +
+          ' > .menu__item');
         menuCollection.forEach(menu =>{
             if (e === menu){
                 scrollContainer(e);
                 scrollToImages(menu);
-                if (orientation !=='portrait-primary'){
-                    checkFromImagesContainerLandscape();
-                }
             }
         });
     }
@@ -288,16 +313,22 @@ function scrollContainer (container) {
 }
 
 const basicStyle =`
+html{
+  scroll-behavior: smooth;
+}
+
 body{
   margin: 0;
+  box-sizing: border-box;
 }
 
 .main-container-gallery {
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 16px;
-  color: #C0C0C0;
-  font-weight: 500;
+  font-family: 'Assistant', sans-serif;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 600;
   position: relative;
+  background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%);
 }
 .img__tumbs {
   object-fit: cover;
@@ -308,7 +339,7 @@ body{
 .menu__container {
   position: fixed;
   top:0;
-  background: #fff;
+  background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%);
   width: 100%;
 }
 .menu__items {
@@ -325,10 +356,12 @@ body{
 }
 .images__container {
   overflow-x: hidden;
+  padding-top: 47px;
+  scroll-behavior: smooth;
 }
 .menu__item {
   text-align: center;
-  padding: 12px 0;
+  padding: 11px 0;
   margin: 0 12px;
 }
 .menu__plug {
@@ -337,8 +370,8 @@ body{
   max-width: 1px;
 }
 .active {
-  border-bottom: 2px solid #1a2f43;
-  color: #1a2f43;
+  border-bottom: 3px solid #603EF2;
+  color: #603EF2;
 }
 .hide-image-id {
   display: none;
@@ -347,12 +380,27 @@ body{
   font-family: 'Ubuntu', sans-serif;
 }
 .fancybox-bg {
-  background: #fff !important;
+  background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%) !important;
   opacity: 1 !important;
 }
+
+.fancybox-caption{
+  background: rgba(17, 23, 45, 0.8);
+  padding: 12px 16px 37px 16px;
+  color: #fff;
+  font-weight: 300;
+  text-align: start;
+  line-height: 16px;
+}
+
 .rtl {
   text-align: right;
   direction: rtl;
+}
+
+.ltr{
+  text-align: left;
+  direction: ltr;
 }
 
 @media (orientation: landscape) {
