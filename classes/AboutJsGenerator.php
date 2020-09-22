@@ -37,7 +37,7 @@ let canvasClass = '$this->canvasClass';
 let lang = '$this->lang';
 let dir = '$this->dir';
 
-console.log(lang);
+//console.log(aboutUsData);
 let hasUbuntuFont = false;
 let aboutUsSections = [];
 
@@ -103,7 +103,7 @@ function addFont() {
 }
 
 function addBasicStyle () {
-    const replacedStyle = basicStyle.replaceAll('main-container-about', canvasClass);
+    const replacedStyle = basicStyle.replace(/main-container-about/g, canvasClass);
     document.head.innerHTML +='<style>'+replacedStyle+'</style>';
 }
 
@@ -112,7 +112,11 @@ function insertMenu (createTabs = true) {
     aboutUsMainContainer.insertAdjacentElement('afterbegin',menuContainer);
     const tabsDataMainContainer = creatHtmlElement(aboutUsMainContainer,'','div',['tabs-data-content__wrapper']);
     aboutUsData.forEach((menuElement,index) =>{
-       const li = creatHtmlElement(menuContainer,menuElement.chapter[lang],'li',['menu__item']);
+    let chapter = menuElement.chapter.filter(el => el.lang === lang); 
+       if(!chapter[0].hasOwnProperty('value')){
+            throw 'menuElement has unsupported structure';
+       }  
+       const li = creatHtmlElement(menuContainer,chapter[0].value,'li',['menu__item']);
        li.dataset.order = menuElement.order;
         createTabs && buildTabsContent(tabsDataMainContainer, menuElement);
         if (index ===0){
