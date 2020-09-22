@@ -150,7 +150,8 @@ function insertMenu (indexMenu) {
         const ul = creatHtmlElement(menuContainer,'','ul',['menu__items']);
         ul.dataset.index = indexMenu || index;
         galleryData.forEach((element,index) => {
-            const li = creatHtmlElement(ul,element.name[lang],'li',['menu__item']);
+            let menuItemName = element.name.filter(el => el.lang === lang);                   
+            const li = creatHtmlElement(ul,menuItemName[0].value,'li',['menu__item']);
             li.dataset.categoryId = element.categoryId;
             if (index ===0){
                 li.classList.add('active');
