@@ -715,9 +715,39 @@ html{
   .menu__item{
     cursor: pointer;
   }
-
-
-
+}
+// === /Gallery ===
+// ABOUT US - DESKTOP ////
+.content__wrapper{
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
-// === /Gallery ===
+.about-us__section {
+  display: flex;
+  justify-content: space-between;
+  padding: 80px 10px 0 10px;
+}
+
+.about-us__section:nth-of-type(even){
+  flex-direction: row-reverse;
+}
+
+.about-us__image{
+  width: 100%;
+  object-fit: cover;
+}
+
+.about-us__sub-wrapper, .about-us__img-container{
+  flex-basis: 47%;
+}
+
+.about-us__section-title{
+  font-size: 30px;
+  margin-bottom: 48px;
+}
+
+
+
+

@@ -1,5 +1,5 @@
-let aboutUsData =  [{"title":{"en":"About 2"},"description":{"en":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem blanditiis delectus deleniti dolores error excepturi explicabo fuga inventore labore minus nam nulla officia quas, quibusdam quo rem, tempora vero voluptatibus."},"chapter":{"en":"Chapter 2"},"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/about\/461_0.png","order":0},{"title":{"en":"Title 355"},"description":{"en":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem blanditiis delectus deleniti dolores error excepturi explicabo fuga inventore labore minus nam nulla officia quas, quibusdam quo rem, tempora vero voluptatibus."},"chapter":{"en":"Chapter 3"},"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/about\/461_0.png","order":1},{"title":{"en":"Title 55555"},"description":{"en":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem blanditiis delectus deleniti dolores error excepturi explicabo fuga inventore labore minus nam nulla officia quas, quibusdam quo rem, tempora vero voluptatibus."},"chapter":{"en":"Chapter 4"},"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/about\/461_0.png","order":2},{"title":{"en":"Title 355"},"description":{"en":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem blanditiis delectus deleniti dolores error excepturi explicabo fuga inventore labore minus nam nulla officia quas, quibusdam quo rem, tempora vero voluptatibus."},"chapter":{"en":"Chapter 1"},"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/about\/461_0.png","order":3}];
-console.log(aboutUsData);
+let aboutUsData = [{"title":{"en":"History","he":"History","ru":"History","ua":"History"},"description":{"en":"<p><span style=\"color:rgb(32, 33, 34)\">t.A.T.u. were formed in 1999 by\u00a0<\/span>Ivan Shapovalov<span style=\"color:rgb(32, 33, 34)\">\u00a0and his friend\/business partner Alexander Voitinskiy, who developed plans to create a musical project in Russia. With this idea in mind, Shapovalov and Voitinskiy organized auditions in Moscow in early 1999 for teenage female vocalists. By the end of auditioning, the partners narrowed their search down to ten girls, including the members that finally become t.A.T.u., Lena Katina and Julia Volkova. Both Lena and Julia knew each other before the auditions.<\/span>[10]<span style=\"color:rgb(32, 33, 34)\">\u00a0Both girls stood out among the others, especially because of their appearance and vocal experience, but the producers decided to start with 14-year-old Katina, who sang \"<\/span>It Must Have Been Love<span style=\"color:rgb(32, 33, 34)\">\" by\u00a0<\/span>Roxette<span style=\"color:rgb(32, 33, 34)\">. Katina began recording demos, including \"Yugoslavia\", a protest song about\u00a0<\/span>NATO bombing of Yugoslavia<span style=\"color:rgb(32, 33, 34)\">.<\/span>[11][12]<span style=\"color:rgb(32, 33, 34)\">\u00a0After the demos were cut, Shapovalov insisted that another girl be added to the project. Thus, in late 1999, 14-year-old Julia Volkova was added to the group to complete the duo. She also started recording not long after Lena's \"Yugoslavia\" demo was finished.<\/span><\/p>\n","he":"<p><span style=\"color:rgb(32, 33, 34)\">t.A.T.u. were formed in 1999 by\u00a0<\/span>Ivan Shapovalov<span style=\"color:rgb(32, 33, 34)\">\u00a0and his friend\/business partner Alexander Voitinskiy, who developed plans to create a musical project in Russia. With this idea in mind, Shapovalov and Voitinskiy organized auditions in Moscow in early 1999 for teenage female vocalists. By the end of auditioning, the partners narrowed their search down to ten girls, including the members that finally become t.A.T.u., Lena Katina and Julia Volkova. Both Lena and Julia knew each other before the auditions.<\/span>[10]<span style=\"color:rgb(32, 33, 34)\">\u00a0Both girls stood out among the others, especially because of their appearance and vocal experience, but the producers decided to start with 14-year-old Katina, who sang \"<\/span>It Must Have Been Love<span style=\"color:rgb(32, 33, 34)\">\" by\u00a0<\/span>Roxette<span style=\"color:rgb(32, 33, 34)\">. Katina began recording demos, including \"Yugoslavia\", a protest song about\u00a0<\/span>NATO bombing of Yugoslavia<span style=\"color:rgb(32, 33, 34)\">.<\/span>[11][12]<span style=\"color:rgb(32, 33, 34)\">\u00a0After the demos were cut, Shapovalov insisted that another girl be added to the project. Thus, in late 1999, 14-year-old Julia Volkova was added to the group to complete the duo. She also started recording not long after Lena's \"Yugoslavia\" demo was finished.<\/span><\/p>\n","ru":"<p><span style=\"color:rgb(32, 33, 34)\">t.A.T.u. were formed in 1999 by\u00a0<\/span>Ivan Shapovalov<span style=\"color:rgb(32, 33, 34)\">\u00a0and his friend\/business partner Alexander Voitinskiy, who developed plans to create a musical project in Russia. With this idea in mind, Shapovalov and Voitinskiy organized auditions in Moscow in early 1999 for teenage female vocalists. By the end of auditioning, the partners narrowed their search down to ten girls, including the members that finally become t.A.T.u., Lena Katina and Julia Volkova. Both Lena and Julia knew each other before the auditions.<\/span>[10]<span style=\"color:rgb(32, 33, 34)\">\u00a0Both girls stood out among the others, especially because of their appearance and vocal experience, but the producers decided to start with 14-year-old Katina, who sang \"<\/span>It Must Have Been Love<span style=\"color:rgb(32, 33, 34)\">\" by\u00a0<\/span>Roxette<span style=\"color:rgb(32, 33, 34)\">. Katina began recording demos, including \"Yugoslavia\", a protest song about\u00a0<\/span>NATO bombing of Yugoslavia<span style=\"color:rgb(32, 33, 34)\">.<\/span>[11][12]<span style=\"color:rgb(32, 33, 34)\">\u00a0After the demos were cut, Shapovalov insisted that another girl be added to the project. Thus, in late 1999, 14-year-old Julia Volkova was added to the group to complete the duo. She also started recording not long after Lena's \"Yugoslavia\" demo was finished.<\/span><\/p>\n","ua":"<p><span style=\"color:rgb(32, 33, 34)\">t.A.T.u. were formed in 1999 by\u00a0<\/span>Ivan Shapovalov<span style=\"color:rgb(32, 33, 34)\">\u00a0and his friend\/business partner Alexander Voitinskiy, who developed plans to create a musical project in Russia. With this idea in mind, Shapovalov and Voitinskiy organized auditions in Moscow in early 1999 for teenage female vocalists. By the end of auditioning, the partners narrowed their search down to ten girls, including the members that finally become t.A.T.u., Lena Katina and Julia Volkova. Both Lena and Julia knew each other before the auditions.<\/span>[10]<span style=\"color:rgb(32, 33, 34)\">\u00a0Both girls stood out among the others, especially because of their appearance and vocal experience, but the producers decided to start with 14-year-old Katina, who sang \"<\/span>It Must Have Been Love<span style=\"color:rgb(32, 33, 34)\">\" by\u00a0<\/span>Roxette<span style=\"color:rgb(32, 33, 34)\">. Katina began recording demos, including \"Yugoslavia\", a protest song about\u00a0<\/span>NATO bombing of Yugoslavia<span style=\"color:rgb(32, 33, 34)\">.<\/span>[11][12]<span style=\"color:rgb(32, 33, 34)\">\u00a0After the demos were cut, Shapovalov insisted that another girl be added to the project. Thus, in late 1999, 14-year-old Julia Volkova was added to the group to complete the duo. She also started recording not long after Lena's \"Yugoslavia\" demo was finished.<\/span><\/p>\n"},"chapter":{"en":"About 3","he":"About 3","ru":"About 3","ua":"About 3"},"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/about\/92856E41-2F7B-4300-86AF-E068AC6535DA\/daenerys_game_of_thrones_painting_art-wallpaper-1600x900.jpg","order":0},{"title":{"en":"1999\u20132001: Formation and 200 Po Vstrechnoy","he":"1999\u20132001: Formation and 200 Po Vstrechnoy","ru":"1999\u20132001: Formation and 200 Po Vstrechnoy","ua":"1999\u20132001: Formation and 200 Po Vstrechnoy"},"description":{"en":"<p><span style=\"color:rgb(32, 33, 34)\">t.A.T.u. released the albums\u00a0<\/span><em>Dangerous and Moving<\/em><span style=\"color:rgb(32, 33, 34)\">\u00a0and\u00a0<\/span><em>Lyudi Invalidy<\/em><span style=\"color:rgb(32, 33, 34)\">\u00a0in 2005 to moderate success after parting ways with Shapovalov. The former was promoted with the international hit \"<\/span>All About Us<span style=\"color:rgb(32, 33, 34)\">\". The duo ventured into other projects, such as creating their own production company T.A. Music and promoting the film inspired by their story,\u00a0<\/span><em>You and I<\/em><span style=\"color:rgb(32, 33, 34)\">\u00a0(2008). Their last pair of albums,\u00a0<\/span><em>Vesyolye Ulybki<\/em><span style=\"color:rgb(32, 33, 34)\">\u00a0and\u00a0<\/span><em>Waste Management<\/em><span style=\"color:rgb(32, 33, 34)\">, followed between 2008 and 2009, respectively. t.A.T.u. officially split in 2011, with Katina and Volkova pursuing solo careers.<\/span>[4]<span style=\"color:rgb(32, 33, 34)\">\u00a0They reunited to perform at special occasions, such as\u00a0<\/span>the opening ceremony of the 2014 Winter Olympics<span style=\"color:rgb(32, 33, 34)\">, in subsequent years.<\/span><\/p>\n","he":"<p><span style=\"color:rgb(32, 33, 34)\">t.A.T.u. released the albums\u00a0<\/span><em>Dangerous and Moving<\/em><span style=\"color:rgb(32, 33, 34)\">\u00a0and\u00a0<\/span><em>Lyudi Invalidy<\/em><span style=\"color:rgb(32, 33, 34)\">\u00a0in 2005 to moderate success after parting ways with Shapovalov. The former was promoted with the international hit \"<\/span>All About Us<span style=\"color:rgb(32, 33, 34)\">\". The duo ventured into other projects, such as creating their own production company T.A. Music and promoting the film inspired by their story,\u00a0<\/span><em>You and I<\/em><span style=\"color:rgb(32, 33, 34)\">\u00a0(2008). Their last pair of albums,\u00a0<\/span><em>Vesyolye Ulybki<\/em><span style=\"color:rgb(32, 33, 34)\">\u00a0and\u00a0<\/span><em>Waste Management<\/em><span style=\"color:rgb(32, 33, 34)\">, followed between 2008 and 2009, respectively. t.A.T.u. officially split in 2011, with Katina and Volkova pursuing solo careers.<\/span>[4]<span style=\"color:rgb(32, 33, 34)\">\u00a0They reunited to perform at special occasions, such as\u00a0<\/span>the opening ceremony of the 2014 Winter Olympics<span style=\"color:rgb(32, 33, 34)\">, in subsequent years.<\/span><\/p>\n","ru":"<p><span style=\"color:rgb(32, 33, 34)\">t.A.T.u. released the albums\u00a0<\/span><em>Dangerous and Moving<\/em><span style=\"color:rgb(32, 33, 34)\">\u00a0and\u00a0<\/span><em>Lyudi Invalidy<\/em><span style=\"color:rgb(32, 33, 34)\">\u00a0in 2005 to moderate success after parting ways with Shapovalov. The former was promoted with the international hit \"<\/span>All About Us<span style=\"color:rgb(32, 33, 34)\">\". The duo ventured into other projects, such as creating their own production company T.A. Music and promoting the film inspired by their story,\u00a0<\/span><em>You and I<\/em><span style=\"color:rgb(32, 33, 34)\">\u00a0(2008). Their last pair of albums,\u00a0<\/span><em>Vesyolye Ulybki<\/em><span style=\"color:rgb(32, 33, 34)\">\u00a0and\u00a0<\/span><em>Waste Management<\/em><span style=\"color:rgb(32, 33, 34)\">, followed between 2008 and 2009, respectively. t.A.T.u. officially split in 2011, with Katina and Volkova pursuing solo careers.<\/span>[4]<span style=\"color:rgb(32, 33, 34)\">\u00a0They reunited to perform at special occasions, such as\u00a0<\/span>the opening ceremony of the 2014 Winter Olympics<span style=\"color:rgb(32, 33, 34)\">, in subsequent years.<\/span><\/p>\n","ua":"<p><span style=\"color:rgb(32, 33, 34)\">t.A.T.u. released the albums\u00a0<\/span><em>Dangerous and Moving<\/em><span style=\"color:rgb(32, 33, 34)\">\u00a0and\u00a0<\/span><em>Lyudi Invalidy<\/em><span style=\"color:rgb(32, 33, 34)\">\u00a0in 2005 to moderate success after parting ways with Shapovalov. The former was promoted with the international hit \"<\/span>All About Us<span style=\"color:rgb(32, 33, 34)\">\". The duo ventured into other projects, such as creating their own production company T.A. Music and promoting the film inspired by their story,\u00a0<\/span><em>You and I<\/em><span style=\"color:rgb(32, 33, 34)\">\u00a0(2008). Their last pair of albums,\u00a0<\/span><em>Vesyolye Ulybki<\/em><span style=\"color:rgb(32, 33, 34)\">\u00a0and\u00a0<\/span><em>Waste Management<\/em><span style=\"color:rgb(32, 33, 34)\">, followed between 2008 and 2009, respectively. t.A.T.u. officially split in 2011, with Katina and Volkova pursuing solo careers.<\/span>[4]<span style=\"color:rgb(32, 33, 34)\">\u00a0They reunited to perform at special occasions, such as\u00a0<\/span>the opening ceremony of the 2014 Winter Olympics<span style=\"color:rgb(32, 33, 34)\">, in subsequent years.<\/span><\/p>\n"},"chapter":{"en":"About 2","he":"About 2","ru":"About 2","ua":"About 2"},"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/about\/3604A42C-5E81-44FF-89C2-6180F03A1C27\/reka_les_gory_130651_720x1280.jpg","order":1},{"title":{"en":"2011: Disbandment","he":"2011: Disbandment","ru":"2011: Disbandment","ua":"2011: Disbandment"},"description":{"en":"<p>At the end of March 2011, t.A.T.u. management released a press release on their official website declaring t.A.T.u. over. Due to conflicts between the girls, and them both wanting to pursue solo careers, the duo was officially announced as disbanded. They finalised the duo's discography with a double remix album for\u00a0<em>Waste Management<\/em>. The management thanked fans for their loyalty over the past twelve years of the duo's history.[57][58]<\/p>\n\n<p>After the split, the group decided to focus on their solo careers, both musically and in film. In August 2011, Lena revealed her debut solo single \"Never Forget\" which eventually charted at number one on the US\u00a0Hot Dance Club Songs\u00a0for a sole week.[59]\u00a0Volkova was also working on her studio album and released two singles; \"All Because of You\" and \"Didn't Wanna Do It\", but failed to generate interest on the music charts.[60][61]\u00a0The following year she confirmed she would be starring in the\u00a0dark comedy\u00a0zombie film\u00a0<em>9 1\/2 Zombies<\/em>, where she plays a heroine.<\/p>\n","he":"<p>At the end of March 2011, t.A.T.u. management released a press release on their official website declaring t.A.T.u. over. Due to conflicts between the girls, and them both wanting to pursue solo careers, the duo was officially announced as disbanded. They finalised the duo's discography with a double remix album for\u00a0<em>Waste Management<\/em>. The management thanked fans for their loyalty over the past twelve years of the duo's history.[57][58]<\/p>\n\n<p>After the split, the group decided to focus on their solo careers, both musically and in film. In August 2011, Lena revealed her debut solo single \"Never Forget\" which eventually charted at number one on the US\u00a0Hot Dance Club Songs\u00a0for a sole week.[59]\u00a0Volkova was also working on her studio album and released two singles; \"All Because of You\" and \"Didn't Wanna Do It\", but failed to generate interest on the music charts.[60][61]\u00a0The following year she confirmed she would be starring in the\u00a0dark comedy\u00a0zombie film\u00a0<em>9 1\/2 Zombies<\/em>, where she plays a heroine.<\/p>\n","ru":"<p>At the end of March 2011, t.A.T.u. management released a press release on their official website declaring t.A.T.u. over. Due to conflicts between the girls, and them both wanting to pursue solo careers, the duo was officially announced as disbanded. They finalised the duo's discography with a double remix album for\u00a0<em>Waste Management<\/em>. The management thanked fans for their loyalty over the past twelve years of the duo's history.[57][58]<\/p>\n\n<p>After the split, the group decided to focus on their solo careers, both musically and in film. In August 2011, Lena revealed her debut solo single \"Never Forget\" which eventually charted at number one on the US\u00a0Hot Dance Club Songs\u00a0for a sole week.[59]\u00a0Volkova was also working on her studio album and released two singles; \"All Because of You\" and \"Didn't Wanna Do It\", but failed to generate interest on the music charts.[60][61]\u00a0The following year she confirmed she would be starring in the\u00a0dark comedy\u00a0zombie film\u00a0<em>9 1\/2 Zombies<\/em>, where she plays a heroine.<\/p>\n","ua":"<p>At the end of March 2011, t.A.T.u. management released a press release on their official website declaring t.A.T.u. over. Due to conflicts between the girls, and them both wanting to pursue solo careers, the duo was officially announced as disbanded. They finalised the duo's discography with a double remix album for\u00a0<em>Waste Management<\/em>. The management thanked fans for their loyalty over the past twelve years of the duo's history.[57][58]<\/p>\n\n<p>After the split, the group decided to focus on their solo careers, both musically and in film. In August 2011, Lena revealed her debut solo single \"Never Forget\" which eventually charted at number one on the US\u00a0Hot Dance Club Songs\u00a0for a sole week.[59]\u00a0Volkova was also working on her studio album and released two singles; \"All Because of You\" and \"Didn't Wanna Do It\", but failed to generate interest on the music charts.[60][61]\u00a0The following year she confirmed she would be starring in the\u00a0dark comedy\u00a0zombie film\u00a0<em>9 1\/2 Zombies<\/em>, where she plays a heroine.<\/p>\n"},"chapter":{"en":"Chapter 4","he":"Chapter 4","ru":"Chapter 4","ua":"Chapter 4"},"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/about\/4785F14C-A471-4C66-8F5E-DCD2114B609F\/avatar_2_movie_2021-wallpaper-1600x900.jpg","order":2},{"title":{"en":"Wake up in the heart of Tel Aviv","he":"Wake up in the heart of Tel Aviv","ru":"Wake up in the heart of Tel Aviv","ua":"Wake up in the heart of Tel Aviv"},"description":{"en":"<p>Come and join the beautiful Gindi TLV community and expand the horizons of your daily life with a mosaic of exciting Tel Aviv experiences. In the most coveted city center location, at the bustling corner of HaHashmonaim and Carlebach Streets, an unparalleled lifestyle awaits you near numerous exceptional educational institutions, cultural attractions and entertainment venues.<\/p>\n","he":"<p>Come and join the beautiful Gindi TLV community and expand the horizons of your daily life with a mosaic of exciting Tel Aviv experiences. In the most coveted city center location, at the bustling corner of HaHashmonaim and Carlebach Streets, an unparalleled lifestyle awaits you near numerous exceptional educational institutions, cultural attractions and entertainment venues.<\/p>\n","ru":"<p>Come and join the beautiful Gindi TLV community and expand the horizons of your daily life with a mosaic of exciting Tel Aviv experiences. In the most coveted city center location, at the bustling corner of HaHashmonaim and Carlebach Streets, an unparalleled lifestyle awaits you near numerous exceptional educational institutions, cultural attractions and entertainment venues.<\/p>\n","ua":"<p>Come and join the beautiful Gindi TLV community and expand the horizons of your daily life with a mosaic of exciting Tel Aviv experiences. In the most coveted city center location, at the bustling corner of HaHashmonaim and Carlebach Streets, an unparalleled lifestyle awaits you near numerous exceptional educational institutions, cultural attractions and entertainment venues.<\/p>\n"},"chapter":{"en":"1","he":"1","ru":"1","ua":"1"},"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/about\/D4C04B7F-AAB7-4D25-AE8C-32F5945E187F\/inzhir_vinograd_chernika_101724_1400x1050.jpg","order":3}];
+
 let canvasClass = 'bmby-about-wrapp';
 let lang = 'en';
 const dir = 'ltr';
@@ -22,27 +22,82 @@ window.addEventListener("DOMContentLoaded", function (event) {
     aboutUsMainContainer.classList.add(dir);
     addFont();
     addBasicStyle();
-    insertMenu();
-    orientationHandler();
+    if (window.innerWidth >=1024){
+        buildDesktopAbout();
+    }else{
+        insertMenu();
+        orientationHandler();
+    }
 });
 
 window.addEventListener('orientationchange',orientationHandler);
 
-function orientationHandler () {
-    const menus = document.querySelectorAll('.menu__items');
-    menus.forEach((menu,index) =>{
-        menu.remove();
-        insertMenu(false);
+function buildDesktopAbout () {
+    const wrapper = creatHtmlElement(aboutUsMainContainer,'','div',['content__wrapper']);
+    aboutUsData.forEach(el =>{
+        const section = creatHtmlElement(wrapper,'','section',['about-us__section']);
+        const imgContainer = creatHtmlElement(section,'','div',['about-us__img-container']);
+        const img = creatHtmlElement(imgContainer,'','img',['about-us__image']);
+        img.src = el.imageUrl;
+        const subWrapper = creatHtmlElement(section,'','div',['about-us__sub-wrapper']);
+        const sectionTitle = creatHtmlElement(subWrapper,el.title[lang],'h3',['about-us__section-title']);
+        const sectionText = creatHtmlElement(subWrapper,el.description[lang],'p',['about-us__section-text']);
     });
+    cropImageToText();
+}
 
-    const contentWrapper = document.querySelector('.tabs-data-content__wrapper');
-    if (window.screen.orientation.type !== 'portrait-primary' && dir === 'ltr'){
-        contentWrapper.style.marginLeft = 114+'px';
-    } else if (window.screen.orientation.type !== 'portrait-primary' && dir === 'rtl'){
-        contentWrapper.style.marginRight = 114+'px';
-    }else{
-        contentWrapper.style.marginRight = 0+'px';
-        contentWrapper.style.marginLeft = 0+'px';
+function cropImageToText () {
+    let cropInterval;
+    let cropImageCount=0;
+    cropInterval = setInterval(()=>{
+        const sectionCollection = document.querySelectorAll('.about-us__section');
+        sectionCollection.forEach(section =>{
+            const img = section.querySelector('.about-us__img-container > .about-us__image');
+            const sub = section.querySelector('.about-us__sub-wrapper');
+            let subHeight=0;
+            for (let child of sub.children){
+                subHeight += child.getBoundingClientRect().height;
+            }
+            if (img.getBoundingClientRect().height > subHeight + 120){
+                img.style.height = subHeight+120+'px';
+                cropImageCount++;
+            }
+        });
+        if (cropImageCount === sectionCollection.length){
+            clearInterval(cropInterval);
+        }
+    },100);
+    // const sectionCollection = document.querySelectorAll('.about-us__section');
+    // sectionCollection.forEach(section =>{
+    //     const img = section.querySelector('.about-us__img-container > .about-us__image');
+    //     const sub = section.querySelector('.about-us__sub-wrapper');
+    //     let subHeight=0;
+    //     for (let child of sub.children){
+    //        subHeight += child.getBoundingClientRect().height;
+    //     }
+    //     if (img.getBoundingClientRect().height > subHeight + 120){
+    //         img.style.height = subHeight+120+'px';
+    //     }
+    // });
+}
+
+function orientationHandler () {
+    if (window.innerWidth < 1024){
+        const menus = document.querySelectorAll('.menu__items');
+        menus.forEach((menu,index) =>{
+            menu.remove();
+            insertMenu(false);
+        });
+
+        const contentWrapper = document.querySelector('.tabs-data-content__wrapper');
+        if (window.screen.orientation.type !== 'portrait-primary' && dir === 'ltr'){
+            contentWrapper.style.marginLeft = 114+'px';
+        } else if (window.screen.orientation.type !== 'portrait-primary' && dir === 'rtl'){
+            contentWrapper.style.marginRight = 114+'px';
+        }else{
+            contentWrapper.style.marginRight = 0+'px';
+            contentWrapper.style.marginLeft = 0+'px';
+        }
     }
 }
 
@@ -311,6 +366,37 @@ body{
     padding-top: 12px;
 }
 }
+
+.content__wrapper{
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.about-us__section {
+  display: flex;
+  justify-content: space-between;
+  padding: 80px 10px 0 10px;
+}
+
+.about-us__section:nth-of-type(even){
+  flex-direction: row-reverse;
+}
+
+.about-us__image{
+  width: 100%;
+  object-fit: cover;
+}
+
+.about-us__sub-wrapper, .about-us__img-container{
+  flex-basis: 47%;
+}
+
+.about-us__section-title{
+  font-size: 30px;
+  margin-bottom: 48px;
+}
+
 `;
 
 /*!
