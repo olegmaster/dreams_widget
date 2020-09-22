@@ -57,27 +57,82 @@ window.addEventListener("DOMContentLoaded", function (event) {
     aboutUsMainContainer.classList.add(dir);
     addFont();
     addBasicStyle();
-    insertMenu();
-    orientationHandler();
+    if (window.innerWidth >=1024){
+        buildDesktopAbout();
+    }else{
+        insertMenu();
+        orientationHandler();
+    }
 });
 
 window.addEventListener('orientationchange',orientationHandler);
 
-function orientationHandler () {
-    const menus = document.querySelectorAll('.menu__items');
-    menus.forEach((menu,index) =>{
-        menu.remove();
-        insertMenu(false);
+function buildDesktopAbout () {
+    const wrapper = creatHtmlElement(aboutUsMainContainer,'','div',['content__wrapper']);
+    aboutUsData.forEach(el =>{
+        const section = creatHtmlElement(wrapper,'','section',['about-us__section']);
+        const imgContainer = creatHtmlElement(section,'','div',['about-us__img-container']);
+        const img = creatHtmlElement(imgContainer,'','img',['about-us__image']);
+        img.src = el.imageUrl;
+        const subWrapper = creatHtmlElement(section,'','div',['about-us__sub-wrapper']);
+        const sectionTitle = creatHtmlElement(subWrapper,el.title[lang],'h3',['about-us__section-title']);
+        const sectionText = creatHtmlElement(subWrapper,el.description[lang],'p',['about-us__section-text']);
     });
+    cropImageToText();
+}
 
-    const contentWrapper = document.querySelector('.tabs-data-content__wrapper');
-    if (window.screen.orientation.type !== 'portrait-primary' && dir === 'ltr'){
-        contentWrapper.style.marginLeft = 114+'px';
-    } else if (window.screen.orientation.type !== 'portrait-primary' && dir === 'rtl'){
-        contentWrapper.style.marginRight = 114+'px';
-    }else{
-        contentWrapper.style.marginRight = 0+'px';
-        contentWrapper.style.marginLeft = 0+'px';
+function cropImageToText () {
+    let cropInterval;
+    let cropImageCount=0;
+    cropInterval = setInterval(()=>{
+        const sectionCollection = document.querySelectorAll('.about-us__section');
+        sectionCollection.forEach(section =>{
+            const img = section.querySelector('.about-us__img-container > .about-us__image');
+            const sub = section.querySelector('.about-us__sub-wrapper');
+            let subHeight=0;
+            for (let child of sub.children){
+                subHeight += child.getBoundingClientRect().height;
+            }
+            if (img.getBoundingClientRect().height > subHeight + 120){
+                img.style.height = subHeight+120+'px';
+                cropImageCount++;
+            }
+        });
+        if (cropImageCount === sectionCollection.length){
+            clearInterval(cropInterval);
+        }
+    },100);
+    // const sectionCollection = document.querySelectorAll('.about-us__section');
+    // sectionCollection.forEach(section =>{
+    //     const img = section.querySelector('.about-us__img-container > .about-us__image');
+    //     const sub = section.querySelector('.about-us__sub-wrapper');
+    //     let subHeight=0;
+    //     for (let child of sub.children){
+    //        subHeight += child.getBoundingClientRect().height;
+    //     }
+    //     if (img.getBoundingClientRect().height > subHeight + 120){
+    //         img.style.height = subHeight+120+'px';
+    //     }
+    // });
+}
+
+function orientationHandler () {
+    if (window.innerWidth < 1024){
+        const menus = document.querySelectorAll('.menu__items');
+        menus.forEach((menu,index) =>{
+            menu.remove();
+            insertMenu(false);
+        });
+
+        const contentWrapper = document.querySelector('.tabs-data-content__wrapper');
+        if (window.screen.orientation.type !== 'portrait-primary' && dir === 'ltr'){
+            contentWrapper.style.marginLeft = 114+'px';
+        } else if (window.screen.orientation.type !== 'portrait-primary' && dir === 'rtl'){
+            contentWrapper.style.marginRight = 114+'px';
+        }else{
+            contentWrapper.style.marginRight = 0+'px';
+            contentWrapper.style.marginLeft = 0+'px';
+        }
     }
 }
 
@@ -350,6 +405,37 @@ body{
     padding-top: 12px;
 }
 }
+
+.content__wrapper{
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.about-us__section {
+  display: flex;
+  justify-content: space-between;
+  padding: 80px 10px 0 10px;
+}
+
+.about-us__section:nth-of-type(even){
+  flex-direction: row-reverse;
+}
+
+.about-us__image{
+  width: 100%;
+  object-fit: cover;
+}
+
+.about-us__sub-wrapper, .about-us__img-container{
+  flex-basis: 47%;
+}
+
+.about-us__section-title{
+  font-size: 30px;
+  margin-bottom: 48px;
+}
+
 `;
 
 /*!
