@@ -5,7 +5,7 @@ require_once '../classes/GalleryJsGenerator.php';
 
 $canvasClass = $_GET['canvas'] ?? 'bmby-gallery';
 
-$key = $_GET['key'] ?? null;
+$key = $_GET['key'] ?? '';
 $type = $_GET['type'] ?? '';
 $callback = $_GET['callback'] ?? '';
 $lang = $_GET['lang'] ?? 'en';
