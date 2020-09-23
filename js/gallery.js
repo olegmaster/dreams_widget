@@ -573,8 +573,9 @@ body{
     align-items: center;
   }
   .images__container{
-    padding-top: 16px;
+    padding-top: 0px;
     overflow-x: hidden;
+    margin-top: -2px;
   }
   .menu__items{
     justify-content: flex-end;
