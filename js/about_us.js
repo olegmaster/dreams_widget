@@ -92,7 +92,7 @@ function creatHtmlElement(parent, elementName, elementTag, elementClass) {
     }else{
         el.style.cssText=elementClass;
     }
-    el.textContent = elementName;
+    el.innerHTML = elementName;
     if (parent) {
         parent.appendChild(el);
     }
@@ -105,7 +105,7 @@ function addFont() {
 }
 
 function addBasicStyle () {
-    const replacedStyle = basicStyle.replaceAll('main-container-about', canvasClass);
+    const replacedStyle = basicStyle.replace(/main-container-about/g, canvasClass);
     document.head.innerHTML +='<style>'+replacedStyle+'</style>';
 }
 
@@ -114,7 +114,11 @@ function insertMenu (createTabs = true) {
     aboutUsMainContainer.insertAdjacentElement('afterbegin',menuContainer);
     const tabsDataMainContainer = creatHtmlElement(aboutUsMainContainer,'','div',['tabs-data-content__wrapper']);
     aboutUsData.forEach((menuElement,index) =>{
-       const li = creatHtmlElement(menuContainer,menuElement.chapter[lang],'li',['menu__item']);
+        let chapter = menuElement.chapter.filter(el => el.lang === lang);
+        if(!chapter[0].hasOwnProperty('value')){
+            throw 'menuElement has unsupported structure';
+        }
+        const li = creatHtmlElement(menuContainer,chapter[0].value,'li',['menu__item']);
        li.dataset.order = menuElement.order;
         createTabs && buildTabsContent(tabsDataMainContainer, menuElement);
         if (index ===0){
@@ -189,8 +193,8 @@ function setMenuStyle (menuItems) {
 function buildTabsContent (container,objectContent) {
     const tab = creatHtmlElement(container,'','div',['tab-content__container']);
     tab.dataset.order = objectContent.order;
-    const title = creatHtmlElement(tab,objectContent.title[lang],'h3',['tab-content__title']);
-    const text = creatHtmlElement(tab,objectContent.description[lang],'p',['tab-content__text']);
+    const title = creatHtmlElement(tab,objectContent.title.filter(el => el.lang === lang)[0].value,'h3',['tab-content__title']);
+    const text = creatHtmlElement(tab,objectContent.description.filter(el => el.lang === lang)[0].value,'p',['tab-content__text']);
     const img = creatHtmlElement(tab,'','img',['tab-content__image']);
     img.src = objectContent.imageUrl;
     if (objectContent.order !== 0){
