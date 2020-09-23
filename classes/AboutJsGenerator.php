@@ -74,9 +74,9 @@ function buildDesktopAbout () {
         const imgContainer = creatHtmlElement(section,'','div',['about-us__img-container']);
         const img = creatHtmlElement(imgContainer,'','img',['about-us__image']);
         img.src = el.imageUrl;
-        const subWrapper = creatHtmlElement(section,'','div',['about-us__sub-wrapper']);
-        const sectionTitle = creatHtmlElement(subWrapper,el.title[lang],'h3',['about-us__section-title']);
-        const sectionText = creatHtmlElement(subWrapper,el.description[lang],'p',['about-us__section-text']);
+        const subWrapper = creatHtmlElement(section,'','div',['about-us__sub-wrapper']);        
+        const sectionTitle = creatHtmlElement(subWrapper,el.title.filter(el => el.lang === lang)[0].value,'h3',['about-us__section-title']);
+        const sectionText = creatHtmlElement(subWrapper,el.description.filter(el => el.lang === lang)[0].value,'p',['about-us__section-text']);
     });
     cropImageToText();
 }
