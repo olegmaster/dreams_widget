@@ -574,6 +574,7 @@ body{
   }
   .images__container{
     padding-top: 16px;
+    overflow-x: hidden;
   }
   .menu__items{
     justify-content: flex-end;
