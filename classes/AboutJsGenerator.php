@@ -82,38 +82,20 @@ function buildDesktopAbout () {
 }
 
 function cropImageToText () {
-    let cropInterval;
-    let cropImageCount=0;
-    cropInterval = setInterval(()=>{
         const sectionCollection = document.querySelectorAll('.about-us__section');
         sectionCollection.forEach(section =>{
-            const img = section.querySelector('.about-us__img-container > .about-us__image');
-            const sub = section.querySelector('.about-us__sub-wrapper');
-            let subHeight=0;
-            for (let child of sub.children){
-                subHeight += child.getBoundingClientRect().height;
-            }
-            if (img.getBoundingClientRect().height > subHeight + 120){
-                img.style.height = subHeight+120+'px';
-                cropImageCount++;
-            }
+            setTimeout(()=>{
+                const img = section.querySelector('.about-us__img-container > .about-us__image');
+                const sub = section.querySelector('.about-us__sub-wrapper');
+                let subHeight=0;
+                for (let child of sub.children){
+                    subHeight += child.getBoundingClientRect().height;
+                }
+                if (img.getBoundingClientRect().height > subHeight + 120){
+                    img.style.height = subHeight+120+'px';
+                }
+            },100);
         });
-        if (cropImageCount === sectionCollection.length){
-            clearInterval(cropInterval);
-        }
-    },100);
-    // const sectionCollection = document.querySelectorAll('.about-us__section');
-    // sectionCollection.forEach(section =>{
-    //     const img = section.querySelector('.about-us__img-container > .about-us__image');
-    //     const sub = section.querySelector('.about-us__sub-wrapper');
-    //     let subHeight=0;
-    //     for (let child of sub.children){
-    //        subHeight += child.getBoundingClientRect().height;
-    //     }
-    //     if (img.getBoundingClientRect().height > subHeight + 120){
-    //         img.style.height = subHeight+120+'px';
-    //     }
-    // });
 }
 
 function orientationHandler () {
@@ -121,8 +103,8 @@ function orientationHandler () {
         const menus = document.querySelectorAll('.menu__items');
         menus.forEach((menu,index) =>{
             menu.remove();
-            insertMenu(false);
         });
+        insertMenu(false);
 
         const contentWrapper = document.querySelector('.tabs-data-content__wrapper');
         if (window.screen.orientation.type !== 'portrait-primary' && dir === 'ltr'){
