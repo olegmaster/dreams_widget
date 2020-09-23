@@ -109,40 +109,48 @@ window.addEventListener('orientationchange',orientationHandler);
 function orientationHandler (e) {
     const menus = document.querySelectorAll('.menu__container');
     menus.forEach((menu,index) =>{
-       menu.remove();
-       insertMenu(index);
+        menu.remove();
+        // $('.images__container').slick('unslick');
+        // slickInit(index);
     });
+    insertMenu();
     $('.images__container').slick('unslick');
     slickInit();
 }
 
 function slickInit () {
     const orientation = getWindowOrientation();
-    $('.images__container').slick({
-        slidesToShow   : orientation!=='portrait-primary'? 1 : imagesCount,
-        slidesToScroll: 1,
-        cssEase: 'cubic-bezier(0,.05,.18,.9)',
-        infinite : false,
-        dots     : window.innerWidth>=1024? true:false,
-        arrows   : window.innerWidth>=1024? true:false,
-        vertical: orientation==='portrait-primary'? true : false,
-        verticalSwiping: orientation==='portrait-primary'? true : false,
-        variableWidth: orientation==='portrait-primary'? false : true,
-        rtl: dir==='ltr'? false:true,
-        appendArrows: $(creatHtmlElement('','','div',['arrows__container'])).appendTo('.menu__container'),
-        appendDots: $(creatHtmlElement('','','div',['dots__container'])).appendTo('.menu__container'),
-        prevArrow: '<i class="prev-btn fas fa-chevron-left" data-menu-index-position="1"></i>',
-        nextArrow: '<i class="next-btn fas fa-chevron-right" data-menu-index-position="2"></i>',
+    const imagesContainers = document.querySelectorAll('.images__container');
+    imagesContainers.forEach(container =>{
+        $(container).slick({
+            // '.images__container[data-index="'+container.dataset.index+'"]'
+            // $('.images__container').slick({
+            slidesToShow   : orientation!=='portrait-primary'? 1 : imagesCount,
+            slidesToScroll: 1,
+            cssEase: 'cubic-bezier(0,.05,.18,.9)',
+            infinite : false,
+            dots     : window.innerWidth>=1024? true:false,
+            arrows   : window.innerWidth>=1024? true:false,
+            vertical: orientation==='portrait-primary'? true : false,
+            verticalSwiping: orientation==='portrait-primary'? true : false,
+            variableWidth: orientation==='portrait-primary'? false : true,
+            rtl: dir==='ltr'? false:true,
+            appendArrows: $(creatHtmlElement('','','div',['arrows__container'])).appendTo('.menu__container[data-index="'+container.dataset.index+'"]'),
+            appendDots: $(creatHtmlElement('','','div',['dots__container'])).appendTo('.menu__container[data-index="'+container.dataset.index+'"]'),
+            prevArrow: '<i class="prev-btn fas fa-chevron-left" data-menu-index-position="1"></i>',
+            nextArrow: '<i class="next-btn fas fa-chevron-right" data-menu-index-position="2"></i>',
+        });
+        setMenuChildrenPosition(container.dataset.index);
+        removeTextFromDefaultDots();
     });
-    setMenuChildrenPosition();
-    removeTextFromDefaultDots();
+
 }
 
 
-function setMenuChildrenPosition () {
+function setMenuChildrenPosition (menuIndex) {
     const sortedPosition =[];
     const currentPosition = ['dots__container','arrows__container','menu__items',];
-    const menuContainer = document.querySelector('.menu__container');
+    const menuContainer = document.querySelector('.menu__container[data-index="'+menuIndex+'"]');
     sortedPosition.length = menuContainer.children.length;
     currentPosition.forEach((el,index)=>{
         for (let child of menuContainer.children){
@@ -172,9 +180,9 @@ function anchorActivity () {
         galleryImages.forEach((image,index)=>{
             if (orientation === 'portrait-primary'){
                 const isVisible = isScrolledIntoView(image.firstElementChild);
-                    if (isVisible){
-                        setActiveTab(image.dataset.categoryId,gallery.dataset.index);
-                    }
+                if (isVisible){
+                    setActiveTab(image.dataset.categoryId,gallery.dataset.index);
+                }
             } else {
                 if (image.ariaHidden === 'false') {
                     setActiveTab(image.dataset.categoryId, gallery.dataset.index);
@@ -200,15 +208,15 @@ function isScrolledIntoView(el) {
     }
 }
 
-function insertMenu (indexMenu) {
+function insertMenu () {
     galleryContainer.forEach((container,index) =>{
         container.classList.add(dir);
-        const menuContainer = creatHtmlElement(container,'','div',['menu__container']);
-        menuContainer.dataset.index = indexMenu || index;
+        const menuContainer = creatHtmlElement('','','div',['menu__container']);
+        menuContainer.dataset.index =index;
         const ul = creatHtmlElement(menuContainer,'','ul',['menu__items']);
-        ul.dataset.index = indexMenu || index;
+        ul.dataset.index = index;
         galleryData.forEach((element,index) => {
-            let menuItemName = element.name.filter(el => el.lang === lang);                   
+            let menuItemName = element.name.filter(el => el.lang === lang);
             const li = creatHtmlElement(ul,menuItemName[0].value,'li',['menu__item']);
             li.dataset.categoryId = element.categoryId;
             if (index ===0){
@@ -216,6 +224,11 @@ function insertMenu (indexMenu) {
             }
         });
         creatHtmlElement(ul,'','div',['menu__plug']);
+        if (container.children.length>0){
+            container.insertAdjacentElement('afterbegin',menuContainer);
+        }else{
+            container.appendChild(menuContainer);
+        }
         setMenuStyle(ul);
         ul.addEventListener('click', (e) =>switchTab(e.target));
     });
@@ -270,6 +283,7 @@ function setMenuStyle (menuItems) {
 }
 
 function initGallery () {
+    const menuIndexArr =[];
     galleryContainer.forEach((container,index)=>{
         container.dataset.index = index;
         const imagesContainer = creatHtmlElement(container,'','div',['images__container']);
@@ -286,6 +300,7 @@ function initGallery () {
             hrefImg.src= img.imageUrl;
             imagesCount++;
         });
+        menuIndexArr.push(index);
     });
 
 
@@ -311,6 +326,8 @@ function initGallery () {
                 backFocus : false
             });
 
+            // menuIndexArr.forEach(menuIndex=>slickInit(menuIndex));
+
             slickInit();
 
             $('.images__container').on('swipe', function(event, slick, direction){
@@ -330,7 +347,7 @@ function addUbuntuFont() {
 }
 
 function addBasicStyle () {
-    const replacedStyle = basicStyle.replace('main-container-gallery', canvasClass);
+    const replacedStyle = basicStyle.replaceAll('main-container-gallery', canvasClass);
     document.head.innerHTML +='<style>'+replacedStyle+'</style>';
 
 }
@@ -402,7 +419,7 @@ function scrollToImages (activeElement) {
         if (activeElement.dataset.categoryId === img.dataset.categoryId){
             if (i===0){
                 if (orientation !== 'portrait-primary'){
-                    $('.images__container').slick('slickGoTo',img.dataset.slickIndex);
+                    $('.images__container[data-index="'+parentIndex+'"]').slick('slickGoTo',img.dataset.slickIndex);
                     // const imagesContainer = img.parentElement;
                     // const imageStartPos = img.getBoundingClientRect().left;
                     // imagesContainer.scrollTo(Math.ceil(imagesContainer.scrollLeft + imageStartPos - img.getBoundingClientRect().width),0);
@@ -495,7 +512,7 @@ body{
   margin-bottom: 8px;
 }
 .menu__container {
-  position: fixed;
+  position: sticky;
   z-index: 5;
   top:0;
   background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%);
@@ -515,7 +532,7 @@ body{
 }
 .images__container {
   overflow-x: hidden;
-  padding-top: 47px;
+  // padding-top: 47px;
   scroll-behavior: smooth;
 }
 .menu__item {
@@ -562,6 +579,10 @@ body{
   direction: ltr;
 }
 
+.slick-list{
+    height: 100% !important;
+}
+
 @media (orientation: landscape) {
   .images__container {
     overflow-x: scroll;
@@ -584,6 +605,7 @@ body{
   .menu__container {
     bottom: 0;
     top: inherit;
+    position: inherit;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -639,6 +661,10 @@ body{
   }
   .dots__container{
   width: 17%;
+  }
+  .main-container-gallery {
+    display: flex;
+    flex-direction: column-reverse;
   }
 
 }
