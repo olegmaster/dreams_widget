@@ -13,8 +13,7 @@ class WidgetApiInteractor extends ApiHelper
     public function __construct(string $apiKey, string $type)
     {
         $this->apiKey = $apiKey;
-        //$this->apiEndPoint = ($type == 'US')?$_SERVER['endpoint_US']:$_SERVER['endpoint_IL']; // uncomment on production server
-        $this->apiEndPoint = 'https://dreamsapi.bmby.com';   // temporary code, remove on production
+        $this->apiEndPoint = ($type == 'US')?$_SERVER['endpoint_US']:$_SERVER['endpoint_IL'];
     }
 
     /**
