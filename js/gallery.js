@@ -13,6 +13,7 @@ let galleryContainer;
 let checkInterval;
 let timer = null;
 let imagesCount=0;
+let loadedScripts={};
 
 let galleries = [];
 
@@ -44,12 +45,18 @@ function creatHtmlElement(parent, elementName, elementTag, elementClass) {
 
 // add galleries on document load
 document.addEventListener("DOMContentLoaded", function (event) {
-    addScripts();
+    let isScriptsLoaded;
     galleryContainer = document.querySelectorAll('.'+canvasClass);
     addUbuntuFont();
     addBasicStyle();
-    insertMenu();
-    initGallery();
+    isScriptsLoaded = setInterval(()=>{
+        addScripts();
+        if (Object.keys(loadedScripts).length>=3){
+            clearInterval(isScriptsLoaded);
+            insertMenu();
+            initGallery();
+        }
+    },100);
 });
 
 const fancyBoxTemplate =`
@@ -66,14 +73,13 @@ const fancyBoxTemplate =`
 
 window.onscroll = ()=>onScrollGallery();
 window.addEventListener('orientationchange',orientationHandler);
+window.addEventListener('resize',orientationHandler);
 
 
 function orientationHandler (e) {
     const menus = document.querySelectorAll('.menu__container');
     menus.forEach((menu,index) =>{
         menu.remove();
-        // $('.images__container').slick('unslick');
-        // slickInit(index);
     });
     insertMenu();
     $('.images__container').slick('unslick');
@@ -245,7 +251,6 @@ function setMenuStyle (menuItems) {
 }
 
 function initGallery () {
-    const menuIndexArr =[];
     galleryContainer.forEach((container,index)=>{
         container.dataset.index = index;
         const imagesContainer = creatHtmlElement(container,'','div',['images__container']);
@@ -262,15 +267,8 @@ function initGallery () {
             hrefImg.src= img.imageUrl;
             imagesCount++;
         });
-        menuIndexArr.push(index);
     });
 
-
-    checkInterval = setInterval(()=>{
-        addScripts();
-        if (window.$ && window.$.fancybox){
-            clearInterval(checkInterval);
-            window.jQuery = window.$ = jQuery;
             $('[data-fancybox]').fancybox({
                 buttons:[
                     // 'zoom',
@@ -288,19 +286,15 @@ function initGallery () {
                 backFocus : false
             });
 
-            // menuIndexArr.forEach(menuIndex=>slickInit(menuIndex));
-
             slickInit();
 
             $('.images__container').on('swipe', function(event, slick, direction){
                 onScrollGallery();
             });
 
-            $('.images__container').on('afterChange', function(event, slick, currentSlide){
+           $('.images__container').on('afterChange', function(event, slick, currentSlide){
                 onScrollGallery();
             });
-        }
-    },100);
 }
 
 function addUbuntuFont() {
@@ -315,19 +309,25 @@ function addBasicStyle () {
 }
 
 function isLoadedScript(path) {
-    return document.head.querySelectorAll('[src="' + path + '"]').length > 0
+    const isExist = document.head.querySelectorAll('[src="' + path + '"]').length > 0;
+    if (isExist && window.$ && window.$.fancybox){
+        loadedScripts[path] = path;
+    }
+    return isExist;
 }
 
 function isLoadedStyle (path) {
     return document.head.querySelectorAll('[href="' + path + '"]').length > 0
 }
 
-function loadScript(path) {
+async function loadScript(path) {
     const script = document.createElement('script');
     script.type ='text/javascript';
-    script.async = true;
     script.src = path;
     document.head.appendChild(script);
+    script.onload = ()=>{
+        loadedScripts[path] = path;
+    }
 }
 
 function loadStyle (path) {
@@ -340,30 +340,30 @@ function loadStyle (path) {
 }
 
 function addScripts () {
-    const jquery = isLoadedScript('https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js');
-    if (!jquery){
-        loadScript('https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js');
-    }
-    const fancybox = isLoadedScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js');
-    if (!fancybox){
-        loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js');
-    }
-    const fancyboxStyle = isLoadedStyle('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css');
-    if (!fancyboxStyle){
-        loadStyle('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css');
-    }
-    const slick = isLoadedStyle('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js');
-    if (!slick){
-        loadScript('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js');
-    }
-    const slickStyle = isLoadedStyle('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
-    if (!slickStyle){
-        loadStyle('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
-    }
-    const fontAwesome = isLoadedStyle('https://pro.fontawesome.com/releases/v5.10.0/css/all.css');
-    if (!fontAwesome){
-        loadStyle('https://pro.fontawesome.com/releases/v5.10.0/css/all.css');
-    }
+        const jquery = isLoadedScript('https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js');
+        if (!jquery){
+          loadScript('https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js');
+        }
+        const fancybox = isLoadedScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js');
+        if (!fancybox){
+            loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js');
+        }
+        const fancyboxStyle = isLoadedStyle('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css');
+        if (!fancyboxStyle){
+            loadStyle('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css');
+        }
+        const slick = isLoadedScript('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js');
+        if (!slick){
+            loadScript('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js');
+        }
+        const slickStyle = isLoadedStyle('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
+        if (!slickStyle){
+            loadStyle('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
+        }
+        const fontAwesome = isLoadedStyle('https://pro.fontawesome.com/releases/v5.10.0/css/all.css');
+        if (!fontAwesome){
+            loadStyle('https://pro.fontawesome.com/releases/v5.10.0/css/all.css');
+        }
 }
 
 function getWindowOrientation() {
@@ -634,5 +634,3 @@ body{
 }
 
 `;
-
-
