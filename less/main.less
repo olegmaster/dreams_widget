@@ -565,6 +565,11 @@ html{
   color: #603EF2;
 }
 
+.disabled{
+  cursor: default;
+  color: #C0C0C0;
+}
+
 .hide-tab{
  display: none;
 }
@@ -673,9 +678,13 @@ html{
     overflow-x: hidden;
     padding-top: 0;
   }
+  .img__tumbs{
+    object-fit: contain;
+  }
   .menu__items{
     justify-content: flex-end;
     margin-right: 18px;
+    min-width: fit-content;
   }
   .slick-dots{
     display: flex;
@@ -747,6 +756,31 @@ html{
 .about-us__section-title{
   font-size: 30px;
   margin-bottom: 48px;
+}
+
+.fancybox-inner > .fancybox-toolbar > .fancybox-button{
+  background: transparent;
+  color: #fff;
+}
+
+.fancybox-inner > .fancybox-toolbar > .fancybox-button:disabled{
+  background: transparent;
+  color: #C0C0C0;
+}
+
+.fancybox-inner > .fancybox-toolbar{
+  top: unset;
+  bottom: 0;
+}
+
+
+.fancybox-inner > .fancybox-navigation > .fancybox-button{
+  background: transparent;
+}
+
+.gallery-slide__arrow{
+  font-size: 18px;
+  color: #fff;
 }
 
 

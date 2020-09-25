@@ -1,5 +1,5 @@
 const categoriesData = [{"categoryId":1,"name":[{"lang":"en","value":"Interior"},{"lang":"he","value":"Interior"},{"lang":"ru","value":"Interior"},{"lang":"ua","value":"Interior"}]},{"categoryId":2,"name":[{"lang":"en","value":"Exterior"},{"lang":"he","value":"Exterior"},{"lang":"ru","value":"Exterior"},{"lang":"ua","value":"Exterior"}]},{"categoryId":3,"name":[{"lang":"en","value":"Amenities"},{"lang":"he","value":"Amenities"},{"lang":"ru","value":"Amenities"},{"lang":"ua","value":"Amenities"}]},{"categoryId":4,"name":[{"lang":"en","value":"Neighborhood"},{"lang":"he","value":"Neighborhood"},{"lang":"ru","value":"Neighborhood"},{"lang":"ua","value":"Neighborhood"}]}];
-const imgData = [{"title":[{"lang":"en","value":"Image 7"},{"lang":"he","value":"fwf"},{"lang":"ru","value":"\u041a\u0430\u0440\u0442\u0438\u043d\u043a\u0430 7"},{"lang":"ua","value":"dcv"}],"categoryId":1,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/8E92AC86-77B9-41D0-A041-8B4601CE562A\/kakao_zefir_pled_kniga_osen_118517_1400x1050.jpg","order":1},{"title":[{"lang":"en","value":"Image 3"},{"lang":"he","value":"wefew"},{"lang":"ru","value":"wef"},{"lang":"ua","value":"rthtr"}],"categoryId":2,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/9EF35D37-4E48-4E06-A4F2-DFD564337166\/mulan_2020_film-wallpaper-1600x900.jpg","order":2},{"title":[{"lang":"en","value":"Image 4"},{"lang":"he","value":"wef"},{"lang":"ru","value":"wef"},{"lang":"ua","value":"rtfhrg"}],"categoryId":3,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/79BBA07B-DCC6-4D1E-B876-8B7D0C64A5C8\/bmw_k100_mototsikl_bajk_123991_540x960.jpg","order":3},{"title":[{"lang":"en","value":"Image 1"},{"lang":"he","value":"wef"},{"lang":"ru","value":"\u0424\u041e\u0442\u043e 1"},{"lang":"ua","value":"dfh"}],"categoryId":4,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/43647750-AB74-4E99-B16F-4CF4BCEF4D59\/kakao_zefir_pled_kniga_osen_118517_1400x1050.jpg","order":4}];
+const imgData = [{"title":[{"lang":"en","value":"My Pic 2"},{"lang":"he","value":"'\u05ea\u05de\u05d5\u05e0\u05d4 \u05e8\u05d0\u05e9\u05d5\u05e0\u05d4 \u05e9\u05dc'"},{"lang":"ru","value":"\u041c\u043e\u044f \u043f\u0435\u0440\u0432\u0430\u044f \u043a\u0430\u0440\u0442\u0438\u043d\u043a\u0430 111"},{"lang":"ua","value":"\u0418i 1"}],"categoryId":4,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/E47F291D-ED1E-4B05-9FB0-1D987A21BA7E\/d6e9019d-2196-47c8-b2f0-3a392e2c8b34.jfif","order":0},{"title":[{"lang":"en","value":"Image 3"},{"lang":"he","value":"wefew"},{"lang":"ru","value":"wef"},{"lang":"ua","value":"rthtr"}],"categoryId":2,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/6592CB9A-EDE6-4E92-AD3F-A065DA6EBC22\/volk_zvezdnoe_nebo_siluet_art_117253_720x1280.jpg","order":1},{"title":[{"lang":"en","value":"Image 6"},{"lang":"he","value":"\u05ea\u05de\u05d5\u05e0\u05d4 \u05e8\u05d0\u05e9\u05d5\u05e0\u05d4 \u05e9\u05dc\u05d9'"},{"lang":"ru","value":"Image 5"},{"lang":"ua","value":"Image 5"}],"categoryId":2,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/9634E482-9AE5-49EC-82A4-CBA783229E27\/avatar_2_movie_2021-wallpaper-1600x900.jpg","order":2},{"title":[{"lang":"en","value":"Image 7"},{"lang":"he","value":"fwf"},{"lang":"ru","value":"\u041a\u0430\u0440\u0442\u0438\u043d\u043a\u0430 7"},{"lang":"ua","value":"dcv"}],"categoryId":1,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/8E92AC86-77B9-41D0-A041-8B4601CE562A\/kakao_zefir_pled_kniga_osen_118517_1400x1050.jpg","order":3},{"title":[{"lang":"en","value":"Image 7"},{"lang":"he","value":"Image 7"},{"lang":"ru","value":"Image 7"},{"lang":"ua","value":"Image 7"}],"categoryId":1,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/90CF808E-DF57-4683-9A11-025A439A8C37\/avatar_2_movie_2021-wallpaper-1600x900.jpg","order":4},{"title":[{"lang":"en","value":"a"},{"lang":"he","value":"a"},{"lang":"ru","value":"a"},{"lang":"ua","value":"a"}],"categoryId":4,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/4CA9BDB3-C66E-4B9B-A309-0B583F8840E3\/Enrique_Simonet_-_Marina_veneciana_6MB.jpg","order":5},{"title":[{"lang":"en","value":"b"},{"lang":"he","value":"b"},{"lang":"ru","value":"b"},{"lang":"ua","value":"b"}],"categoryId":2,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/08FA766F-9B02-4DE6-BC41-8AA72FB91C36\/volk_zvezdnoe_nebo_siluet_art_117253_720x1280.jpg","order":6}];
 const lang = 'en';
 const dir = 'ltr';
 
@@ -10,10 +10,8 @@ const galleryData = categoriesData.map((el) => {
 
 let canvasClass = 'bmby-gallery-wrapp';
 let galleryContainer;
-let checkInterval;
 let timer = null;
 let imagesCount=0;
-let loadedScripts={};
 
 let galleries = [];
 
@@ -51,12 +49,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
     addBasicStyle();
     isScriptsLoaded = setInterval(()=>{
         addScripts();
-        if (Object.keys(loadedScripts).length>=3){
+        if (scriptsChecker()){
             clearInterval(isScriptsLoaded);
             insertMenu();
             initGallery();
-        }
-    },100);
+    }},250);
 });
 
 const fancyBoxTemplate =`
@@ -71,37 +68,47 @@ const fancyBoxTemplate =`
 </div>
 </div>`;
 
+
 window.onscroll = ()=>onScrollGallery();
 window.addEventListener('orientationchange',orientationHandler);
 window.addEventListener('resize',orientationHandler);
 
+function scriptsChecker () {
+    return Boolean(window.$ && window.jQuery && window.$.fn.slick)
+}
 
 function orientationHandler (e) {
-    const menus = document.querySelectorAll('.menu__container');
-    menus.forEach((menu,index) =>{
-        menu.remove();
-    });
-    insertMenu();
-    $('.images__container').slick('unslick');
-    slickInit();
+    if (scriptsChecker()){
+        const menus = document.querySelectorAll('.menu__container');
+        menus.forEach((menu,index) =>{
+            menu.remove();
+        });
+        insertMenu();
+        $('.images__container').slick('unslick');
+        slickInit();
+        fancyboxInit();
+    }
 }
 
 function slickInit () {
-    const orientation = getWindowOrientation();
+    const isPortrait = isWindowInPortrait();
     const imagesContainers = document.querySelectorAll('.images__container');
     imagesContainers.forEach(container =>{
         $(container).slick({
             // '.images__container[data-index="'+container.dataset.index+'"]'
             // $('.images__container').slick({
-            slidesToShow   : orientation!=='portrait-primary'? 1 : imagesCount,
-            slidesToScroll: 1,
+            slidesToShow   : (!isPortrait && window.innerWidth < 1024 && window.innerHeight > 414)? 1 : (!isPortrait && window.innerWidth < 1024)? 2 : window.innerWidth >= 1024? 1 : imagesCount,
+            slidesToScroll: (window.innerWidth < 1024 && window.innerHeight > 414) ? 1 : window.innerWidth < 1024? 2 : 1,
+            speed: 500,
+            draggable: false,
+            edgeFriction: 0,
             cssEase: 'cubic-bezier(0,.05,.18,.9)',
             infinite : false,
             dots     : window.innerWidth>=1024? true:false,
             arrows   : window.innerWidth>=1024? true:false,
-            vertical: orientation==='portrait-primary'? true : false,
-            verticalSwiping: orientation==='portrait-primary'? true : false,
-            variableWidth: orientation==='portrait-primary'? false : true,
+            vertical: isPortrait? true : false,
+            verticalSwiping: isPortrait? true : false,
+            variableWidth: isPortrait? false : true,
             rtl: dir==='ltr'? false:true,
             appendArrows: $(creatHtmlElement('','','div',['arrows__container'])).appendTo('.menu__container[data-index="'+container.dataset.index+'"]'),
             appendDots: $(creatHtmlElement('','','div',['dots__container'])).appendTo('.menu__container[data-index="'+container.dataset.index+'"]'),
@@ -142,11 +149,11 @@ function removeTextFromDefaultDots () {
 
 
 function anchorActivity () {
-    const orientation = getWindowOrientation();
+    const isPortrait = isWindowInPortrait();
     galleryContainer.forEach(gallery=>{
         const galleryImages = gallery.querySelectorAll('.images__container > .slick-list > .slick-track> .image__href');
         galleryImages.forEach((image,index)=>{
-            if (orientation === 'portrait-primary'){
+            if (isPortrait){
                 const isVisible = isScrolledIntoView(image.firstElementChild);
                 if (isVisible){
                     setActiveTab(image.dataset.categoryId,gallery.dataset.index);
@@ -162,11 +169,11 @@ function anchorActivity () {
 }
 
 function isScrolledIntoView(el) {
-    const orientation = getWindowOrientation();
+    const isPortrait = isWindowInPortrait();
     const imagesScrollHeight = document.querySelector('.images__container').scrollHeight;
     const imagesScrollTop = window.scrollY;
     const windowInnerHeight = window.innerHeight;
-    if (orientation === 'portrait-primary'){
+    if (isPortrait){
         if (imagesScrollHeight - imagesScrollTop === windowInnerHeight && el.getBoundingClientRect().bottom > windowInnerHeight / 2 ){
             return true;
         }
@@ -185,10 +192,12 @@ function insertMenu () {
         ul.dataset.index = index;
         galleryData.forEach((element,index) => {
             let menuItemName = element.name.filter(el => el.lang === lang);
-            const li = creatHtmlElement(ul,menuItemName[0].value,'li',['menu__item']);
-            li.dataset.categoryId = element.categoryId;
-            if (index ===0){
-                li.classList.add('active');
+            if (element.images.length > 0){
+                const li = creatHtmlElement(ul,menuItemName[0].value,'li',['menu__item']);
+                li.dataset.categoryId = element.categoryId;
+                if (index ===0){
+                    li.classList.add('active');
+                }
             }
         });
         creatHtmlElement(ul,'','div',['menu__plug']);
@@ -214,13 +223,13 @@ function onScrollGallery (e) {
 
 function setMenuStyle (menuItems) {
     let imagesContainerInterval;
-    const orientation = getWindowOrientation();
+    const isPortrait = isWindowInPortrait();
     const childrenItems = menuItems.children;
     const lengthItems = menuItems.children.length;
     const scrollWidth = menuItems.scrollWidth;
     const currentView = menuItems.offsetWidth;
 
-    if (orientation === 'portrait-primary'){
+    if (isPortrait){
         if (scrollWidth <= currentView && lengthItems > 2){
             menuItems.style.justifyContent = 'space-between';
             for (let child of childrenItems){
@@ -258,33 +267,19 @@ function initGallery () {
         imagesContainer.onscroll = ()=>onScrollGallery();
         imgData.sort((prev,next)=>prev.categoryId - next.categoryId);
         imgData.forEach(img =>{
+            let titleImg = img.title.filter(el => el.lang === lang);
             const a = creatHtmlElement(imagesContainer,'','a',['image__href']);
             a.href = img.imageUrl;
             a.dataset.categoryId = img.categoryId;
             a.dataset.fancybox='gallery-'+index;
-            a.dataset.caption = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec, vel curabitur metus facilisi elementum morbi.';
+            a.dataset.caption = titleImg[0].value;
             const hrefImg = creatHtmlElement(a,'','img',['img__tumbs']);
             hrefImg.src= img.imageUrl;
             imagesCount++;
         });
     });
 
-            $('[data-fancybox]').fancybox({
-                buttons:[
-                    // 'zoom',
-                    // 'close'
-                ],
-                arrows:false,
-                infobar: false,
-                animationEffect: 'fade',
-                animationDuration: 150,
-                baseTpl: fancyBoxTemplate.replace('langDirection', dir),
-            });
-
-            $().fancybox({
-                selector : '.images__container .slick-slide:not(.slick-cloned)',
-                backFocus : false
-            });
+            fancyboxInit();
 
             slickInit();
 
@@ -295,6 +290,31 @@ function initGallery () {
            $('.images__container').on('afterChange', function(event, slick, currentSlide){
                 onScrollGallery();
             });
+}
+
+function fancyboxInit () {
+    $('[data-fancybox]').fancybox({
+        buttons: window.innerWidth >= 1024? ['close']: [],
+        arrows: false,
+        // btnTpl:{
+        //     arrowLeft: '<button data-fancybox-prev class="fancybox-button fancybox-button--arrow_left" title="{{PREV}}">' +
+        //       '<div><i class="gallery-slide__arrow fas fa-chevron-left"></i></div>' +
+        //       "</button>",
+        //     arrowRight: '<button data-fancybox-next class="fancybox-button fancybox-button--arrow_right" title="{{NEXT}}">' +
+        //       '<div><i class="gallery-slide__arrow fas fa-chevron-right"></i></div>' +
+        //       "</button>"
+        // },
+        infobar: false,
+        animationEffect: 'fade',
+        backFocus: false,
+        animationDuration: 150,
+        baseTpl: fancyBoxTemplate.replace('langDirection', dir),
+    });
+
+    $().fancybox({
+        selector : '.images__container .slick-slide:not(.slick-cloned)',
+        backFocus : false
+    });
 }
 
 function addUbuntuFont() {
@@ -309,11 +329,7 @@ function addBasicStyle () {
 }
 
 function isLoadedScript(path) {
-    const isExist = document.head.querySelectorAll('[src="' + path + '"]').length > 0;
-    if (isExist && window.$ && window.$.fancybox){
-        loadedScripts[path] = path;
-    }
-    return isExist;
+    return document.head.querySelectorAll('[src="' + path + '"]').length > 0;
 }
 
 function isLoadedStyle (path) {
@@ -324,10 +340,8 @@ async function loadScript(path) {
     const script = document.createElement('script');
     script.type ='text/javascript';
     script.src = path;
+    script.async =false;
     document.head.appendChild(script);
-    script.onload = ()=>{
-        loadedScripts[path] = path;
-    }
 }
 
 function loadStyle (path) {
@@ -336,7 +350,6 @@ function loadStyle (path) {
     style.type ='text/css';
     style.href = path;
     document.head.appendChild(style);
-
 }
 
 function addScripts () {
@@ -366,13 +379,13 @@ function addScripts () {
         }
 }
 
-function getWindowOrientation() {
-    return window.screen.orientation.type;
+function  isWindowInPortrait() {
+    return window.matchMedia("(orientation: portrait)").matches;
 }
 
 function scrollToImages (activeElement) {
     const menuHeight =activeElement.parentElement.offsetHeight;
-    const orientation = getWindowOrientation();
+    const isPortrait = isWindowInPortrait();
     let i=0;
     const parentIndex = activeElement.parentElement.dataset.index;
     const imageCollection = document.querySelectorAll('.images__container[data-index="'+parentIndex+'"]' +
@@ -380,15 +393,14 @@ function scrollToImages (activeElement) {
     imageCollection.forEach((img) =>{
         if (activeElement.dataset.categoryId === img.dataset.categoryId){
             if (i===0){
-                if (orientation !== 'portrait-primary'){
+                if (!isPortrait){
                     $('.images__container[data-index="'+parentIndex+'"]').slick('slickGoTo',img.dataset.slickIndex);
                     // const imagesContainer = img.parentElement;
                     // const imageStartPos = img.getBoundingClientRect().left;
                     // imagesContainer.scrollTo(Math.ceil(imagesContainer.scrollLeft + imageStartPos - img.getBoundingClientRect().width),0);
                     setActiveTab(img.dataset.categoryId,parentIndex);
                 }else {
-                    const imageStartPos = img.firstElementChild.getBoundingClientRect().top;
-                    window.scrollTo(0,window.scrollY + imageStartPos - menuHeight);
+                    smoothScroll(img.firstElementChild);
                     setActiveTab(img.dataset.categoryId,parentIndex);
                 }
             }
@@ -396,6 +408,52 @@ function scrollToImages (activeElement) {
         }
     });
     i=0;
+}
+
+function currentYPosition() {
+    // Firefox, Chrome, Opera, Safari
+    if (self.pageYOffset) return self.pageYOffset;
+    // Internet Explorer 6 - standards mode
+    if (document.documentElement && document.documentElement.scrollTop)
+        return document.documentElement.scrollTop;
+    // Internet Explorer 6, 7 and 8
+    if (document.body.scrollTop) return document.body.scrollTop;
+    return 0;
+}
+
+
+function elmYPosition(element) {
+    let y = element.offsetTop;
+    let node = element;
+    while (node.offsetParent && node.offsetParent != document.body) {
+        node = node.offsetParent;
+        y += node.offsetTop;
+    } return y;
+}
+
+
+function smoothScroll(element) {
+    let startY = currentYPosition();
+    let stopY = elmYPosition(element) - 47;
+    let distance = stopY > startY ? stopY - startY : startY - stopY;
+    if (distance < 100) {
+        scrollTo(0, stopY); return;
+    }
+    let speed = Math.round(distance / 50);
+    if (speed >= 20) speed = 20;
+    let step = Math.round(distance / 25);
+    let leapY = stopY > startY ? startY + step : startY - step;
+    let timer = 0;
+    if (stopY > startY) {
+        for ( let i=startY; i<stopY; i+=step ) {
+            setTimeout("window.scrollTo(0, "+leapY+")", timer * speed);
+            leapY += step; if (leapY > stopY) leapY = stopY; timer++;
+        } return;
+    }
+    for ( let i=startY; i>stopY; i-=step ) {
+        setTimeout("window.scrollTo(0, "+leapY+")", timer * speed);
+        leapY -= step; if (leapY < stopY) leapY = stopY; timer++;
+    }
 }
 
 function getActiveTab (parentIndex) {
@@ -451,7 +509,7 @@ function scrollContainer (container) {
 
 const basicStyle =`
 html{
-  scroll-behavior: smooth;
+  // scroll-behavior: smooth;
 }
 
 body{
@@ -475,6 +533,7 @@ body{
 }
 .menu__container {
   position: sticky;
+  position: -webkit-sticky;
   z-index: 5;
   top:0;
   background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%);
@@ -495,12 +554,13 @@ body{
 .images__container {
   overflow-x: hidden;
   // padding-top: 47px;
-  scroll-behavior: smooth;
+  // scroll-behavior: smooth;
 }
 .menu__item {
   text-align: center;
   padding: 11px 0;
   margin: 0 12px;
+  cursor: pointer;
 }
 .menu__plug {
   content: '';
@@ -511,6 +571,12 @@ body{
   border-bottom: 3px solid #603EF2;
   color: #603EF2;
 }
+
+.disabled{
+  cursor: default;
+  color: #C0C0C0;
+}
+
 .hide-image-id {
   display: none;
 }
@@ -577,9 +643,14 @@ body{
     overflow-x: hidden;
     margin-top: -2px;
   }
+   .img__tumbs{
+    object-fit: contain;
+  }
   .menu__items{
     justify-content: flex-end;
     margin-right: 18px;
+    flex-basis: 33.3%;
+    min-width: fit-content;
   }
   .slick-dots{
     display: flex;
@@ -592,13 +663,19 @@ body{
   .next-btn,.prev-btn{
     padding: 15px;
     cursor: pointer;
+    color: #fff;
   }
+   .next-btn[aria-disabled="true"],.prev-btn[aria-disabled="true"]{
+    color: #C0C0C0;
+    cursor: default;
+  }
+  
   .prev-btn{
     margin-right: 18px;
   }
   .dots__btn-style{
-    height: 6px;
-    width: 6px;
+    height: 10px;
+    width: 10px;
     padding: 0;
     background: #fff;
     border-radius: 50%;
@@ -608,7 +685,7 @@ body{
     // margin-right: 30px;
   }
   .dots__parent-element{
-    margin-right: 30px;
+    margin-right: 22px;
     border-radius: 50%;
   }
    .slick-active{
@@ -617,19 +694,41 @@ body{
     li.slick-active > button{
     background: #603EF2;
   }
-   .menu__item{
-    cursor: pointer;
-  }
+  
   .arrows__container{
-  margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    flex-basis: 33.3%;
   }
-  .dots__container{
-  width: 17%;
+  .dots__container{    
+  flex-basis: 33.3%;
   }
   .main-container-gallery {
     display: flex;
     flex-direction: column-reverse;
   }
+   .fancybox-inner > .fancybox-toolbar >.fancybox-button{
+    background: transparent;
+    color: #fff;
+}
+
+   .fancybox-inner > .fancybox-navigation > .fancybox-button{
+    background: transparent;
+    color: #fff;
+}
+   .fancybox-inner > .fancybox-navigation > .fancybox-button:disabled{
+    background: transparent;
+    color: #C0C0C0;
+}
+   .gallery-slide__arrow{
+    font-size: 18px;
+}
+
+.fancybox-inner > .fancybox-toolbar{
+  top: unset;
+  bottom: 0;
+}
+
   
 }
 
