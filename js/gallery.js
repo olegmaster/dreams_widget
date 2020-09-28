@@ -52,7 +52,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
         if (scriptsChecker()){
             clearInterval(isScriptsLoaded);
             insertMenu();
+            insertCaptionContainer();
             initGallery();
+
     }},250);
 });
 
@@ -64,7 +66,7 @@ const fancyBoxTemplate =`
 <div class="fancybox-toolbar">{{buttons}}</div>
 <div class="fancybox-navigation">{{arrows}}</div>
 <div class="fancybox-stage"></div>
-<div class="fancybox-caption langDirection "><div class=""fancybox-caption__body"></div></div>
+<div class="fancybox-caption langDirection "><div class="fancybox-caption__body"></div></div>
 </div>
 </div>`;
 
@@ -77,6 +79,15 @@ function scriptsChecker () {
     return Boolean(window.$ && window.jQuery && window.$.fn.slick)
 }
 
+function insertCaptionContainer () {
+    galleryContainer.forEach((container,index) =>{
+        const captionContainer = creatHtmlElement(container,'','div',['image-caption__text','caption__hide']);
+        const p = creatHtmlElement(captionContainer,'','p',['caption__img__text']);
+        captionContainer.dataset.index = index;
+    })
+
+}
+
 function orientationHandler (e) {
     if (scriptsChecker()){
         const menus = document.querySelectorAll('.menu__container');
@@ -87,6 +98,23 @@ function orientationHandler (e) {
         $('.images__container').slick('unslick');
         slickInit();
         fancyboxInit();
+        showCaption();
+    }
+}
+
+function showCaption (slide = document.querySelector('.image__href')) {
+    if (slide && window.innerWidth >=1024){
+        const gallery = document.querySelector('.'+canvasClass+'[data-index="'+Number(slide.dataset.fancybox.match(/[0-9]/)[0])+'"]');
+        const caption = gallery.querySelector('.image-caption__text');
+        if (slide.dataset.caption){
+            caption.firstElementChild.textContent = slide.dataset.caption;
+            caption.classList.remove('caption__hide');
+        }else {
+            caption.classList.add('caption__hide');
+        }
+    }else{
+        const allCaptionContainer = document.querySelectorAll('.image-caption__text');
+        allCaptionContainer.forEach(caption =>{ caption.classList.add('caption__hide')});
     }
 }
 
@@ -266,7 +294,7 @@ function initGallery () {
         imagesContainer.dataset.index = index;
         imagesContainer.onscroll = ()=>onScrollGallery();
         imgData.sort((prev,next)=>prev.categoryId - next.categoryId);
-        imgData.forEach(img =>{
+        imgData.forEach((img,ind) =>{
             let titleImg = img.title.filter(el => el.lang === lang);
             const a = creatHtmlElement(imagesContainer,'','a',['image__href']);
             a.href = img.imageUrl;
@@ -275,6 +303,9 @@ function initGallery () {
             a.dataset.caption = titleImg[0].value;
             const hrefImg = creatHtmlElement(a,'','img',['img__tumbs']);
             hrefImg.src= img.imageUrl;
+            if (ind === 0){
+                showCaption(a);
+            }
             imagesCount++;
         });
     });
@@ -289,6 +320,8 @@ function initGallery () {
 
            $('.images__container').on('afterChange', function(event, slick, currentSlide){
                 onScrollGallery();
+                const slide = this.querySelector('.image__href[data-slick-index="'+currentSlide+'"]');
+                slide && showCaption(slide);
             });
 }
 
@@ -567,6 +600,9 @@ body{
   min-width: 1px;
   max-width: 1px;
 }
+.caption__hide{
+  display: none;
+}
 .active {
   border-bottom: 3px solid #603EF2;
   color: #603EF2;
@@ -643,8 +679,30 @@ body{
     overflow-x: hidden;
     margin-top: -2px;
   }
+    .image-caption__text{
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    bottom: 47px;
+    z-index: 2;
+    align-items: center;
+    display: flex;
+    transition: all 0.5s;
+    justify-content: center;
+    background: rgba(17, 23, 45, 0.8);
+    color: #fff;
+    font-weight: 300;
+    line-height: 16px;
+  }
    .img__tumbs{
     object-fit: contain;
+  }
+  .caption__hide{
+  display: none;
+}
+  .caption__img__text{
+    margin: 0;
+    margin-right: 15px;
   }
   .menu__items{
     justify-content: flex-end;
@@ -727,6 +785,10 @@ body{
 .fancybox-inner > .fancybox-toolbar{
   top: unset;
   bottom: 0;
+}
+
+.fancybox-caption{
+   display: none;
 }
 
   
