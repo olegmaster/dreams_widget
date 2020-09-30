@@ -1,4 +1,10 @@
-let aboutUsData = [{"title":[{"lang":"en","value":"test1"},{"lang":"he","value":"test1"},{"lang":"ru","value":"test1"},{"lang":"ua","value":"test1"}],"description":[{"lang":"en","value":"<p>dfgsdgdf<\/p>\n\n<p>gdf<\/p>\n\n<p>g<\/p>\n\n<p>dfg<\/p>\n\n<p>df<\/p>\n\n<p>gh<\/p>\n\n<p>dfh<\/p>\n"},{"lang":"he","value":"<p>dfgsdgdf<\/p>\n\n<p>gdf<\/p>\n\n<p>g<\/p>\n\n<p>dfg<\/p>\n\n<p>df<\/p>\n\n<p>gh<\/p>\n\n<p>dfh<\/p>\n"},{"lang":"ru","value":"<p>dfgsdgdf<\/p>\n\n<p>gdf<\/p>\n\n<p>g<\/p>\n\n<p>dfg<\/p>\n\n<p>df<\/p>\n\n<p>gh<\/p>\n\n<p>dfh<\/p>\n"},{"lang":"ua","value":"<p>dfgsdgdf<\/p>\n\n<p>gdf<\/p>\n\n<p>g<\/p>\n\n<p>dfg<\/p>\n\n<p>df<\/p>\n\n<p>gh<\/p>\n\n<p>dfh<\/p>\n"}],"chapter":[{"lang":"en","value":"2"},{"lang":"he","value":"2"},{"lang":"ru","value":"2"},{"lang":"ua","value":"2"}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/about\/894A8227-B29C-4E7B-8327-A51996DFA1BA\/Family.jpg","order":0},{"title":[{"lang":"en","value":"boris"},{"lang":"he","value":"boris"},{"lang":"ru","value":"boris"},{"lang":"ua","value":"boris"}],"description":[{"lang":"en","value":"<p>shafjysdfksdf<\/p>\n\n<p>sdfg<strong>lkdfgd<\/strong>fg&nbsp; fgf<span style=\"color:#DAA520\"><u><em>gfg<\/em><\/u><\/span><\/p>\n\n<p>&nbsp;<\/p>\n\n<p><span style=\"color:#DAA520\"><u><em>fdgdfghjdflg<\/em><\/u><\/span><\/p>\n\n<p><span style=\"color:#DAA520\"><u><em>fgfgfdgf<\/em><\/u><\/span><\/p>\n"},{"lang":"he","value":"<p style=\"text-align: right;\">\u05d2\u05db\u05d3\u05e2\u05db\u05d2\u05d3\u05e2<\/p>\n\n<p style=\"text-align: right;\">\u05d2\u05db\u05e2\u05d2\u05db\u05e2<\/p>\n\n<p style=\"text-align: right;\">\u05d2\u05db\u05e2\u05d2\u05db\u05e2\u05d2\u05e9\u05d3\u05db\u05d3\u05d2\u05db\u05d3\u05d2\u05db<\/p>\n"},{"lang":"ru","value":"<p>shafjysdfksdf<\/p>\n\n<p>sdfg<strong>lkdfgd<\/strong>fg\u00a0 fgf<span style=\"color:#DAA520\"><u><em>gfg<\/em><\/u><\/span><\/p>\n\n<p>\u00a0<\/p>\n\n<p>\u00a0<\/p>\n\n<p><span style=\"color:#DAA520\"><u><em>fdgdfghjdflg<\/em><\/u><\/span><\/p>\n\n<p><span style=\"color:#DAA520\"><u><em>fgfgfdgf<\/em><\/u><\/span><\/p>\n"},{"lang":"ua","value":"<p>shafjysdfksdf<\/p>\n\n<p>sdfg<strong>lkdfgd<\/strong>fg\u00a0 fgf<span style=\"color:#DAA520\"><u><em>gfg<\/em><\/u><\/span><\/p>\n\n<p>\u00a0<\/p>\n\n<p>\u00a0<\/p>\n\n<p><span style=\"color:#DAA520\"><u><em>fdgdfghjdflg<\/em><\/u><\/span><\/p>\n\n<p><span style=\"color:#DAA520\"><u><em>fgfgfdgf<\/em><\/u><\/span><\/p>\n"}],"chapter":[{"lang":"en","value":"boris"},{"lang":"he","value":"boris"},{"lang":"ru","value":"boris"},{"lang":"ua","value":"boris"}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/about\/99C0376A-4D02-4802-9F49-2540C59AEEDE\/BareFoot.jpg","order":1},{"title":[{"lang":"en","value":"3"},{"lang":"he","value":"3"},{"lang":"ru","value":"3"},{"lang":"ua","value":"3"}],"description":[{"lang":"en","value":"<p>dfgdfg<\/p>\n\n<p><span style=\"background-color:#FF0000\">fg<\/span><\/p>\n\n<p><span style=\"background-color:#FF0000\">df<\/span><\/p>\n\n<p>g<\/p>\n\n<p>df<\/p>\n\n<p>g<\/p>\n\n<p>fdg<\/p>\n"},{"lang":"he","value":"<p>dfgdfg<\/p>\n\n<p><span style=\"background-color:#FF0000\">fg<\/span><\/p>\n\n<p><span style=\"background-color:#FF0000\">df<\/span><\/p>\n\n<p>g<\/p>\n\n<p>df<\/p>\n\n<p>g<\/p>\n\n<p>fdg<\/p>\n"},{"lang":"ru","value":"<p>dfgdfg<\/p>\n\n<p><span style=\"background-color:#FF0000\">fg<\/span><\/p>\n\n<p><span style=\"background-color:#FF0000\">df<\/span><\/p>\n\n<p>g<\/p>\n\n<p>df<\/p>\n\n<p>g<\/p>\n\n<p>fdg<\/p>\n"},{"lang":"ua","value":"<p>dfgdfg<\/p>\n\n<p><span style=\"background-color:#FF0000\">fg<\/span><\/p>\n\n<p><span style=\"background-color:#FF0000\">df<\/span><\/p>\n\n<p>g<\/p>\n\n<p>df<\/p>\n\n<p>g<\/p>\n\n<p>fdg<\/p>\n"}],"chapter":[{"lang":"en","value":"3"},{"lang":"he","value":"3"},{"lang":"ru","value":"3"},{"lang":"ua","value":"3"}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/about\/5061A257-82AB-4A86-85A2-969F404351C9\/SangenianoView.jpg","order":2},{"title":[{"lang":"en","value":"grgrg"},{"lang":"he","value":"grgrg"},{"lang":"ru","value":"grgrg"},{"lang":"ua","value":"grgrg"}],"description":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"chapter":[{"lang":"en","value":"\u0410\u0430\u0430"},{"lang":"he","value":"grgrg"},{"lang":"ru","value":"grgrg"},{"lang":"ua","value":"grgrg"}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/about\/ABF376AA-8671-43E5-A7AD-4F4AC266D625\/bmw_k100_mototsikl_bajk_123991_540x960.jpg","order":3}];
+let aboutUsData = [
+  {"title":[{"lang":"en","value":"The Developers"},{"lang":"he","value":"היזמים"},{"lang":"ru","value":"The Developers"},{"lang":"ua","value":"The Project"}],"description":[{"lang":"en","value":"“Odessa 2020 Arcadia” Project was established by   Green Park Entrepreneurship and Construction – an Israeli company with a decade of experience building a large number of projects in Israel and worldwide, while specializing in Eastern Europe region.\n" +
+            " The project is supervised by an Israeli construction inspector, Mr. Shlomo Yaffe, and designed by an Israeli architect, Mr. Assaf Shaul – co-owner of CPSL architectural firm. The project also features an Israeli management company led by Mr. David Maor, and a trustee for investors’ funds – Fischer, Behar, Chen & Co. law firm, which releases the funds according to construction progress and subject to the approval of the inspection company."},{"lang":"he","value":"פרויקט אודסה 2020 ארקדיה הוקם על ידי  החברה הישראלית גרין פארק יזמות ובניה, היוזמת ובונה למעלה מ-10 שנים מספר רב של פרויקטים בישראל ובעולם, עם התמחות במזרח אירופה.\n" +
+            "לפרויקט מפקח בניה ישראלי מר שלמה יפה, אדריכל ישראלי מר אסף שאול, מבעלי חברת האדריכלים CPSL, חברת ניהול" +
+            " ישראלית בניהולו של מר דוד מאור ( מנהלים עשרות פרויקטים ברחבי אוקראינה), ונאמן לכספי המשקיעים משרד עורכי הדין פישר בכר חן, שמשחרר את הכספים לפי קצב התקדמות הבניה ורק בכפוף לאישור חברת הפיקוח.\n"},{"lang":"ru","value":""},{"lang":"ua","value":""}],"chapter":[{"lang":"en","value":"The Developers"},{"lang":"he","value":"היזמים"},{"lang":"ru","value":"The Developers"},{"lang":"ua","value":"The Developers"}],"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Develop\/dev_2.png","order":0},
+    ];
+
 
 let canvasClass = 'bmby-about-wrapp';
 let lang = 'en';
@@ -7,6 +13,8 @@ let hasUbuntuFont = false;
 let aboutUsSections = [];
 let mode = 'dev';
 let aboutUsMainContainer;
+const imageDark = 'https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Develop\/dev_1.png';
+
 
 try{
     callbackFunction();
@@ -38,7 +46,7 @@ function buildDesktopAbout () {
         const section = creatHtmlElement(wrapper,'','section',['about-us__section']);
         const imgContainer = creatHtmlElement(section,'','div',['about-us__img-container']);
         const img = creatHtmlElement(imgContainer,'','img',['about-us__image']);
-        img.src = el.imageUrl;
+        img.src = imageDark;
         const subWrapper = creatHtmlElement(section,'','div',['about-us__sub-wrapper']);
         const sectionTitle = creatHtmlElement(subWrapper,el.title.filter(el => el.lang === lang)[0].value,'h3',['about-us__section-title']);
         const sectionText = creatHtmlElement(subWrapper,el.description.filter(el => el.lang === lang)[0].value,'p',['about-us__section-text']);
@@ -195,7 +203,8 @@ function buildTabsContent (container,objectContent) {
     tab.dataset.order = objectContent.order;
     const title = creatHtmlElement(tab,objectContent.title.filter(el => el.lang === lang)[0].value,'h3',['tab-content__title']);
     const text = creatHtmlElement(tab,objectContent.description.filter(el => el.lang === lang)[0].value,'p',['tab-content__text']);
-    const img = creatHtmlElement(tab,'','img',['tab-content__image']);
+    const imgContainer = creatHtmlElement(tab,'','div',['tab-content__image-container']);
+    const img = creatHtmlElement(imgContainer,'','img',['tab-content__image']);
     img.src = objectContent.imageUrl;
     if (objectContent.order !== 0){
         tab.classList.add('hide-tab');
@@ -302,15 +311,22 @@ body{
  display: none;  
 }
 
+.tab-content__image-container{
+    display: flex;
+    justify-content: center;
+    padding: 0 16px;
+}
+
 .tab-content__image{
-  padding: 0 16px;
-  width: 90%;
+  // padding: 0 16px;
+  width: 100%;
 }
 
 .tab-content__title{
   font-size: 18px;
   color: #fff;
-  margin: 24px 16px 12px 16px;
+  // margin: 24px 16px 12px 16px;
+  padding: 24px 16px 12px 16px;
 }
 
 .tab-content__text{
@@ -348,7 +364,8 @@ body{
 }
 
 .tab-content__title{
-    margin: 0 16px 12px 16px;
+    // margin: 0 16px 12px 16px;
+    padding: 0px 16px 12px 16px;
     padding-top: 12px;
 }
 }
@@ -381,6 +398,13 @@ body{
 .about-us__section-title{
   font-size: 30px;
   margin-bottom: 48px;
+}
+
+@media screen and (min-width: 1024px){
+    .main-container-about {
+     background: #F7F7F7;
+     color: #1A2F43;
+}
 }
 
 `;

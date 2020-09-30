@@ -1,7 +1,20 @@
-let aboutUsData = [{"title":[{"lang":"en","value":"test1"},{"lang":"he","value":"test1"},{"lang":"ru","value":"test1"},{"lang":"ua","value":"test1"}],"description":[{"lang":"en","value":"<p>dfgsdgdf<\/p>\n\n<p>gdf<\/p>\n\n<p>g<\/p>\n\n<p>dfg<\/p>\n\n<p>df<\/p>\n\n<p>gh<\/p>\n\n<p>dfh<\/p>\n"},{"lang":"he","value":"<p>dfgsdgdf<\/p>\n\n<p>gdf<\/p>\n\n<p>g<\/p>\n\n<p>dfg<\/p>\n\n<p>df<\/p>\n\n<p>gh<\/p>\n\n<p>dfh<\/p>\n"},{"lang":"ru","value":"<p>dfgsdgdf<\/p>\n\n<p>gdf<\/p>\n\n<p>g<\/p>\n\n<p>dfg<\/p>\n\n<p>df<\/p>\n\n<p>gh<\/p>\n\n<p>dfh<\/p>\n"},{"lang":"ua","value":"<p>dfgsdgdf<\/p>\n\n<p>gdf<\/p>\n\n<p>g<\/p>\n\n<p>dfg<\/p>\n\n<p>df<\/p>\n\n<p>gh<\/p>\n\n<p>dfh<\/p>\n"}],"chapter":[{"lang":"en","value":"2"},{"lang":"he","value":"2"},{"lang":"ru","value":"2"},{"lang":"ua","value":"2"}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/about\/894A8227-B29C-4E7B-8327-A51996DFA1BA\/Family.jpg","order":0},{"title":[{"lang":"en","value":"boris"},{"lang":"he","value":"boris"},{"lang":"ru","value":"boris"},{"lang":"ua","value":"boris"}],"description":[{"lang":"en","value":"<p>shafjysdfksdf<\/p>\n\n<p>sdfg<strong>lkdfgd<\/strong>fg&nbsp; fgf<span style=\"color:#DAA520\"><u><em>gfg<\/em><\/u><\/span><\/p>\n\n<p>&nbsp;<\/p>\n\n<p><span style=\"color:#DAA520\"><u><em>fdgdfghjdflg<\/em><\/u><\/span><\/p>\n\n<p><span style=\"color:#DAA520\"><u><em>fgfgfdgf<\/em><\/u><\/span><\/p>\n"},{"lang":"he","value":"<p style=\"text-align: right;\">\u05d2\u05db\u05d3\u05e2\u05db\u05d2\u05d3\u05e2<\/p>\n\n<p style=\"text-align: right;\">\u05d2\u05db\u05e2\u05d2\u05db\u05e2<\/p>\n\n<p style=\"text-align: right;\">\u05d2\u05db\u05e2\u05d2\u05db\u05e2\u05d2\u05e9\u05d3\u05db\u05d3\u05d2\u05db\u05d3\u05d2\u05db<\/p>\n"},{"lang":"ru","value":"<p>shafjysdfksdf<\/p>\n\n<p>sdfg<strong>lkdfgd<\/strong>fg\u00a0 fgf<span style=\"color:#DAA520\"><u><em>gfg<\/em><\/u><\/span><\/p>\n\n<p>\u00a0<\/p>\n\n<p>\u00a0<\/p>\n\n<p><span style=\"color:#DAA520\"><u><em>fdgdfghjdflg<\/em><\/u><\/span><\/p>\n\n<p><span style=\"color:#DAA520\"><u><em>fgfgfdgf<\/em><\/u><\/span><\/p>\n"},{"lang":"ua","value":"<p>shafjysdfksdf<\/p>\n\n<p>sdfg<strong>lkdfgd<\/strong>fg\u00a0 fgf<span style=\"color:#DAA520\"><u><em>gfg<\/em><\/u><\/span><\/p>\n\n<p>\u00a0<\/p>\n\n<p>\u00a0<\/p>\n\n<p><span style=\"color:#DAA520\"><u><em>fdgdfghjdflg<\/em><\/u><\/span><\/p>\n\n<p><span style=\"color:#DAA520\"><u><em>fgfgfdgf<\/em><\/u><\/span><\/p>\n"}],"chapter":[{"lang":"en","value":"boris"},{"lang":"he","value":"boris"},{"lang":"ru","value":"boris"},{"lang":"ua","value":"boris"}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/about\/99C0376A-4D02-4802-9F49-2540C59AEEDE\/BareFoot.jpg","order":1},{"title":[{"lang":"en","value":"3"},{"lang":"he","value":"3"},{"lang":"ru","value":"3"},{"lang":"ua","value":"3"}],"description":[{"lang":"en","value":"<p>dfgdfg<\/p>\n\n<p><span style=\"background-color:#FF0000\">fg<\/span><\/p>\n\n<p><span style=\"background-color:#FF0000\">df<\/span><\/p>\n\n<p>g<\/p>\n\n<p>df<\/p>\n\n<p>g<\/p>\n\n<p>fdg<\/p>\n"},{"lang":"he","value":"<p>dfgdfg<\/p>\n\n<p><span style=\"background-color:#FF0000\">fg<\/span><\/p>\n\n<p><span style=\"background-color:#FF0000\">df<\/span><\/p>\n\n<p>g<\/p>\n\n<p>df<\/p>\n\n<p>g<\/p>\n\n<p>fdg<\/p>\n"},{"lang":"ru","value":"<p>dfgdfg<\/p>\n\n<p><span style=\"background-color:#FF0000\">fg<\/span><\/p>\n\n<p><span style=\"background-color:#FF0000\">df<\/span><\/p>\n\n<p>g<\/p>\n\n<p>df<\/p>\n\n<p>g<\/p>\n\n<p>fdg<\/p>\n"},{"lang":"ua","value":"<p>dfgdfg<\/p>\n\n<p><span style=\"background-color:#FF0000\">fg<\/span><\/p>\n\n<p><span style=\"background-color:#FF0000\">df<\/span><\/p>\n\n<p>g<\/p>\n\n<p>df<\/p>\n\n<p>g<\/p>\n\n<p>fdg<\/p>\n"}],"chapter":[{"lang":"en","value":"3"},{"lang":"he","value":"3"},{"lang":"ru","value":"3"},{"lang":"ua","value":"3"}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/about\/5061A257-82AB-4A86-85A2-969F404351C9\/SangenianoView.jpg","order":2},{"title":[{"lang":"en","value":"grgrg"},{"lang":"he","value":"grgrg"},{"lang":"ru","value":"grgrg"},{"lang":"ua","value":"grgrg"}],"description":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"chapter":[{"lang":"en","value":"\u0410\u0430\u0430"},{"lang":"he","value":"grgrg"},{"lang":"ru","value":"grgrg"},{"lang":"ua","value":"grgrg"}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/about\/ABF376AA-8671-43E5-A7AD-4F4AC266D625\/bmw_k100_mototsikl_bajk_123991_540x960.jpg","order":3}];
+let aboutUsData = [
+  {"title":[{"lang":"en","value":"The Project"},{"lang":"he","value":"הפרויקט"},{"lang":"ru","value":"The" +
+            " Project"},{"lang":"ua","value":"The Project"}],"description":[{"lang":"en","value":"“Odessa 2020”" +
+            " Project is located in the heart of the city’s entertainment and recreation center, adjacent to the" +
+            " beach. The project’s unique location close to Arcadia promenade provides an incredible mix of vibrant" +
+            " nightlife, along with an abundance of restaurants offering rich cuisine, cultural and historical sites" +
+            " and marvelous beaches. The complex is composed of a luxury tower with 440 studio, 2 and 3-room" +
+            " apartments, fully furnished and equipped to suit all types of tourists (couples, families, businessmen, etc.). The complex has everything you need to enjoy life: a Dead Sea spa, transparent swimming pool on the 26th floor, gym, aesthetic center, conference rooms, restaurants and coffee shops, concierge service, underground parking, housekeeping and room service, and more. The project was planned and designed by an Israeli architect, Assaf Shaul – co-owner of CPSL architectural firm. Each apartment features a balcony overlooking the sea. The apartments will be rented to tourists by an Israeli management company for short periods via the Airbnb model. In the complex there is a business center “Emporium Business Tower”. The city of Odessa, aka the “Black Sea Pearl”, is a tourist destination on the rise. In 2019 alone, over 3.5 million tourists visited the city and their number grows by about half a million each year, which has led to a shortage of about 250,000 accommodation facilities. Many Israelis visit Odessa as well, especially since the city is located within only 3 hours flight from all European capitals, and is known for its magnificent architecture, fine cuisine, vibrant nightlife and affordable prices. The apartments in the project will be rented to tourists by an Israeli management company for short periods of time via the Airbnb model. Furthermore, Odessa has a large shortage of offices due to the economic growth and the move of international high-tech companies to the city."},{"lang":"he","value":"אודסה 2020 ממוקם בלב ליבו של מרכז הבילויים והנופש של העיר, בסמוך לחוף הים. מיקומו הייחודי בקרבת טיילת ארקדיה מעניק שילוב מדהים של חיי לילה תוססים, יחד עם מסעדות רבות המציעות קולינריה עשירה ומגוונת, אתרי תרבות והיסטוריה וכמובן חופי ים מרהיבים.\n" +
+            "\n" +
+            "בקומפלקס 2 מגדלי יוקרה, מגדל דירות עם 440 דירות סטודיו, 2 חדרים ו-3 חדרים, מרוהטות ומאובזרות באופן מלא המתאימות לכל סוגי התיירים (זוגות, משפחות, אנשי עסקים ועוד). המתחם כולל כל מה שצריך בכדי להנות מהחיים: ספא ים המלח, בריכת שחייה עם תחתית שקופה בקומה ה-26, חדר כושר, מרכז אסתטיקה, חדרי ישיבות, מסעדות ובתי קפה, שירות קונסיירז', חניה תת קרקעית, שירותי ניקיון ושירות חדרים ועוד. על עיצובו ותכנונו של הפרויקט אמון אדריכל ישראלי, אסף שאול, מבעלי חברת האדריכלות CPSL. לכל דירה בפרויקט מרפסת הפונה לכיוון הים. הדירות בפרויקט יושכרו לתיירים לתקופות קצרות, במודל של Airbnb ע\"י חברת ניהול ישראלית. במתחם מגדל משרדים,  מרכז העסקים החדש של אודסה  Emporium Business Tower.\n" +
+            "\n" +
+            "העיר אודסה, המכונה גם \"פנינת הים השחור\", היא יעד תיירותי שנהנה מפופולריות גוברת. ב-2019 לבדה ביקרו בעיר למעלה מ- 3.5 מיליון תיירים ומספרם עולה בקצב של כחצי מיליון מדי שנה, כך שנוצר מחסור של כ-250 אלף חדרי אירוח. גם הישראלים מגיעים אליה בהמוניהם, העיר נמצאת במרחק טיסה של שעתיים ורבע בלבד מנתב\"ג, וידועה בארכיטקטורה היפה, קולינריה משובחת, חיי לילה תוססים ובמחירים הנוחים. הדירות בפרויקט יושכרו לתיירים לתקופות קצרות, במודל של Airbnb ע\"י חברת ניהול ישראלית. כמו כן, באודסה קיים מחסור גדול של משרדים בשל הצמיחה הכלכלית ומעבר של חברות הייטק בינלאומיות לעיר.\n"},{"lang":"ru","value":""},{"lang":"ua","value":""}],"chapter":[{"lang":"en","value":"The Project"},{"lang":"he","value":"הפרויקט"},{"lang":"ru","value":"The Project"},{"lang":"ua","value":"The Project"}],"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Project\/proj_1.jpg","order":0},
+    ];
+
 
 let canvasClass = 'bmby-about-wrapp';
-let lang = 'en';
+let lang = 'he';
 const dir = 'ltr';
 let hasUbuntuFont = false;
 let aboutUsSections = [];
@@ -195,7 +208,8 @@ function buildTabsContent (container,objectContent) {
     tab.dataset.order = objectContent.order;
     const title = creatHtmlElement(tab,objectContent.title.filter(el => el.lang === lang)[0].value,'h3',['tab-content__title']);
     const text = creatHtmlElement(tab,objectContent.description.filter(el => el.lang === lang)[0].value,'p',['tab-content__text']);
-    const img = creatHtmlElement(tab,'','img',['tab-content__image']);
+    const imgContainer = creatHtmlElement(tab,'','div',['tab-content__image-container']);
+    const img = creatHtmlElement(imgContainer,'','img',['tab-content__image']);
     img.src = objectContent.imageUrl;
     if (objectContent.order !== 0){
         tab.classList.add('hide-tab');
@@ -302,15 +316,22 @@ body{
  display: none;  
 }
 
+.tab-content__image-container{
+    display: flex;
+    justify-content: center;
+    padding: 0 16px;
+}
+
 .tab-content__image{
-  padding: 0 16px;
-  width: 90%;
+  // padding: 0 16px;
+  width: 100%;
 }
 
 .tab-content__title{
   font-size: 18px;
   color: #fff;
-  margin: 24px 16px 12px 16px;
+  // margin: 24px 16px 12px 16px;
+  padding: 24px 16px 12px 16px;
 }
 
 .tab-content__text{
@@ -348,7 +369,8 @@ body{
 }
 
 .tab-content__title{
-    margin: 0 16px 12px 16px;
+    // margin: 0 16px 12px 16px;
+    padding: 0px 16px 12px 16px;
     padding-top: 12px;
 }
 }
@@ -381,6 +403,13 @@ body{
 .about-us__section-title{
   font-size: 30px;
   margin-bottom: 48px;
+}
+
+@media screen and (min-width: 1024px){
+    .main-container-about {
+     background: #F7F7F7;
+     color: #1A2F43;
+}
 }
 
 `;

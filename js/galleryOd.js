@@ -1,68 +1,99 @@
-<?php
+const categoriesData = [
+  {"categoryId":1,"name":[{"lang":"en","value":"Interior"},{"lang":"he","value":"Interior"},{"lang":"ru","value":"Interior"},{"lang":"ua","value":"Interior"}]},
+    {"categoryId":2,"name":[{"lang":"en","value":"Exterior"},{"lang":"he","value":"Exterior"},{"lang":"ru","value":"Exterior"},{"lang":"ua","value":"Exterior"}]},
+    {"categoryId":3,"name":[{"lang":"en","value":"Infrastructure"},{"lang":"he","value":"Infrastructure"},{"lang":"ru","value":"Infrastructure"},{"lang":"ua","value":"Infrastructure"}]},
+    {"categoryId":4,"name":[{"lang":"en","value":"Neighborhood"},{"lang":"he","value":"Neighborhood"},{"lang":"ru","value":"Neighborhood"},{"lang":"ua","value":"Neighborhood"}]}
+    ];
+const imgData = [
+  {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":1,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Interior\/int_1.jpg","order":0},
 
-require_once 'JsGenerator.php';
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":1,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Interior\/int_2.jpg","order":1},
 
-class GalleryJsGenerator implements JsGenerator
-{
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":1,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Interior\/int_3.jpg","order":2},
 
-    private $jsString;
-    private $galleryData;
-    private $galleryCategoriesData;
-    private $lang;
-    private $canvasClass;
-    private $callbackFunctionName;
-    private $dir;
-    private $rtlLangs = ['he'];
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":1,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Interior\/int_4.jpg","order":3},
 
-    public function __construct(string $galleryData, string $galleryCategoriesData, string $canvasClass = 'bmby-gallery', string $lang = 'en', string $callbackFunctionName = '')
-    {
-        $this->jsString = '';
-        $this->galleryData = $galleryData;
-        $this->galleryCategoriesData = $galleryCategoriesData;
-        $this->canvasClass = $canvasClass;
-        $this->lang = $lang;
-        $this->callbackFunctionName = empty($callbackFunctionName) ? 'nonExistentFunction' : $callbackFunctionName ;
-        $this->dir = (in_array($lang, $this->rtlLangs))?'rtl':'ltr';
-        $this->setJs();
-    }
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":1,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Interior\/int_5.jpg","order":4},
 
-    public function showJs()
-    {
-        header('Content-Type: application/javascript');
-        echo $this->jsString;
-    }
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":1,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Interior\/int_6.jpg","order":5},
 
-    private function setJs()
-    {
-        $this->jsString = <<<EOD
-const categoriesData = $this->galleryCategoriesData;
-const imgData = $this->galleryData;
-const lang = '$this->lang';
-const dir = '$this->dir';
-let canvasClass = '$this->canvasClass';
-let galleryContainer;
-let timer = null;
-let imagesCount=0;
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":1,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Interior\/int_7.jpg","order":6},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":1,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Interior\/int_8.jpg","order":7},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Exterior\/ext_1.jpg","order":8},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Exterior\/ext_2.jpg","order":9},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Exterior\/ext_3.png","order":10},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Exterior\/ext_4.png","order":11},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Exterior\/ext_5.png","order":12},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Exterior\/ext_6.jpg","order":13},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Exterior\/ext_7.jpg","order":14},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Exterior\/ext_8.jpg","order":15},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Exterior\/ext_9.jpg","order":16},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Exterior\/ext_10.jpg","order":17},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Exterior\/ext_11.jpg","order":18},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Exterior\/ext_12.jpg","order":19},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Exterior\/ext_13.jpg","order":20},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Exterior\/ext_14.jpg","order":21},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Exterior\/ext_15.jpg","order":22},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Exterior\/ext_16.jpg","order":23},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Exterior\/ext_17.jpg","order":24},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":3,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Infrastructure\/inf_1.png","order":25},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":3,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Infrastructure\/inf_2.png","order":26},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":3,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Infrastructure\/inf_3.jpg","order":27},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":3,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Infrastructure\/inf_4.jpg","order":28},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":3,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Infrastructure\/inf_5.jpg","order":29},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":4,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Neighborhood\/neig_1.jpg","order":30},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":4,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Neighborhood\/neig_2.jpg","order":31},
+    ];
+const lang = 'en';
+const dir = 'ltr';
 
 const galleryData = categoriesData.map((el) => {
     el.images = imgData.filter(imgEl => imgEl.categoryId === el.categoryId);
     return el;
 });
 
+let canvasClass = 'bmby-gallery-wrapp';
+let galleryContainer;
+let timer = null;
+let imagesCount=0;
 
 let galleries = [];
 
-let mode = 'prod';
+let mode = 'dev';
 
 try{
-    $this->callbackFunctionName();
+    callbackFunction();
 } catch (e) {
-    if(mode === 'dev'){
+    if (mode === 'dev') {
         console.log('unable to run callback');
     }
 }
 
-// add galleries on document load
 function creatHtmlElement(parent, elementName, elementTag, elementClass) {
     const el = document.createElement(elementTag);
     if (Array.isArray(elementClass)){
@@ -95,9 +126,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
             setTimeout(()=>{
                 changeImagesContainerHeight();
                 showCaption();
-            },100);
-
-        }},250);
+                },100);
+    }},250);
 });
 
 const fancyBoxTemplate =`
@@ -136,8 +166,8 @@ function changeImagesContainerHeight () {
         const imagesContainer = container.querySelector('.images__container');
         if (window.innerWidth >=1024){
             const menuContainer = container.querySelector('.menu__container');
-            const menuHeight = menuContainer.getBoundingClientRect().height;
-            imagesContainer.style.height = window.innerHeight - menuHeight+ 1 +'px';
+            const menuHeight = Math.ceil(menuContainer.getBoundingClientRect().height);
+            imagesContainer.style.height = window.innerHeight - menuHeight + 1 +'px';
         }else{
             imagesContainer.style.height = '100%';
         }
@@ -369,19 +399,19 @@ function initGallery () {
         });
     });
 
-    fancyboxInit();
+            fancyboxInit();
 
-    slickInit();
+            slickInit();
 
-    $('.images__container').on('swipe', function(event, slick, direction){
-        onScrollGallery();
-    });
+            $('.images__container').on('swipe', function(event, slick, direction){
+                onScrollGallery();
+            });
 
-    $('.images__container').on('afterChange', function(event, slick, currentSlide){
-        onScrollGallery();
-        const slide = this.querySelector('.image__href[data-slick-index="'+currentSlide+'"]');
-        slide && showCaption(slide);
-    });
+           $('.images__container').on('afterChange', function(event, slick, currentSlide){
+                onScrollGallery();
+                const slide = this.querySelector('.image__href[data-slick-index="'+currentSlide+'"]');
+                slide && showCaption(slide);
+            });
 }
 
 function fancyboxInit () {
@@ -445,30 +475,30 @@ function loadStyle (path) {
 }
 
 function addScripts () {
-    const jquery = isLoadedScript('https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js');
-    if (!jquery){
-        loadScript('https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js');
-    }
-    const fancybox = isLoadedScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js');
-    if (!fancybox){
-        loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js');
-    }
-    const fancyboxStyle = isLoadedStyle('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css');
-    if (!fancyboxStyle){
-        loadStyle('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css');
-    }
-    const slick = isLoadedScript('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js');
-    if (!slick){
-        loadScript('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js');
-    }
-    const slickStyle = isLoadedStyle('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
-    if (!slickStyle){
-        loadStyle('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
-    }
-    const fontAwesome = isLoadedStyle('https://pro.fontawesome.com/releases/v5.10.0/css/all.css');
-    if (!fontAwesome){
-        loadStyle('https://pro.fontawesome.com/releases/v5.10.0/css/all.css');
-    }
+        const jquery = isLoadedScript('https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js');
+        if (!jquery){
+          loadScript('https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js');
+        }
+        const fancybox = isLoadedScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js');
+        if (!fancybox){
+            loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js');
+        }
+        const fancyboxStyle = isLoadedStyle('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css');
+        if (!fancyboxStyle){
+            loadStyle('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css');
+        }
+        const slick = isLoadedScript('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js');
+        if (!slick){
+            loadScript('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js');
+        }
+        const slickStyle = isLoadedStyle('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
+        if (!slickStyle){
+            loadStyle('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
+        }
+        const fontAwesome = isLoadedStyle('https://pro.fontawesome.com/releases/v5.10.0/css/all.css');
+        if (!fontAwesome){
+            loadStyle('https://pro.fontawesome.com/releases/v5.10.0/css/all.css');
+        }
 }
 
 function  isWindowInPortrait() {
@@ -721,6 +751,11 @@ body{
 }
 
 @media screen and (min-width: 1024px){
+.main-container-gallery {
+  color: #6E767E;
+  background: #F7F7F7;
+}
+
   .img__tumbs{
     width: 100vw;
     height: calc(100vh - 46px);
@@ -732,6 +767,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: #F7F7F7;
   }
   .images__container{
     padding-top: 0px;
@@ -748,8 +784,9 @@ body{
     display: flex;
     transition: all 0.5s;
     justify-content: center;
-    background: rgba(17, 23, 45, 0.8);
-    color: #fff;
+    // background: rgba(17, 23, 45, 0.8);
+    background: rgba(255, 255, 255, 0.72);
+    color: #1A2F43;
     font-weight: 300;
     line-height: 16px;
   }
@@ -769,6 +806,11 @@ body{
     flex-basis: 33.3%;
     min-width: fit-content;
   }
+  
+  .active {
+  border-bottom: 3px solid #1A2F43;
+  color: #1A2F43;
+}
   .slick-dots{
     display: flex;
     list-style: none;
@@ -780,13 +822,13 @@ body{
   .next-btn,.prev-btn{
     padding: 15px;
     cursor: pointer;
-    color: #fff;
+    color: #1A2F43;
   }
    .next-btn[aria-disabled="true"],.prev-btn[aria-disabled="true"]{
     color: #C0C0C0;
     cursor: default;
   }
-
+  
   .prev-btn{
     margin-right: 18px;
   }
@@ -794,7 +836,7 @@ body{
     height: 10px;
     width: 10px;
     padding: 0;
-    background: #fff;
+    background: #6E767E;
     border-radius: 50%;
     border-style: none;
     cursor:pointer;
@@ -806,18 +848,19 @@ body{
     border-radius: 50%;
   }
    .slick-active{
-    background: #1A2F43;
+    // background: #1A2F43;
   }
     li.slick-active > button{
-    background: #603EF2;
+    // background: #603EF2;
+    background: #1A2F43;
   }
-
+  
   .arrows__container{
     display: flex;
     justify-content: center;
     flex-basis: 33.3%;
   }
-  .dots__container{
+  .dots__container{    
   flex-basis: 33.3%;
   }
   .main-container-gallery {
@@ -826,7 +869,7 @@ body{
   }
    .fancybox-inner > .fancybox-toolbar >.fancybox-button{
     background: transparent;
-    color: #fff;
+    color: #1A2F43;
 }
 
    .fancybox-inner > .fancybox-navigation > .fancybox-button{
@@ -850,11 +893,12 @@ body{
    display: none;
 }
 
+.fancybox-bg {
+  background: #F7F7F7 !important;
+  opacity: 1 !important;
+}
 
+  
 }
 
 `;
-EOD;
-
-    }
-}

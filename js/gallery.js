@@ -54,8 +54,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
             insertMenu();
             insertCaptionContainer();
             initGallery();
+            setTimeout(()=>{
+                changeImagesContainerHeight();
+                showCaption();
+            },100);
 
-    }},250);
+        }},250);
 });
 
 const fancyBoxTemplate =`
@@ -88,6 +92,20 @@ function insertCaptionContainer () {
 
 }
 
+function changeImagesContainerHeight () {
+    const gallery = document.querySelectorAll('.'+canvasClass);
+    gallery.forEach(container =>{
+        const imagesContainer = container.querySelector('.images__container');
+        if (window.innerWidth >=1024){
+            const menuContainer = container.querySelector('.menu__container');
+            const menuHeight = menuContainer.getBoundingClientRect().height;
+            imagesContainer.style.height = window.innerHeight - menuHeight+ 1 +'px';
+        }else{
+            imagesContainer.style.height = '100%';
+        }
+    });
+}
+
 function orientationHandler (e) {
     if (scriptsChecker()){
         const menus = document.querySelectorAll('.menu__container');
@@ -98,6 +116,7 @@ function orientationHandler (e) {
         $('.images__container').slick('unslick');
         slickInit();
         fancyboxInit();
+        changeImagesContainerHeight();
         showCaption();
     }
 }
@@ -105,7 +124,9 @@ function orientationHandler (e) {
 function showCaption (slide = document.querySelector('.image__href')) {
     if (slide && window.innerWidth >=1024){
         const gallery = document.querySelector('.'+canvasClass+'[data-index="'+Number(slide.dataset.fancybox.match(/[0-9]/)[0])+'"]');
+        const menuContainer = gallery.querySelector('.menu__container');
         const caption = gallery.querySelector('.image-caption__text');
+        caption.style.bottom = menuContainer.getBoundingClientRect().height + 'px';
         if (slide.dataset.caption){
             caption.firstElementChild.textContent = slide.dataset.caption;
             caption.classList.remove('caption__hide');
@@ -310,19 +331,19 @@ function initGallery () {
         });
     });
 
-            fancyboxInit();
+    fancyboxInit();
 
-            slickInit();
+    slickInit();
 
-            $('.images__container').on('swipe', function(event, slick, direction){
-                onScrollGallery();
-            });
+    $('.images__container').on('swipe', function(event, slick, direction){
+        onScrollGallery();
+    });
 
-           $('.images__container').on('afterChange', function(event, slick, currentSlide){
-                onScrollGallery();
-                const slide = this.querySelector('.image__href[data-slick-index="'+currentSlide+'"]');
-                slide && showCaption(slide);
-            });
+    $('.images__container').on('afterChange', function(event, slick, currentSlide){
+        onScrollGallery();
+        const slide = this.querySelector('.image__href[data-slick-index="'+currentSlide+'"]');
+        slide && showCaption(slide);
+    });
 }
 
 function fancyboxInit () {
@@ -386,30 +407,30 @@ function loadStyle (path) {
 }
 
 function addScripts () {
-        const jquery = isLoadedScript('https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js');
-        if (!jquery){
-          loadScript('https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js');
-        }
-        const fancybox = isLoadedScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js');
-        if (!fancybox){
-            loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js');
-        }
-        const fancyboxStyle = isLoadedStyle('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css');
-        if (!fancyboxStyle){
-            loadStyle('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css');
-        }
-        const slick = isLoadedScript('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js');
-        if (!slick){
-            loadScript('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js');
-        }
-        const slickStyle = isLoadedStyle('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
-        if (!slickStyle){
-            loadStyle('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
-        }
-        const fontAwesome = isLoadedStyle('https://pro.fontawesome.com/releases/v5.10.0/css/all.css');
-        if (!fontAwesome){
-            loadStyle('https://pro.fontawesome.com/releases/v5.10.0/css/all.css');
-        }
+    const jquery = isLoadedScript('https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js');
+    if (!jquery){
+        loadScript('https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js');
+    }
+    const fancybox = isLoadedScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js');
+    if (!fancybox){
+        loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js');
+    }
+    const fancyboxStyle = isLoadedStyle('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css');
+    if (!fancyboxStyle){
+        loadStyle('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css');
+    }
+    const slick = isLoadedScript('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js');
+    if (!slick){
+        loadScript('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js');
+    }
+    const slickStyle = isLoadedStyle('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
+    if (!slickStyle){
+        loadStyle('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
+    }
+    const fontAwesome = isLoadedStyle('https://pro.fontawesome.com/releases/v5.10.0/css/all.css');
+    if (!fontAwesome){
+        loadStyle('https://pro.fontawesome.com/releases/v5.10.0/css/all.css');
+    }
 }
 
 function  isWindowInPortrait() {
@@ -683,7 +704,7 @@ body{
     width: 100%;
     height: 30px;
     position: absolute;
-    bottom: 47px;
+    // bottom: 47px;
     z-index: 2;
     align-items: center;
     display: flex;
