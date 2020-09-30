@@ -1,8 +1,8 @@
 const categoriesData = [
-  {"categoryId":1,"name":[{"lang":"en","value":"Interior"},{"lang":"he","value":"Interior"},{"lang":"ru","value":"Interior"},{"lang":"ua","value":"Interior"}]},
-    {"categoryId":2,"name":[{"lang":"en","value":"Exterior"},{"lang":"he","value":"Exterior"},{"lang":"ru","value":"Exterior"},{"lang":"ua","value":"Exterior"}]},
-    {"categoryId":3,"name":[{"lang":"en","value":"Infrastructure"},{"lang":"he","value":"Infrastructure"},{"lang":"ru","value":"Infrastructure"},{"lang":"ua","value":"Infrastructure"}]},
-    {"categoryId":4,"name":[{"lang":"en","value":"Neighborhood"},{"lang":"he","value":"Neighborhood"},{"lang":"ru","value":"Neighborhood"},{"lang":"ua","value":"Neighborhood"}]}
+  {"categoryId":1,"name":[{"lang":"en","value":"Interior"},{"lang":"he","value":"פְּנִים"},{"lang":"ru","value":"Интерьер"},{"lang":"ua","value":"Interior"}]},
+    {"categoryId":2,"name":[{"lang":"en","value":"Exterior"},{"lang":"he","value":"חִיצוֹנִי"},{"lang":"ru","value":"Внешний вид"},{"lang":"ua","value":"Exterior"}]},
+    {"categoryId":3,"name":[{"lang":"en","value":"Infrastructure"},{"lang":"he","value":"תַשׁתִית"},{"lang":"ru","value":"Инфраструктура"},{"lang":"ua","value":"Infrastructure"}]},
+    {"categoryId":4,"name":[{"lang":"en","value":"Neighborhood"},{"lang":"he","value":"שְׁכוּנָה"},{"lang":"ru","value":"Район"},{"lang":"ua","value":"Neighborhood"}]}
     ];
 const imgData = [
   {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":1,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Interior\/int_1.jpg","order":0},
