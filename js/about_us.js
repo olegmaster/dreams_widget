@@ -7,7 +7,7 @@ let hasUbuntuFont = false;
 let aboutUsSections = [];
 let mode = 'dev';
 let aboutUsMainContainer;
-
+let activeTabInd;
 try{
     callbackFunction();
 } catch (e) {
@@ -85,7 +85,7 @@ function orientationHandler () {
     const isPortrait = isWindowInPortrait();
     if (window.innerWidth < 1024){
         clearContent();
-        insertMenu();
+        insertMenu(activeTabInd);
 
         const contentWrapper = document.querySelector('.tabs-data-content__wrapper');
         if (!isPortrait && dir === 'ltr'){
@@ -164,9 +164,11 @@ function insertMenu (activeTab = 0) {
         const li = creatHtmlElement(menuContainer,chapter[0].value,'li',['menu__item']);
         li.dataset.order = menuElement.order;
         buildTabsContent(tabsDataMainContainer, menuElement);
-        const menuElementOrder = document.querySelector('.menu__item[data-order="'+activeTab+'"]');
-        setActiveTab(menuContainer,menuElementOrder);
     });
+    const menuElementOrder = document.querySelector('.menu__item[data-order="'+activeTab+'"]');
+    switchTab(menuElementOrder);
+    activeTabInd = activeTab;
+
     creatHtmlElement(menuContainer,'','div',['menu__plug']);
     setMenuStyle(menuContainer);
     menuContainer.addEventListener('click', (e) =>switchTab(e.target));
@@ -262,6 +264,7 @@ function switchTab(e) {
     const parent = e.parentElement;
     if (e.classList.contains('menu__item')){
         setActiveTab(parent,e);
+        activeTabInd = e.dataset.order;
         toggleTabContent(e.dataset.order);
         setWrapperContainerHeight();
     }

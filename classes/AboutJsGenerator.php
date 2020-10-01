@@ -43,6 +43,7 @@ let aboutUsSections = [];
 
 let mode = 'prod';
 let aboutUsMainContainer;
+let activeTabInd;
 try{
     $this->callbackFunctionName();
 } catch (e) {
