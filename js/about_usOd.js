@@ -94,7 +94,7 @@ function cropImageToText () {
 }
 
 function orientationHandler () {
-    if (window.innerWidth < 1024){
+    if (window.innerWidth <= 1024){
         const isPortrait = isWindowInPortrait();
         const menus = document.querySelectorAll('.menu__items');
         menus.forEach((menu,index) =>{
