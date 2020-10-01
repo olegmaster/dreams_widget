@@ -31,6 +31,7 @@ window.addEventListener("DOMContentLoaded", function (event) {
 });
 
 window.addEventListener('orientationchange',orientationHandler);
+window.addEventListener('resize',orientationHandler);
 
 function buildDesktopAbout () {
     const wrapper = creatHtmlElement(aboutUsMainContainer,'','div',['content__wrapper']);
@@ -46,6 +47,22 @@ function buildDesktopAbout () {
     cropImageToText();
 }
 
+function setWrapperContainerHeight () {
+    const tabsContent = aboutUsMainContainer.querySelectorAll('.tab-content__container');
+    const menuHeight = aboutUsMainContainer.querySelector('.menu__items').getBoundingClientRect().height;
+    const isPortrait = isWindowInPortrait();
+        tabsContent.forEach(tab=>{
+            if (isPortrait){
+                if (tab.scrollHeight < window.innerHeight && tab.scrollHeight > 0){
+                    tab.style.height = window.innerHeight - menuHeight - 24 +'px';
+                }
+            } else {
+                tab.style.height = '100%';
+            }
+        });
+
+}
+
 function cropImageToText () {
         const sectionCollection = document.querySelectorAll('.about-us__section');
         sectionCollection.forEach(section =>{
@@ -59,12 +76,13 @@ function cropImageToText () {
                 if (img.getBoundingClientRect().height > subHeight + 120){
                     img.style.height = subHeight+120+'px';
                 }
-            },100);
+            },200);
         });
 }
 
 function orientationHandler () {
     if (window.innerWidth < 1024){
+        const isPortrait = isWindowInPortrait();
         const menus = document.querySelectorAll('.menu__items');
         menus.forEach((menu,index) =>{
             menu.remove();
@@ -72,14 +90,15 @@ function orientationHandler () {
         insertMenu(false);
 
         const contentWrapper = document.querySelector('.tabs-data-content__wrapper');
-        if (window.screen.orientation.type !== 'portrait-primary' && dir === 'ltr'){
+        if (!isPortrait && dir === 'ltr'){
             contentWrapper.style.marginLeft = 114+'px';
-        } else if (window.screen.orientation.type !== 'portrait-primary' && dir === 'rtl'){
+        } else if (!isPortrait && dir === 'rtl'){
             contentWrapper.style.marginRight = 114+'px';
         }else{
             contentWrapper.style.marginRight = 0+'px';
             contentWrapper.style.marginLeft = 0+'px';
         }
+        setTimeout(()=>{setWrapperContainerHeight();},200);
     }
 }
 
@@ -110,9 +129,15 @@ function addBasicStyle () {
 }
 
 function insertMenu (createTabs = true) {
+    let tabsDataMainContainer;
     const menuContainer = creatHtmlElement('','','ul',['menu__items']);
     aboutUsMainContainer.insertAdjacentElement('afterbegin',menuContainer);
-    const tabsDataMainContainer = creatHtmlElement(aboutUsMainContainer,'','div',['tabs-data-content__wrapper']);
+    const isTabWrapperExist = aboutUsMainContainer.querySelector('.tabs-data-content__wrapper');
+    if (!isTabWrapperExist){
+       tabsDataMainContainer = creatHtmlElement(aboutUsMainContainer,'','div',['tabs-data-content__wrapper']);
+    } else{
+       tabsDataMainContainer = isTabWrapperExist;
+    }
     aboutUsData.forEach((menuElement,index) =>{
         let chapter = menuElement.chapter.filter(el => el.lang === lang);
         if(!chapter[0].hasOwnProperty('value')){
@@ -120,10 +145,25 @@ function insertMenu (createTabs = true) {
         }
         const li = creatHtmlElement(menuContainer,chapter[0].value,'li',['menu__item']);
        li.dataset.order = menuElement.order;
-        createTabs && buildTabsContent(tabsDataMainContainer, menuElement);
-        if (index ===0){
-            li.classList.add('active');
+
+        if (createTabs){
+            buildTabsContent(tabsDataMainContainer, menuElement);
+            if (index ===0){
+                li.classList.add('active');
+            }
+        }else {
+            const allTabs = aboutUsMainContainer.querySelectorAll('.tab-content__container');
+            allTabs.forEach(tab =>{
+                if (!tab.classList.contains('hide-tab')){
+                    const menuElement = document.querySelector('.menu__item[data-order="'+tab.dataset.order+'"]');
+                    if (menuElement){
+                        setActiveTab(menuElement.parentElement,menuElement);
+                    }
+
+                }
+            })
         }
+
     });
     creatHtmlElement(menuContainer,'','div',['menu__plug']);
     setMenuStyle(menuContainer);
@@ -132,9 +172,9 @@ function insertMenu (createTabs = true) {
 }
 
 function swipeTabsContent (e) {
-    const orientation = getWindowOrientation();
+    const isPortrait = isWindowInPortrait();
 
-    if (orientation === 'portrait-primary'){
+    if (isPortrait){
         const activeMenu = getActiveTabMenu();
         const swipeDirection = e.detail.dir;
 
@@ -152,6 +192,7 @@ function swipeTabsContent (e) {
                 }
                 break;
         }
+        // setWrapperContainerHeight();
     }
 }
 
@@ -166,18 +207,18 @@ function getActiveTabMenu () {
     return activeMenu;
 }
 
-function getWindowOrientation() {
-    return window.screen.orientation.type;
+function  isWindowInPortrait() {
+    return window.matchMedia("(orientation: portrait)").matches;
 }
 
 function setMenuStyle (menuItems) {
-    const orientation = getWindowOrientation();
+    const isPortrait = isWindowInPortrait();
     const childrenItems = menuItems.children;
     const lengthItems = menuItems.children.length;
     const scrollWidth = menuItems.scrollWidth;
     const currentView = menuItems.offsetWidth;
 
-    if (orientation === 'portrait-primary'){
+    if (isPortrait){
         if (scrollWidth <= currentView && lengthItems > 2){
             menuItems.style.justifyContent = 'space-between';
             for (let child of childrenItems){
@@ -195,7 +236,8 @@ function buildTabsContent (container,objectContent) {
     tab.dataset.order = objectContent.order;
     const title = creatHtmlElement(tab,objectContent.title.filter(el => el.lang === lang)[0].value,'h3',['tab-content__title']);
     const text = creatHtmlElement(tab,objectContent.description.filter(el => el.lang === lang)[0].value,'p',['tab-content__text']);
-    const img = creatHtmlElement(tab,'','img',['tab-content__image']);
+    const imgContainer = creatHtmlElement(tab,'','div',['about-us__img-container']);
+    const img = creatHtmlElement(imgContainer,'','img',['tab-content__image']);
     img.src = objectContent.imageUrl;
     if (objectContent.order !== 0){
         tab.classList.add('hide-tab');
@@ -219,6 +261,7 @@ function switchTab(e) {
     if (e.classList.contains('menu__item')){
         setActiveTab(parent,e);
         toggleTabContent(e.dataset.order);
+        setWrapperContainerHeight();
     }
 }
 
@@ -302,9 +345,12 @@ body{
  display: none;  
 }
 
+.about-us__img-container{
+ padding: 0 16px;
+}
+
 .tab-content__image{
-  padding: 0 16px;
-  width: 90%;
+  width: 100%;
 }
 
 .tab-content__title{
