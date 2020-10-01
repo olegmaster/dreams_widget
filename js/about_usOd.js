@@ -61,19 +61,20 @@ function buildDesktopAbout () {
 }
 
 function setWrapperContainerHeight () {
-    const tabsContent = aboutUsMainContainer.querySelectorAll('.tab-content__container');
-    const menuHeight = aboutUsMainContainer.querySelector('.menu__items').getBoundingClientRect().height;
-    const isPortrait = isWindowInPortrait();
-    tabsContent.forEach(tab=>{
-        if (isPortrait){
-            if (tab.scrollHeight < window.innerHeight && tab.scrollHeight > 0){
-                tab.style.height = window.innerHeight - menuHeight - 24 +'px';
+    if (window.innerWidth < 1024){
+        const tabsContent = aboutUsMainContainer.querySelectorAll('.tab-content__container');
+        const menuHeight = aboutUsMainContainer.querySelector('.menu__items').getBoundingClientRect().height;
+        const isPortrait = isWindowInPortrait();
+        tabsContent.forEach(tab=>{
+            if (isPortrait){
+                if (tab.scrollHeight < window.innerHeight && tab.scrollHeight > 0){
+                    tab.style.height = window.innerHeight - menuHeight - 24 +'px';
+                }
+            } else {
+                tab.style.height = '100%';
             }
-        } else {
-            tab.style.height = '100%';
-        }
-    });
-
+        });
+    }
 }
 
 function cropImageToText () {
@@ -94,13 +95,10 @@ function cropImageToText () {
 }
 
 function orientationHandler () {
-    if (window.innerWidth <= 1024){
-        const isPortrait = isWindowInPortrait();
-        const menus = document.querySelectorAll('.menu__items');
-        menus.forEach((menu,index) =>{
-            menu.remove();
-        });
-        insertMenu(false);
+    const isPortrait = isWindowInPortrait();
+    if (window.innerWidth < 1024){
+        clearContent();
+        insertMenu();
 
         const contentWrapper = document.querySelector('.tabs-data-content__wrapper');
         if (!isPortrait && dir === 'ltr'){
@@ -111,7 +109,27 @@ function orientationHandler () {
             contentWrapper.style.marginRight = 0+'px';
             contentWrapper.style.marginLeft = 0+'px';
         }
-       setTimeout(()=>{setWrapperContainerHeight();},200);
+        setTimeout(()=>{setWrapperContainerHeight();},200);
+    }else {
+        clearContent();
+        buildDesktopAbout();
+    }
+}
+
+function clearContent () {
+    const menus = document.querySelectorAll('.menu__items');
+    const tabs = aboutUsMainContainer.querySelectorAll('.tab-content__container');
+    const wrapper = aboutUsMainContainer.querySelector('.content__wrapper');
+    if (tabs.length > 0){
+        tabs.forEach(tab => tab.remove());
+    }
+    if (wrapper){
+        wrapper.remove();
+    }
+    if (menus.length > 0){
+        menus.forEach((menu,index) =>{
+            menu.remove();
+        });
     }
 }
 
@@ -141,7 +159,7 @@ function addBasicStyle () {
     document.head.innerHTML +='<style>'+replacedStyle+'</style>';
 }
 
-function insertMenu (createTabs = true) {
+function insertMenu (activeTab = 0) {
     let tabsDataMainContainer;
     const menuContainer = creatHtmlElement('','','ul',['menu__items']);
     aboutUsMainContainer.insertAdjacentElement('afterbegin',menuContainer);
@@ -158,25 +176,9 @@ function insertMenu (createTabs = true) {
         }
         const li = creatHtmlElement(menuContainer,chapter[0].value,'li',['menu__item']);
         li.dataset.order = menuElement.order;
-
-        if (createTabs){
-            buildTabsContent(tabsDataMainContainer, menuElement);
-            if (index ===0){
-                li.classList.add('active');
-            }
-        }else {
-            const allTabs = aboutUsMainContainer.querySelectorAll('.tab-content__container');
-            allTabs.forEach(tab =>{
-                if (!tab.classList.contains('hide-tab')){
-                    const menuElement = document.querySelector('.menu__item[data-order="'+tab.dataset.order+'"]');
-                    if (menuElement){
-                        setActiveTab(menuElement.parentElement,menuElement);
-                    }
-
-                }
-            })
-        }
-
+        buildTabsContent(tabsDataMainContainer, menuElement);
+        const menuElementOrder = document.querySelector('.menu__item[data-order="'+activeTab+'"]');
+        setActiveTab(menuContainer,menuElementOrder);
     });
     creatHtmlElement(menuContainer,'','div',['menu__plug']);
     setMenuStyle(menuContainer);
