@@ -14,11 +14,10 @@ class GalleryJsGenerator implements JsGenerator
     private $dir;
     private $rtlLangs = ['he'];
 
-    public function __construct(string $galleryData, string $galleryCategoriesData, string $canvasClass = 'bmby-gallery', string $lang = 'en', string $callbackFunctionName = '')
+    public function __construct(string $galleryData, string $canvasClass = 'bmby-gallery', string $lang = 'en', string $callbackFunctionName = '')
     {
         $this->jsString = '';
         $this->galleryData = $galleryData;
-        $this->galleryCategoriesData = $galleryCategoriesData;
         $this->canvasClass = $canvasClass;
         $this->lang = $lang;
         $this->callbackFunctionName = empty($callbackFunctionName) ? 'nonExistentFunction' : $callbackFunctionName ;
@@ -35,20 +34,30 @@ class GalleryJsGenerator implements JsGenerator
     private function setJs()
     {
         $this->jsString = <<<EOD
-const categoriesData = $this->galleryCategoriesData;
-const imgData = $this->galleryData;
+// each element contains data about the certain category and pictures belonging to it
+// this data is obtained from API
+let galleryData = $this->galleryData;
+
+// this variable contains all images for all categories
+// for building the general gallery
+// and we should be able to switch images in the gallery by clicking on menu items or scroll tab
+let imgData = [];
+
+// we extract images from galleryData variable to imgData
+galleryData.forEach(galleryElement => {
+    if(galleryElement.hasOwnProperty('pictures') && galleryElement.pictures.length > 0){
+        galleryElement.pictures.forEach(pictureEl => {
+            pictureEl.categoryId = galleryElement.categoryId;
+            imgData.push(pictureEl)
+        });
+    }
+});
 const lang = '$this->lang';
 const dir = '$this->dir';
 let canvasClass = '$this->canvasClass';
 let galleryContainer;
 let timer = null;
 let imagesCount=0;
-
-const galleryData = categoriesData.map((el) => {
-    el.images = imgData.filter(imgEl => imgEl.categoryId === el.categoryId);
-    return el;
-});
-
 
 let galleries = [];
 
@@ -279,7 +288,7 @@ function insertMenu () {
         ul.dataset.index = index;
         galleryData.forEach((element,index) => {
             let menuItemName = element.name.filter(el => el.lang === lang);
-            if (element.images.length > 0){
+            if (element.pictures.length > 0){
                 const li = creatHtmlElement(ul,menuItemName[0].value,'li',['menu__item']);
                 li.dataset.categoryId = element.categoryId;
                 if (index ===0){

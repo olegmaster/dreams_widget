@@ -1,12 +1,24 @@
-const categoriesData = [{"categoryId":1,"name":[{"lang":"en","value":"Interior"},{"lang":"he","value":"Interior"},{"lang":"ru","value":"Interior"},{"lang":"ua","value":"Interior"}]},{"categoryId":2,"name":[{"lang":"en","value":"Exterior"},{"lang":"he","value":"Exterior"},{"lang":"ru","value":"Exterior"},{"lang":"ua","value":"Exterior"}]},{"categoryId":3,"name":[{"lang":"en","value":"Amenities"},{"lang":"he","value":"Amenities"},{"lang":"ru","value":"Amenities"},{"lang":"ua","value":"Amenities"}]},{"categoryId":4,"name":[{"lang":"en","value":"Neighborhood"},{"lang":"he","value":"Neighborhood"},{"lang":"ru","value":"Neighborhood"},{"lang":"ua","value":"Neighborhood"}]}];
-const imgData = [{"title":[{"lang":"en","value":"My Pic 2"},{"lang":"he","value":"'\u05ea\u05de\u05d5\u05e0\u05d4 \u05e8\u05d0\u05e9\u05d5\u05e0\u05d4 \u05e9\u05dc'"},{"lang":"ru","value":"\u041c\u043e\u044f \u043f\u0435\u0440\u0432\u0430\u044f \u043a\u0430\u0440\u0442\u0438\u043d\u043a\u0430 111"},{"lang":"ua","value":"\u0418i 1"}],"categoryId":4,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/E47F291D-ED1E-4B05-9FB0-1D987A21BA7E\/d6e9019d-2196-47c8-b2f0-3a392e2c8b34.jfif","order":0},{"title":[{"lang":"en","value":"Image 3"},{"lang":"he","value":"wefew"},{"lang":"ru","value":"wef"},{"lang":"ua","value":"rthtr"}],"categoryId":2,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/6592CB9A-EDE6-4E92-AD3F-A065DA6EBC22\/volk_zvezdnoe_nebo_siluet_art_117253_720x1280.jpg","order":1},{"title":[{"lang":"en","value":"Image 6"},{"lang":"he","value":"\u05ea\u05de\u05d5\u05e0\u05d4 \u05e8\u05d0\u05e9\u05d5\u05e0\u05d4 \u05e9\u05dc\u05d9'"},{"lang":"ru","value":"Image 5"},{"lang":"ua","value":"Image 5"}],"categoryId":2,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/9634E482-9AE5-49EC-82A4-CBA783229E27\/avatar_2_movie_2021-wallpaper-1600x900.jpg","order":2},{"title":[{"lang":"en","value":"Image 7"},{"lang":"he","value":"fwf"},{"lang":"ru","value":"\u041a\u0430\u0440\u0442\u0438\u043d\u043a\u0430 7"},{"lang":"ua","value":"dcv"}],"categoryId":1,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/8E92AC86-77B9-41D0-A041-8B4601CE562A\/kakao_zefir_pled_kniga_osen_118517_1400x1050.jpg","order":3},{"title":[{"lang":"en","value":"Image 7"},{"lang":"he","value":"Image 7"},{"lang":"ru","value":"Image 7"},{"lang":"ua","value":"Image 7"}],"categoryId":1,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/90CF808E-DF57-4683-9A11-025A439A8C37\/avatar_2_movie_2021-wallpaper-1600x900.jpg","order":4},{"title":[{"lang":"en","value":"a"},{"lang":"he","value":"a"},{"lang":"ru","value":"a"},{"lang":"ua","value":"a"}],"categoryId":4,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/4CA9BDB3-C66E-4B9B-A309-0B583F8840E3\/Enrique_Simonet_-_Marina_veneciana_6MB.jpg","order":5},{"title":[{"lang":"en","value":"b"},{"lang":"he","value":"b"},{"lang":"ru","value":"b"},{"lang":"ua","value":"b"}],"categoryId":2,"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/gallery\/08FA766F-9B02-4DE6-BC41-8AA72FB91C36\/volk_zvezdnoe_nebo_siluet_art_117253_720x1280.jpg","order":6}];
+// each element contains data about the certain category and pictures belonging to it
+// this data is obtained from API
+const galleryData = [{"categoryId":1,"name":[{"lang":"en","value":"Interior"},{"lang":"he","value":"Interior"},{"lang":"ru","value":"Interior"}],"pictures":[{"title":[{"lang":"en","value":"Image 7"},{"lang":"he","value":"fwf"},{"lang":"ru","value":"\u041a\u0430\u0440\u0442\u0438\u043d\u043a\u0430 7"}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/gallery\/1525126F-87A1-461F-B734-65D2624CAE60\/kakao_zefir_pled_kniga_osen_118517_1400x1050.jpg","order":3},{"title":[{"lang":"en","value":"Image 8"},{"lang":"he","value":"Image 7"},{"lang":"ru","value":"Image 7"}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/gallery\/F576CADE-8088-49E7-B1B7-D9B11411FE3A\/reka_les_gory_130651_720x1280.jpg","order":4}]},{"categoryId":2,"name":[{"lang":"en","value":"Exterior"},{"lang":"he","value":"Exterior"},{"lang":"ru","value":"Exterior"}],"pictures":[{"title":[{"lang":"en","value":"Image 3"},{"lang":"he","value":"wefew"},{"lang":"ru","value":"wef"}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/gallery\/F0AA02A0-DB7C-4470-9257-A2A4240F9B9C\/the_lion_king_2021-wallpaper-1600x900.jpg","order":1},{"title":[{"lang":"en","value":"Image 6"},{"lang":"he","value":"\u05ea\u05de\u05d5\u05e0\u05d4 \u05e8\u05d0\u05e9\u05d5\u05e0\u05d4 \u05e9\u05dc\u05d9'"},{"lang":"ru","value":"Image 5"}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/gallery\/66ACC033-8673-459D-9F36-67E7B0F2F0DD\/inzhir_vinograd_chernika_101724_1400x1050.jpg","order":2}]},{"categoryId":3,"name":[{"lang":"en","value":"Amenities"},{"lang":"he","value":"Amenities"},{"lang":"ru","value":"Amenities"}],"pictures":[{"title":[{"lang":"en","value":"grgrg"},{"lang":"he","value":""},{"lang":"ru","value":""}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/gallery\/E569E87D-3D09-4117-B424-6E78DDC7EF80\/spider_man_4-wallpaper-1600x900.jpg","order":5}]},{"categoryId":4,"name":[{"lang":"en","value":"Neighborhood"},{"lang":"he","value":"Neighborhood"},{"lang":"ru","value":"Neighborhood"}],"pictures":[{"title":[{"lang":"en","value":"My Pic 2"},{"lang":"he","value":"'\u05ea\u05de\u05d5\u05e0\u05d4 \u05e8\u05d0\u05e9\u05d5\u05e0\u05d4 \u05e9\u05dc'"},{"lang":"ru","value":"\u041c\u043e\u044f \u043f\u0435\u0440\u0432\u0430\u044f \u043a\u0430\u0440\u0442\u0438\u043d\u043a\u0430 111"}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/gallery\/62FD871B-C9CF-4973-B8EF-0125B70100B1\/spider_man_4-wallpaper-1600x900.jpg","order":0}]}];
+
+// this variable contains all images for all categories
+// for building the general gallery
+// and we should be able to switch images in the gallery by clicking on menu items or scroll tab
+let imgData = [];
+
+// we extract images from galleryData variable to imgData
+galleryData.forEach(galleryElement => {
+    if(galleryElement.hasOwnProperty('pictures') && galleryElement.pictures.length > 0){
+        galleryElement.pictures.forEach(pictureEl => {
+            pictureEl.categoryId = galleryElement.categoryId;
+            imgData.push(pictureEl)
+        });
+    }
+});
+
 const lang = 'en';
 const dir = 'ltr';
-
-const galleryData = categoriesData.map((el) => {
-    el.images = imgData.filter(imgEl => imgEl.categoryId === el.categoryId);
-    return el;
-});
 
 let canvasClass = 'bmby-gallery-wrapp';
 let galleryContainer;
@@ -241,7 +253,7 @@ function insertMenu () {
         ul.dataset.index = index;
         galleryData.forEach((element,index) => {
             let menuItemName = element.name.filter(el => el.lang === lang);
-            if (element.images.length > 0){
+            if (element.pictures.length > 0){
                 const li = creatHtmlElement(ul,menuItemName[0].value,'li',['menu__item']);
                 li.dataset.categoryId = element.categoryId;
                 if (index ===0){
