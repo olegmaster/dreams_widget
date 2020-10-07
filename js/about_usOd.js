@@ -68,7 +68,9 @@ function setWrapperContainerHeight () {
         tabsContent.forEach(tab=>{
             if (isPortrait){
                 if (tab.scrollHeight < window.innerHeight && tab.scrollHeight > 0){
-                    tab.style.height = window.innerHeight - menuHeight - 24 +'px';
+                    tab.style.height = window.innerHeight - menuHeight - 24 + 16 +'px';
+                }else{
+                    tab.style.height = '100%';
                 }
             } else {
                 tab.style.height = '100%';
@@ -371,6 +373,7 @@ body{
 
 .about-us__img-container{
  padding: 0 16px;
+ padding-bottom: 16px;
 }
 
 .tab-content__image{
