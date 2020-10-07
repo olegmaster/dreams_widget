@@ -36,62 +36,64 @@ let aboutUsData = $this->aboutData;
 let canvasClass = '$this->canvasClass';
 let lang = '$this->lang';
 let dir = '$this->dir';
-
-console.log(aboutUsData);
+ 
 let hasUbuntuFont = false;
 let aboutUsSections = [];
 
 let mode = 'prod';
 let aboutUsMainContainer;
 let activeTabInd;
-try{
-    $this->callbackFunctionName();
+try {
+    callbackFunction();
 } catch (e) {
-    if(mode === 'dev'){
+    if (mode === 'dev') {
         console.log('unable to run callback');
     }
 }
 
 // add about us on document load
 window.addEventListener("DOMContentLoaded", function (event) {
-    aboutUsMainContainer = document.querySelector('.'+canvasClass);
+    aboutUsMainContainer = document.querySelector('.' + canvasClass);
     aboutUsMainContainer.classList.add(dir);
     addFont();
     addBasicStyle();
-    if (window.innerWidth >=1024){
+    if (window.innerWidth >= 1024) {
         buildDesktopAbout();
-    }else{
-        insertMenu();
+    } else {
+        insertMenu(aboutUsData[0].order);
         orientationHandler();
     }
 });
 
-window.addEventListener('orientationchange',orientationHandler);
-window.addEventListener('resize',orientationHandler);
+window.addEventListener('orientationchange', orientationHandler);
+window.addEventListener('resize', orientationHandler);
 
-function buildDesktopAbout () {
-    const wrapper = creatHtmlElement(aboutUsMainContainer,'','div',['content__wrapper']);
-    aboutUsData.forEach(el =>{
-        const section = creatHtmlElement(wrapper,'','section',['about-us__section']);
-        const imgContainer = creatHtmlElement(section,'','div',['about-us__img-container']);
-        const img = creatHtmlElement(imgContainer,'','img',['about-us__image']);
-        img.src = el.imageUrl;
-        const subWrapper = creatHtmlElement(section,'','div',['about-us__sub-wrapper']);
-        const sectionTitle = creatHtmlElement(subWrapper,el.title.filter(el => el.lang === lang)[0].value,'h3',['about-us__section-title']);
-        const sectionText = creatHtmlElement(subWrapper,el.description.filter(el => el.lang === lang)[0].value,'p',['about-us__section-text']);
+function buildDesktopAbout() {
+    const wrapper = creatHtmlElement(aboutUsMainContainer, '', 'div', ['content__wrapper']);
+    aboutUsData.forEach(el => {
+        el.sections.forEach( sectionData => {
+            const section = creatHtmlElement(wrapper, '', 'section', ['about-us__section']);
+            const imgContainer = creatHtmlElement(section, '', 'div', ['about-us__img-container']);
+            const img = creatHtmlElement(imgContainer, '', 'img', ['about-us__image']);
+            img.src = sectionData.imageUrl;
+            const subWrapper = creatHtmlElement(section, '', 'div', ['about-us__sub-wrapper']);
+            const sectionTitle = creatHtmlElement(subWrapper, sectionData.title.filter(sectionData => sectionData.lang === lang)[0].value, 'h3', ['about-us__section-title']);
+            const sectionText = creatHtmlElement(subWrapper, sectionData.description.filter(sectionData => sectionData.lang === lang)[0].value, 'p', ['about-us__section-text']);
+        });
+
     });
     cropImageToText();
 }
 
-function setWrapperContainerHeight () {
-    if (window.innerWidth < 1024){
+function setWrapperContainerHeight() {
+    if (window.innerWidth < 1024) {
         const tabsContent = aboutUsMainContainer.querySelectorAll('.tab-content__container');
         const menuHeight = aboutUsMainContainer.querySelector('.menu__items').getBoundingClientRect().height;
         const isPortrait = isWindowInPortrait();
-        tabsContent.forEach(tab=>{
-            if (isPortrait){
-                if (tab.scrollHeight < window.innerHeight && tab.scrollHeight > 0){
-                    tab.style.height = window.innerHeight - menuHeight - 24 +'px';
+        tabsContent.forEach(tab => {
+            if (isPortrait) {
+                if (tab.scrollHeight < window.innerHeight && tab.scrollHeight > 0) {
+                    tab.style.height = window.innerHeight - menuHeight - 24 + 'px';
                 }
             } else {
                 tab.style.height = '100%';
@@ -100,57 +102,59 @@ function setWrapperContainerHeight () {
     }
 }
 
-function cropImageToText () {
-        const sectionCollection = document.querySelectorAll('.about-us__section');
-        sectionCollection.forEach(section =>{
-            setTimeout(()=>{
-                const img = section.querySelector('.about-us__img-container > .about-us__image');
-                const sub = section.querySelector('.about-us__sub-wrapper');
-                let subHeight=0;
-                for (let child of sub.children){
-                    subHeight += child.getBoundingClientRect().height;
-                }
-                if (img.getBoundingClientRect().height > subHeight + 120){
-                    img.style.height = subHeight+120+'px';
-                }
-            },200);
-        });
+function cropImageToText() {
+    const sectionCollection = document.querySelectorAll('.about-us__section');
+    sectionCollection.forEach(section => {
+        setTimeout(() => {
+            const img = section.querySelector('.about-us__img-container > .about-us__image');
+            const sub = section.querySelector('.about-us__sub-wrapper');
+            let subHeight = 0;
+            for (let child of sub.children) {
+                subHeight += child.getBoundingClientRect().height;
+            }
+            if (img.getBoundingClientRect().height > subHeight + 120) {
+                img.style.height = subHeight + 120 + 'px';
+            }
+        }, 200);
+    });
 }
 
-function orientationHandler () {
+function orientationHandler() {
     const isPortrait = isWindowInPortrait();
-    if (window.innerWidth < 1024){
+    if (window.innerWidth < 1024) {
         clearContent();
         insertMenu(activeTabInd);
 
         const contentWrapper = document.querySelector('.tabs-data-content__wrapper');
-        if (!isPortrait && dir === 'ltr'){
-            contentWrapper.style.marginLeft = 114+'px';
-        } else if (!isPortrait && dir === 'rtl'){
-            contentWrapper.style.marginRight = 114+'px';
-        }else{
-            contentWrapper.style.marginRight = 0+'px';
-            contentWrapper.style.marginLeft = 0+'px';
+        if (!isPortrait && dir === 'ltr') {
+            contentWrapper.style.marginLeft = 114 + 'px';
+        } else if (!isPortrait && dir === 'rtl') {
+            contentWrapper.style.marginRight = 114 + 'px';
+        } else {
+            contentWrapper.style.marginRight = 0 + 'px';
+            contentWrapper.style.marginLeft = 0 + 'px';
         }
-        setTimeout(()=>{setWrapperContainerHeight();},200);
-    }else {
+        setTimeout(() => {
+            setWrapperContainerHeight();
+        }, 200);
+    } else {
         clearContent();
         buildDesktopAbout();
     }
 }
 
-function clearContent () {
+function clearContent() {
     const menus = document.querySelectorAll('.menu__items');
     const tabs = aboutUsMainContainer.querySelectorAll('.tab-content__container');
     const wrapper = aboutUsMainContainer.querySelector('.content__wrapper');
-    if (tabs.length > 0){
+    if (tabs.length > 0) {
         tabs.forEach(tab => tab.remove());
     }
-    if (wrapper){
+    if (wrapper) {
         wrapper.remove();
     }
-    if (menus.length > 0){
-        menus.forEach((menu,index) =>{
+    if (menus.length > 0) {
+        menus.forEach((menu, index) => {
             menu.remove();
         });
     }
@@ -158,12 +162,12 @@ function clearContent () {
 
 function creatHtmlElement(parent, elementName, elementTag, elementClass) {
     const el = document.createElement(elementTag);
-    if (Array.isArray(elementClass)){
+    if (Array.isArray(elementClass)) {
         elementClass.forEach(classElement => {
             el.classList.add(classElement);
         });
-    }else{
-        el.style.cssText=elementClass;
+    } else {
+        el.style.cssText = elementClass;
     }
     el.innerHTML = elementName;
     if (parent) {
@@ -177,57 +181,57 @@ function addFont() {
     document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@600&family=Ubuntu:wght@300&display=swap" rel="stylesheet">';
 }
 
-function addBasicStyle () {
+function addBasicStyle() {
     const replacedStyle = basicStyle.replace(/main-container-about/g, canvasClass);
-    document.head.innerHTML +='<style>'+replacedStyle+'</style>';
+    document.head.innerHTML += '<style>' + replacedStyle + '</style>';
 }
 
-function insertMenu (activeTab = 0) {
+function insertMenu(activeTab = 0) {
     let tabsDataMainContainer;
-    const menuContainer = creatHtmlElement('','','ul',['menu__items']);
-    aboutUsMainContainer.insertAdjacentElement('afterbegin',menuContainer);
+    const menuContainer = creatHtmlElement('', '', 'ul', ['menu__items']);
+    aboutUsMainContainer.insertAdjacentElement('afterbegin', menuContainer);
     const isTabWrapperExist = aboutUsMainContainer.querySelector('.tabs-data-content__wrapper');
-    if (!isTabWrapperExist){
-       tabsDataMainContainer = creatHtmlElement(aboutUsMainContainer,'','div',['tabs-data-content__wrapper']);
-    } else{
-       tabsDataMainContainer = isTabWrapperExist;
+    if (!isTabWrapperExist) {
+        tabsDataMainContainer = creatHtmlElement(aboutUsMainContainer, '', 'div', ['tabs-data-content__wrapper']);
+    } else {
+        tabsDataMainContainer = isTabWrapperExist;
     }
-    aboutUsData.forEach((menuElement,index) =>{
+    aboutUsData.forEach((menuElement, index) => {
         let chapter = menuElement.chapter.filter(el => el.lang === lang);
-        if(!chapter[0].hasOwnProperty('value')){
+        if (!chapter[0].hasOwnProperty('value')) {
             throw 'menuElement has unsupported structure';
         }
-        const li = creatHtmlElement(menuContainer,chapter[0].value,'li',['menu__item']);
+        const li = creatHtmlElement(menuContainer, chapter[0].value, 'li', ['menu__item']);
         li.dataset.order = menuElement.order;
         buildTabsContent(tabsDataMainContainer, menuElement);
     });
-    const menuElementOrder = document.querySelector('.menu__item[data-order="'+activeTab+'"]');
+    const menuElementOrder = document.querySelector('.menu__item[data-order="' + activeTab + '"]'); 
     switchTab(menuElementOrder);
     activeTabInd = activeTab;
 
-    creatHtmlElement(menuContainer,'','div',['menu__plug']);
+    creatHtmlElement(menuContainer, '', 'div', ['menu__plug']);
     setMenuStyle(menuContainer);
-    menuContainer.addEventListener('click', (e) =>switchTab(e.target));
+    menuContainer.addEventListener('click', (e) => switchTab(e.target));
     tabsDataMainContainer.addEventListener('swiped', swipeTabsContent);
 }
 
-function swipeTabsContent (e) {
+function swipeTabsContent(e) {
     const isPortrait = isWindowInPortrait();
 
-    if (isPortrait){
+    if (isPortrait) {
         const activeMenu = getActiveTabMenu();
         const swipeDirection = e.detail.dir;
 
         switch (swipeDirection) {
             case dir === 'rtl' ? 'right' : 'left':
-                const nexElement = activeMenu.parentElement.querySelector('.menu__item[data-order="'+(Number(activeMenu.dataset.order)+ 1)+'"]');
-                if (nexElement){
+                const nexElement = activeMenu.parentElement.querySelector('.menu__item[data-order="' + (Number(activeMenu.dataset.order) + 1) + '"]');
+                if (nexElement) {
                     switchTab(nexElement);
                 }
                 break;
             case dir === 'rtl' ? 'left' : 'right':
-                const prevElement = activeMenu.parentElement.querySelector('.menu__item[data-order="'+(Number(activeMenu.dataset.order)-1)+'"]');
-                if (prevElement){
+                const prevElement = activeMenu.parentElement.querySelector('.menu__item[data-order="' + (Number(activeMenu.dataset.order) - 1) + '"]');
+                if (prevElement) {
                     switchTab(prevElement);
                 }
                 break;
@@ -236,100 +240,107 @@ function swipeTabsContent (e) {
     }
 }
 
-function getActiveTabMenu () {
+function getActiveTabMenu() {
     let activeMenu;
     const menuCollection = document.querySelectorAll('.menu__item');
-    menuCollection.forEach(menu =>{
-        if (menu.classList.contains('active')){
+    menuCollection.forEach(menu => {
+        if (menu.classList.contains('active')) {
             activeMenu = menu;
         }
     });
     return activeMenu;
 }
 
-function  isWindowInPortrait() {
+function isWindowInPortrait() {
     return window.matchMedia("(orientation: portrait)").matches;
 }
 
-function setMenuStyle (menuItems) {
+function setMenuStyle(menuItems) {
     const isPortrait = isWindowInPortrait();
     const childrenItems = menuItems.children;
     const lengthItems = menuItems.children.length;
     const scrollWidth = menuItems.scrollWidth;
     const currentView = menuItems.offsetWidth;
 
-    if (isPortrait){
-        if (scrollWidth <= currentView && lengthItems > 2){
+    if (isPortrait) {
+        if (scrollWidth <= currentView && lengthItems > 2) {
             menuItems.style.justifyContent = 'space-between';
-            for (let child of childrenItems){
-                child.style.flexBasis= 100 / lengthItems+'%';
-                child.style.textAlign='center';
+            for (let child of childrenItems) {
+                child.style.flexBasis = 100 / lengthItems + '%';
+                child.style.textAlign = 'center';
             }
-        } else if (lengthItems <= 2){
+        } else if (lengthItems <= 2) {
             menuItems.style.display = 'none';
         }
     }
 }
 
-function buildTabsContent (container,objectContent) {
-    const tab = creatHtmlElement(container,'','div',['tab-content__container']);
-    tab.dataset.order = objectContent.order;
-    const title = creatHtmlElement(tab,objectContent.title.filter(el => el.lang === lang)[0].value,'h3',['tab-content__title']);
-    const text = creatHtmlElement(tab,objectContent.description.filter(el => el.lang === lang)[0].value,'p',['tab-content__text']);
-    const imgContainer = creatHtmlElement(tab,'','div',['about-us__img-container']);
-    const img = creatHtmlElement(imgContainer,'','img',['tab-content__image']);
-    img.src = objectContent.imageUrl;
-    if (objectContent.order !== 0){
-        tab.classList.add('hide-tab');
-    }
+function buildTabsContent(container, objectContent) {
+    const tab = creatHtmlElement(container, '', 'div', ['tab-content__container']);
+    objectContent.sections.forEach(sectionData => {
+        // this is the DOM element that contains the section content
+        let section = creatHtmlElement(tab, '', 'div', ['tab-content__container-section']);
+        tab.dataset.order = objectContent.order;
+        const title = creatHtmlElement(section, sectionData.title.filter(el => el.lang === lang)[0].value, 'h3', ['tab-content__title']);
+        const text = creatHtmlElement(section, sectionData.description.filter(el => el.lang === lang)[0].value, 'p', ['tab-content__text']);
+        const imgContainer = creatHtmlElement(section, '', 'div', ['about-us__img-container']);
+        const img = creatHtmlElement(imgContainer, '', 'img', ['tab-content__image']);
+        img.src = sectionData.imageUrl;
+        if (objectContent.order !== 0) {
+            tab.classList.add('hide-tab');
+        }
+    });
 }
 
-function toggleTabContent (tabOrder) {
+function toggleTabContent(tabOrder) {
     const tabsContentCollection = document.querySelectorAll('.tab-content__container');
-    tabsContentCollection.forEach(tab =>{
-       if (tab.dataset.order === tabOrder){
-           tab.classList.remove('hide-tab');
-       }else {
-           tab.classList.add('hide-tab');
-       }
+    tabsContentCollection.forEach(tab => {
+        if (tab.dataset.order === tabOrder) {
+            tab.classList.remove('hide-tab');
+        } else {
+            tab.classList.add('hide-tab');
+        }
     });
 
 }
 
 function switchTab(e) {
+    if(e === null){
+        return;
+    }
     const parent = e.parentElement;
-    if (e.classList.contains('menu__item')){
-        setActiveTab(parent,e);
+    if (e.classList.contains('menu__item')) {
+        setActiveTab(parent, e);
         activeTabInd = e.dataset.order;
         toggleTabContent(e.dataset.order);
         setWrapperContainerHeight();
     }
 }
 
-function setActiveTab (parent, e) {
+function setActiveTab(parent, e) {
     const menuItemsCollection = parent.querySelectorAll('.menu__item');
-    menuItemsCollection.forEach(menu =>{
-        if (e === menu){
+    menuItemsCollection.forEach(menu => {
+        if (e === menu) {
             menu.classList.add('active');
             scrollContainer(menu);
-        } else{
+        } else {
             menu.classList.remove('active');
         }
     });
 }
 
-function scrollContainer (container) {
+function scrollContainer(container) {
     const main = container.parentElement;
     const menuItem = container.getBoundingClientRect();
 
-    if (menuItem.right > main.offsetWidth){
-        container.parentElement.scrollTo(menuItem.right - main.offsetWidth+ menuItem.width,0);
-    } else if (menuItem.left < 0){
-        container.parentElement.scrollTo(menuItem.left,0);
+    if (menuItem.right > main.offsetWidth) {
+        container.parentElement.scrollTo(menuItem.right - main.offsetWidth + menuItem.width, 0);
+    } else if (menuItem.left < 0) {
+        container.parentElement.scrollTo(menuItem.left, 0);
     }
 }
 
-const basicStyle =`
+const basicStyle = `
 
 body{
   margin: 0;
@@ -383,7 +394,7 @@ body{
 }
 
 .hide-tab{
- display: none;
+ display: none;  
 }
 
 .about-us__img-container{
@@ -489,7 +500,7 @@ body{
 
         window.CustomEvent = function (event, params) {
 
-            params = params || { bubbles: false, cancelable: false, detail: undefined };
+            params = params || {bubbles: false, cancelable: false, detail: undefined};
 
             var evt = document.createEvent('CustomEvent');
             evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
@@ -530,17 +541,14 @@ body{
             if (Math.abs(xDiff) > swipeThreshold && timeDiff < swipeTimeout) {
                 if (xDiff > 0) {
                     eventType = 'swiped-left';
-                }
-                else {
+                } else {
                     eventType = 'swiped-right';
                 }
             }
-        }
-        else if (Math.abs(yDiff) > swipeThreshold && timeDiff < swipeTimeout) {
+        } else if (Math.abs(yDiff) > swipeThreshold && timeDiff < swipeTimeout) {
             if (yDiff > 0) {
                 eventType = 'swiped-up';
-            }
-            else {
+            } else {
                 eventType = 'swiped-down';
             }
         }
@@ -556,10 +564,10 @@ body{
             };
 
             // fire `swiped` event event on the element that started the swipe
-            startEl.dispatchEvent(new CustomEvent('swiped', { bubbles: true, cancelable: true, detail: eventData }));
+            startEl.dispatchEvent(new CustomEvent('swiped', {bubbles: true, cancelable: true, detail: eventData}));
 
             // fire `swiped-dir` event on the element that started the swipe
-            startEl.dispatchEvent(new CustomEvent(eventType, { bubbles: true, cancelable: true, detail: eventData }));
+            startEl.dispatchEvent(new CustomEvent(eventType, {bubbles: true, cancelable: true, detail: eventData}));
         }
 
         // reset values
