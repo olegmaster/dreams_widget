@@ -1,5 +1,8 @@
-let aboutUsData = [{"title":[{"lang":"en","value":"test1"},{"lang":"he","value":"test1"},{"lang":"ru","value":"test1"},{"lang":"ua","value":"test1"}],"description":[{"lang":"en","value":"<p>dfgsdgdf<\/p>\n\n<p>gdf<\/p>\n\n<p>g<\/p>\n\n<p>dfg<\/p>\n\n<p>df<\/p>\n\n<p>gh<\/p>\n\n<p>dfh<\/p>\n"},{"lang":"he","value":"<p>dfgsdgdf<\/p>\n\n<p>gdf<\/p>\n\n<p>g<\/p>\n\n<p>dfg<\/p>\n\n<p>df<\/p>\n\n<p>gh<\/p>\n\n<p>dfh<\/p>\n"},{"lang":"ru","value":"<p>dfgsdgdf<\/p>\n\n<p>gdf<\/p>\n\n<p>g<\/p>\n\n<p>dfg<\/p>\n\n<p>df<\/p>\n\n<p>gh<\/p>\n\n<p>dfh<\/p>\n"},{"lang":"ua","value":"<p>dfgsdgdf<\/p>\n\n<p>gdf<\/p>\n\n<p>g<\/p>\n\n<p>dfg<\/p>\n\n<p>df<\/p>\n\n<p>gh<\/p>\n\n<p>dfh<\/p>\n"}],"chapter":[{"lang":"en","value":"2"},{"lang":"he","value":"2"},{"lang":"ru","value":"2"},{"lang":"ua","value":"2"}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/about\/894A8227-B29C-4E7B-8327-A51996DFA1BA\/Family.jpg","order":0},{"title":[{"lang":"en","value":"boris"},{"lang":"he","value":"boris"},{"lang":"ru","value":"boris"},{"lang":"ua","value":"boris"}],"description":[{"lang":"en","value":"<p>shafjysdfksdf<\/p>\n\n<p>sdfg<strong>lkdfgd<\/strong>fg&nbsp; fgf<span style=\"color:#DAA520\"><u><em>gfg<\/em><\/u><\/span><\/p>\n\n<p>&nbsp;<\/p>\n\n<p><span style=\"color:#DAA520\"><u><em>fdgdfghjdflg<\/em><\/u><\/span><\/p>\n\n<p><span style=\"color:#DAA520\"><u><em>fgfgfdgf<\/em><\/u><\/span><\/p>\n"},{"lang":"he","value":"<p style=\"text-align: right;\">\u05d2\u05db\u05d3\u05e2\u05db\u05d2\u05d3\u05e2<\/p>\n\n<p style=\"text-align: right;\">\u05d2\u05db\u05e2\u05d2\u05db\u05e2<\/p>\n\n<p style=\"text-align: right;\">\u05d2\u05db\u05e2\u05d2\u05db\u05e2\u05d2\u05e9\u05d3\u05db\u05d3\u05d2\u05db\u05d3\u05d2\u05db<\/p>\n"},{"lang":"ru","value":"<p>shafjysdfksdf<\/p>\n\n<p>sdfg<strong>lkdfgd<\/strong>fg\u00a0 fgf<span style=\"color:#DAA520\"><u><em>gfg<\/em><\/u><\/span><\/p>\n\n<p>\u00a0<\/p>\n\n<p>\u00a0<\/p>\n\n<p><span style=\"color:#DAA520\"><u><em>fdgdfghjdflg<\/em><\/u><\/span><\/p>\n\n<p><span style=\"color:#DAA520\"><u><em>fgfgfdgf<\/em><\/u><\/span><\/p>\n"},{"lang":"ua","value":"<p>shafjysdfksdf<\/p>\n\n<p>sdfg<strong>lkdfgd<\/strong>fg\u00a0 fgf<span style=\"color:#DAA520\"><u><em>gfg<\/em><\/u><\/span><\/p>\n\n<p>\u00a0<\/p>\n\n<p>\u00a0<\/p>\n\n<p><span style=\"color:#DAA520\"><u><em>fdgdfghjdflg<\/em><\/u><\/span><\/p>\n\n<p><span style=\"color:#DAA520\"><u><em>fgfgfdgf<\/em><\/u><\/span><\/p>\n"}],"chapter":[{"lang":"en","value":"boris"},{"lang":"he","value":"boris"},{"lang":"ru","value":"boris"},{"lang":"ua","value":"boris"}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/about\/99C0376A-4D02-4802-9F49-2540C59AEEDE\/BareFoot.jpg","order":1},{"title":[{"lang":"en","value":"3"},{"lang":"he","value":"3"},{"lang":"ru","value":"3"},{"lang":"ua","value":"3"}],"description":[{"lang":"en","value":"<p>dfgdfg<\/p>\n\n<p><span style=\"background-color:#FF0000\">fg<\/span><\/p>\n\n<p><span style=\"background-color:#FF0000\">df<\/span><\/p>\n\n<p>g<\/p>\n\n<p>df<\/p>\n\n<p>g<\/p>\n\n<p>fdg<\/p>\n"},{"lang":"he","value":"<p>dfgdfg<\/p>\n\n<p><span style=\"background-color:#FF0000\">fg<\/span><\/p>\n\n<p><span style=\"background-color:#FF0000\">df<\/span><\/p>\n\n<p>g<\/p>\n\n<p>df<\/p>\n\n<p>g<\/p>\n\n<p>fdg<\/p>\n"},{"lang":"ru","value":"<p>dfgdfg<\/p>\n\n<p><span style=\"background-color:#FF0000\">fg<\/span><\/p>\n\n<p><span style=\"background-color:#FF0000\">df<\/span><\/p>\n\n<p>g<\/p>\n\n<p>df<\/p>\n\n<p>g<\/p>\n\n<p>fdg<\/p>\n"},{"lang":"ua","value":"<p>dfgdfg<\/p>\n\n<p><span style=\"background-color:#FF0000\">fg<\/span><\/p>\n\n<p><span style=\"background-color:#FF0000\">df<\/span><\/p>\n\n<p>g<\/p>\n\n<p>df<\/p>\n\n<p>g<\/p>\n\n<p>fdg<\/p>\n"}],"chapter":[{"lang":"en","value":"3"},{"lang":"he","value":"3"},{"lang":"ru","value":"3"},{"lang":"ua","value":"3"}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/about\/5061A257-82AB-4A86-85A2-969F404351C9\/SangenianoView.jpg","order":2},{"title":[{"lang":"en","value":"grgrg"},{"lang":"he","value":"grgrg"},{"lang":"ru","value":"grgrg"},{"lang":"ua","value":"grgrg"}],"description":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"chapter":[{"lang":"en","value":"\u0410\u0430\u0430"},{"lang":"he","value":"grgrg"},{"lang":"ru","value":"grgrg"},{"lang":"ua","value":"grgrg"}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/about\/ABF376AA-8671-43E5-A7AD-4F4AC266D625\/bmw_k100_mototsikl_bajk_123991_540x960.jpg","order":3}];
+let aboutUsData = [{"order":0, "chapter":[{"lang":"en","value":"Chapter 14"},{"lang":"he","value":"Chapter 1"},{"lang":"ru","value":"Chapter 1"}],"sections":[{"title":[{"lang":"en","value":"Section 1"},{"lang":"he","value":"\u05e1\u05e7\u05e9\u05df 1"},{"lang":"ru","value":"\u0441\u0435\u043a\u0442\u0446\u0438\u044f 1"}],"description":[{"lang":"en","value":"<p>Section 1<\/p>\n"},{"lang":"he","value":"<p>\u05e1\u05e7\u05e9\u05df 1<\/p>\n"},{"lang":"ru","value":"<p>\u0441\u0435\u043a\u0442\u0446\u0438\u044f 1<\/p>\n"}],"imageUrl":""},{"title":[{"lang":"en","value":"Section 3"},{"lang":"he","value":"Section 3"},{"lang":"ru","value":"Section 3"}],"description":[{"lang":"en","value":""},{"lang":"he","value":"<p>Section 2<\/p>\n"},{"lang":"ru","value":"<p>Section 3<\/p>\n"}],"imageUrl":""},{"title":[{"lang":"en","value":"Section 7"},{"lang":"he","value":"Section 7"},{"lang":"ru","value":"Section 7"}],"description":[{"lang":"en","value":"<p>7<\/p>\n"},{"lang":"he","value":"<p>7<\/p>\n"},{"lang":"ru","value":"<p>7<\/p>\n"}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg"},{"title":[{"lang":"en","value":"Section 8"},{"lang":"he","value":"Section 8"},{"lang":"ru","value":"Section 8"}],"description":[{"lang":"en","value":"<p>Section 8<\/p>\n"},{"lang":"he","value":"<p>Section 8<\/p>\n"},{"lang":"ru","value":"<p>Section 8<\/p>\n"}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/4B955B0C-FD2F-474F-8A74-4840D8523468\/kitajskaya_grusha_frukty_razdelochnaya_doska_108809_1024x768.jpg"}]},{"order":1,"chapter":[{"lang":"en","value":"Chapter 2"},{"lang":"he","value":"Chapter 2"},{"lang":"ru","value":"Chapter 2"}],"sections":[{"title":[{"lang":"en","value":"Section 6"},{"lang":"he","value":"Section 1 ch 2"},{"lang":"ru","value":"Section 1 ch 2"}],"description":[{"lang":"en","value":"<p>666<\/p>\n"},{"lang":"he","value":""},{"lang":"ru","value":"<p>Section 1 ch 2<\/p>\n"}],"imageUrl":""}]}];
 
+
+
+console.log(aboutUsData);
 let canvasClass = 'bmby-about-wrapp';
 let lang = 'en';
 const dir = 'ltr';
@@ -237,15 +240,19 @@ function setMenuStyle (menuItems) {
 
 function buildTabsContent (container,objectContent) {
     const tab = creatHtmlElement(container,'','div',['tab-content__container']);
-    tab.dataset.order = objectContent.order;
-    const title = creatHtmlElement(tab,objectContent.title.filter(el => el.lang === lang)[0].value,'h3',['tab-content__title']);
-    const text = creatHtmlElement(tab,objectContent.description.filter(el => el.lang === lang)[0].value,'p',['tab-content__text']);
-    const imgContainer = creatHtmlElement(tab,'','div',['about-us__img-container']);
-    const img = creatHtmlElement(imgContainer,'','img',['tab-content__image']);
-    img.src = objectContent.imageUrl;
-    if (objectContent.order !== 0){
-        tab.classList.add('hide-tab');
-    }
+    objectContent.sections.forEach(sectionData => {
+        // this is the DOM element that contains the section content
+        let section = creatHtmlElement(tab,'','div',['tab-content__container-section']);
+        tab.dataset.order = objectContent.order;
+        const title = creatHtmlElement(section,sectionData.title.filter(el => el.lang === lang)[0].value,'h3',['tab-content__title']);
+        const text = creatHtmlElement(section,sectionData.description.filter(el => el.lang === lang)[0].value,'p',['tab-content__text']);
+        const imgContainer = creatHtmlElement(section,'','div',['about-us__img-container']);
+        const img = creatHtmlElement(imgContainer,'','img',['tab-content__image']);
+        img.src = sectionData.imageUrl;
+        if (objectContent.order !== 0){
+            tab.classList.add('hide-tab');
+        }
+    });
 }
 
 function toggleTabContent (tabOrder) {
@@ -262,6 +269,7 @@ function toggleTabContent (tabOrder) {
 
 function switchTab(e) {
     const parent = e.parentElement;
+    console.log(parent);
     if (e.classList.contains('menu__item')){
         setActiveTab(parent,e);
         activeTabInd = e.dataset.order;
