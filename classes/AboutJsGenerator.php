@@ -42,7 +42,7 @@ let aboutUsSections = [];
 
 let mode = 'prod';
 let aboutUsMainContainer;
-let activeTabInd;
+let activeTabInd = aboutUsData[0].order;;
 try{
     $this->callbackFunctionName();
 } catch (e) {

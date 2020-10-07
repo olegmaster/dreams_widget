@@ -148,7 +148,7 @@ let hasUbuntuFont = false;
 let aboutUsSections = [];
 let mode = 'dev';
 let aboutUsMainContainer;
-let activeTabInd;
+let activeTabInd = aboutUsData[0].order;
 try {
     callbackFunction();
 } catch (e) {
