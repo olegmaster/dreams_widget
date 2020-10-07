@@ -1,198 +1,67 @@
-let aboutUsData = [{
-    "chapter": [{
-        "lang": "en",
-        "value": "Chapter 14"
-    }, {
-        "lang": "he",
-        "value": "Chapter 1"
-    }, {
-        "lang": "ru",
-        "value": "Chapter 1"
-    }],
-    "order": 1,
-    "sections": [{
-        "title": [{
-            "lang": "en",
-            "value": "Section 1"
-        }, {
-            "lang": "he",
-            "value": "\u05e1\u05e7\u05e9\u05df 1"
-        }, {
-            "lang": "ru",
-            "value": "\u0441\u0435\u043a\u0442\u0446\u0438\u044f 1"
-        }],
-        "description": [{
-            "lang": "en",
-            "value": "<p>Section 1<\/p>\n"
-        }, {
-            "lang": "he",
-            "value": "<p>\u05e1\u05e7\u05e9\u05df 1<\/p>\n"
-        }, {
-            "lang": "ru",
-            "value": "<p>\u0441\u0435\u043a\u0442\u0446\u0438\u044f 1<\/p>\n"
-        }],
-        "imageUrl": "",
-        "order": 1
-    }, {
-        "title": [{
-            "lang": "en",
-            "value": "Section 3"
-        }, {
-            "lang": "he",
-            "value": "Section 3"
-        }, {
-            "lang": "ru",
-            "value": "Section 3"
-        }],
-        "description": [{
-            "lang": "en",
-            "value": ""
-        }, {
-            "lang": "he",
-            "value": "<p>Section 2<\/p>\n"
-        }, {
-            "lang": "ru",
-            "value": "<p>Section 3<\/p>\n"
-        }],
-        "imageUrl": "",
-        "order": 2
-    }, {
-        "title": [{
-            "lang": "en",
-            "value": "Section 7"
-        }, {
-            "lang": "he",
-            "value": "Section 7"
-        }, {
-            "lang": "ru",
-            "value": "Section 7"
-        }],
-        "description": [{
-            "lang": "en",
-            "value": "<p>7<\/p>\n"
-        }, {
-            "lang": "he",
-            "value": "<p>7<\/p>\n"
-        }, {
-            "lang": "ru",
-            "value": "<p>7<\/p>\n"
-        }],
-        "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg",
-        "order": 4
-    }, {
-        "title": [{
-            "lang": "en",
-            "value": "Section 8"
-        }, {
-            "lang": "he",
-            "value": "Section 8"
-        }, {
-            "lang": "ru",
-            "value": "Section 8"
-        }],
-        "description": [{
-            "lang": "en",
-            "value": "<p>Section 8<\/p>\n"
-        }, {
-            "lang": "he",
-            "value": "<p>Section 8<\/p>\n"
-        }, {
-            "lang": "ru",
-            "value": "<p>Section 8<\/p>\n"
-        }],
-        "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/4B955B0C-FD2F-474F-8A74-4840D8523468\/kitajskaya_grusha_frukty_razdelochnaya_doska_108809_1024x768.jpg",
-        "order": 5
-    }]
-}, {
-    "chapter": [{
-        "lang": "en",
-        "value": "Chapter 2"
-    }, {
-        "lang": "he",
-        "value": "Chapter 2"
-    }, {
-        "lang": "ru",
-        "value": "Chapter 2"
-    }],
-    "order": 2,
-    "sections": [{
-        "title": [{
-            "lang": "en",
-            "value": "Section 6"
-        }, {
-            "lang": "he",
-            "value": "Section 1 ch 2"
-        }, {
-            "lang": "ru",
-            "value": "Section 1 ch 2"
-        }],
-        "description": [{
-            "lang": "en",
-            "value": "<p>666<\/p>\n"
-        }, {
-            "lang": "he",
-            "value": ""
-        }, {
-            "lang": "ru",
-            "value": "<p>Section 1 ch 2<\/p>\n"
-        }],
-        "imageUrl": "",
-        "order": 3
-    }]
-}];
+<?php
+$lang = $_GET['lang'] ?? 'en';
+$dir = (in_array($lang, ['he']))?'rtl':'ltr';
+?>
+
+let aboutUsData = [
+  {"title":[{"lang":"en","value":"The Developers"},{"lang":"he","value":"היזמים"},{"lang":"ru","value":"The Developers"},{"lang":"ua","value":"The Project"}],"description":[{"lang":"en","value":"“Odessa 2020 Arcadia” Project was established by   Green Park Entrepreneurship and Construction – an Israeli company with a decade of experience building a large number of projects in Israel and worldwide, while specializing in Eastern Europe region.\n" +
+            " The project is supervised by an Israeli construction inspector, Mr. Shlomo Yaffe, and designed by an Israeli architect, Mr. Assaf Shaul – co-owner of CPSL architectural firm. The project also features an Israeli management company led by Mr. David Maor, and a trustee for investors’ funds – Fischer, Behar, Chen & Co. law firm, which releases the funds according to construction progress and subject to the approval of the inspection company."},{"lang":"he","value":"פרויקט אודסה 2020 ארקדיה הוקם על ידי  החברה הישראלית גרין פארק יזמות ובניה, היוזמת ובונה למעלה מ-10 שנים מספר רב של פרויקטים בישראל ובעולם, עם התמחות במזרח אירופה.\n" +
+            "לפרויקט מפקח בניה ישראלי מר שלמה יפה, אדריכל ישראלי מר אסף שאול, מבעלי חברת האדריכלים CPSL, חברת ניהול" +
+            " ישראלית בניהולו של מר דוד מאור ( מנהלים עשרות פרויקטים ברחבי אוקראינה), ונאמן לכספי המשקיעים משרד עורכי הדין פישר בכר חן, שמשחרר את הכספים לפי קצב התקדמות הבניה ורק בכפוף לאישור חברת הפיקוח.\n"},{"lang":"ru","value":""},{"lang":"ua","value":""}],"chapter":[{"lang":"en","value":"The Developers"},{"lang":"he","value":"היזמים"},{"lang":"ru","value":"The Developers"},{"lang":"ua","value":"The Developers"}],"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Develop\/dev_2.png","order":0},
+    ];
+
 
 let canvasClass = 'bmby-about-wrapp';
-let lang = 'en';
-const dir = 'ltr';
+let lang = '<?=$lang?>';
+const dir = '<?=$dir?>';
 let hasUbuntuFont = false;
 let aboutUsSections = [];
 let mode = 'dev';
 let aboutUsMainContainer;
+const imageDark = 'https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Develop\/dev_1.png';
 let activeTabInd;
-try {
+
+try{
     callbackFunction();
 } catch (e) {
-    if (mode === 'dev') {
+    if(mode === 'dev'){
         console.log('unable to run callback');
     }
 }
 
 // add about us on document load
 window.addEventListener("DOMContentLoaded", function (event) {
-    aboutUsMainContainer = document.querySelector('.' + canvasClass);
+    aboutUsMainContainer = document.querySelector('.'+canvasClass);
     aboutUsMainContainer.classList.add(dir);
     addFont();
     addBasicStyle();
-    if (window.innerWidth >= 1024) {
+    if (window.innerWidth >=1024){
         buildDesktopAbout();
-    } else {
-        insertMenu(aboutUsData[0].order);
+    }else{
+        insertMenu();
         orientationHandler();
     }
 });
 
-window.addEventListener('orientationchange', orientationHandler);
-window.addEventListener('resize', orientationHandler);
+window.addEventListener('orientationchange',orientationHandler);
+window.addEventListener('resize',orientationHandler);
 
-function buildDesktopAbout() {
-    const wrapper = creatHtmlElement(aboutUsMainContainer, '', 'div', ['content__wrapper']);
-    aboutUsData.forEach(el => {
-        el.sections.forEach( sectionData => {
-            const section = creatHtmlElement(wrapper, '', 'section', ['about-us__section']);
-            const imgContainer = creatHtmlElement(section, '', 'div', ['about-us__img-container']);
-            const img = creatHtmlElement(imgContainer, '', 'img', ['about-us__image']);
-            img.src = sectionData.imageUrl;
-            const subWrapper = creatHtmlElement(section, '', 'div', ['about-us__sub-wrapper']);
-            const sectionTitle = creatHtmlElement(subWrapper, sectionData.title.filter(sectionData => sectionData.lang === lang)[0].value, 'h3', ['about-us__section-title']);
-            const sectionText = creatHtmlElement(subWrapper, sectionData.description.filter(sectionData => sectionData.lang === lang)[0].value, 'p', ['about-us__section-text']);
-        });
-
+function buildDesktopAbout () {
+    const wrapper = creatHtmlElement(aboutUsMainContainer,'','div',['content__wrapper']);
+    aboutUsData.forEach(el =>{
+        const section = creatHtmlElement(wrapper,'','section',['about-us__section']);
+        const imgContainer = creatHtmlElement(section,'','div',['about-us__img-container']);
+        const img = creatHtmlElement(imgContainer,'','img',['about-us__image']);
+        img.src = imageDark;
+        const subWrapper = creatHtmlElement(section,'','div',['about-us__sub-wrapper']);
+        const sectionTitle = creatHtmlElement(subWrapper,el.title.filter(el => el.lang === lang)[0].value,'h3',['about-us__section-title']);
+        const sectionText = creatHtmlElement(subWrapper,el.description.filter(el => el.lang === lang)[0].value,'p',['about-us__section-text']);
     });
     cropImageToText();
 }
 
-function setWrapperContainerHeight() {
-    if (window.innerWidth < 1024) {
+function setWrapperContainerHeight () {
+    if (window.innerWidth < 1024){
         const tabsContent = aboutUsMainContainer.querySelectorAll('.tab-content__container');
         const menuHeight = aboutUsMainContainer.querySelector('.menu__items').getBoundingClientRect().height;
         const isPortrait = isWindowInPortrait();
@@ -210,59 +79,57 @@ function setWrapperContainerHeight() {
     }
 }
 
-function cropImageToText() {
+function cropImageToText () {
     const sectionCollection = document.querySelectorAll('.about-us__section');
-    sectionCollection.forEach(section => {
-        setTimeout(() => {
+    sectionCollection.forEach(section =>{
+        setTimeout(()=>{
             const img = section.querySelector('.about-us__img-container > .about-us__image');
             const sub = section.querySelector('.about-us__sub-wrapper');
-            let subHeight = 0;
-            for (let child of sub.children) {
+            let subHeight=0;
+            for (let child of sub.children){
                 subHeight += child.getBoundingClientRect().height;
             }
-            if (img.getBoundingClientRect().height > subHeight + 120) {
-                img.style.height = subHeight + 120 + 'px';
+            if (img.getBoundingClientRect().height > subHeight + 120){
+                img.style.height = subHeight+120+'px';
             }
-        }, 200);
+        },200);
     });
 }
 
-function orientationHandler() {
+function orientationHandler () {
     const isPortrait = isWindowInPortrait();
-    if (window.innerWidth < 1024) {
+    if (window.innerWidth < 1024){
         clearContent();
         insertMenu(activeTabInd);
 
         const contentWrapper = document.querySelector('.tabs-data-content__wrapper');
-        if (!isPortrait && dir === 'ltr') {
-            contentWrapper.style.marginLeft = 114 + 'px';
-        } else if (!isPortrait && dir === 'rtl') {
-            contentWrapper.style.marginRight = 114 + 'px';
-        } else {
-            contentWrapper.style.marginRight = 0 + 'px';
-            contentWrapper.style.marginLeft = 0 + 'px';
+        if (!isPortrait && dir === 'ltr'){
+            contentWrapper.style.marginLeft = 114+'px';
+        } else if (!isPortrait && dir === 'rtl'){
+            contentWrapper.style.marginRight = 114+'px';
+        }else{
+            contentWrapper.style.marginRight = 0+'px';
+            contentWrapper.style.marginLeft = 0+'px';
         }
-        setTimeout(() => {
-            setWrapperContainerHeight();
-        }, 200);
-    } else {
+        setTimeout(()=>{setWrapperContainerHeight();},200);
+    }else {
         clearContent();
         buildDesktopAbout();
     }
 }
 
-function clearContent() {
+function clearContent () {
     const menus = document.querySelectorAll('.menu__items');
     const tabs = aboutUsMainContainer.querySelectorAll('.tab-content__container');
     const wrapper = aboutUsMainContainer.querySelector('.content__wrapper');
-    if (tabs.length > 0) {
+    if (tabs.length > 0){
         tabs.forEach(tab => tab.remove());
     }
-    if (wrapper) {
+    if (wrapper){
         wrapper.remove();
     }
-    if (menus.length > 0) {
-        menus.forEach((menu, index) => {
+    if (menus.length > 0){
+        menus.forEach((menu,index) =>{
             menu.remove();
         });
     }
@@ -270,12 +137,12 @@ function clearContent() {
 
 function creatHtmlElement(parent, elementName, elementTag, elementClass) {
     const el = document.createElement(elementTag);
-    if (Array.isArray(elementClass)) {
+    if (Array.isArray(elementClass)){
         elementClass.forEach(classElement => {
             el.classList.add(classElement);
         });
-    } else {
-        el.style.cssText = elementClass;
+    }else{
+        el.style.cssText=elementClass;
     }
     el.innerHTML = elementName;
     if (parent) {
@@ -289,57 +156,57 @@ function addFont() {
     document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@600&family=Ubuntu:wght@300&display=swap" rel="stylesheet">';
 }
 
-function addBasicStyle() {
+function addBasicStyle () {
     const replacedStyle = basicStyle.replace(/main-container-about/g, canvasClass);
-    document.head.innerHTML += '<style>' + replacedStyle + '</style>';
+    document.head.innerHTML +='<style>'+replacedStyle+'</style>';
 }
 
-function insertMenu(activeTab = 0) {
+function insertMenu (activeTab = 0) {
     let tabsDataMainContainer;
-    const menuContainer = creatHtmlElement('', '', 'ul', ['menu__items']);
-    aboutUsMainContainer.insertAdjacentElement('afterbegin', menuContainer);
+    const menuContainer = creatHtmlElement('','','ul',['menu__items']);
+    aboutUsMainContainer.insertAdjacentElement('afterbegin',menuContainer);
     const isTabWrapperExist = aboutUsMainContainer.querySelector('.tabs-data-content__wrapper');
-    if (!isTabWrapperExist) {
-        tabsDataMainContainer = creatHtmlElement(aboutUsMainContainer, '', 'div', ['tabs-data-content__wrapper']);
-    } else {
+    if (!isTabWrapperExist){
+        tabsDataMainContainer = creatHtmlElement(aboutUsMainContainer,'','div',['tabs-data-content__wrapper']);
+    } else{
         tabsDataMainContainer = isTabWrapperExist;
     }
-    aboutUsData.forEach((menuElement, index) => {
+    aboutUsData.forEach((menuElement,index) =>{
         let chapter = menuElement.chapter.filter(el => el.lang === lang);
-        if (!chapter[0].hasOwnProperty('value')) {
+        if(!chapter[0].hasOwnProperty('value')){
             throw 'menuElement has unsupported structure';
         }
-        const li = creatHtmlElement(menuContainer, chapter[0].value, 'li', ['menu__item']);
+        const li = creatHtmlElement(menuContainer,chapter[0].value,'li',['menu__item']);
         li.dataset.order = menuElement.order;
         buildTabsContent(tabsDataMainContainer, menuElement);
     });
-    const menuElementOrder = document.querySelector('.menu__item[data-order="' + activeTab + '"]');
+    const menuElementOrder = document.querySelector('.menu__item[data-order="'+activeTab+'"]');
     switchTab(menuElementOrder);
     activeTabInd = activeTab;
 
-    creatHtmlElement(menuContainer, '', 'div', ['menu__plug']);
+    creatHtmlElement(menuContainer,'','div',['menu__plug']);
     setMenuStyle(menuContainer);
-    menuContainer.addEventListener('click', (e) => switchTab(e.target));
+    menuContainer.addEventListener('click', (e) =>switchTab(e.target));
     tabsDataMainContainer.addEventListener('swiped', swipeTabsContent);
 }
 
-function swipeTabsContent(e) {
+function swipeTabsContent (e) {
     const isPortrait = isWindowInPortrait();
 
-    if (isPortrait) {
+    if (isPortrait){
         const activeMenu = getActiveTabMenu();
         const swipeDirection = e.detail.dir;
 
         switch (swipeDirection) {
             case dir === 'rtl' ? 'right' : 'left':
-                const nexElement = activeMenu.parentElement.querySelector('.menu__item[data-order="' + (Number(activeMenu.dataset.order) + 1) + '"]');
-                if (nexElement) {
+                const nexElement = activeMenu.parentElement.querySelector('.menu__item[data-order="'+(Number(activeMenu.dataset.order)+ 1)+'"]');
+                if (nexElement){
                     switchTab(nexElement);
                 }
                 break;
             case dir === 'rtl' ? 'left' : 'right':
-                const prevElement = activeMenu.parentElement.querySelector('.menu__item[data-order="' + (Number(activeMenu.dataset.order) - 1) + '"]');
-                if (prevElement) {
+                const prevElement = activeMenu.parentElement.querySelector('.menu__item[data-order="'+(Number(activeMenu.dataset.order)-1)+'"]');
+                if (prevElement){
                     switchTab(prevElement);
                 }
                 break;
@@ -348,64 +215,60 @@ function swipeTabsContent(e) {
     }
 }
 
-function getActiveTabMenu() {
+function getActiveTabMenu () {
     let activeMenu;
     const menuCollection = document.querySelectorAll('.menu__item');
-    menuCollection.forEach(menu => {
-        if (menu.classList.contains('active')) {
+    menuCollection.forEach(menu =>{
+        if (menu.classList.contains('active')){
             activeMenu = menu;
         }
     });
     return activeMenu;
 }
 
-function isWindowInPortrait() {
+function  isWindowInPortrait() {
     return window.matchMedia("(orientation: portrait)").matches;
 }
 
-function setMenuStyle(menuItems) {
+function setMenuStyle (menuItems) {
     const isPortrait = isWindowInPortrait();
     const childrenItems = menuItems.children;
     const lengthItems = menuItems.children.length;
     const scrollWidth = menuItems.scrollWidth;
     const currentView = menuItems.offsetWidth;
 
-    if (isPortrait) {
-        if (scrollWidth <= currentView && lengthItems > 2) {
+    if (isPortrait){
+        if (scrollWidth <= currentView && lengthItems > 2){
             menuItems.style.justifyContent = 'space-between';
-            for (let child of childrenItems) {
-                child.style.flexBasis = 100 / lengthItems + '%';
-                child.style.textAlign = 'center';
+            for (let child of childrenItems){
+                child.style.flexBasis= 100 / lengthItems+'%';
+                child.style.textAlign='center';
             }
-        } else if (lengthItems <= 2) {
+        } else if (lengthItems <= 2){
             menuItems.style.display = 'none';
         }
     }
 }
 
-function buildTabsContent(container, objectContent) {
-    const tab = creatHtmlElement(container, '', 'div', ['tab-content__container']);
-    objectContent.sections.forEach(sectionData => {
-        // this is the DOM element that contains the section content
-        let section = creatHtmlElement(tab, '', 'div', ['tab-content__container-section']);
-        tab.dataset.order = objectContent.order;
-        const title = creatHtmlElement(section, sectionData.title.filter(el => el.lang === lang)[0].value, 'h3', ['tab-content__title']);
-        const text = creatHtmlElement(section, sectionData.description.filter(el => el.lang === lang)[0].value, 'p', ['tab-content__text']);
-        const imgContainer = creatHtmlElement(section, '', 'div', ['about-us__img-container']);
-        const img = creatHtmlElement(imgContainer, '', 'img', ['tab-content__image']);
-        img.src = sectionData.imageUrl;
-        if (objectContent.order !== 0) {
-            tab.classList.add('hide-tab');
-        }
-    });
+function buildTabsContent (container,objectContent) {
+    const tab = creatHtmlElement(container,'','div',['tab-content__container']);
+    tab.dataset.order = objectContent.order;
+    const title = creatHtmlElement(tab,objectContent.title.filter(el => el.lang === lang)[0].value,'h3',['tab-content__title']);
+    const text = creatHtmlElement(tab,objectContent.description.filter(el => el.lang === lang)[0].value,'p',['tab-content__text']);
+    const imgContainer = creatHtmlElement(tab,'','div',['about-us__img-container']);
+    const img = creatHtmlElement(imgContainer,'','img',['tab-content__image']);
+    img.src = objectContent.imageUrl;
+    if (objectContent.order !== 0){
+        tab.classList.add('hide-tab');
+    }
 }
 
-function toggleTabContent(tabOrder) {
+function toggleTabContent (tabOrder) {
     const tabsContentCollection = document.querySelectorAll('.tab-content__container');
-    tabsContentCollection.forEach(tab => {
-        if (tab.dataset.order === tabOrder) {
+    tabsContentCollection.forEach(tab =>{
+        if (tab.dataset.order === tabOrder){
             tab.classList.remove('hide-tab');
-        } else {
+        }else {
             tab.classList.add('hide-tab');
         }
     });
@@ -413,42 +276,39 @@ function toggleTabContent(tabOrder) {
 }
 
 function switchTab(e) {
-    if(e === null){
-        return;
-    }
     const parent = e.parentElement;
-    if (e.classList.contains('menu__item')) {
-        setActiveTab(parent, e);
+    if (e.classList.contains('menu__item')){
+        setActiveTab(parent,e);
         activeTabInd = e.dataset.order;
         toggleTabContent(e.dataset.order);
         setWrapperContainerHeight();
     }
 }
 
-function setActiveTab(parent, e) {
+function setActiveTab (parent, e) {
     const menuItemsCollection = parent.querySelectorAll('.menu__item');
-    menuItemsCollection.forEach(menu => {
-        if (e === menu) {
+    menuItemsCollection.forEach(menu =>{
+        if (e === menu){
             menu.classList.add('active');
             scrollContainer(menu);
-        } else {
+        } else{
             menu.classList.remove('active');
         }
     });
 }
 
-function scrollContainer(container) {
+function scrollContainer (container) {
     const main = container.parentElement;
     const menuItem = container.getBoundingClientRect();
 
-    if (menuItem.right > main.offsetWidth) {
-        container.parentElement.scrollTo(menuItem.right - main.offsetWidth + menuItem.width, 0);
-    } else if (menuItem.left < 0) {
-        container.parentElement.scrollTo(menuItem.left, 0);
+    if (menuItem.right > main.offsetWidth){
+        container.parentElement.scrollTo(menuItem.right - main.offsetWidth+ menuItem.width,0);
+    } else if (menuItem.left < 0){
+        container.parentElement.scrollTo(menuItem.left,0);
     }
 }
 
-const basicStyle = `
+const basicStyle =`
 
 body{
   margin: 0;
@@ -505,6 +365,12 @@ body{
  display: none;  
 }
 
+.tab-content__image-container{
+    display: flex;
+    justify-content: center;
+    padding: 0 16px;
+}
+
 .about-us__img-container{
  padding: 0 16px;
  padding-bottom: 16px;
@@ -517,7 +383,8 @@ body{
 .tab-content__title{
   font-size: 18px;
   color: #fff;
-  margin: 24px 16px 12px 16px;
+  // margin: 24px 16px 12px 16px;
+  padding: 24px 16px 12px 16px;
 }
 
 .tab-content__text{
@@ -555,7 +422,8 @@ body{
 }
 
 .tab-content__title{
-    margin: 0 16px 12px 16px;
+    // margin: 0 16px 12px 16px;
+    padding: 0px 16px 12px 16px;
     padding-top: 12px;
 }
 }
@@ -590,6 +458,13 @@ body{
   margin-bottom: 48px;
 }
 
+@media screen and (min-width: 1024px){
+    .main-container-about {
+     background: #F7F7F7;
+     color: #1A2F43;
+}
+}
+
 `;
 
 /*!
@@ -609,7 +484,7 @@ body{
 
         window.CustomEvent = function (event, params) {
 
-            params = params || {bubbles: false, cancelable: false, detail: undefined};
+            params = params || { bubbles: false, cancelable: false, detail: undefined };
 
             var evt = document.createEvent('CustomEvent');
             evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
@@ -650,14 +525,17 @@ body{
             if (Math.abs(xDiff) > swipeThreshold && timeDiff < swipeTimeout) {
                 if (xDiff > 0) {
                     eventType = 'swiped-left';
-                } else {
+                }
+                else {
                     eventType = 'swiped-right';
                 }
             }
-        } else if (Math.abs(yDiff) > swipeThreshold && timeDiff < swipeTimeout) {
+        }
+        else if (Math.abs(yDiff) > swipeThreshold && timeDiff < swipeTimeout) {
             if (yDiff > 0) {
                 eventType = 'swiped-up';
-            } else {
+            }
+            else {
                 eventType = 'swiped-down';
             }
         }
@@ -673,10 +551,10 @@ body{
             };
 
             // fire `swiped` event event on the element that started the swipe
-            startEl.dispatchEvent(new CustomEvent('swiped', {bubbles: true, cancelable: true, detail: eventData}));
+            startEl.dispatchEvent(new CustomEvent('swiped', { bubbles: true, cancelable: true, detail: eventData }));
 
             // fire `swiped-dir` event on the element that started the swipe
-            startEl.dispatchEvent(new CustomEvent(eventType, {bubbles: true, cancelable: true, detail: eventData}));
+            startEl.dispatchEvent(new CustomEvent(eventType, { bubbles: true, cancelable: true, detail: eventData }));
         }
 
         // reset values

@@ -43,8 +43,8 @@ let aboutUsSections = [];
 let mode = 'prod';
 let aboutUsMainContainer;
 let activeTabInd;
-try {
-    callbackFunction();
+try{
+    $this->callbackFunctionName();
 } catch (e) {
     if (mode === 'dev') {
         console.log('unable to run callback');
@@ -90,10 +90,12 @@ function setWrapperContainerHeight() {
         const tabsContent = aboutUsMainContainer.querySelectorAll('.tab-content__container');
         const menuHeight = aboutUsMainContainer.querySelector('.menu__items').getBoundingClientRect().height;
         const isPortrait = isWindowInPortrait();
-        tabsContent.forEach(tab => {
-            if (isPortrait) {
-                if (tab.scrollHeight < window.innerHeight && tab.scrollHeight > 0) {
-                    tab.style.height = window.innerHeight - menuHeight - 24 + 'px';
+        tabsContent.forEach(tab=>{
+            if (isPortrait){
+                if (tab.scrollHeight < window.innerHeight && tab.scrollHeight > 0){
+                    tab.style.height = window.innerHeight - menuHeight - 24 + 16 +'px';
+                }else{
+                    tab.style.height = '100%';
                 }
             } else {
                 tab.style.height = '100%';
@@ -399,6 +401,7 @@ body{
 
 .about-us__img-container{
  padding: 0 16px;
+ padding-bottom: 16px;
 }
 
 .tab-content__image{
