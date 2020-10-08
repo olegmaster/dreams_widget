@@ -101,16 +101,6 @@ function orientationHandler () {
     if (window.innerWidth < 1024){
         clearContent();
         insertMenu(activeTabInd);
-
-        const contentWrapper = document.querySelector('.tabs-data-content__wrapper');
-        if (!isPortrait && dir === 'ltr'){
-            contentWrapper.style.marginLeft = 114+'px';
-        } else if (!isPortrait && dir === 'rtl'){
-            contentWrapper.style.marginRight = 114+'px';
-        }else{
-            contentWrapper.style.marginRight = 0+'px';
-            contentWrapper.style.marginLeft = 0+'px';
-        }
         setTimeout(()=>{setWrapperContainerHeight();},200);
     }else {
         clearContent();
@@ -172,22 +162,27 @@ function insertMenu (activeTab = 0) {
         tabsDataMainContainer = isTabWrapperExist;
     }
     aboutUsData.forEach((menuElement,index) =>{
-        let chapter = menuElement.chapter.filter(el => el.lang === lang);
-        if(!chapter[0].hasOwnProperty('value')){
-            throw 'menuElement has unsupported structure';
+        if (aboutUsData.length > 1){
+            let chapter = menuElement.chapter.filter(el => el.lang === lang);
+            if(!chapter[0].hasOwnProperty('value')){
+                throw 'menuElement has unsupported structure';
+            }
+            const li = creatHtmlElement(menuContainer,chapter[0].value,'li',['menu__item']);
+            li.dataset.order = menuElement.order;
         }
-        const li = creatHtmlElement(menuContainer,chapter[0].value,'li',['menu__item']);
-        li.dataset.order = menuElement.order;
+
         buildTabsContent(tabsDataMainContainer, menuElement);
     });
-    const menuElementOrder = document.querySelector('.menu__item[data-order="'+activeTab+'"]');
-    switchTab(menuElementOrder);
-    activeTabInd = activeTab;
+    if (aboutUsData.length > 1) {
+        const menuElementOrder = document.querySelector('.menu__item[data-order="' + activeTab + '"]');
+        switchTab(menuElementOrder);
+        activeTabInd = activeTab;
 
-    creatHtmlElement(menuContainer,'','div',['menu__plug']);
-    setMenuStyle(menuContainer);
-    menuContainer.addEventListener('click', (e) =>switchTab(e.target));
-    tabsDataMainContainer.addEventListener('swiped', swipeTabsContent);
+        creatHtmlElement(menuContainer, '', 'div', ['menu__plug']);
+        setMenuStyle(menuContainer);
+        menuContainer.addEventListener('click', (e) => switchTab(e.target));
+        tabsDataMainContainer.addEventListener('swiped', swipeTabsContent);
+    }
 }
 
 function swipeTabsContent (e) {

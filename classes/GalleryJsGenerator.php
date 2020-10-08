@@ -359,6 +359,7 @@ function initGallery () {
     galleryContainer.forEach((container,index)=>{
         container.dataset.index = index;
         const imagesContainer = creatHtmlElement(container,'','div',['images__container']);
+        imagesContainer.setAttribute('dir',dir);
         imagesContainer.dataset.index = index;
         imagesContainer.onscroll = ()=>onScrollGallery();
         imgData.sort((prev,next)=>prev.categoryId - next.categoryId);
