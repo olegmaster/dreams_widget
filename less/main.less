@@ -793,6 +793,69 @@ html{
   color: #fff;
 }
 
+@media screen and (min-width: 1024px) {
+  .menu__items{
+    display: flex;
+    //border-bottom: 1px solid #C0C0C0;
+    flex-basis: 40%;
+    position: inherit;
+    width: 100%;
+    top: 0;
+  }
 
+  .menu-content__wrapper::after{
+    content: '';
+    width: 100%;
+    display:block;
+    height: 1px;
+    background: #C0C0C0 ;
+    margin-top: -1px;
+  }
+
+  .tabs-data-content__wrapper, .menu-content__wrapper{
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .menu__item{
+    margin: 0;
+    margin-right: 12px;
+  }
+  .tab-content__title{
+    margin: 0;
+    padding-top: 0;
+  }
+  .tab-content__text{
+    padding: 0;
+  }
+  .about-us__img-container{
+    padding: 0;
+  }
+  .tab-content__container-section{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+  }
+  .tab-content__container-section:nth-child(odd){
+    flex-direction: row-reverse;
+  }
+  .tab-content__title{
+    color: #1A2F43;
+    font-size: 30px;
+    font-family: 'Ubuntu', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+  }
+  .tab-content__text{
+    color: #03233A;
+    font-weight: 300;
+    font-size: 16px;
+    padding-top: 48px;
+  }
+  .text-content__wrapper{
+    flex-basis: 47%;
+  }
+}
 
 

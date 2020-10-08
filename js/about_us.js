@@ -23,15 +23,15 @@ let aboutUsData = [{
         }],
         "description": [{
             "lang": "en",
-            "value": "<p>Section 1<\/p>\n"
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
         }, {
             "lang": "he",
-            "value": "<p>\u05e1\u05e7\u05e9\u05df 1<\/p>\n"
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
         }, {
             "lang": "ru",
-            "value": "<p>\u0441\u0435\u043a\u0442\u0446\u0438\u044f 1<\/p>\n"
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
         }],
-        "imageUrl": "",
+        "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg",
         "order": 1
     }, {
         "title": [{
@@ -46,15 +46,15 @@ let aboutUsData = [{
         }],
         "description": [{
             "lang": "en",
-            "value": ""
+            "value": "jjkhjk"
         }, {
             "lang": "he",
-            "value": "<p>Section 2<\/p>\n"
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
         }, {
             "lang": "ru",
-            "value": "<p>Section 3<\/p>\n"
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
         }],
-        "imageUrl": "",
+        "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg",
         "order": 2
     }, {
         "title": [{
@@ -69,13 +69,13 @@ let aboutUsData = [{
         }],
         "description": [{
             "lang": "en",
-            "value": "<p>7<\/p>\n"
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
         }, {
             "lang": "he",
-            "value": "<p>7<\/p>\n"
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
         }, {
             "lang": "ru",
-            "value": "<p>7<\/p>\n"
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
         }],
         "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg",
         "order": 4
@@ -92,13 +92,13 @@ let aboutUsData = [{
         }],
         "description": [{
             "lang": "en",
-            "value": "<p>Section 8<\/p>\n"
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
         }, {
             "lang": "he",
-            "value": "<p>Section 8<\/p>\n"
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
         }, {
             "lang": "ru",
-            "value": "<p>Section 8<\/p>\n"
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
         }],
         "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/4B955B0C-FD2F-474F-8A74-4840D8523468\/kitajskaya_grusha_frukty_razdelochnaya_doska_108809_1024x768.jpg",
         "order": 5
@@ -128,15 +128,15 @@ let aboutUsData = [{
         }],
         "description": [{
             "lang": "en",
-            "value": "<p>666<\/p>\n"
-        }, {
-            "lang": "he",
             "value": ""
         }, {
+            "lang": "he",
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+        }, {
             "lang": "ru",
-            "value": "<p>Section 1 ch 2<\/p>\n"
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
         }],
-        "imageUrl": "",
+        "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg",
         "order": 3
     }]
 }];
@@ -163,33 +163,16 @@ window.addEventListener("DOMContentLoaded", function (event) {
     aboutUsMainContainer.classList.add(dir);
     addFont();
     addBasicStyle();
-    if (window.innerWidth >= 1024) {
-        buildDesktopAbout();
-    } else {
-        insertMenu(aboutUsData[0].order);
-        orientationHandler();
-    }
+    insertMenu(aboutUsData[0].order);
+    orientationHandler();
 });
 
 window.addEventListener('orientationchange', orientationHandler);
 window.addEventListener('resize', orientationHandler);
-
-function buildDesktopAbout() {
-    const wrapper = creatHtmlElement(aboutUsMainContainer, '', 'div', ['content__wrapper']);
-    aboutUsData.forEach(el => {
-        el.sections.forEach( sectionData => {
-            const section = creatHtmlElement(wrapper, '', 'section', ['about-us__section']);
-            const imgContainer = creatHtmlElement(section, '', 'div', ['about-us__img-container']);
-            const img = creatHtmlElement(imgContainer, '', 'img', ['about-us__image']);
-            img.src = sectionData.imageUrl;
-            const subWrapper = creatHtmlElement(section, '', 'div', ['about-us__sub-wrapper']);
-            const sectionTitle = creatHtmlElement(subWrapper, sectionData.title.filter(sectionData => sectionData.lang === lang)[0].value, 'h3', ['about-us__section-title']);
-            const sectionText = creatHtmlElement(subWrapper, sectionData.description.filter(sectionData => sectionData.lang === lang)[0].value, 'p', ['about-us__section-text']);
-        });
-
-    });
+window.addEventListener('load',()=>{
     cropImageToText();
-}
+    setWrapperContainerHeight();
+});
 
 function setWrapperContainerHeight() {
     if (window.innerWidth < 1024) {
@@ -207,24 +190,33 @@ function setWrapperContainerHeight() {
                 tab.style.height = '100%';
             }
         });
+    } else{
+        const mainHeight = aboutUsMainContainer.getBoundingClientRect().height;
+        if (mainHeight < window.innerHeight){
+            aboutUsMainContainer.style.height = window.innerHeight+'px';
+        }else{
+            aboutUsMainContainer.style.height = '100%';
+        }
     }
 }
 
 function cropImageToText() {
-    const sectionCollection = document.querySelectorAll('.about-us__section');
-    sectionCollection.forEach(section => {
-        setTimeout(() => {
-            const img = section.querySelector('.about-us__img-container > .about-us__image');
-            const sub = section.querySelector('.about-us__sub-wrapper');
-            let subHeight = 0;
-            for (let child of sub.children) {
-                subHeight += child.getBoundingClientRect().height;
-            }
-            if (img.getBoundingClientRect().height > subHeight + 120) {
-                img.style.height = subHeight + 120 + 'px';
-            }
-        }, 200);
-    });
+    if (window.innerWidth >= 1024){
+        const sectionCollection = document.querySelectorAll('.tab-content__container-section');
+        sectionCollection.forEach(section => {
+           setTimeout(() => {
+                const img = section.querySelector('.about-us__img-container > .tab-content__image');
+                const sub = section.querySelector('.text-content__wrapper > .about-us__sub-wrapper');
+                let subHeight = 0;
+                for (let child of sub.children) {
+                    subHeight += child.getBoundingClientRect().height;
+                }
+                if (img.getBoundingClientRect().height > subHeight + 120) {
+                    img.style.height = subHeight + 120 + 'px';
+                }
+            }, 50);
+        });
+    }
 }
 
 function orientationHandler() {
@@ -233,38 +225,30 @@ function orientationHandler() {
         clearContent();
         insertMenu(activeTabInd);
 
-        const contentWrapper = document.querySelector('.tabs-data-content__wrapper');
-        if (!isPortrait && dir === 'ltr') {
-            contentWrapper.style.marginLeft = 114 + 'px';
-        } else if (!isPortrait && dir === 'rtl') {
-            contentWrapper.style.marginRight = 114 + 'px';
-        } else {
-            contentWrapper.style.marginRight = 0 + 'px';
-            contentWrapper.style.marginLeft = 0 + 'px';
+        if (aboutUsData.length > 1){
+            const contentWrapper = document.querySelector('.tabs-data-content__wrapper');
+            if (!isPortrait && dir === 'ltr') {
+                contentWrapper.style.marginLeft = 114 + 'px';
+            } else if (!isPortrait && dir === 'rtl') {
+                contentWrapper.style.marginRight = 114 + 'px';
+            } else {
+                contentWrapper.style.marginRight = 0 + 'px';
+                contentWrapper.style.marginLeft = 0 + 'px';
+            }
         }
-        setTimeout(() => {
-            setWrapperContainerHeight();
-        }, 200);
+
+        // setTimeout(() => {
+        //     setWrapperContainerHeight();
+        // }, 200);
     } else {
         clearContent();
-        buildDesktopAbout();
+        insertMenu(activeTabInd);
     }
 }
 
 function clearContent() {
-    const menus = document.querySelectorAll('.menu__items');
-    const tabs = aboutUsMainContainer.querySelectorAll('.tab-content__container');
-    const wrapper = aboutUsMainContainer.querySelector('.content__wrapper');
-    if (tabs.length > 0) {
-        tabs.forEach(tab => tab.remove());
-    }
-    if (wrapper) {
-        wrapper.remove();
-    }
-    if (menus.length > 0) {
-        menus.forEach((menu, index) => {
-            menu.remove();
-        });
+    while (aboutUsMainContainer.firstChild) {
+        aboutUsMainContainer.removeChild(aboutUsMainContainer.firstChild);
     }
 }
 
@@ -285,7 +269,7 @@ function creatHtmlElement(parent, elementName, elementTag, elementClass) {
 }
 
 function addFont() {
-    // document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">';
+    document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">';
     document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@600&family=Ubuntu:wght@300&display=swap" rel="stylesheet">';
 }
 
@@ -296,8 +280,20 @@ function addBasicStyle() {
 
 function insertMenu(activeTab = 0) {
     let tabsDataMainContainer;
-    const menuContainer = creatHtmlElement('', '', 'ul', ['menu__items']);
-    aboutUsMainContainer.insertAdjacentElement('afterbegin', menuContainer);
+    let menuWrapper;
+    let menuContainer;
+
+
+    if (window.innerWidth >=1024){
+        menuWrapper = creatHtmlElement('','','div',['menu-content__wrapper']);
+        menuContainer = creatHtmlElement(menuWrapper, '', 'ul', ['menu__items']);
+        aboutUsMainContainer.insertAdjacentElement('afterbegin', menuWrapper);
+    }else{
+        menuContainer = creatHtmlElement('', '', 'ul', ['menu__items']);
+        aboutUsMainContainer.insertAdjacentElement('afterbegin', menuContainer);
+    }
+
+
     const isTabWrapperExist = aboutUsMainContainer.querySelector('.tabs-data-content__wrapper');
     if (!isTabWrapperExist) {
         tabsDataMainContainer = creatHtmlElement(aboutUsMainContainer, '', 'div', ['tabs-data-content__wrapper']);
@@ -305,12 +301,14 @@ function insertMenu(activeTab = 0) {
         tabsDataMainContainer = isTabWrapperExist;
     }
     aboutUsData.forEach((menuElement, index) => {
-        let chapter = menuElement.chapter.filter(el => el.lang === lang);
-        if (!chapter[0].hasOwnProperty('value')) {
-            throw 'menuElement has unsupported structure';
+        if (aboutUsData.length > 1){
+            let chapter = menuElement.chapter.filter(el => el.lang === lang);
+            if (!chapter[0].hasOwnProperty('value')) {
+                throw 'menuElement has unsupported structure';
+            }
+            const li = creatHtmlElement(menuContainer, chapter[0].value, 'li', ['menu__item']);
+            li.dataset.order = menuElement.order;
         }
-        const li = creatHtmlElement(menuContainer, chapter[0].value, 'li', ['menu__item']);
-        li.dataset.order = menuElement.order;
         buildTabsContent(tabsDataMainContainer, menuElement);
     });
     const menuElementOrder = document.querySelector('.menu__item[data-order="' + activeTab + '"]');
@@ -324,27 +322,28 @@ function insertMenu(activeTab = 0) {
 }
 
 function swipeTabsContent(e) {
-    const isPortrait = isWindowInPortrait();
+    if (aboutUsData.length > 1){
+        const isPortrait = isWindowInPortrait();
 
-    if (isPortrait) {
-        const activeMenu = getActiveTabMenu();
-        const swipeDirection = e.detail.dir;
+        if (isPortrait) {
+            const activeMenu = getActiveTabMenu();
+            const swipeDirection = e.detail.dir;
 
-        switch (swipeDirection) {
-            case dir === 'rtl' ? 'right' : 'left':
-                const nexElement = activeMenu.parentElement.querySelector('.menu__item[data-order="' + (Number(activeMenu.dataset.order) + 1) + '"]');
-                if (nexElement) {
-                    switchTab(nexElement);
-                }
-                break;
-            case dir === 'rtl' ? 'left' : 'right':
-                const prevElement = activeMenu.parentElement.querySelector('.menu__item[data-order="' + (Number(activeMenu.dataset.order) - 1) + '"]');
-                if (prevElement) {
-                    switchTab(prevElement);
-                }
-                break;
+            switch (swipeDirection) {
+                case dir === 'rtl' ? 'right' : 'left':
+                    const nexElement = activeMenu.parentElement.querySelector('.menu__item[data-order="' + (Number(activeMenu.dataset.order) + 1) + '"]');
+                    if (nexElement) {
+                        switchTab(nexElement);
+                    }
+                    break;
+                case dir === 'rtl' ? 'left' : 'right':
+                    const prevElement = activeMenu.parentElement.querySelector('.menu__item[data-order="' + (Number(activeMenu.dataset.order) - 1) + '"]');
+                    if (prevElement) {
+                        switchTab(prevElement);
+                    }
+                    break;
+            }
         }
-        // setWrapperContainerHeight();
     }
 }
 
@@ -377,25 +376,38 @@ function setMenuStyle(menuItems) {
                 child.style.flexBasis = 100 / lengthItems + '%';
                 child.style.textAlign = 'center';
             }
-        } else if (lengthItems <= 2) {
-            menuItems.style.display = 'none';
         }
     }
 }
 
 function buildTabsContent(container, objectContent) {
+    let title;
+    let text;
+    let textWrapper;
     const tab = creatHtmlElement(container, '', 'div', ['tab-content__container']);
     objectContent.sections.forEach(sectionData => {
         // this is the DOM element that contains the section content
         let section = creatHtmlElement(tab, '', 'div', ['tab-content__container-section']);
         tab.dataset.order = objectContent.order;
-        const title = creatHtmlElement(section, sectionData.title.filter(el => el.lang === lang)[0].value, 'h3', ['tab-content__title']);
-        const text = creatHtmlElement(section, sectionData.description.filter(el => el.lang === lang)[0].value, 'p', ['tab-content__text']);
+
+        if (window.innerWidth >= 1024){
+
+            textWrapper = creatHtmlElement(section,'','div',['text-content__wrapper']);
+            const subWrapper = creatHtmlElement(textWrapper,'','div',['about-us__sub-wrapper']);
+            title = creatHtmlElement(subWrapper, sectionData.title.filter(el => el.lang === lang)[0].value, 'h3', ['tab-content__title']);
+            text = creatHtmlElement(subWrapper, sectionData.description.filter(el => el.lang === lang)[0].value, 'p', ['tab-content__text']);
+        } else {
+            title = creatHtmlElement(section, sectionData.title.filter(el => el.lang === lang)[0].value, 'h3', ['tab-content__title']);
+            text = creatHtmlElement(section, sectionData.description.filter(el => el.lang === lang)[0].value, 'p', ['tab-content__text']);
+        }
+
         const imgContainer = creatHtmlElement(section, '', 'div', ['about-us__img-container']);
         const img = creatHtmlElement(imgContainer, '', 'img', ['tab-content__image']);
         img.src = sectionData.imageUrl;
         if (objectContent.order !== 0) {
-            tab.classList.add('hide-tab');
+            if (aboutUsData.length > 1){
+                tab.classList.add('hide-tab');
+            }
         }
     });
 }
@@ -422,6 +434,7 @@ function switchTab(e) {
         activeTabInd = e.dataset.order;
         toggleTabContent(e.dataset.order);
         setWrapperContainerHeight();
+        cropImageToText();
     }
 }
 
@@ -588,6 +601,88 @@ body{
 .about-us__section-title{
   font-size: 30px;
   margin-bottom: 48px;
+}
+
+@media screen and (min-width: 1024px) {
+  .main-container-about {
+    padding: 0 10px;
+    background: #E5E5E5;
+    font-family: 'Ubuntu', sans-serif;
+    font-style: normal;
+  }
+  .menu__items{
+    display: flex;
+    // border-bottom: 1px solid #C0C0C0;
+    flex-basis: 40%;
+    position: inherit;
+    width: 100%;
+    top: 0;
+    color: #C0C0C0;
+  }
+  .menu-content__wrapper::after{
+    content: '';
+    width: 100%;
+    display:block;
+    height: 1px;
+    margin-top: -2px;
+    background: #C0C0C0 ;
+  }
+  
+  .active {
+    border-bottom: 3px solid #1A2F43;
+    color: #1A2F43;
+    }
+   .tabs-data-content__wrapper, .menu-content__wrapper{
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .menu__item{
+    margin: 0;
+    margin-right: 24px;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    cursor: pointer;
+  }
+   .tab-content__title{
+    margin: 0;
+    padding-top: 0;
+  }
+   .tab-content__text{
+    padding: 0;
+  }
+  .tab-content__image{
+    object-fit: cover;
+  }
+  .about-us__img-container{
+    padding: 0;
+  }
+  .tab-content__container-section{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+  }
+  .tab-content__container-section:nth-child(odd){
+    flex-direction: row-reverse;
+  }
+   .tab-content__title{
+    color: #1A2F43;
+    font-size: 30px;
+    font-weight: 500;
+  }
+  .tab-content__text{
+    color: #03233A;
+    font-weight: 300;
+    font-size: 16px;
+    padding-top: 48px;
+    line-height: 18px;
+    letter-spacing: -0.21px;
+  }
+   .text-content__wrapper{
+    flex-basis: 47%;
+  }
+
 }
 
 `;

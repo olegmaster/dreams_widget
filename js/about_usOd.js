@@ -45,6 +45,11 @@ window.addEventListener("DOMContentLoaded", function (event) {
 
 window.addEventListener('orientationchange',orientationHandler);
 window.addEventListener('resize',orientationHandler);
+window.addEventListener('load',()=>{
+    cropImageToText();
+    setWrapperContainerHeight();
+});
+
 
 function buildDesktopAbout () {
     const wrapper = creatHtmlElement(aboutUsMainContainer,'','div',['content__wrapper']);
@@ -92,7 +97,7 @@ function cropImageToText () {
             if (img.getBoundingClientRect().height > subHeight + 120){
                 img.style.height = subHeight+120+'px';
             }
-        },200);
+        },50);
     });
 }
 
@@ -101,7 +106,6 @@ function orientationHandler () {
     if (window.innerWidth < 1024){
         clearContent();
         insertMenu(activeTabInd);
-        setTimeout(()=>{setWrapperContainerHeight();},200);
     }else {
         clearContent();
         buildDesktopAbout();
