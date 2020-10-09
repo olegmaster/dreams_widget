@@ -92,7 +92,7 @@ window.addEventListener('orientationchange',orientationHandler);
 window.addEventListener('resize',orientationHandler);
 
 function scriptsChecker () {
-    return Boolean(window.$ && window.jQuery && window.$.fn.slick)
+    return Boolean(window.$ && window.jQuery && window.$.fn.slick);
 }
 
 function insertCaptionContainer () {
@@ -120,9 +120,11 @@ function changeImagesContainerHeight () {
 
 function orientationHandler (e) {
     if (scriptsChecker()){
+        let activeMenu;
         const menus = document.querySelectorAll('.menu__container');
         menus.forEach((menu,index) =>{
-            menu.remove();
+           activeMenu = menu.querySelector('.menu__items > .menu__item.active');
+           menu.remove();
         });
         insertMenu();
         $('.images__container').slick('unslick');
@@ -130,6 +132,7 @@ function orientationHandler (e) {
         fancyboxInit();
         changeImagesContainerHeight();
         showCaption();
+        switchTab(activeMenu);
     }
 }
 

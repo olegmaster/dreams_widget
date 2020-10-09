@@ -155,9 +155,11 @@ function changeImagesContainerHeight () {
 
 function orientationHandler (e) {
     if (scriptsChecker()){
+        let activeMenu;
         const menus = document.querySelectorAll('.menu__container');
         menus.forEach((menu,index) =>{
-            menu.remove();
+           activeMenu = menu.querySelector('.menu__items > .menu__item.active');
+           menu.remove();
         });
         insertMenu();
         $('.images__container').slick('unslick');
@@ -165,6 +167,7 @@ function orientationHandler (e) {
         fancyboxInit();
         changeImagesContainerHeight();
         showCaption();
+        switchTab(activeMenu);
     }
 }
 
