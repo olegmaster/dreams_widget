@@ -4,7 +4,7 @@ $dir = (in_array($lang, ['he']))?'rtl':'ltr';
 ?>
 
 const categoriesData = [
- {"categoryId":1,"name":[{"lang":"en","value":"Interior"},{"lang":"he","value":"פְּנִים"},{"lang":"ru","value":"Interior"},{"lang":"ua","value":"Interior"}]},
+ {"categoryId":1,"name":[{"lang":"en","value":"Interior"},{"lang":"he","value":"פנים"},{"lang":"ru","value":"Interior"},{"lang":"ua","value":"Interior"}]},
  {"categoryId":2,"name":[{"lang":"en","value":"Amenities"},{"lang":"he","value":"שירותים"},{"lang":"ru","value":"Amenities"},{"lang":"ua","value":"Amenities"}]}
     ];
 const imgData = [
