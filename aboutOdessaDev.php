@@ -1,3 +1,11 @@
+<?php
+$url = sprintf(
+  "%s://%s",
+  isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
+  $_SERVER['SERVER_NAME']
+);
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,8 +14,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script
-        src="https://bmbywidgetsqa.azurewebsites.net/js/about_usOdDev.js?canvas=bmby-about-wrapp&key=4CEFC377-5791-41BD-9BB1-6E431F11F5D9&type=US&lang=en"></script>
-<!--    <script src="./js/about_usOdDev.js"></script>-->
+        src="<?=$url?>/aboutOdessa.js?canvas=bmby-about-wrapp&lang=<?=$_GET['lang']?>"></script>
     <title>Document</title>
 </head>
 

@@ -12,7 +12,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php if(isset($_GET['page']) && $_GET['page'] === 'about_us'): ?>
-        <script src="js/about_us.php?key=4CEFC377-5791-41BD-9BB1-6E431F11F5D9&type=US"></script>
+        <script src="js/about.php?key=4CEFC377-5791-41BD-9BB1-6E431F11F5D9&type=US"></script>
     <?php endif; ?>
     <?php if(isset($_GET['page']) && $_GET['page'] === 'gallery'): ?>
         <script src="js/gallery.php?key=4CEFC377-5791-41BD-9BB1-6E431F11F5D9&type=US"></script>
