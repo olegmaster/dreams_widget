@@ -2,32 +2,28 @@ let aboutUsData = [
     {
         "chapter": [{
             "lang": "en",
-            "value": "The Project"
+            "value": "The Amos Luzon"
         }, {
             "lang": "he",
-            "value": "הפרויקט"
-        }, {
-            "lang": "ru",
-            "value": "Chapter 1"
+            "value": "עמוס לוזון"
         }],
         "order": 1,
         "sections": [{
             "title": [{
                 "lang": "en",
-                "value": "The Project"
+                "value": ""
             }, {
                 "lang": "he",
-                "value": "הפרויקט"
-            }, {
-                "lang": "ru",
-                "value": "The Project"
+                "value": "עמוס לוזון"
             }],
             "description": [{
                 "lang": "en",
-                "value": "“Odessa 2020” Project is located in the heart of the city’s entertainment and recreation center, adjacent to the beach. The project’s unique location close to Arcadia promenade provides an incredible mix of vibrant nightlife, along with an abundance of restaurants offering rich cuisine, cultural and historical sites and marvelous beaches. The complex is composed of a luxury tower with 440 studio, 2 and 3-room apartments, fully furnished and equipped to suit all types of tourists (couples, families, businessmen, etc.). The complex has everything you need to enjoy life: a Dead Sea spa, transparent swimming pool on the 26th floor, gym, aesthetic center, conference rooms, restaurants and coffee shops, concierge service, underground parking, housekeeping and room service, and more. The project was planned and designed by an Israeli architect, Assaf Shaul – co-owner of CPSL architectural firm. Each apartment features a balcony overlooking the sea. The apartments will be rented to tourists by an Israeli management company for short periods via the Airbnb model. In the complex there is a business center “Emporium Business Tower”. The city of Odessa, aka the “Black Sea Pearl”, is a tourist destination on the rise. In 2019 alone, over 3.5 million tourists visited the city and their number grows by about half a million each year, which has led to a shortage of about 250,000 accommodation facilities. Many Israelis visit Odessa as well, especially since the city is located within only 3 hours flight from all European capitals, and is known for its magnificent architecture, fine cuisine, vibrant nightlife and affordable prices. The apartments in the project will be rented to tourists by an Israeli management company for short periods of time via the Airbnb model. Furthermore, Odessa has a large shortage of offices due to the economic growth and the move of international high-tech companies to the city."
+                "value": ""
             }, {
                 "lang": "he",
-                "value": "אודסה 2020 ממוקם בלב ליבו של מרכז הבילויים והנופש של העיר, בסמוך לחוף הים. מיקומו הייחודי בקרבת טיילת ארקדיה מעניק שילוב מדהים של חיי לילה תוססים, יחד עם מסעדות רבות המציעות קולינריה עשירה ומגוונת, אתרי תרבות והיסטוריה וכמובן חופי ים מרהיבים. בקומפלקס 2 מגדלי יוקרה, מגדל דירות עם 440 דירות סטודיו, 2 חדרים ו-3 חדרים, מרוהטות ומאובזרות באופן מלא המתאימות לכל סוגי התיירים (זוגות, משפחות, אנשי עסקים ועוד). המתחם כולל כל מה שצריך בכדי להנות מהחיים: ספא ים המלח, בריכת שחייה עם תחתית שקופה בקומה ה-26, חדר כושר, מרכז אסתטיקה, חדרי ישיבות, מסעדות ובתי קפה, שירות קונסיירז', חניה תת קרקעית, שירותי ניקיון ושירות חדרים ועוד. על עיצובו ותכנונו של הפרויקט אמון אדריכל ישראלי, אסף שאול, מבעלי חברת האדריכלות CPSL. לכל דירה בפרויקט מרפסת הפונה לכיוון הים. הדירות בפרויקט יושכרו לתיירים לתקופות קצרות, במודל של Airbnb ע\"י חברת ניהול ישראלית. במתחם מגדל משרדים, מרכז העסקים החדש של אודסה Emporium Business Tower. העיר אודסה, המכונה גם \"פנינת הים השחור\", היא יעד תיירותי שנהנה מפופולריות גוברת. ב-2019 לבדה ביקרו בעיר למעלה מ- 3.5 מיליון תיירים ומספרם עולה בקצב של כחצי מיליון מדי שנה, כך שנוצר מחסור של כ-250 אלף חדרי אירוח. גם הישראלים מגיעים אליה בהמוניהם, העיר נמצאת במרחק טיסה של שעתיים ורבע בלבד מנתב\"ג, וידועה בארכיטקטורה היפה, קולינריה משובחת, חיי לילה תוססים ובמחירים הנוחים. הדירות בפרויקט יושכרו לתיירים לתקופות קצרות, במודל של Airbnb ע\"י חברת ניהול ישראלית. כמו כן, באודסה קיים מחסור גדול של משרדים בשל הצמיחה הכלכלית ומעבר של חברות הייטק בינלאומיות לעיר."
+                "value": "עמוס לוזון יזם בנשמתו, החל את פעילותו בתחום הנדל״ן בשנת 1985 , בייזום פרויקטים בעיר פתח תקווה. בשנת 1995 הקים את חברת ע. לוזון נכסים והשקעות בע״מ, בה הוא מכהן כבעלים ומנכ״ל בפועל. מראשית הקמתה בלטה חברת ע לוזון. בנוף הנדל״ן הישראלי והינה מזוהה יותר מכל עם הקמת פרויקטים יוקרתיים ייחודיים, תוך שימת דגש על רמת תכנון, בנייה פרפקציוניסטית, הקפדה על רמת גימור בסטנדרטים גבוהים ובחירת אנשי המקצוע מהמעולים בישראל.\n" +
+                  "עם השנים התרחבה החברה וביססה את מעמדה כאחת מחברות היזמות האיכותיות, המובילות, ובעלות ותק וניסיון מוכח בענף הנדל״ן בישראל. איתנותה הפיננסית והמוניטין הטוב לה זכתה החברה במהלך השנים מאפשרים לחברת ע. לוזון לקחת חלק במגוון רחב של פעילויות נדל\"ן הכוללים ייזום והקמת נדל״ן למגורים, מרכזים מסחריים, דיור מוגן ופארקים של תעשייה ומדע, תוך כדי שיתופי פעולה עם חברות נדל״ן מהגדולות במשק הישראלי.\n" +
+                  "בינואר 2016 רכש עמוס לוזון את קבוצת א. דורי ושינה את שמה לקבוצת עמוס לוזון יזמות ואנרגיה בע״מ. חברת ע. לוזון נכסים והשקעות חולשת על עשרות פרויקטים בשוק הנדל״ן הפרטי והמסחרי. בשנתיים האחרונות החברה זכתה במכרזי מחיר למשתכן והקימה שכונות לזוגות צעירים בערים המבוקשות: ראשון לציון, ראש העין, באר יעקב."
             }],
             "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Project\/proj_1.jpg",
             "order": 1
@@ -36,34 +32,28 @@ let aboutUsData = [
     {
         "chapter": [{
             "lang": "en",
-            "value": "The Developers"
+            "value": "The Brosh Group"
         }, {
             "lang": "he",
-            "value": "היזמים"
-        }, {
-            "lang": "ru",
-            "value": "The Developers"
+            "value": "קבוצת ברוש"
         }],
         "order": 2,
         "sections": [{
             "title": [{
                 "lang": "en",
-                "value": "The Developers"
+                "value": "The Brosh Group"
             }, {
                 "lang": "he",
                 "value": "היזמים"
-            }, {
-                "lang": "ru",
-                "value": "The Developers"
             }],
             "description": [{
                 "lang": "en",
-                "value": "“Odessa 2020 Arcadia” Project was established by Green Park Entrepreneurship and Construction – an Israeli company with a decade of experience building a large number of projects in Israel and worldwide, while specializing in Eastern Europe region. The project is supervised by an Israeli construction inspector, Mr. Shlomo Yaffe, and designed by an Israeli architect, Mr. Assaf Shaul – co-owner of CPSL architectural firm. The project also features an Israeli management company led by Mr. David Maor, and a trustee for investors’ funds – Fischer, Behar, Chen & Co. law firm, which releases the funds according to construction progress and subject to the approval of the inspection company."
+                "value": ""
             }, {
                 "lang": "he",
-                "value": "פרויקט אודסה 2020 ארקדיה הוקם על ידי  החברה הישראלית גרין פארק יזמות ובניה, היוזמת ובונה למעלה מ-10 שנים מספר רב של פרויקטים בישראל ובעולם, עם התמחות במזרח אירופה.\n" +
-                  "לפרויקט מפקח בניה ישראלי מר שלמה יפה, אדריכל ישראלי מר אסף שאול, מבעלי חברת האדריכלים CPSL, חברת ניהול" +
-                  " ישראלית בניהולו של מר דוד מאור ( מנהלים עשרות פרויקטים ברחבי אוקראינה), ונאמן לכספי המשקיעים משרד עורכי הדין פישר בכר חן, שמשחרר את הכספים לפי קצב התקדמות הבניה ורק בכפוף לאישור חברת הפיקוח."
+                "value": "קבוצת ברוש - מעניקה ללקוחותיה חווית מגורים כוללת תחת קורת גג אחת - חברה מבצעת וחברה יזמית עם ניסיון רב שנים. שילוב כוחות של זרוע יזמית וזרוע מבצעת העובדות בשיתוף פעולה צמוד, מאפשר הענקת שירות בסטנדרטים הגבוהים ביותר בעת רכישת הנכס הגדול והחשוב בחייכם, לאורך כל תהליך תכנון ובניית ביתכם החדש וגם לאחר כניסתכם לדירה.\n" +
+                  "ברוש ניר עבודות הנדסה ובניין - הינה קבלן מורשה בסיווג ג 5- בלתי מוגבל. לחברה ניסיון של 25 שנים בבנייה של פרויקטים הנדסיים רבים ומורכבים. מאז הקמתה, בנתה החברה מעל ל- 500 אלף מ\"ר ביותר מ- 200 פרויקטים למגורים, מסחר, משרדים, תעשייה, מלונאות, מבני ציבור, מתקנים צבאיים ותשתיות. בין לקוחותיה, נמנות החברות הגדולות במשק, ביניהן קבוצת עזריאלי, עופר השקעות, מליסרון, שופרסל, הריבוע הכחול, מלונות פרימה, בריטיש ישראל, שיכון ובינוי, חיל ההנדסה האמריקאי, משרד הבטחון, חברת החשמל, רכבת ישראל ועוד\n" +
+                  "ברוש ניר יזמות - נוסדה לפני עשור ומשמשת כזרוע היזמית של הקבוצה. החברה מובילה, יוזמת, מתכננת ומוציאה לפועל את הקמתם של פרויקטים למגורים בערי השרון ותל-אביב. כמו כן, מקדמת החברה תכניות בניין עיר להקמתן של שכונות מגורים חדשות, תוך מתן דגש על תכנון מוקפד לכל פרויקט וליווי פעיל של מאות משפחות, בדרך לביתן החדש."
             }],
             "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Develop\/dev_2.png",
             "order": 2
@@ -73,8 +63,8 @@ let aboutUsData = [
 
 
 let canvasClass = 'bmby-about-wrapp';
-let lang = 'en';
-const dir = 'ltr';
+let lang = 'he';
+const dir = 'rtl';
 let hasUbuntuFont = false;
 let aboutUsSections = [];
 let mode = 'dev';
@@ -101,8 +91,36 @@ window.addEventListener("DOMContentLoaded", function (event) {
 
 window.addEventListener('orientationchange', orientationHandler);
 window.addEventListener('resize', orientationHandler);
-window.addEventListener('load',  cropImageToText);
+window.addEventListener('load',()=>{
+    cropImageToText();
+    setWrapperContainerHeight();
+});
 
+function setWrapperContainerHeight() {
+    if (window.innerWidth < 1024) {
+        const tabsContent = aboutUsMainContainer.querySelectorAll('.tab-content__container');
+        const menuHeight = aboutUsMainContainer.querySelector('.menu__items').getBoundingClientRect().height;
+        const isPortrait = isWindowInPortrait();
+        tabsContent.forEach(tab=>{
+            if (isPortrait){
+                if (tab.scrollHeight < window.innerHeight && tab.scrollHeight > 0){
+                    tab.style.height = window.innerHeight - menuHeight - 24 + 16 +'px';
+                }else{
+                    tab.style.height = '100%';
+                }
+            } else {
+                tab.style.height = '100%';
+            }
+        });
+    } else{
+        const mainHeight = aboutUsMainContainer.getBoundingClientRect().height;
+        if (mainHeight < window.innerHeight){
+            aboutUsMainContainer.style.height = window.innerHeight+'px';
+        }else{
+            aboutUsMainContainer.style.height = '100%';
+        }
+    }
+}
 
 function cropImageToText() {
     if (window.innerWidth >= 1024){
@@ -140,6 +158,10 @@ function orientationHandler() {
                 contentWrapper.style.marginLeft = 0 + 'px';
             }
         }
+
+        // setTimeout(() => {
+        //     setWrapperContainerHeight();
+        // }, 200);
     } else {
         clearContent();
         insertMenu(activeTabInd);
@@ -337,7 +359,7 @@ function switchTab(e) {
         setActiveTab(parent, e);
         activeTabInd = e.dataset.order;
         toggleTabContent(e.dataset.order);
-        // setWrapperContainerHeight();
+        setWrapperContainerHeight();
         cropImageToText();
     }
 }
@@ -429,18 +451,6 @@ body{
 
 .tab-content__image{
   width: 100%;
-}
-
-  .tabs-data-content__wrapper::before{
-    content:'';
-    display: block;
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    z-index: -1;
-    top:0;
-    left:0;
-    background: linear-gradient(180deg, #2A3549 0%, #131A2D 10%);
 }
 
 .tab-content__title{
@@ -553,10 +563,6 @@ body{
     width: 100%;
     margin: 0 auto;
   }
-  
-  .tabs-data-content__wrapper::before{
-    background: #F7F7F7;
-}
   .menu__item{
     margin: 0;
     padding: 11px 49px;

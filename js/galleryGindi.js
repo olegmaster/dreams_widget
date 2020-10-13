@@ -823,6 +823,7 @@ body{
     display: flex;
     justify-content: center;
     flex-basis: 33.3%;
+    direction: ltr;
   }
   .dots__container{    
   flex-basis: 33.3%;

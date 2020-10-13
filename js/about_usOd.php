@@ -4,17 +4,76 @@ $dir = (in_array($lang, ['he']))?'rtl':'ltr';
 ?>
 
 let aboutUsData = [
-  {"title":[{"lang":"en","value":"The Project"},{"lang":"he","value":"הפרויקט"},{"lang":"ru","value":"The" +
-            " Project"},{"lang":"ua","value":"The Project"}],"description":[{"lang":"en","value":"“Odessa 2020”" +
-            " Project is located in the heart of the city’s entertainment and recreation center, adjacent to the" +
-            " beach. The project’s unique location close to Arcadia promenade provides an incredible mix of vibrant" +
-            " nightlife, along with an abundance of restaurants offering rich cuisine, cultural and historical sites" +
-            " and marvelous beaches. The complex is composed of a luxury tower with 440 studio, 2 and 3-room" +
-            " apartments, fully furnished and equipped to suit all types of tourists (couples, families, businessmen, etc.). The complex has everything you need to enjoy life: a Dead Sea spa, transparent swimming pool on the 26th floor, gym, aesthetic center, conference rooms, restaurants and coffee shops, concierge service, underground parking, housekeeping and room service, and more. The project was planned and designed by an Israeli architect, Assaf Shaul – co-owner of CPSL architectural firm. Each apartment features a balcony overlooking the sea. The apartments will be rented to tourists by an Israeli management company for short periods via the Airbnb model. In the complex there is a business center “Emporium Business Tower”. The city of Odessa, aka the “Black Sea Pearl”, is a tourist destination on the rise. In 2019 alone, over 3.5 million tourists visited the city and their number grows by about half a million each year, which has led to a shortage of about 250,000 accommodation facilities. Many Israelis visit Odessa as well, especially since the city is located within only 3 hours flight from all European capitals, and is known for its magnificent architecture, fine cuisine, vibrant nightlife and affordable prices. The apartments in the project will be rented to tourists by an Israeli management company for short periods of time via the Airbnb model. Furthermore, Odessa has a large shortage of offices due to the economic growth and the move of international high-tech companies to the city."},{"lang":"he","value":"אודסה 2020 ממוקם בלב ליבו של מרכז הבילויים והנופש של העיר, בסמוך לחוף הים. מיקומו הייחודי בקרבת טיילת ארקדיה מעניק שילוב מדהים של חיי לילה תוססים, יחד עם מסעדות רבות המציעות קולינריה עשירה ומגוונת, אתרי תרבות והיסטוריה וכמובן חופי ים מרהיבים.\n" +
-            "\n" +
-            "בקומפלקס 2 מגדלי יוקרה, מגדל דירות עם 440 דירות סטודיו, 2 חדרים ו-3 חדרים, מרוהטות ומאובזרות באופן מלא המתאימות לכל סוגי התיירים (זוגות, משפחות, אנשי עסקים ועוד). המתחם כולל כל מה שצריך בכדי להנות מהחיים: ספא ים המלח, בריכת שחייה עם תחתית שקופה בקומה ה-26, חדר כושר, מרכז אסתטיקה, חדרי ישיבות, מסעדות ובתי קפה, שירות קונסיירז', חניה תת קרקעית, שירותי ניקיון ושירות חדרים ועוד. על עיצובו ותכנונו של הפרויקט אמון אדריכל ישראלי, אסף שאול, מבעלי חברת האדריכלות CPSL. לכל דירה בפרויקט מרפסת הפונה לכיוון הים. הדירות בפרויקט יושכרו לתיירים לתקופות קצרות, במודל של Airbnb ע\"י חברת ניהול ישראלית. במתחם מגדל משרדים,  מרכז העסקים החדש של אודסה  Emporium Business Tower.\n" +
-            "\n" +
-            "העיר אודסה, המכונה גם \"פנינת הים השחור\", היא יעד תיירותי שנהנה מפופולריות גוברת. ב-2019 לבדה ביקרו בעיר למעלה מ- 3.5 מיליון תיירים ומספרם עולה בקצב של כחצי מיליון מדי שנה, כך שנוצר מחסור של כ-250 אלף חדרי אירוח. גם הישראלים מגיעים אליה בהמוניהם, העיר נמצאת במרחק טיסה של שעתיים ורבע בלבד מנתב\"ג, וידועה בארכיטקטורה היפה, קולינריה משובחת, חיי לילה תוססים ובמחירים הנוחים. הדירות בפרויקט יושכרו לתיירים לתקופות קצרות, במודל של Airbnb ע\"י חברת ניהול ישראלית. כמו כן, באודסה קיים מחסור גדול של משרדים בשל הצמיחה הכלכלית ומעבר של חברות הייטק בינלאומיות לעיר.\n"},{"lang":"ru","value":""},{"lang":"ua","value":""}],"chapter":[{"lang":"en","value":"The Project"},{"lang":"he","value":"הפרויקט"},{"lang":"ru","value":"The Project"},{"lang":"ua","value":"The Project"}],"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Project\/proj_1.jpg","order":0},
+    {
+        "chapter": [{
+            "lang": "en",
+            "value": "The Project"
+        }, {
+            "lang": "he",
+            "value": "הפרויקט"
+        }, {
+            "lang": "ru",
+            "value": "Chapter 1"
+        }],
+        "order": 1,
+        "sections": [{
+            "title": [{
+                "lang": "en",
+                "value": "The Project"
+            }, {
+                "lang": "he",
+                "value": "הפרויקט"
+            }, {
+                "lang": "ru",
+                "value": "The Project"
+            }],
+            "description": [{
+                "lang": "en",
+                "value": "“Odessa 2020” Project is located in the heart of the city’s entertainment and recreation center, adjacent to the beach. The project’s unique location close to Arcadia promenade provides an incredible mix of vibrant nightlife, along with an abundance of restaurants offering rich cuisine, cultural and historical sites and marvelous beaches. The complex is composed of a luxury tower with 440 studio, 2 and 3-room apartments, fully furnished and equipped to suit all types of tourists (couples, families, businessmen, etc.). The complex has everything you need to enjoy life: a Dead Sea spa, transparent swimming pool on the 26th floor, gym, aesthetic center, conference rooms, restaurants and coffee shops, concierge service, underground parking, housekeeping and room service, and more. The project was planned and designed by an Israeli architect, Assaf Shaul – co-owner of CPSL architectural firm. Each apartment features a balcony overlooking the sea. The apartments will be rented to tourists by an Israeli management company for short periods via the Airbnb model. In the complex there is a business center “Emporium Business Tower”. The city of Odessa, aka the “Black Sea Pearl”, is a tourist destination on the rise. In 2019 alone, over 3.5 million tourists visited the city and their number grows by about half a million each year, which has led to a shortage of about 250,000 accommodation facilities. Many Israelis visit Odessa as well, especially since the city is located within only 3 hours flight from all European capitals, and is known for its magnificent architecture, fine cuisine, vibrant nightlife and affordable prices. The apartments in the project will be rented to tourists by an Israeli management company for short periods of time via the Airbnb model. Furthermore, Odessa has a large shortage of offices due to the economic growth and the move of international high-tech companies to the city."
+            }, {
+                "lang": "he",
+                "value": "אודסה 2020 ממוקם בלב ליבו של מרכז הבילויים והנופש של העיר, בסמוך לחוף הים. מיקומו הייחודי בקרבת טיילת ארקדיה מעניק שילוב מדהים של חיי לילה תוססים, יחד עם מסעדות רבות המציעות קולינריה עשירה ומגוונת, אתרי תרבות והיסטוריה וכמובן חופי ים מרהיבים. בקומפלקס 2 מגדלי יוקרה, מגדל דירות עם 440 דירות סטודיו, 2 חדרים ו-3 חדרים, מרוהטות ומאובזרות באופן מלא המתאימות לכל סוגי התיירים (זוגות, משפחות, אנשי עסקים ועוד). המתחם כולל כל מה שצריך בכדי להנות מהחיים: ספא ים המלח, בריכת שחייה עם תחתית שקופה בקומה ה-26, חדר כושר, מרכז אסתטיקה, חדרי ישיבות, מסעדות ובתי קפה, שירות קונסיירז', חניה תת קרקעית, שירותי ניקיון ושירות חדרים ועוד. על עיצובו ותכנונו של הפרויקט אמון אדריכל ישראלי, אסף שאול, מבעלי חברת האדריכלות CPSL. לכל דירה בפרויקט מרפסת הפונה לכיוון הים. הדירות בפרויקט יושכרו לתיירים לתקופות קצרות, במודל של Airbnb ע\"י חברת ניהול ישראלית. במתחם מגדל משרדים, מרכז העסקים החדש של אודסה Emporium Business Tower. העיר אודסה, המכונה גם \"פנינת הים השחור\", היא יעד תיירותי שנהנה מפופולריות גוברת. ב-2019 לבדה ביקרו בעיר למעלה מ- 3.5 מיליון תיירים ומספרם עולה בקצב של כחצי מיליון מדי שנה, כך שנוצר מחסור של כ-250 אלף חדרי אירוח. גם הישראלים מגיעים אליה בהמוניהם, העיר נמצאת במרחק טיסה של שעתיים ורבע בלבד מנתב\"ג, וידועה בארכיטקטורה היפה, קולינריה משובחת, חיי לילה תוססים ובמחירים הנוחים. הדירות בפרויקט יושכרו לתיירים לתקופות קצרות, במודל של Airbnb ע\"י חברת ניהול ישראלית. כמו כן, באודסה קיים מחסור גדול של משרדים בשל הצמיחה הכלכלית ומעבר של חברות הייטק בינלאומיות לעיר."
+            }],
+            "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Project\/proj_1.jpg",
+            "order": 1
+        }]
+    },
+    {
+        "chapter": [{
+            "lang": "en",
+            "value": "The Developers"
+        }, {
+            "lang": "he",
+            "value": "היזמים"
+        }, {
+            "lang": "ru",
+            "value": "The Developers"
+        }],
+        "order": 2,
+        "sections": [{
+            "title": [{
+                "lang": "en",
+                "value": "The Developers"
+            }, {
+                "lang": "he",
+                "value": "היזמים"
+            }, {
+                "lang": "ru",
+                "value": "The Developers"
+            }],
+            "description": [{
+                "lang": "en",
+                "value": "“Odessa 2020 Arcadia” Project was established by Green Park Entrepreneurship and Construction – an Israeli company with a decade of experience building a large number of projects in Israel and worldwide, while specializing in Eastern Europe region. The project is supervised by an Israeli construction inspector, Mr. Shlomo Yaffe, and designed by an Israeli architect, Mr. Assaf Shaul – co-owner of CPSL architectural firm. The project also features an Israeli management company led by Mr. David Maor, and a trustee for investors’ funds – Fischer, Behar, Chen & Co. law firm, which releases the funds according to construction progress and subject to the approval of the inspection company."
+            }, {
+                "lang": "he",
+                "value": "פרויקט אודסה 2020 ארקדיה הוקם על ידי  החברה הישראלית גרין פארק יזמות ובניה, היוזמת ובונה למעלה מ-10 שנים מספר רב של פרויקטים בישראל ובעולם, עם התמחות במזרח אירופה.\n" +
+                  "לפרויקט מפקח בניה ישראלי מר שלמה יפה, אדריכל ישראלי מר אסף שאול, מבעלי חברת האדריכלים CPSL, חברת ניהול" +
+                  " ישראלית בניהולו של מר דוד מאור ( מנהלים עשרות פרויקטים ברחבי אוקראינה), ונאמן לכספי המשקיעים משרד עורכי הדין פישר בכר חן, שמשחרר את הכספים לפי קצב התקדמות הבניה ורק בכפוף לאישור חברת הפיקוח."
+            }],
+            "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Develop\/dev_2.png",
+            "order": 2
+        }]
+    }
     ];
 
 
@@ -25,6 +84,7 @@ let hasUbuntuFont = false;
 let aboutUsSections = [];
 let mode = 'dev';
 let aboutUsMainContainer;
+const imageDark = 'https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Develop\/dev_1.png';
 let activeTabInd;
 try{
     callbackFunction();
@@ -36,112 +96,75 @@ try{
 
 // add about us on document load
 window.addEventListener("DOMContentLoaded", function (event) {
-    aboutUsMainContainer = document.querySelector('.'+canvasClass);
+    aboutUsMainContainer = document.querySelector('.' + canvasClass);
     aboutUsMainContainer.classList.add(dir);
     addFont();
     addBasicStyle();
-    if (window.innerWidth >=1024){
-        buildDesktopAbout();
-    }else{
-        insertMenu();
-        orientationHandler();
-    }
+    insertMenu(aboutUsData[0].order);
+    orientationHandler();
 });
 
-window.addEventListener('orientationchange',orientationHandler);
-window.addEventListener('resize',orientationHandler);
-window.addEventListener('load',()=>{
-    cropImageToText();
-    setWrapperContainerHeight();
-});
+window.addEventListener('orientationchange', orientationHandler);
+window.addEventListener('resize', orientationHandler);
+window.addEventListener('load',  cropImageToText);
 
 
-function buildDesktopAbout () {
-    const wrapper = creatHtmlElement(aboutUsMainContainer,'','div',['content__wrapper']);
-    aboutUsData.forEach(el =>{
-        const section = creatHtmlElement(wrapper,'','section',['about-us__section']);
-        const imgContainer = creatHtmlElement(section,'','div',['about-us__img-container']);
-        const img = creatHtmlElement(imgContainer,'','img',['about-us__image']);
-        img.src = el.imageUrl;
-        const subWrapper = creatHtmlElement(section,'','div',['about-us__sub-wrapper']);
-        const sectionTitle = creatHtmlElement(subWrapper,el.title.filter(el => el.lang === lang)[0].value,'h3',['about-us__section-title']);
-        const sectionText = creatHtmlElement(subWrapper,el.description.filter(el => el.lang === lang)[0].value,'p',['about-us__section-text']);
-    });
-    cropImageToText();
-}
-
-function setWrapperContainerHeight () {
-    if (window.innerWidth < 1024){
-        const tabsContent = aboutUsMainContainer.querySelectorAll('.tab-content__container');
-        const menuHeight = aboutUsMainContainer.querySelector('.menu__items').getBoundingClientRect().height;
-        const isPortrait = isWindowInPortrait();
-        tabsContent.forEach(tab=>{
-            if (isPortrait){
-                if (tab.scrollHeight < window.innerHeight && tab.scrollHeight > 0){
-                    tab.style.height = window.innerHeight - menuHeight - 24 + 16 +'px';
-                }else{
-                    tab.style.height = '100%';
+function cropImageToText() {
+    if (window.innerWidth >= 1024){
+        const sectionCollection = document.querySelectorAll('.tab-content__container-section');
+        sectionCollection.forEach(section => {
+            setTimeout(() => {
+                const img = section.querySelector('.about-us__img-container > .tab-content__image');
+                const sub = section.querySelector('.text-content__wrapper > .about-us__sub-wrapper');
+                let subHeight = 0;
+                for (let child of sub.children) {
+                    subHeight += child.getBoundingClientRect().height;
                 }
-            } else {
-                tab.style.height = '100%';
-            }
+                if (img.getBoundingClientRect().height > subHeight + 120) {
+                    img.style.height = subHeight + 120 + 'px';
+                }
+            }, 50);
         });
     }
 }
 
-function cropImageToText () {
-    const sectionCollection = document.querySelectorAll('.about-us__section');
-    sectionCollection.forEach(section =>{
-        setTimeout(()=>{
-            const img = section.querySelector('.about-us__img-container > .about-us__image');
-            const sub = section.querySelector('.about-us__sub-wrapper');
-            let subHeight=0;
-            for (let child of sub.children){
-                subHeight += child.getBoundingClientRect().height;
-            }
-            if (img.getBoundingClientRect().height > subHeight + 120){
-                img.style.height = subHeight+120+'px';
-            }
-        },50);
-    });
-}
-
-function orientationHandler () {
+function orientationHandler() {
     const isPortrait = isWindowInPortrait();
-    if (window.innerWidth < 1024){
+    if (window.innerWidth < 1024) {
         clearContent();
         insertMenu(activeTabInd);
-    }else {
+
+        if (aboutUsData.length > 1){
+            const contentWrapper = document.querySelector('.tabs-data-content__wrapper');
+            if (!isPortrait && dir === 'ltr') {
+                contentWrapper.style.marginLeft = 114 + 'px';
+            } else if (!isPortrait && dir === 'rtl') {
+                contentWrapper.style.marginRight = 114 + 'px';
+            } else {
+                contentWrapper.style.marginRight = 0 + 'px';
+                contentWrapper.style.marginLeft = 0 + 'px';
+            }
+        }
+    } else {
         clearContent();
-        buildDesktopAbout();
+        insertMenu(activeTabInd);
     }
 }
 
-function clearContent () {
-    const menus = document.querySelectorAll('.menu__items');
-    const tabs = aboutUsMainContainer.querySelectorAll('.tab-content__container');
-    const wrapper = aboutUsMainContainer.querySelector('.content__wrapper');
-    if (tabs.length > 0){
-        tabs.forEach(tab => tab.remove());
-    }
-    if (wrapper){
-        wrapper.remove();
-    }
-    if (menus.length > 0){
-        menus.forEach((menu,index) =>{
-            menu.remove();
-        });
+function clearContent() {
+    while (aboutUsMainContainer.firstChild) {
+        aboutUsMainContainer.removeChild(aboutUsMainContainer.firstChild);
     }
 }
 
 function creatHtmlElement(parent, elementName, elementTag, elementClass) {
     const el = document.createElement(elementTag);
-    if (Array.isArray(elementClass)){
+    if (Array.isArray(elementClass)) {
         elementClass.forEach(classElement => {
             el.classList.add(classElement);
         });
-    }else{
-        el.style.cssText=elementClass;
+    } else {
+        el.style.cssText = elementClass;
     }
     el.innerHTML = elementName;
     if (parent) {
@@ -151,128 +174,159 @@ function creatHtmlElement(parent, elementName, elementTag, elementClass) {
 }
 
 function addFont() {
-    // document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">';
+    document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">';
     document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@600&family=Ubuntu:wght@300&display=swap" rel="stylesheet">';
 }
 
-function addBasicStyle () {
+function addBasicStyle() {
     const replacedStyle = basicStyle.replace(/main-container-about/g, canvasClass);
-    document.head.innerHTML +='<style>'+replacedStyle+'</style>';
+    document.head.innerHTML += '<style>' + replacedStyle + '</style>';
 }
 
-function insertMenu (activeTab = 0) {
+function insertMenu(activeTab = 0) {
     let tabsDataMainContainer;
-    const menuContainer = creatHtmlElement('','','ul',['menu__items']);
-    aboutUsMainContainer.insertAdjacentElement('afterbegin',menuContainer);
+    let menuWrapper;
+    let menuContainer;
+
+
+    if (window.innerWidth >=1024){
+        menuWrapper = creatHtmlElement('','','div',['menu-content__wrapper']);
+        menuContainer = creatHtmlElement(menuWrapper, '', 'ul', ['menu__items']);
+        aboutUsMainContainer.insertAdjacentElement('afterbegin', menuWrapper);
+    }else{
+        menuContainer = creatHtmlElement('', '', 'ul', ['menu__items']);
+        aboutUsMainContainer.insertAdjacentElement('afterbegin', menuContainer);
+    }
+
+
     const isTabWrapperExist = aboutUsMainContainer.querySelector('.tabs-data-content__wrapper');
-    if (!isTabWrapperExist){
-        tabsDataMainContainer = creatHtmlElement(aboutUsMainContainer,'','div',['tabs-data-content__wrapper']);
-    } else{
+    if (!isTabWrapperExist) {
+        tabsDataMainContainer = creatHtmlElement(aboutUsMainContainer, '', 'div', ['tabs-data-content__wrapper']);
+    } else {
         tabsDataMainContainer = isTabWrapperExist;
     }
-    aboutUsData.forEach((menuElement,index) =>{
+    aboutUsData.forEach((menuElement, index) => {
         if (aboutUsData.length > 1){
             let chapter = menuElement.chapter.filter(el => el.lang === lang);
-            if(!chapter[0].hasOwnProperty('value')){
+            if (!chapter[0].hasOwnProperty('value')) {
                 throw 'menuElement has unsupported structure';
             }
-            const li = creatHtmlElement(menuContainer,chapter[0].value,'li',['menu__item']);
+            const li = creatHtmlElement(menuContainer, chapter[0].value, 'li', ['menu__item']);
             li.dataset.order = menuElement.order;
         }
-
         buildTabsContent(tabsDataMainContainer, menuElement);
     });
-    if (aboutUsData.length > 1) {
-        const menuElementOrder = document.querySelector('.menu__item[data-order="' + activeTab + '"]');
-        switchTab(menuElementOrder);
-        activeTabInd = activeTab;
+    const menuElementOrder = document.querySelector('.menu__item[data-order="' + activeTab + '"]');
+    switchTab(menuElementOrder);
+    activeTabInd = activeTab;
 
-        creatHtmlElement(menuContainer, '', 'div', ['menu__plug']);
-        setMenuStyle(menuContainer);
-        menuContainer.addEventListener('click', (e) => switchTab(e.target));
-        tabsDataMainContainer.addEventListener('swiped', swipeTabsContent);
-    }
+    creatHtmlElement(menuContainer, '', 'div', ['menu__plug']);
+    setMenuStyle(menuContainer);
+    menuContainer.addEventListener('click', (e) => switchTab(e.target));
+    tabsDataMainContainer.addEventListener('swiped', swipeTabsContent);
 }
 
-function swipeTabsContent (e) {
-    const isPortrait = isWindowInPortrait();
+function swipeTabsContent(e) {
+    if (aboutUsData.length > 1){
+        const isPortrait = isWindowInPortrait();
 
-    if (isPortrait){
-        const activeMenu = getActiveTabMenu();
-        const swipeDirection = e.detail.dir;
+        if (isPortrait) {
+            const activeMenu = getActiveTabMenu();
+            const swipeDirection = e.detail.dir;
 
-        switch (swipeDirection) {
-            case dir === 'rtl' ? 'right' : 'left':
-                const nexElement = activeMenu.parentElement.querySelector('.menu__item[data-order="'+(Number(activeMenu.dataset.order)+ 1)+'"]');
-                if (nexElement){
-                    switchTab(nexElement);
-                }
-                break;
-            case dir === 'rtl' ? 'left' : 'right':
-                const prevElement = activeMenu.parentElement.querySelector('.menu__item[data-order="'+(Number(activeMenu.dataset.order)-1)+'"]');
-                if (prevElement){
-                    switchTab(prevElement);
-                }
-                break;
+            switch (swipeDirection) {
+                case dir === 'rtl' ? 'right' : 'left':
+                    const nexElement = activeMenu.parentElement.querySelector('.menu__item[data-order="' + (Number(activeMenu.dataset.order) + 1) + '"]');
+                    if (nexElement) {
+                        switchTab(nexElement);
+                    }
+                    break;
+                case dir === 'rtl' ? 'left' : 'right':
+                    const prevElement = activeMenu.parentElement.querySelector('.menu__item[data-order="' + (Number(activeMenu.dataset.order) - 1) + '"]');
+                    if (prevElement) {
+                        switchTab(prevElement);
+                    }
+                    break;
+            }
         }
-        // setWrapperContainerHeight();
     }
 }
 
-function getActiveTabMenu () {
+function getActiveTabMenu() {
     let activeMenu;
     const menuCollection = document.querySelectorAll('.menu__item');
-    menuCollection.forEach(menu =>{
-        if (menu.classList.contains('active')){
+    menuCollection.forEach(menu => {
+        if (menu.classList.contains('active')) {
             activeMenu = menu;
         }
     });
     return activeMenu;
 }
 
-function  isWindowInPortrait() {
+function isWindowInPortrait() {
     return window.matchMedia("(orientation: portrait)").matches;
 }
 
-function setMenuStyle (menuItems) {
+function setMenuStyle(menuItems) {
     const isPortrait = isWindowInPortrait();
     const childrenItems = menuItems.children;
     const lengthItems = menuItems.children.length;
     const scrollWidth = menuItems.scrollWidth;
     const currentView = menuItems.offsetWidth;
 
-    if (isPortrait){
-        if (scrollWidth <= currentView && lengthItems > 2){
+    if (isPortrait) {
+        if (scrollWidth <= currentView && lengthItems > 2) {
             menuItems.style.justifyContent = 'space-between';
-            for (let child of childrenItems){
-                child.style.flexBasis= 100 / lengthItems+'%';
-                child.style.textAlign='center';
+            for (let child of childrenItems) {
+                child.style.flexBasis = 100 / (lengthItems - 1) + '%';
+                child.style.textAlign = 'center';
             }
-        } else if (lengthItems <= 2){
-            menuItems.style.display = 'none';
         }
     }
 }
 
-function buildTabsContent (container,objectContent) {
-    const tab = creatHtmlElement(container,'','div',['tab-content__container']);
-    tab.dataset.order = objectContent.order;
-    const title = creatHtmlElement(tab,objectContent.title.filter(el => el.lang === lang)[0].value,'h3',['tab-content__title']);
-    const text = creatHtmlElement(tab,objectContent.description.filter(el => el.lang === lang)[0].value,'p',['tab-content__text']);
-    const imgContainer = creatHtmlElement(tab,'','div',['about-us__img-container']);
-    const img = creatHtmlElement(imgContainer,'','img',['tab-content__image']);
-    img.src = objectContent.imageUrl;
-    if (objectContent.order !== 0){
-        tab.classList.add('hide-tab');
-    }
+function buildTabsContent(container, objectContent) {
+    let title;
+    let text;
+    let textWrapper;
+    const tab = creatHtmlElement(container, '', 'div', ['tab-content__container']);
+    objectContent.sections.forEach(sectionData => {
+        // this is the DOM element that contains the section content
+        let section = creatHtmlElement(tab, '', 'div', ['tab-content__container-section']);
+        tab.dataset.order = objectContent.order;
+
+        if (window.innerWidth >= 1024){
+
+            textWrapper = creatHtmlElement(section,'','div',['text-content__wrapper']);
+            const subWrapper = creatHtmlElement(textWrapper,'','div',['about-us__sub-wrapper']);
+            title = creatHtmlElement(subWrapper, sectionData.title.filter(el => el.lang === lang)[0].value, 'h3', ['tab-content__title']);
+            text = creatHtmlElement(subWrapper, sectionData.description.filter(el => el.lang === lang)[0].value, 'p', ['tab-content__text']);
+        } else {
+            title = creatHtmlElement(section, sectionData.title.filter(el => el.lang === lang)[0].value, 'h3', ['tab-content__title']);
+            text = creatHtmlElement(section, sectionData.description.filter(el => el.lang === lang)[0].value, 'p', ['tab-content__text']);
+        }
+
+        const imgContainer = creatHtmlElement(section, '', 'div', ['about-us__img-container']);
+        const img = creatHtmlElement(imgContainer, '', 'img', ['tab-content__image']);
+        if (sectionData.imageUrl === 'https://dreamsimages.bmby.com/new/dev/odessa2020/projectassets/Develop/dev_2.png' && window.innerWidth >= 1024){
+            img.src = imageDark;
+        }else {
+            img.src = sectionData.imageUrl;
+        }
+        if (objectContent.order !== 0) {
+            if (aboutUsData.length > 1){
+                tab.classList.add('hide-tab');
+            }
+        }
+    });
 }
 
-function toggleTabContent (tabOrder) {
+function toggleTabContent(tabOrder) {
     const tabsContentCollection = document.querySelectorAll('.tab-content__container');
-    tabsContentCollection.forEach(tab =>{
-        if (tab.dataset.order === tabOrder){
+    tabsContentCollection.forEach(tab => {
+        if (tab.dataset.order === tabOrder) {
             tab.classList.remove('hide-tab');
-        }else {
+        } else {
             tab.classList.add('hide-tab');
         }
     });
@@ -280,39 +334,43 @@ function toggleTabContent (tabOrder) {
 }
 
 function switchTab(e) {
+    if(e === null){
+        return;
+    }
     const parent = e.parentElement;
-    if (e.classList.contains('menu__item')){
-        setActiveTab(parent,e);
+    if (e.classList.contains('menu__item')) {
+        setActiveTab(parent, e);
         activeTabInd = e.dataset.order;
         toggleTabContent(e.dataset.order);
-        setWrapperContainerHeight();
+        // setWrapperContainerHeight();
+        cropImageToText();
     }
 }
 
-function setActiveTab (parent, e) {
+function setActiveTab(parent, e) {
     const menuItemsCollection = parent.querySelectorAll('.menu__item');
-    menuItemsCollection.forEach(menu =>{
-        if (e === menu){
+    menuItemsCollection.forEach(menu => {
+        if (e === menu) {
             menu.classList.add('active');
             scrollContainer(menu);
-        } else{
+        } else {
             menu.classList.remove('active');
         }
     });
 }
 
-function scrollContainer (container) {
+function scrollContainer(container) {
     const main = container.parentElement;
     const menuItem = container.getBoundingClientRect();
 
-    if (menuItem.right > main.offsetWidth){
-        container.parentElement.scrollTo(menuItem.right - main.offsetWidth+ menuItem.width,0);
-    } else if (menuItem.left < 0){
-        container.parentElement.scrollTo(menuItem.left,0);
+    if (menuItem.right > main.offsetWidth) {
+        container.parentElement.scrollTo(menuItem.right - main.offsetWidth + menuItem.width, 0);
+    } else if (menuItem.left < 0) {
+        container.parentElement.scrollTo(menuItem.left, 0);
     }
 }
 
-const basicStyle =`
+const basicStyle = `
 
 body{
   margin: 0;
@@ -366,13 +424,7 @@ body{
 }
 
 .hide-tab{
- display: none;  
-}
-
-.tab-content__image-container{
-    display: flex;
-    justify-content: center;
-    padding: 0 16px;
+ display: none;
 }
 
 .about-us__img-container{
@@ -384,11 +436,22 @@ body{
   width: 100%;
 }
 
+  .tabs-data-content__wrapper::before{
+    content:'';
+    display: block;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+    top:0;
+    left:0;
+    background: linear-gradient(180deg, #2A3549 0%, #131A2D 10%);
+}
+
 .tab-content__title{
   font-size: 18px;
   color: #fff;
-  // margin: 24px 16px 12px 16px;
-  padding: 24px 16px 12px 16px;
+  margin: 24px 16px 12px 16px;
 }
 
 .tab-content__text{
@@ -426,8 +489,7 @@ body{
 }
 
 .tab-content__title{
-    // margin: 0 16px 12px 16px;
-    padding: 0px 16px 12px 16px;
+    margin: 0 16px 12px 16px;
     padding-top: 12px;
 }
 }
@@ -462,12 +524,92 @@ body{
   margin-bottom: 48px;
 }
 
-@media screen and (min-width: 1024px){
-    .main-container-about {
-     background: #F7F7F7;
-     color: #1A2F43;
+@media screen and (min-width: 1024px) {
+  .main-container-about {
+    padding: 0 10px;
+    background: #F7F7F7;
+    font-family: 'Ubuntu', sans-serif;
+    font-style: normal;
+  }
+  .menu__items{
+    display: flex;
+    // border-bottom: 1px solid #C0C0C0;
+    flex-basis: 40%;
+    position: inherit;
+    width: 100%;
+    top: 0;
+    color: #C0C0C0;
+  }
+  .menu-content__wrapper::after{
+    content: '';
+    width: 100%;
+    display:block;
+    height: 1px;
+    margin-top: -2px;
+    background: #C0C0C0 ;
+  }
+
+  .active {
+    border-bottom: 3px solid #1A2F43;
+    color: #1A2F43;
+    }
+   .tabs-data-content__wrapper, .menu-content__wrapper{
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .tabs-data-content__wrapper::before{
+    background: #F7F7F7;
 }
+  .menu__item{
+    margin: 0;
+    padding: 11px 49px;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    cursor: pointer;
+  }
+   .tab-content__title{
+    margin: 0;
+    padding-top: 0;
+  }
+   .tab-content__text{
+    padding: 0;
+  }
+  .tab-content__image{
+    object-fit: cover;
+  }
+  .about-us__img-container{
+    padding: 0;
+  }
+  .tab-content__container-section{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+  }
+  .tab-content__container-section:nth-child(odd){
+    flex-direction: row-reverse;
+  }
+   .tab-content__title{
+    color: #1A2F43;
+    font-size: 30px;
+    font-weight: 500;
+  }
+  .tab-content__text{
+    color: #03233A;
+    font-weight: 300;
+    font-size: 16px;
+    padding-top: 48px;
+    line-height: 18px;
+    letter-spacing: -0.21px;
+  }
+   .text-content__wrapper{
+    flex-basis: 47%;
+  }
+
 }
+
 
 `;
 
@@ -488,7 +630,7 @@ body{
 
         window.CustomEvent = function (event, params) {
 
-            params = params || { bubbles: false, cancelable: false, detail: undefined };
+            params = params || {bubbles: false, cancelable: false, detail: undefined};
 
             var evt = document.createEvent('CustomEvent');
             evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
@@ -529,17 +671,14 @@ body{
             if (Math.abs(xDiff) > swipeThreshold && timeDiff < swipeTimeout) {
                 if (xDiff > 0) {
                     eventType = 'swiped-left';
-                }
-                else {
+                } else {
                     eventType = 'swiped-right';
                 }
             }
-        }
-        else if (Math.abs(yDiff) > swipeThreshold && timeDiff < swipeTimeout) {
+        } else if (Math.abs(yDiff) > swipeThreshold && timeDiff < swipeTimeout) {
             if (yDiff > 0) {
                 eventType = 'swiped-up';
-            }
-            else {
+            } else {
                 eventType = 'swiped-down';
             }
         }
@@ -555,10 +694,10 @@ body{
             };
 
             // fire `swiped` event event on the element that started the swipe
-            startEl.dispatchEvent(new CustomEvent('swiped', { bubbles: true, cancelable: true, detail: eventData }));
+            startEl.dispatchEvent(new CustomEvent('swiped', {bubbles: true, cancelable: true, detail: eventData}));
 
             // fire `swiped-dir` event on the element that started the swipe
-            startEl.dispatchEvent(new CustomEvent(eventType, { bubbles: true, cancelable: true, detail: eventData }));
+            startEl.dispatchEvent(new CustomEvent(eventType, {bubbles: true, cancelable: true, detail: eventData}));
         }
 
         // reset values

@@ -267,7 +267,7 @@ function setMenuStyle(menuItems) {
         if (scrollWidth <= currentView && lengthItems > 2) {
             menuItems.style.justifyContent = 'space-between';
             for (let child of childrenItems) {
-                child.style.flexBasis = 100 / lengthItems + '%';
+                child.style.flexBasis = 100 / (lengthItems - 1) + '%';
                 child.style.textAlign = 'center';
             }
         }

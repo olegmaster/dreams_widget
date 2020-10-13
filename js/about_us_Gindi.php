@@ -1,3 +1,8 @@
+<?php
+$lang = $_GET['lang'] ?? 'en';
+$dir = (in_array($lang, ['he']))?'rtl':'ltr';
+?>
+
 let aboutUsData = [
     {
         "chapter": [{
@@ -73,8 +78,8 @@ let aboutUsData = [
 
 
 let canvasClass = 'bmby-about-wrapp';
-let lang = 'en';
-const dir = 'ltr';
+let lang = '<?=$lang?>';
+const dir = '<?=$dir?>';
 let hasUbuntuFont = false;
 let aboutUsSections = [];
 let mode = 'dev';
@@ -101,8 +106,36 @@ window.addEventListener("DOMContentLoaded", function (event) {
 
 window.addEventListener('orientationchange', orientationHandler);
 window.addEventListener('resize', orientationHandler);
-window.addEventListener('load',  cropImageToText);
+window.addEventListener('load',()=>{
+    cropImageToText();
+    setWrapperContainerHeight();
+});
 
+function setWrapperContainerHeight() {
+    if (window.innerWidth < 1024) {
+        const tabsContent = aboutUsMainContainer.querySelectorAll('.tab-content__container');
+        const menuHeight = aboutUsMainContainer.querySelector('.menu__items').getBoundingClientRect().height;
+        const isPortrait = isWindowInPortrait();
+        tabsContent.forEach(tab=>{
+            if (isPortrait){
+                if (tab.scrollHeight < window.innerHeight && tab.scrollHeight > 0){
+                    tab.style.height = window.innerHeight - menuHeight - 24 + 16 +'px';
+                }else{
+                    tab.style.height = '100%';
+                }
+            } else {
+                tab.style.height = '100%';
+            }
+        });
+    } else{
+        const mainHeight = aboutUsMainContainer.getBoundingClientRect().height;
+        if (mainHeight < window.innerHeight){
+            aboutUsMainContainer.style.height = window.innerHeight+'px';
+        }else{
+            aboutUsMainContainer.style.height = '100%';
+        }
+    }
+}
 
 function cropImageToText() {
     if (window.innerWidth >= 1024){
@@ -140,6 +173,10 @@ function orientationHandler() {
                 contentWrapper.style.marginLeft = 0 + 'px';
             }
         }
+
+        // setTimeout(() => {
+        //     setWrapperContainerHeight();
+        // }, 200);
     } else {
         clearContent();
         insertMenu(activeTabInd);
@@ -337,7 +374,7 @@ function switchTab(e) {
         setActiveTab(parent, e);
         activeTabInd = e.dataset.order;
         toggleTabContent(e.dataset.order);
-        // setWrapperContainerHeight();
+        setWrapperContainerHeight();
         cropImageToText();
     }
 }
@@ -419,7 +456,7 @@ body{
 }
 
 .hide-tab{
- display: none;  
+ display: none;
 }
 
 .about-us__img-container{
@@ -429,18 +466,6 @@ body{
 
 .tab-content__image{
   width: 100%;
-}
-
-  .tabs-data-content__wrapper::before{
-    content:'';
-    display: block;
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    z-index: -1;
-    top:0;
-    left:0;
-    background: linear-gradient(180deg, #2A3549 0%, #131A2D 10%);
 }
 
 .tab-content__title{
@@ -543,7 +568,7 @@ body{
     margin-top: -2px;
     background: #C0C0C0 ;
   }
-  
+
   .active {
     border-bottom: 3px solid #1A2F43;
     color: #1A2F43;
@@ -553,10 +578,6 @@ body{
     width: 100%;
     margin: 0 auto;
   }
-  
-  .tabs-data-content__wrapper::before{
-    background: #F7F7F7;
-}
   .menu__item{
     margin: 0;
     padding: 11px 49px;

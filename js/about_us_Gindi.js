@@ -6,9 +6,6 @@ let aboutUsData = [
         }, {
             "lang": "he",
             "value": "הפרויקט"
-        }, {
-            "lang": "ru",
-            "value": "Chapter 1"
         }],
         "order": 1,
         "sections": [{
@@ -40,9 +37,6 @@ let aboutUsData = [
         }, {
             "lang": "he",
             "value": "היזמים"
-        }, {
-            "lang": "ru",
-            "value": "The Developers"
         }],
         "order": 2,
         "sections": [{
@@ -51,23 +45,73 @@ let aboutUsData = [
                 "value": "The Developers"
             }, {
                 "lang": "he",
-                "value": "היזמים"
-            }, {
-                "lang": "ru",
-                "value": "The Developers"
+                "value": "על היזם"
             }],
             "description": [{
                 "lang": "en",
-                "value": "“Odessa 2020 Arcadia” Project was established by Green Park Entrepreneurship and Construction – an Israeli company with a decade of experience building a large number of projects in Israel and worldwide, while specializing in Eastern Europe region. The project is supervised by an Israeli construction inspector, Mr. Shlomo Yaffe, and designed by an Israeli architect, Mr. Assaf Shaul – co-owner of CPSL architectural firm. The project also features an Israeli management company led by Mr. David Maor, and a trustee for investors’ funds – Fischer, Behar, Chen & Co. law firm, which releases the funds according to construction progress and subject to the approval of the inspection company."
+                "value": "Gindi, the renowned international real estate company, has been one of the leading and" +
+                  " most innovative companies in Israel for the past 50 years. It is engaged in initiating, developing, marketing and managing commercial and residential projects, malls and commercial centers, and luxury towers and residential neighborhoods, with a scope of thousands of housing units and hundreds of thousands of square meters in Israel and abroad. Within the framework of its activity, Gindi has built itself a strong reputation as an established company that conducts itself with the utmost professionalism and is dedicated to the best interests of customers and investors alike."
             }, {
                 "lang": "he",
-                "value": "פרויקט אודסה 2020 ארקדיה הוקם על ידי  החברה הישראלית גרין פארק יזמות ובניה, היוזמת ובונה למעלה מ-10 שנים מספר רב של פרויקטים בישראל ובעולם, עם התמחות במזרח אירופה.\n" +
-                  "לפרויקט מפקח בניה ישראלי מר שלמה יפה, אדריכל ישראלי מר אסף שאול, מבעלי חברת האדריכלים CPSL, חברת ניהול" +
-                  " ישראלית בניהולו של מר דוד מאור ( מנהלים עשרות פרויקטים ברחבי אוקראינה), ונאמן לכספי המשקיעים משרד עורכי הדין פישר בכר חן, שמשחרר את הכספים לפי קצב התקדמות הבניה ורק בכפוף לאישור חברת הפיקוח."
+                "value": "חברת הנדל”ן גינדי הינה מהמובילות והחדשניות בישראל למותג נדל”ן בן 50 שנה. החברה עוסקת בייזום, פיתוח, שיווק וניהול פרויקטים למסחר, מגורים, קניונים, מרכזים מסחריים, מגדלי יוקרה ושכונות מגורים, בהיקפים של אלפי יחידות דיור ומאות אלפי מ\"ר, בארץ ובחו”ל.\n" +
+                  "\n" +
+                  "במסגרת פעילותה, בנתה גינדי מוניטין חזק של חברה יציבה, השומרת על התנהלות מקצועית ומסורה מול קהל לקוחותיה וציבור המשקיעים.\n"
             }],
-            "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Develop\/dev_2.png",
+            "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/gindimobile\/about\/developers\/logo.png",
             "order": 2
-        }]
+        },
+            {
+                "title": [{
+                    "lang": "en",
+                    "value": ""
+                }, {
+                    "lang": "he",
+                    "value": ""
+                }],
+                "description": [{
+                    "lang": "en",
+                    "value": "<b>At the head of this company is the next generation of the renowned Gindi real estate" +
+                      " dynasty: brothers Manor and Kfir Gindi, as well as their brother-in-law, Ori Levy. Like" +
+                      " their entire staff, they have a joint vision for leading the real estate market. Their goal" +
+                      " is to develop and construct unique projects that respond to specific customer needs, while" +
+                      " maintaining full integrity and a level of implementation that is no less than perfect.</b>"
+                }, {
+                    "lang": "he",
+                    "value": "<b>בראש הקבוצה עומד דור ההמשך של משפחת הנדל\"ן הידועה, המעבירה את שרביט בניין הארץ מדור" +
+                      " לדור: האחים מנור וכפיר גינדי, ואורי לוי. לשלושתם, כמו לכל הצוות הרחב של גינדי, חזון משותף להוביל את שוק הנדל\"ן הישראלי. ליזום ולהקים פרויקטים ייחודיים אשר מספקים מענה מדויק לצרכי הלקוחות, תוך הקפדה על יושרה מלאה.</b>"
+                }],
+                "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/gindimobile\/about\/developers\/management.jpg",
+                "order": 2
+            },
+            {
+                "title": [{
+                    "lang": "en",
+                    "value": "About the Architects"
+                }, {
+                    "lang": "he",
+                    "value": "על האדריכלים"
+                }],
+                "description": [{
+                    "lang": "en",
+                    "value": "Behind the spectacular architecture of Gindi TLV's four towers stands MYS Architects. This international Israeli architectural firm is considered one of the leaders in the Israeli architectural field. Over the past 10 years, MYS has integrated elegance, creative vitality, flexible thinking, accumulated knowledge and vast experience in community urban architecture into their work. The firm is responsible for the planning of the most prominent and important projects in Israel, including many that have become synonymous with excellence and innovation.\n" +
+                      "\n" +
+                      "“The magnificent towers of the Gindi TLV project, which reach an impressive height of 180 meters, were planned specifically to make them a spectacular addition to the Tel Aviv skyline. The designers invested in an innovative and iconic clover-leaf design for the towers, so that all of the apartments on all 48 floors would have breathtaking views of the sea and the open spaces surrounding the city.”\n" +
+                      "\n" +
+                      "<br><b>-- Rachel Feller, Project Architect</b>"
+                }, {
+                    "lang": "he",
+                    "value": "מאחורי האדריכלות המרהיבה של ארבעת המגדלים בפרויקט גינדי TLV עומד משרד האדריכלים יסקי-מור-סיון. משרד אדריכלים ישראלי בינלאומי אשר נחשב לאחד מהמובילים בענף האדריכלות בישראל. מזה עשרות שנים, שהתכנונים האדריכליים של יסקי-מור-סיוון שוזרים באלגנטיות רעננות יצירתית, גמישות מחשבתית, ידע נצבר, וניסיון רב באדריכלות אורבנית-קהילתית. המשרד אחראי לתכנון מהפרויקטים הבולטים והחשובים בישראל, מתוכם רבים שהפכו שם נרדף למצוינות ולחדשנות.\n" +
+                      "\n" +
+                      "\"את המגדלים בפרויקט גינדי TLV, המתנשאים לגובה של 180 מ', תכננו באופן שיהווה תוספת מרהיבה לקו הרקיע של תל אביב, בעיצוב חדשני ואייקוני של מגדל בצורת עלה תלתן, כך שבכל אחת מהדירות ב- 48 הקומות תיהנו מנופים עוצרי נשימה של הים והמרחבים הפתוחים המקיפים את העיר.\"\n" +
+                      "\n" +
+                      "</b>-- רחל פללר, אדריכלית הפרויקט<b>"
+                }],
+                "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/gindimobile\/about\/developers\/east-west.jpg",
+                "order": 2
+            }
+
+
+        ]
     }
     ];
 
@@ -79,7 +123,6 @@ let hasUbuntuFont = false;
 let aboutUsSections = [];
 let mode = 'dev';
 let aboutUsMainContainer;
-const imageDark = 'https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Develop\/dev_1.png';
 let activeTabInd;
 try{
     callbackFunction();
@@ -101,8 +144,7 @@ window.addEventListener("DOMContentLoaded", function (event) {
 
 window.addEventListener('orientationchange', orientationHandler);
 window.addEventListener('resize', orientationHandler);
-window.addEventListener('load',  cropImageToText);
-
+window.addEventListener('load',cropImageToText);
 
 function cropImageToText() {
     if (window.innerWidth >= 1024){
@@ -303,11 +345,8 @@ function buildTabsContent(container, objectContent) {
 
         const imgContainer = creatHtmlElement(section, '', 'div', ['about-us__img-container']);
         const img = creatHtmlElement(imgContainer, '', 'img', ['tab-content__image']);
-        if (sectionData.imageUrl === 'https://dreamsimages.bmby.com/new/dev/odessa2020/projectassets/Develop/dev_2.png' && window.innerWidth >= 1024){
-            img.src = imageDark;
-        }else {
-            img.src = sectionData.imageUrl;
-        }
+        img.src = sectionData.imageUrl;
+
         if (objectContent.order !== 0) {
             if (aboutUsData.length > 1){
                 tab.classList.add('hide-tab');
@@ -337,7 +376,6 @@ function switchTab(e) {
         setActiveTab(parent, e);
         activeTabInd = e.dataset.order;
         toggleTabContent(e.dataset.order);
-        // setWrapperContainerHeight();
         cropImageToText();
     }
 }
@@ -440,7 +478,7 @@ body{
     z-index: -1;
     top:0;
     left:0;
-    background: linear-gradient(180deg, #2A3549 0%, #131A2D 10%);
+    background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%);
 }
 
 .tab-content__title{
