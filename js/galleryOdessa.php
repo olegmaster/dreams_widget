@@ -1,3 +1,8 @@
+<?php
+$lang = $_GET['lang'] ?? 'en';
+$dir = (in_array($lang, ['he']))?'rtl':'ltr';
+?>
+
 const categoriesData = [
   {"categoryId":1,"name":[{"lang":"en","value":"Interior"},{"lang":"he","value":"פְּנִים"},{"lang":"ru","value":"Интерьер"},{"lang":"ua","value":"Interior"}]},
     {"categoryId":2,"name":[{"lang":"en","value":"Exterior"},{"lang":"he","value":"חִיצוֹנִי"},{"lang":"ru","value":"Внешний вид"},{"lang":"ua","value":"Exterior"}]},
@@ -69,8 +74,9 @@ const imgData = [
 
     {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":4,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Neighborhood\/neig_2.jpg","order":31},
     ];
-const lang = 'en';
-const dir = 'ltr';
+
+const lang = '<?=$lang?>';
+const dir = '<?=$dir?>';
 
 const galleryData = categoriesData.map((el) => {
     el.images = imgData.filter(imgEl => imgEl.categoryId === el.categoryId);
@@ -179,8 +185,8 @@ function orientationHandler (e) {
         let activeMenu;
         const menus = document.querySelectorAll('.menu__container');
         menus.forEach((menu,index) =>{
-            activeMenu = menu.querySelector('.menu__items > .menu__item.active');
-            menu.remove();
+           activeMenu = menu.querySelector('.menu__items > .menu__item.active');
+           menu.remove();
         });
         insertMenu();
         $('.images__container').slick('unslick');
@@ -863,6 +869,7 @@ body{
     display: flex;
     justify-content: center;
     flex-basis: 33.3%;
+    direction: ltr;
   }
   .dots__container{    
   flex-basis: 33.3%;

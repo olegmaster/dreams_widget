@@ -1,137 +1,41 @@
-// each element contains data about the certain category and pictures belonging to it
-// this data is obtained from API
-const galleryData =[
-    {
-        "categoryId": 1,
-        "name": [
-            { "lang": "en", "value": "Interior" },
-            { "lang": "he", "value": "Interior" },
-            { "lang": "ru", "value": "Interior" }
-        ],
-        "pictures": [
-            {
-                "title": [
-                    { "lang": "en", "value": "Image 8" },
-                    { "lang": "he", "value": "Image 7" },
-                    { "lang": "ru", "value": "Image 7" }
-                ],
-                "imageUrl": "https://dreamseu.z6.web.core.windows.net/251West117thStreet/projectassets/gallery/F576CADE-8088-49E7-B1B7-D9B11411FE3A/reka_les_gory_130651_720x1280.jpg",
-                "order": 3
-            },
-            {
-                "title": [
-                    { "lang": "en", "value": "Image 7" },
-                    { "lang": "he", "value": "fwf" },
-                    { "lang": "ru", "value": "\u041a\u0430\u0440\u0442\u0438\u043d\u043a\u0430 7" }
-                ],
-                "imageUrl": "https://dreamseu.z6.web.core.windows.net/251West117thStreet/projectassets/gallery/1525126F-87A1-461F-B734-65D2624CAE60/kakao_zefir_pled_kniga_osen_118517_1400x1050.jpg",
-                "order": 4
-            }
-        ]
-    },
-    {
-        "categoryId": 2,
-        "name": [
-            { "lang": "en", "value": "Exterior" },
-            { "lang": "he", "value": "Exterior" },
-            { "lang": "ru", "value": "Exterior" }
-        ],
-        "pictures": [
-            {
-                "title": [
-                    { "lang": "en", "value": "Image 6" },
-                    { "lang": "he", "value": "\u05ea\u05de\u05d5\u05e0\u05d4 \u05e8\u05d0\u05e9\u05d5\u05e0\u05d4 \u05e9\u05dc\u05d9'" },
-                    { "lang": "ru", "value": "Image 5" }
-                ],
-                "imageUrl": "https://dreamseu.z6.web.core.windows.net/251West117thStreet/projectassets/gallery/66ACC033-8673-459D-9F36-67E7B0F2F0DD/inzhir_vinograd_chernika_101724_1400x1050.jpg",
-                "order": 0
-            },
-            {
-                "title": [
-                    { "lang": "en", "value": "Image 3" },
-                    { "lang": "he", "value": "wefew" },
-                    { "lang": "ru", "value": "wef" }
-                ],
-                "imageUrl": "https://dreamseu.z6.web.core.windows.net/251West117thStreet/projectassets/gallery/F0AA02A0-DB7C-4470-9257-A2A4240F9B9C/the_lion_king_2021-wallpaper-1600x900.jpg",
-                "order": 1
-            }
-        ]
-    },
-    {
-        "categoryId": 3,
-        "name": [
-            { "lang": "en", "value": "Amenities" },
-            { "lang": "he", "value": "Amenities" },
-            { "lang": "ru", "value": "Amenities" }
-        ],
-        "pictures": [
-            {
-                "title": [
-                    { "lang": "en", "value": "grgrg" },
-                    { "lang": "he", "value": "\u05de\u05e9\u05d4'" },
-                    { "lang": "ru", "value": "" }
-                ],
-                "imageUrl": "https://dreamseu.z6.web.core.windows.net/251West117thStreet/projectassets/gallery/E569E87D-3D09-4117-B424-6E78DDC7EF80/spider_man_4-wallpaper-1600x900.jpg",
-                "order": 2
-            },
-            {
-                "title": [
-                    { "lang": "en", "value": "My Pic 2" },
-                    { "lang": "he", "value": "'\u05ea\u05de\u05d5\u05e0\u05d4 \u05e8\u05d0\u05e9\u05d5\u05e0\u05d4 \u05e9\u05dc'" },
-                    { "lang": "ru", "value": "\u041c\u043e\u044f \u043f\u0435\u0440\u0432\u0430\u044f \u043a\u0430\u0440\u0442\u0438\u043d\u043a\u0430 111" }
-                ],
-                "imageUrl": "https://dreamseu.z6.web.core.windows.net/251West117thStreet/projectassets/gallery/D9A93F2C-9205-4A83-A09A-E550200FCCD1/large_thumbnail.jpg",
-                "order": 5
-            }
-        ]
-    },
-    {
-        "categoryId": 4,
-        "name": [
-            { "lang": "en", "value": "Neighborhood" },
-            { "lang": "he", "value": "Neighborhood" },
-            { "lang": "ru", "value": "Neighborhood" }
-        ],
-        "pictures": [
-            {
-                "title": [
-                    { "lang": "en", "value": "" },
-                    { "lang": "he", "value": "" },
-                    { "lang": "ru", "value": "" }
-                ],
-                "imageUrl": "https://dreamseu.z6.web.core.windows.net/251West117thStreet/projectassets/gallery/259CD220-32CC-4EF6-AA95-2500491BC779/apt 2d.png",
-                "order": 6
-            },
-            {
-                "title": [
-                    { "lang": "en", "value": "" },
-                    { "lang": "he", "value": "" },
-                    { "lang": "ru", "value": "" }
-                ],
-                "imageUrl": "https://dreamseu.z6.web.core.windows.net/251West117thStreet/projectassets/gallery/4E2425A1-2D8C-4FB6-A6D8-1BDA4739D7EA/apt 3d.png",
-                "order": 7
-            }
-        ]
-    }
-];
+const categoriesData = [
+  {"categoryId":1,"name":[{"lang":"en","value":"Interior"},{"lang":"he","value":"פְּנִים"},{"lang":"ru","value":"Interior"},{"lang":"ua","value":"Interior"}]},
+    {"categoryId":2,"name":[{"lang":"en","value":"Amenities"},{"lang":"he","value":"שירותים"},{"lang":"ru","value":"Amenities"},{"lang":"ua","value":"Amenities"}]}
+    ];
+const imgData = [
+  {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":1,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/1.jpg","order":0},
 
-// this variable contains all images for all categories
-// for building the general gallery
-// and we should be able to switch images in the gallery by clicking on menu items or scroll tab
-let imgData = [];
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":1,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/2.jpg","order":1},
 
-// we extract images from galleryData variable to imgData
-galleryData.forEach(galleryElement => {
-    if(galleryElement.hasOwnProperty('pictures') && galleryElement.pictures.length > 0){
-        galleryElement.pictures.forEach(pictureEl => {
-            pictureEl.categoryId = galleryElement.categoryId;
-            imgData.push(pictureEl)
-        });
-    }
-});
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":1,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/d100.jpg","order":2},
 
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":1,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/d200.jpg","order":3},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":1,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Interior\/int_5.jpg","order":4},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":1,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Interior\/int_6.jpg","order":5},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/fc-103-s.jpg","order":6},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/fc-108-s.jpg","order":7},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/fg-1-s.jpg","order":8},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/fn-101-s.jpg","order":9},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/gindi_1.jpg","order":10},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/gindi_2.jpg","order":11},
+
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/gindi_3.jpg","order":12}
+    ];
 const lang = 'en';
 const dir = 'ltr';
+
+const galleryData = categoriesData.map((el) => {
+    el.images = imgData.filter(imgEl => imgEl.categoryId === el.categoryId);
+    return el;
+});
 
 let canvasClass = 'bmby-gallery-wrapp';
 let galleryContainer;
@@ -182,9 +86,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
             setTimeout(()=>{
                 changeImagesContainerHeight();
                 showCaption();
-            },100);
-
-        }},250);
+                },100);
+    }},250);
 });
 
 const fancyBoxTemplate =`
@@ -205,7 +108,7 @@ window.addEventListener('orientationchange',orientationHandler);
 window.addEventListener('resize',orientationHandler);
 
 function scriptsChecker () {
-    return Boolean(window.$ && window.jQuery && window.$.fn.slick);
+    return Boolean(window.$ && window.jQuery && window.$.fn.slick)
 }
 
 function insertCaptionContainer () {
@@ -223,8 +126,8 @@ function changeImagesContainerHeight () {
         const imagesContainer = container.querySelector('.images__container');
         if (window.innerWidth >=1024){
             const menuContainer = container.querySelector('.menu__container');
-            const menuHeight = menuContainer.getBoundingClientRect().height;
-            imagesContainer.style.height = window.innerHeight - menuHeight+ 1 +'px';
+            const menuHeight = Math.ceil(menuContainer.getBoundingClientRect().height);
+            imagesContainer.style.height = window.innerHeight - menuHeight + 1 +'px';
         }else{
             imagesContainer.style.height = '100%';
         }
@@ -236,8 +139,8 @@ function orientationHandler (e) {
         let activeMenu;
         const menus = document.querySelectorAll('.menu__container');
         menus.forEach((menu,index) =>{
-           activeMenu = menu.querySelector('.menu__items > .menu__item.active');
-           menu.remove();
+            activeMenu = menu.querySelector('.menu__items > .menu__item.active');
+            menu.remove();
         });
         insertMenu();
         $('.images__container').slick('unslick');
@@ -369,7 +272,7 @@ function insertMenu () {
         ul.dataset.index = index;
         galleryData.forEach((element,index) => {
             let menuItemName = element.name.filter(el => el.lang === lang);
-            if (element.pictures.length > 0){
+            if (element.images.length > 0){
                 const li = creatHtmlElement(ul,menuItemName[0].value,'li',['menu__item']);
                 li.dataset.categoryId = element.categoryId;
                 if (index ===0){
@@ -460,19 +363,19 @@ function initGallery () {
         });
     });
 
-    fancyboxInit();
+            fancyboxInit();
 
-    slickInit();
+            slickInit();
 
-    $('.images__container').on('swipe', function(event, slick, direction){
-        onScrollGallery();
-    });
+            $('.images__container').on('swipe', function(event, slick, direction){
+                onScrollGallery();
+            });
 
-    $('.images__container').on('afterChange', function(event, slick, currentSlide){
-        onScrollGallery();
-        const slide = this.querySelector('.image__href[data-slick-index="'+currentSlide+'"]');
-        slide && showCaption(slide);
-    });
+           $('.images__container').on('afterChange', function(event, slick, currentSlide){
+                onScrollGallery();
+                const slide = this.querySelector('.image__href[data-slick-index="'+currentSlide+'"]');
+                slide && showCaption(slide);
+            });
 }
 
 function fancyboxInit () {
@@ -536,30 +439,30 @@ function loadStyle (path) {
 }
 
 function addScripts () {
-    const jquery = isLoadedScript('https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js');
-    if (!jquery){
-        loadScript('https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js');
-    }
-    const fancybox = isLoadedScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js');
-    if (!fancybox){
-        loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js');
-    }
-    const fancyboxStyle = isLoadedStyle('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css');
-    if (!fancyboxStyle){
-        loadStyle('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css');
-    }
-    const slick = isLoadedScript('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js');
-    if (!slick){
-        loadScript('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js');
-    }
-    const slickStyle = isLoadedStyle('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
-    if (!slickStyle){
-        loadStyle('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
-    }
-    const fontAwesome = isLoadedStyle('https://pro.fontawesome.com/releases/v5.10.0/css/all.css');
-    if (!fontAwesome){
-        loadStyle('https://pro.fontawesome.com/releases/v5.10.0/css/all.css');
-    }
+        const jquery = isLoadedScript('https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js');
+        if (!jquery){
+          loadScript('https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js');
+        }
+        const fancybox = isLoadedScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js');
+        if (!fancybox){
+            loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js');
+        }
+        const fancyboxStyle = isLoadedStyle('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css');
+        if (!fancyboxStyle){
+            loadStyle('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css');
+        }
+        const slick = isLoadedScript('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js');
+        if (!slick){
+            loadScript('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js');
+        }
+        const slickStyle = isLoadedStyle('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
+        if (!slickStyle){
+            loadStyle('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
+        }
+        const fontAwesome = isLoadedStyle('https://pro.fontawesome.com/releases/v5.10.0/css/all.css');
+        if (!fontAwesome){
+            loadStyle('https://pro.fontawesome.com/releases/v5.10.0/css/all.css');
+        }
 }
 
 function  isWindowInPortrait() {
@@ -812,6 +715,11 @@ body{
 }
 
 @media screen and (min-width: 1024px){
+.main-container-gallery {
+  color: #6E767E;
+  background: #F7F7F7;
+}
+
   .img__tumbs{
     width: 100vw;
     height: calc(100vh - 46px);
@@ -823,6 +731,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: #F7F7F7;
   }
   .images__container{
     padding-top: 0px;
@@ -839,8 +748,9 @@ body{
     display: flex;
     transition: all 0.5s;
     justify-content: center;
-    background: rgba(17, 23, 45, 0.8);
-    color: #fff;
+    // background: rgba(17, 23, 45, 0.8);
+    background: rgba(255, 255, 255, 0.72);
+    color: #1A2F43;
     font-weight: 300;
     line-height: 16px;
   }
@@ -860,6 +770,11 @@ body{
     flex-basis: 33.3%;
     min-width: fit-content;
   }
+  
+  .active {
+  border-bottom: 3px solid #1A2F43;
+  color: #1A2F43;
+}
   .slick-dots{
     display: flex;
     list-style: none;
@@ -871,7 +786,7 @@ body{
   .next-btn,.prev-btn{
     padding: 15px;
     cursor: pointer;
-    color: #fff;
+    color: #1A2F43;
   }
    .next-btn[aria-disabled="true"],.prev-btn[aria-disabled="true"]{
     color: #C0C0C0;
@@ -885,7 +800,7 @@ body{
     height: 10px;
     width: 10px;
     padding: 0;
-    background: #fff;
+    background: #6E767E;
     border-radius: 50%;
     border-style: none;
     cursor:pointer;
@@ -897,10 +812,11 @@ body{
     border-radius: 50%;
   }
    .slick-active{
-    background: #1A2F43;
+    // background: #1A2F43;
   }
     li.slick-active > button{
-    background: #603EF2;
+    // background: #603EF2;
+    background: #1A2F43;
   }
   
   .arrows__container{
@@ -918,7 +834,7 @@ body{
   }
    .fancybox-inner > .fancybox-toolbar >.fancybox-button{
     background: transparent;
-    color: #fff;
+    color: #1A2F43;
 }
 
    .fancybox-inner > .fancybox-navigation > .fancybox-button{
@@ -940,6 +856,11 @@ body{
 
 .fancybox-caption{
    display: none;
+}
+
+.fancybox-bg {
+  background: #F7F7F7 !important;
+  opacity: 1 !important;
 }
 
   

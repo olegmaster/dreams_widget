@@ -1,52 +1,80 @@
- <?php
-require_once 'JsGenerator.php';
-
-class AboutJsGenerator implements JsGenerator
-{
-
-    private $jsString;
-    private $aboutData;
-    private $canvasClass;
-    private $lang;
-    private $callbackFunctionName;
-    private $dir;
-    private $rtlLangs = ['he'];
-
-    public function __construct(string $aboutData = '', string $canvasClass = 'bmby-about', string $callbackFunctionName = '', string $lang = 'en')
+let aboutUsData = [
     {
-        $this->jsString = '';
-        $this->aboutData = $aboutData;
-        $this->canvasClass = $canvasClass;
-        $this->lang = $lang;
-        $this->callbackFunctionName = empty($callbackFunctionName) ? 'nonExistentFunction' : $callbackFunctionName;
-        $this->dir = (in_array($lang, $this->rtlLangs))?'rtl':'ltr';
-        $this->setJs();
+        "chapter": [{
+            "lang": "en",
+            "value": "The Amos Luzon"
+        }, {
+            "lang": "he",
+            "value": "עמוס לוזון"
+        }],
+        "order": 1,
+        "sections": [{
+            "title": [{
+                "lang": "en",
+                "value": ""
+            }, {
+                "lang": "he",
+                "value": "עמוס לוזון"
+            }],
+            "description": [{
+                "lang": "en",
+                "value": ""
+            }, {
+                "lang": "he",
+                "value": "עמוס לוזון יזם בנשמתו, החל את פעילותו בתחום הנדל״ן בשנת 1985 , בייזום פרויקטים בעיר פתח תקווה. בשנת 1995 הקים את חברת ע. לוזון נכסים והשקעות בע״מ, בה הוא מכהן כבעלים ומנכ״ל בפועל. מראשית הקמתה בלטה חברת ע לוזון. בנוף הנדל״ן הישראלי והינה מזוהה יותר מכל עם הקמת פרויקטים יוקרתיים ייחודיים, תוך שימת דגש על רמת תכנון, בנייה פרפקציוניסטית, הקפדה על רמת גימור בסטנדרטים גבוהים ובחירת אנשי המקצוע מהמעולים בישראל.\n" +
+                  "עם השנים התרחבה החברה וביססה את מעמדה כאחת מחברות היזמות האיכותיות, המובילות, ובעלות ותק וניסיון מוכח בענף הנדל״ן בישראל. איתנותה הפיננסית והמוניטין הטוב לה זכתה החברה במהלך השנים מאפשרים לחברת ע. לוזון לקחת חלק במגוון רחב של פעילויות נדל\"ן הכוללים ייזום והקמת נדל״ן למגורים, מרכזים מסחריים, דיור מוגן ופארקים של תעשייה ומדע, תוך כדי שיתופי פעולה עם חברות נדל״ן מהגדולות במשק הישראלי.\n" +
+                  "בינואר 2016 רכש עמוס לוזון את קבוצת א. דורי ושינה את שמה לקבוצת עמוס לוזון יזמות ואנרגיה בע״מ. חברת ע. לוזון נכסים והשקעות חולשת על עשרות פרויקטים בשוק הנדל״ן הפרטי והמסחרי. בשנתיים האחרונות החברה זכתה במכרזי מחיר למשתכן והקימה שכונות לזוגות צעירים בערים המבוקשות: ראשון לציון, ראש העין, באר יעקב."
+            }],
+            "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Project\/proj_1.jpg",
+            "order": 1
+        }]
+    },
+    {
+        "chapter": [{
+            "lang": "en",
+            "value": "The Brosh Group"
+        }, {
+            "lang": "he",
+            "value": "קבוצת ברוש"
+        }],
+        "order": 2,
+        "sections": [{
+            "title": [{
+                "lang": "en",
+                "value": "The Brosh Group"
+            }, {
+                "lang": "he",
+                "value": "היזמים"
+            }],
+            "description": [{
+                "lang": "en",
+                "value": ""
+            }, {
+                "lang": "he",
+                "value": "קבוצת ברוש - מעניקה ללקוחותיה חווית מגורים כוללת תחת קורת גג אחת - חברה מבצעת וחברה יזמית עם ניסיון רב שנים. שילוב כוחות של זרוע יזמית וזרוע מבצעת העובדות בשיתוף פעולה צמוד, מאפשר הענקת שירות בסטנדרטים הגבוהים ביותר בעת רכישת הנכס הגדול והחשוב בחייכם, לאורך כל תהליך תכנון ובניית ביתכם החדש וגם לאחר כניסתכם לדירה.\n" +
+                  "ברוש ניר עבודות הנדסה ובניין - הינה קבלן מורשה בסיווג ג 5- בלתי מוגבל. לחברה ניסיון של 25 שנים בבנייה של פרויקטים הנדסיים רבים ומורכבים. מאז הקמתה, בנתה החברה מעל ל- 500 אלף מ\"ר ביותר מ- 200 פרויקטים למגורים, מסחר, משרדים, תעשייה, מלונאות, מבני ציבור, מתקנים צבאיים ותשתיות. בין לקוחותיה, נמנות החברות הגדולות במשק, ביניהן קבוצת עזריאלי, עופר השקעות, מליסרון, שופרסל, הריבוע הכחול, מלונות פרימה, בריטיש ישראל, שיכון ובינוי, חיל ההנדסה האמריקאי, משרד הבטחון, חברת החשמל, רכבת ישראל ועוד\n" +
+                  "ברוש ניר יזמות - נוסדה לפני עשור ומשמשת כזרוע היזמית של הקבוצה. החברה מובילה, יוזמת, מתכננת ומוציאה לפועל את הקמתם של פרויקטים למגורים בערי השרון ותל-אביב. כמו כן, מקדמת החברה תכניות בניין עיר להקמתן של שכונות מגורים חדשות, תוך מתן דגש על תכנון מוקפד לכל פרויקט וליווי פעיל של מאות משפחות, בדרך לביתן החדש."
+            }],
+            "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Develop\/dev_2.png",
+            "order": 2
+        }]
     }
+    ];
 
-    public function showJs()
-    {
-        header('Content-Type: application/javascript');
-        echo $this->jsString;
-    }
 
-    private function setJs()
-    {
-        $this->jsString = <<<EOD
-let aboutUsData = $this->aboutData;
-let canvasClass = '$this->canvasClass';
-let lang = '$this->lang';
-let dir = '$this->dir';
- 
+let canvasClass = 'bmby-about-wrapp';
+let lang = 'he';
+const dir = 'rtl';
 let hasUbuntuFont = false;
 let aboutUsSections = [];
-
-let mode = 'prod';
+let mode = 'dev';
 let aboutUsMainContainer;
-let activeTabInd = aboutUsData[0].order;;
+const imageDark = 'https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Develop\/dev_1.png';
+let activeTabInd;
 try{
-    $this->callbackFunctionName();
+    callbackFunction();
 } catch (e) {
-    if (mode === 'dev') {
+    if(mode === 'dev'){
         console.log('unable to run callback');
     }
 }
@@ -98,7 +126,7 @@ function cropImageToText() {
     if (window.innerWidth >= 1024){
         const sectionCollection = document.querySelectorAll('.tab-content__container-section');
         sectionCollection.forEach(section => {
-           setTimeout(() => {
+            setTimeout(() => {
                 const img = section.querySelector('.about-us__img-container > .tab-content__image');
                 const sub = section.querySelector('.text-content__wrapper > .about-us__sub-wrapper');
                 let subHeight = 0;
@@ -297,7 +325,11 @@ function buildTabsContent(container, objectContent) {
 
         const imgContainer = creatHtmlElement(section, '', 'div', ['about-us__img-container']);
         const img = creatHtmlElement(imgContainer, '', 'img', ['tab-content__image']);
-        img.src = sectionData.imageUrl;
+        if (sectionData.imageUrl === 'https://dreamsimages.bmby.com/new/dev/odessa2020/projectassets/Develop/dev_2.png' && window.innerWidth >= 1024){
+            img.src = imageDark;
+        }else {
+            img.src = sectionData.imageUrl;
+        }
         if (objectContent.order !== 0) {
             if (aboutUsData.length > 1){
                 tab.classList.add('hide-tab');
@@ -409,7 +441,7 @@ body{
 }
 
 .hide-tab{
- display: none;
+ display: none;  
 }
 
 .about-us__img-container{
@@ -500,7 +532,7 @@ body{
 @media screen and (min-width: 1024px) {
   .main-container-about {
     padding: 0 10px;
-    background: #E5E5E5;
+    background: #F7F7F7;
     font-family: 'Ubuntu', sans-serif;
     font-style: normal;
   }
@@ -521,7 +553,7 @@ body{
     margin-top: -2px;
     background: #C0C0C0 ;
   }
-
+  
   .active {
     border-bottom: 3px solid #1A2F43;
     color: #1A2F43;
@@ -533,7 +565,7 @@ body{
   }
   .menu__item{
     margin: 0;
-    margin-right: 24px;
+    padding: 11px 49px;
     font-size: 30px;
     font-style: normal;
     font-weight: 500;
@@ -734,8 +766,3 @@ body{
     }
 
 }(window, document));
-
-EOD;
-
-    }
-}

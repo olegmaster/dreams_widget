@@ -1,50 +1,156 @@
- <?php
-require_once 'JsGenerator.php';
+let aboutUsData = [{
+    "chapter": [{
+        "lang": "en",
+        "value": "Chapter 14"
+    }, {
+        "lang": "he",
+        "value": "Chapter 1"
+    }, {
+        "lang": "ru",
+        "value": "Chapter 1"
+    }],
+    "order": 1,
+    "sections": [{
+        "title": [{
+            "lang": "en",
+            "value": "Section 1"
+        }, {
+            "lang": "he",
+            "value": "\u05e1\u05e7\u05e9\u05df 1"
+        }, {
+            "lang": "ru",
+            "value": "\u0441\u0435\u043a\u0442\u0446\u0438\u044f 1"
+        }],
+        "description": [{
+            "lang": "en",
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+        }, {
+            "lang": "he",
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+        }, {
+            "lang": "ru",
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+        }],
+        "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg",
+        "order": 1
+    }, {
+        "title": [{
+            "lang": "en",
+            "value": "Section 3"
+        }, {
+            "lang": "he",
+            "value": "Section 3"
+        }, {
+            "lang": "ru",
+            "value": "Section 3"
+        }],
+        "description": [{
+            "lang": "en",
+            "value": "jjkhjk"
+        }, {
+            "lang": "he",
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+        }, {
+            "lang": "ru",
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+        }],
+        "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg",
+        "order": 2
+    }, {
+        "title": [{
+            "lang": "en",
+            "value": "Section 7"
+        }, {
+            "lang": "he",
+            "value": "Section 7"
+        }, {
+            "lang": "ru",
+            "value": "Section 7"
+        }],
+        "description": [{
+            "lang": "en",
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+        }, {
+            "lang": "he",
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+        }, {
+            "lang": "ru",
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+        }],
+        "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg",
+        "order": 4
+    }, {
+        "title": [{
+            "lang": "en",
+            "value": "Section 8"
+        }, {
+            "lang": "he",
+            "value": "Section 8"
+        }, {
+            "lang": "ru",
+            "value": "Section 8"
+        }],
+        "description": [{
+            "lang": "en",
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+        }, {
+            "lang": "he",
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+        }, {
+            "lang": "ru",
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+        }],
+        "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/4B955B0C-FD2F-474F-8A74-4840D8523468\/kitajskaya_grusha_frukty_razdelochnaya_doska_108809_1024x768.jpg",
+        "order": 5
+    }]
+}, {
+    "chapter": [{
+        "lang": "en",
+        "value": "Chapter 2"
+    }, {
+        "lang": "he",
+        "value": "Chapter 2"
+    }, {
+        "lang": "ru",
+        "value": "Chapter 2"
+    }],
+    "order": 2,
+    "sections": [{
+        "title": [{
+            "lang": "en",
+            "value": "Section 6"
+        }, {
+            "lang": "he",
+            "value": "Section 1 ch 2"
+        }, {
+            "lang": "ru",
+            "value": "Section 1 ch 2"
+        }],
+        "description": [{
+            "lang": "en",
+            "value": ""
+        }, {
+            "lang": "he",
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+        }, {
+            "lang": "ru",
+            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+        }],
+        "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg",
+        "order": 3
+    }]
+}];
 
-class AboutJsGenerator implements JsGenerator
-{
-
-    private $jsString;
-    private $aboutData;
-    private $canvasClass;
-    private $lang;
-    private $callbackFunctionName;
-    private $dir;
-    private $rtlLangs = ['he'];
-
-    public function __construct(string $aboutData = '', string $canvasClass = 'bmby-about', string $callbackFunctionName = '', string $lang = 'en')
-    {
-        $this->jsString = '';
-        $this->aboutData = $aboutData;
-        $this->canvasClass = $canvasClass;
-        $this->lang = $lang;
-        $this->callbackFunctionName = empty($callbackFunctionName) ? 'nonExistentFunction' : $callbackFunctionName;
-        $this->dir = (in_array($lang, $this->rtlLangs))?'rtl':'ltr';
-        $this->setJs();
-    }
-
-    public function showJs()
-    {
-        header('Content-Type: application/javascript');
-        echo $this->jsString;
-    }
-
-    private function setJs()
-    {
-        $this->jsString = <<<EOD
-let aboutUsData = $this->aboutData;
-let canvasClass = '$this->canvasClass';
-let lang = '$this->lang';
-let dir = '$this->dir';
- 
+let canvasClass = 'bmby-about-wrapp';
+let lang = 'en';
+const dir = 'ltr';
 let hasUbuntuFont = false;
 let aboutUsSections = [];
-
-let mode = 'prod';
+let mode = 'dev';
 let aboutUsMainContainer;
-let activeTabInd = aboutUsData[0].order;;
-try{
-    $this->callbackFunctionName();
+let activeTabInd = aboutUsData[0].order;
+try {
+    callbackFunction();
 } catch (e) {
     if (mode === 'dev') {
         console.log('unable to run callback');
@@ -409,7 +515,7 @@ body{
 }
 
 .hide-tab{
- display: none;
+ display: none;  
 }
 
 .about-us__img-container{
@@ -521,7 +627,7 @@ body{
     margin-top: -2px;
     background: #C0C0C0 ;
   }
-
+  
   .active {
     border-bottom: 3px solid #1A2F43;
     color: #1A2F43;
@@ -734,8 +840,3 @@ body{
     }
 
 }(window, document));
-
-EOD;
-
-    }
-}

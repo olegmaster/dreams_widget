@@ -1,145 +1,120 @@
-let aboutUsData = [{
-    "chapter": [{
-        "lang": "en",
-        "value": "Chapter 14"
-    }, {
-        "lang": "he",
-        "value": "Chapter 1"
-    }, {
-        "lang": "ru",
-        "value": "Chapter 1"
-    }],
-    "order": 1,
-    "sections": [{
-        "title": [{
+let aboutUsData = [
+    {
+        "chapter": [{
             "lang": "en",
-            "value": "Section 1"
+            "value": "The Project"
         }, {
             "lang": "he",
-            "value": "\u05e1\u05e7\u05e9\u05df 1"
-        }, {
-            "lang": "ru",
-            "value": "\u0441\u0435\u043a\u0442\u0446\u0438\u044f 1"
+            "value": "הפרויקט"
         }],
-        "description": [{
+        "order": 1,
+        "sections": [{
+            "title": [{
+                "lang": "en",
+                "value": "The Project"
+            }, {
+                "lang": "he",
+                "value": "הפרויקט"
+            }, {
+                "lang": "ru",
+                "value": "The Project"
+            }],
+            "description": [{
+                "lang": "en",
+                "value": "“Odessa 2020” Project is located in the heart of the city’s entertainment and recreation center, adjacent to the beach. The project’s unique location close to Arcadia promenade provides an incredible mix of vibrant nightlife, along with an abundance of restaurants offering rich cuisine, cultural and historical sites and marvelous beaches. The complex is composed of a luxury tower with 440 studio, 2 and 3-room apartments, fully furnished and equipped to suit all types of tourists (couples, families, businessmen, etc.). The complex has everything you need to enjoy life: a Dead Sea spa, transparent swimming pool on the 26th floor, gym, aesthetic center, conference rooms, restaurants and coffee shops, concierge service, underground parking, housekeeping and room service, and more. The project was planned and designed by an Israeli architect, Assaf Shaul – co-owner of CPSL architectural firm. Each apartment features a balcony overlooking the sea. The apartments will be rented to tourists by an Israeli management company for short periods via the Airbnb model. In the complex there is a business center “Emporium Business Tower”. The city of Odessa, aka the “Black Sea Pearl”, is a tourist destination on the rise. In 2019 alone, over 3.5 million tourists visited the city and their number grows by about half a million each year, which has led to a shortage of about 250,000 accommodation facilities. Many Israelis visit Odessa as well, especially since the city is located within only 3 hours flight from all European capitals, and is known for its magnificent architecture, fine cuisine, vibrant nightlife and affordable prices. The apartments in the project will be rented to tourists by an Israeli management company for short periods of time via the Airbnb model. Furthermore, Odessa has a large shortage of offices due to the economic growth and the move of international high-tech companies to the city."
+            }, {
+                "lang": "he",
+                "value": "אודסה 2020 ממוקם בלב ליבו של מרכז הבילויים והנופש של העיר, בסמוך לחוף הים. מיקומו הייחודי בקרבת טיילת ארקדיה מעניק שילוב מדהים של חיי לילה תוססים, יחד עם מסעדות רבות המציעות קולינריה עשירה ומגוונת, אתרי תרבות והיסטוריה וכמובן חופי ים מרהיבים. בקומפלקס 2 מגדלי יוקרה, מגדל דירות עם 440 דירות סטודיו, 2 חדרים ו-3 חדרים, מרוהטות ומאובזרות באופן מלא המתאימות לכל סוגי התיירים (זוגות, משפחות, אנשי עסקים ועוד). המתחם כולל כל מה שצריך בכדי להנות מהחיים: ספא ים המלח, בריכת שחייה עם תחתית שקופה בקומה ה-26, חדר כושר, מרכז אסתטיקה, חדרי ישיבות, מסעדות ובתי קפה, שירות קונסיירז', חניה תת קרקעית, שירותי ניקיון ושירות חדרים ועוד. על עיצובו ותכנונו של הפרויקט אמון אדריכל ישראלי, אסף שאול, מבעלי חברת האדריכלות CPSL. לכל דירה בפרויקט מרפסת הפונה לכיוון הים. הדירות בפרויקט יושכרו לתיירים לתקופות קצרות, במודל של Airbnb ע\"י חברת ניהול ישראלית. במתחם מגדל משרדים, מרכז העסקים החדש של אודסה Emporium Business Tower. העיר אודסה, המכונה גם \"פנינת הים השחור\", היא יעד תיירותי שנהנה מפופולריות גוברת. ב-2019 לבדה ביקרו בעיר למעלה מ- 3.5 מיליון תיירים ומספרם עולה בקצב של כחצי מיליון מדי שנה, כך שנוצר מחסור של כ-250 אלף חדרי אירוח. גם הישראלים מגיעים אליה בהמוניהם, העיר נמצאת במרחק טיסה של שעתיים ורבע בלבד מנתב\"ג, וידועה בארכיטקטורה היפה, קולינריה משובחת, חיי לילה תוססים ובמחירים הנוחים. הדירות בפרויקט יושכרו לתיירים לתקופות קצרות, במודל של Airbnb ע\"י חברת ניהול ישראלית. כמו כן, באודסה קיים מחסור גדול של משרדים בשל הצמיחה הכלכלית ומעבר של חברות הייטק בינלאומיות לעיר."
+            }],
+            "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Project\/proj_1.jpg",
+            "order": 1
+        }]
+    },
+    {
+        "chapter": [{
             "lang": "en",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+            "value": "The Developers"
         }, {
             "lang": "he",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
-        }, {
-            "lang": "ru",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+            "value": "היזמים"
         }],
-        "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg",
-        "order": 1
-    }, {
-        "title": [{
-            "lang": "en",
-            "value": "Section 3"
-        }, {
-            "lang": "he",
-            "value": "Section 3"
-        }, {
-            "lang": "ru",
-            "value": "Section 3"
-        }],
-        "description": [{
-            "lang": "en",
-            "value": "jjkhjk"
-        }, {
-            "lang": "he",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
-        }, {
-            "lang": "ru",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
-        }],
-        "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg",
-        "order": 2
-    }, {
-        "title": [{
-            "lang": "en",
-            "value": "Section 7"
-        }, {
-            "lang": "he",
-            "value": "Section 7"
-        }, {
-            "lang": "ru",
-            "value": "Section 7"
-        }],
-        "description": [{
-            "lang": "en",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
-        }, {
-            "lang": "he",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
-        }, {
-            "lang": "ru",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
-        }],
-        "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg",
-        "order": 4
-    }, {
-        "title": [{
-            "lang": "en",
-            "value": "Section 8"
-        }, {
-            "lang": "he",
-            "value": "Section 8"
-        }, {
-            "lang": "ru",
-            "value": "Section 8"
-        }],
-        "description": [{
-            "lang": "en",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
-        }, {
-            "lang": "he",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
-        }, {
-            "lang": "ru",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
-        }],
-        "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/4B955B0C-FD2F-474F-8A74-4840D8523468\/kitajskaya_grusha_frukty_razdelochnaya_doska_108809_1024x768.jpg",
-        "order": 5
-    }]
-}, {
-    "chapter": [{
-        "lang": "en",
-        "value": "Chapter 2"
-    }, {
-        "lang": "he",
-        "value": "Chapter 2"
-    }, {
-        "lang": "ru",
-        "value": "Chapter 2"
-    }],
-    "order": 2,
-    "sections": [{
-        "title": [{
-            "lang": "en",
-            "value": "Section 6"
-        }, {
-            "lang": "he",
-            "value": "Section 1 ch 2"
-        }, {
-            "lang": "ru",
-            "value": "Section 1 ch 2"
-        }],
-        "description": [{
-            "lang": "en",
-            "value": ""
-        }, {
-            "lang": "he",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
-        }, {
-            "lang": "ru",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
-        }],
-        "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg",
-        "order": 3
-    }]
-}];
+        "order": 2,
+        "sections": [{
+            "title": [{
+                "lang": "en",
+                "value": "The Developers"
+            }, {
+                "lang": "he",
+                "value": "על היזם"
+            }],
+            "description": [{
+                "lang": "en",
+                "value": "Gindi, the renowned international real estate company, has been one of the leading and" +
+                  " most innovative companies in Israel for the past 50 years. It is engaged in initiating, developing, marketing and managing commercial and residential projects, malls and commercial centers, and luxury towers and residential neighborhoods, with a scope of thousands of housing units and hundreds of thousands of square meters in Israel and abroad. Within the framework of its activity, Gindi has built itself a strong reputation as an established company that conducts itself with the utmost professionalism and is dedicated to the best interests of customers and investors alike."
+            }, {
+                "lang": "he",
+                "value": "חברת הנדל”ן גינדי הינה מהמובילות והחדשניות בישראל למותג נדל”ן בן 50 שנה. החברה עוסקת בייזום, פיתוח, שיווק וניהול פרויקטים למסחר, מגורים, קניונים, מרכזים מסחריים, מגדלי יוקרה ושכונות מגורים, בהיקפים של אלפי יחידות דיור ומאות אלפי מ\"ר, בארץ ובחו”ל.\n" +
+                  "\n" +
+                  "במסגרת פעילותה, בנתה גינדי מוניטין חזק של חברה יציבה, השומרת על התנהלות מקצועית ומסורה מול קהל לקוחותיה וציבור המשקיעים.\n"
+            }],
+            "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/gindimobile\/about\/developers\/logo.png",
+            "order": 2
+        },
+            {
+                "title": [{
+                    "lang": "en",
+                    "value": ""
+                }, {
+                    "lang": "he",
+                    "value": ""
+                }],
+                "description": [{
+                    "lang": "en",
+                    "value": "<b>At the head of this company is the next generation of the renowned Gindi real estate" +
+                      " dynasty: brothers Manor and Kfir Gindi, as well as their brother-in-law, Ori Levy. Like" +
+                      " their entire staff, they have a joint vision for leading the real estate market. Their goal" +
+                      " is to develop and construct unique projects that respond to specific customer needs, while" +
+                      " maintaining full integrity and a level of implementation that is no less than perfect.</b>"
+                }, {
+                    "lang": "he",
+                    "value": "<b>בראש הקבוצה עומד דור ההמשך של משפחת הנדל\"ן הידועה, המעבירה את שרביט בניין הארץ מדור" +
+                      " לדור: האחים מנור וכפיר גינדי, ואורי לוי. לשלושתם, כמו לכל הצוות הרחב של גינדי, חזון משותף להוביל את שוק הנדל\"ן הישראלי. ליזום ולהקים פרויקטים ייחודיים אשר מספקים מענה מדויק לצרכי הלקוחות, תוך הקפדה על יושרה מלאה.</b>"
+                }],
+                "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/gindimobile\/about\/developers\/management.jpg",
+                "order": 2
+            },
+            {
+                "title": [{
+                    "lang": "en",
+                    "value": "About the Architects"
+                }, {
+                    "lang": "he",
+                    "value": "על האדריכלים"
+                }],
+                "description": [{
+                    "lang": "en",
+                    "value": "Behind the spectacular architecture of Gindi TLV's four towers stands MYS Architects. This international Israeli architectural firm is considered one of the leaders in the Israeli architectural field. Over the past 10 years, MYS has integrated elegance, creative vitality, flexible thinking, accumulated knowledge and vast experience in community urban architecture into their work. The firm is responsible for the planning of the most prominent and important projects in Israel, including many that have become synonymous with excellence and innovation.\n" +
+                      "\n" +
+                      "“The magnificent towers of the Gindi TLV project, which reach an impressive height of 180 meters, were planned specifically to make them a spectacular addition to the Tel Aviv skyline. The designers invested in an innovative and iconic clover-leaf design for the towers, so that all of the apartments on all 48 floors would have breathtaking views of the sea and the open spaces surrounding the city.”\n" +
+                      "\n" +
+                      "<br><b>-- Rachel Feller, Project Architect</b>"
+                }, {
+                    "lang": "he",
+                    "value": "מאחורי האדריכלות המרהיבה של ארבעת המגדלים בפרויקט גינדי TLV עומד משרד האדריכלים יסקי-מור-סיון. משרד אדריכלים ישראלי בינלאומי אשר נחשב לאחד מהמובילים בענף האדריכלות בישראל. מזה עשרות שנים, שהתכנונים האדריכליים של יסקי-מור-סיוון שוזרים באלגנטיות רעננות יצירתית, גמישות מחשבתית, ידע נצבר, וניסיון רב באדריכלות אורבנית-קהילתית. המשרד אחראי לתכנון מהפרויקטים הבולטים והחשובים בישראל, מתוכם רבים שהפכו שם נרדף למצוינות ולחדשנות.\n" +
+                      "\n" +
+                      "\"את המגדלים בפרויקט גינדי TLV, המתנשאים לגובה של 180 מ', תכננו באופן שיהווה תוספת מרהיבה לקו הרקיע של תל אביב, בעיצוב חדשני ואייקוני של מגדל בצורת עלה תלתן, כך שבכל אחת מהדירות ב- 48 הקומות תיהנו מנופים עוצרי נשימה של הים והמרחבים הפתוחים המקיפים את העיר.\"\n" +
+                      "\n" +
+                      "</b>-- רחל פללר, אדריכלית הפרויקט<b>"
+                }],
+                "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/gindimobile\/about\/developers\/east-west.jpg",
+                "order": 2
+            }
+
+
+        ]
+    }
+    ];
+
 
 let canvasClass = 'bmby-about-wrapp';
 let lang = 'en';
@@ -148,11 +123,11 @@ let hasUbuntuFont = false;
 let aboutUsSections = [];
 let mode = 'dev';
 let aboutUsMainContainer;
-let activeTabInd = aboutUsData[0].order;
-try {
+let activeTabInd;
+try{
     callbackFunction();
 } catch (e) {
-    if (mode === 'dev') {
+    if(mode === 'dev'){
         console.log('unable to run callback');
     }
 }
@@ -169,42 +144,13 @@ window.addEventListener("DOMContentLoaded", function (event) {
 
 window.addEventListener('orientationchange', orientationHandler);
 window.addEventListener('resize', orientationHandler);
-window.addEventListener('load',()=>{
-    cropImageToText();
-    setWrapperContainerHeight();
-});
-
-function setWrapperContainerHeight() {
-    if (window.innerWidth < 1024) {
-        const tabsContent = aboutUsMainContainer.querySelectorAll('.tab-content__container');
-        const menuHeight = aboutUsMainContainer.querySelector('.menu__items').getBoundingClientRect().height;
-        const isPortrait = isWindowInPortrait();
-        tabsContent.forEach(tab=>{
-            if (isPortrait){
-                if (tab.scrollHeight < window.innerHeight && tab.scrollHeight > 0){
-                    tab.style.height = window.innerHeight - menuHeight - 24 + 16 +'px';
-                }else{
-                    tab.style.height = '100%';
-                }
-            } else {
-                tab.style.height = '100%';
-            }
-        });
-    } else{
-        const mainHeight = aboutUsMainContainer.getBoundingClientRect().height;
-        if (mainHeight < window.innerHeight){
-            aboutUsMainContainer.style.height = window.innerHeight+'px';
-        }else{
-            aboutUsMainContainer.style.height = '100%';
-        }
-    }
-}
+window.addEventListener('load',cropImageToText);
 
 function cropImageToText() {
     if (window.innerWidth >= 1024){
         const sectionCollection = document.querySelectorAll('.tab-content__container-section');
         sectionCollection.forEach(section => {
-           setTimeout(() => {
+            setTimeout(() => {
                 const img = section.querySelector('.about-us__img-container > .tab-content__image');
                 const sub = section.querySelector('.text-content__wrapper > .about-us__sub-wrapper');
                 let subHeight = 0;
@@ -236,10 +182,6 @@ function orientationHandler() {
                 contentWrapper.style.marginLeft = 0 + 'px';
             }
         }
-
-        // setTimeout(() => {
-        //     setWrapperContainerHeight();
-        // }, 200);
     } else {
         clearContent();
         insertMenu(activeTabInd);
@@ -373,7 +315,7 @@ function setMenuStyle(menuItems) {
         if (scrollWidth <= currentView && lengthItems > 2) {
             menuItems.style.justifyContent = 'space-between';
             for (let child of childrenItems) {
-                child.style.flexBasis = 100 / lengthItems + '%';
+                child.style.flexBasis = 100 / (lengthItems - 1) + '%';
                 child.style.textAlign = 'center';
             }
         }
@@ -404,6 +346,7 @@ function buildTabsContent(container, objectContent) {
         const imgContainer = creatHtmlElement(section, '', 'div', ['about-us__img-container']);
         const img = creatHtmlElement(imgContainer, '', 'img', ['tab-content__image']);
         img.src = sectionData.imageUrl;
+
         if (objectContent.order !== 0) {
             if (aboutUsData.length > 1){
                 tab.classList.add('hide-tab');
@@ -433,7 +376,6 @@ function switchTab(e) {
         setActiveTab(parent, e);
         activeTabInd = e.dataset.order;
         toggleTabContent(e.dataset.order);
-        setWrapperContainerHeight();
         cropImageToText();
     }
 }
@@ -527,6 +469,18 @@ body{
   width: 100%;
 }
 
+  .tabs-data-content__wrapper::before{
+    content:'';
+    display: block;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+    top:0;
+    left:0;
+    background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%);
+}
+
 .tab-content__title{
   font-size: 18px;
   color: #fff;
@@ -606,7 +560,7 @@ body{
 @media screen and (min-width: 1024px) {
   .main-container-about {
     padding: 0 10px;
-    background: #E5E5E5;
+    background: #F7F7F7;
     font-family: 'Ubuntu', sans-serif;
     font-style: normal;
   }
@@ -637,9 +591,13 @@ body{
     width: 100%;
     margin: 0 auto;
   }
+  
+  .tabs-data-content__wrapper::before{
+    background: #F7F7F7;
+}
   .menu__item{
     margin: 0;
-    margin-right: 24px;
+    padding: 11px 49px;
     font-size: 30px;
     font-style: normal;
     font-weight: 500;
