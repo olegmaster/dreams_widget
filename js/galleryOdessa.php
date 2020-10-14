@@ -127,6 +127,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         if (scriptsChecker()){
             clearInterval(isScriptsLoaded);
             insertMenu();
+            checkUserAgent();
             insertCaptionContainer();
             initGallery();
             setTimeout(()=>{
@@ -155,6 +156,26 @@ window.addEventListener('resize',orientationHandler);
 
 function scriptsChecker () {
     return Boolean(window.$ && window.jQuery && window.$.fn.slick)
+}
+
+function checkUserAgent () {
+    const userAgentArr = ['iPhone','iPad','Android','Windows'];
+    const userAgent = window.navigator.userAgent;
+    userAgentArr.forEach(agent =>{
+        const res = userAgent.match(agent);
+        if (res && res[0] !=='Windows'){
+            reduceImage();
+        }
+    });
+}
+
+function reduceImage () {
+    const startUrl ='https://dreamsimages.bmby.com';
+    const reduceImgUrl = '/cdn-cgi/image/width=800';
+    imgData.forEach(img =>{
+        const splitedImgUrl = img.imageUrl.split('https://dreamsimages.bmby.com');
+        img.imageUrl = startUrl+reduceImgUrl+splitedImgUrl[1];
+    });
 }
 
 function insertCaptionContainer () {
