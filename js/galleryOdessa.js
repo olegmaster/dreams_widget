@@ -69,8 +69,8 @@ const imgData = [
 
     {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":4,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Neighborhood\/neig_2.jpg","order":31},
     ];
-const lang = 'en';
-const dir = 'ltr';
+const lang = 'he';
+const dir = 'rtl';
 
 const galleryData = categoriesData.map((el) => {
     el.images = imgData.filter(imgEl => imgEl.categoryId === el.categoryId);
@@ -164,11 +164,13 @@ function checkUserAgent () {
 }
 
 function reduceImage () {
-    const startUrl ='https://dreamsimages.bmby.com';
-    const reduceImgUrl = '/cdn-cgi/image/width=800';
+    const reduceImgUrl = 'cdn-cgi/image/width=800';
     imgData.forEach(img =>{
-        const splitedImgUrl = img.imageUrl.split('https://dreamsimages.bmby.com');
-        img.imageUrl = startUrl+reduceImgUrl+splitedImgUrl[1];
+        const parseUrl = img.imageUrl.replace('https://','').split('/');
+        parseUrl.unshift('https:/');
+        parseUrl.splice(2,0,reduceImgUrl);
+        const buildUrl = parseUrl.join('/');
+        img.imageUrl = buildUrl;
     });
 }
 

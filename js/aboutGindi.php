@@ -11,32 +11,361 @@ let aboutUsData = [
         }, {
             "lang": "he",
             "value": "הפרויקט"
-        }, {
-            "lang": "ru",
-            "value": "Chapter 1"
         }],
         "order": 1,
-        "sections": [{
+        "sections": [
+          {
             "title": [{
                 "lang": "en",
-                "value": "The Project"
+                "value": "Wake up in the heart of Tel Aviv"
             }, {
                 "lang": "he",
-                "value": "הפרויקט"
-            }, {
-                "lang": "ru",
-                "value": "The Project"
+                "value": "לבלות ערב בעיר, במרחק הליכה מהבית"
             }],
             "description": [{
                 "lang": "en",
-                "value": "“Odessa 2020” Project is located in the heart of the city’s entertainment and recreation center, adjacent to the beach. The project’s unique location close to Arcadia promenade provides an incredible mix of vibrant nightlife, along with an abundance of restaurants offering rich cuisine, cultural and historical sites and marvelous beaches. The complex is composed of a luxury tower with 440 studio, 2 and 3-room apartments, fully furnished and equipped to suit all types of tourists (couples, families, businessmen, etc.). The complex has everything you need to enjoy life: a Dead Sea spa, transparent swimming pool on the 26th floor, gym, aesthetic center, conference rooms, restaurants and coffee shops, concierge service, underground parking, housekeeping and room service, and more. The project was planned and designed by an Israeli architect, Assaf Shaul – co-owner of CPSL architectural firm. Each apartment features a balcony overlooking the sea. The apartments will be rented to tourists by an Israeli management company for short periods via the Airbnb model. In the complex there is a business center “Emporium Business Tower”. The city of Odessa, aka the “Black Sea Pearl”, is a tourist destination on the rise. In 2019 alone, over 3.5 million tourists visited the city and their number grows by about half a million each year, which has led to a shortage of about 250,000 accommodation facilities. Many Israelis visit Odessa as well, especially since the city is located within only 3 hours flight from all European capitals, and is known for its magnificent architecture, fine cuisine, vibrant nightlife and affordable prices. The apartments in the project will be rented to tourists by an Israeli management company for short periods of time via the Airbnb model. Furthermore, Odessa has a large shortage of offices due to the economic growth and the move of international high-tech companies to the city."
+                "value": "Come and join the beautiful Gindi TLV community and expand the horizons of your daily life with a mosaic of exciting Tel Aviv experiences. In the most coveted city center location, at the bustling corner of HaHashmonaim and Carlebach Streets, an unparalleled lifestyle awaits you near numerous exceptional educational institutions, cultural attractions and entertainment venues."
             }, {
                 "lang": "he",
-                "value": "אודסה 2020 ממוקם בלב ליבו של מרכז הבילויים והנופש של העיר, בסמוך לחוף הים. מיקומו הייחודי בקרבת טיילת ארקדיה מעניק שילוב מדהים של חיי לילה תוססים, יחד עם מסעדות רבות המציעות קולינריה עשירה ומגוונת, אתרי תרבות והיסטוריה וכמובן חופי ים מרהיבים. בקומפלקס 2 מגדלי יוקרה, מגדל דירות עם 440 דירות סטודיו, 2 חדרים ו-3 חדרים, מרוהטות ומאובזרות באופן מלא המתאימות לכל סוגי התיירים (זוגות, משפחות, אנשי עסקים ועוד). המתחם כולל כל מה שצריך בכדי להנות מהחיים: ספא ים המלח, בריכת שחייה עם תחתית שקופה בקומה ה-26, חדר כושר, מרכז אסתטיקה, חדרי ישיבות, מסעדות ובתי קפה, שירות קונסיירז', חניה תת קרקעית, שירותי ניקיון ושירות חדרים ועוד. על עיצובו ותכנונו של הפרויקט אמון אדריכל ישראלי, אסף שאול, מבעלי חברת האדריכלות CPSL. לכל דירה בפרויקט מרפסת הפונה לכיוון הים. הדירות בפרויקט יושכרו לתיירים לתקופות קצרות, במודל של Airbnb ע\"י חברת ניהול ישראלית. במתחם מגדל משרדים, מרכז העסקים החדש של אודסה Emporium Business Tower. העיר אודסה, המכונה גם \"פנינת הים השחור\", היא יעד תיירותי שנהנה מפופולריות גוברת. ב-2019 לבדה ביקרו בעיר למעלה מ- 3.5 מיליון תיירים ומספרם עולה בקצב של כחצי מיליון מדי שנה, כך שנוצר מחסור של כ-250 אלף חדרי אירוח. גם הישראלים מגיעים אליה בהמוניהם, העיר נמצאת במרחק טיסה של שעתיים ורבע בלבד מנתב\"ג, וידועה בארכיטקטורה היפה, קולינריה משובחת, חיי לילה תוססים ובמחירים הנוחים. הדירות בפרויקט יושכרו לתיירים לתקופות קצרות, במודל של Airbnb ע\"י חברת ניהול ישראלית. כמו כן, באודסה קיים מחסור גדול של משרדים בשל הצמיחה הכלכלית ומעבר של חברות הייטק בינלאומיות לעיר."
+                "value": "במיקום הנחשק ביותר במרכז העיר, בפינת הרחובות החשמונאים-קרליבך, סמוך לאין ספור מוסדות חינוך, תרבות ובילוי ממתינה לכם איכות חיים יחידה מסוגה בישראל. בואו להיות חלק מהקהילה המדהימה של גינדי TLV, והרכיבו את היום-יום שלכם מפסיפס של חוויות תל אביביות."
             }],
-            "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Project\/proj_1.jpg",
+            "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/gindimobile\/about\/developers\/logo-white.jpg",
             "order": 1
-        }]
+        },
+            {
+                "title": [{
+                    "lang": "en",
+                    "value": "About the Neighborhood"
+                }, {
+                    "lang": "he",
+                    "value": "על השכונה"
+                }],
+                "description": [{
+                    "lang": "en",
+                    "value": "Being a real Tel Avivian means getting up in the morning and feeling the pulse of" +
+                      " central Tel Aviv. You start the day with a coffee and newspaper in the quaint neighborhood coffee shop, wake up with the city that is constantly renewing itself, get to work easily, stop at Sarona Market on your way home, hop over to the mall, and end the day with a workout at the HaHashmonaim Country Club right at the foot of your building."+
+                      "<br><br>"+
+                      "<b>Gindi TLV presents a rare combination of community living in the quintessential Tel Aviv atmosphere, where countless enticing experiences are just beyond your door.</b>"
+                }, {
+                    "lang": "he",
+                    "value": "להיות תל אביבים אמיתיים זה לקום בבוקר בלב הפועם של מרכז תל אביב, לפתוח את היום עם קפה"+
+                      "ועיתון בבית הקפה השכונתי, להתעורר עם העיר שתמיד מחדשת, להגיע בקלות למשרד, לעבור בדרך"+
+                      "הביתה בשוק שרונה, לשלב קפיצה לקניון, ולסגור את היום עם אימון בקאנטרי החשמונאים שמתחת"+
+                      "לבית."+
+                      "<br><br>"+
+                      "<b>פרויקט גינדי TLV הוא שילוב נדיר של חיי קהילה באווירה תל אביבית, עם אין ספור חוויות ממש מעבר לסף הדלת.</b>"
+                }],
+                "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/gindimobile\/about\/ginditlv\/live3.jpg",
+                "order": 1
+            },
+            {
+                "title": [{
+                    "lang": "en",
+                    "value": ""
+                }, {
+                    "lang": "he",
+                    "value": ""
+                }],
+                "description": [{
+                    "lang": "en",
+                    "value": "<b>When you live at Gindi TLV, you experience the Tel Aviv quality of life that was once only a dream.</b>"+
+                      "<br><br>"+
+                      "A one-of-a-kind residential complex that combines a warm neighborhood community" +
+                      " atmosphere with effortless access to the countless attractions that make Tel Aviv so" +
+                      " special."+
+                      "<br><br>"+
+                      "Go for a stroll with your dog or your children in the expansive park at the foot of your building, crisscrossed with charming walking paths. Revel in all the best brands that await you at the TLV Mall below. Imagine, prime shopping opportunities are just an elevator ride away! All it takes is a hop, skip and jump to get to many of the city's foremost cultural and entertainment attractions (HaBima Theater, Cinematheque, Sarona Market, Rothschild Boulevard, Rabin Square and more)."
+                }, {
+                    "lang": "he",
+                    "value": "<b>כשאתם גרים בגינדי TLV, אתם מגשימים את איכות החיים התל אביבית עליה חלמתם תמיד.</b>"+
+                      "<br><br>"+
+                      "מתחם מגורים יחיד מסוגו שמשלב גם אווירה של שכונה וקהילה, וגם קרבה במרחק נגיעה לכל מה" +
+                      " שעושה את תל אביב לתל אביב."+
+                      "<br><br>"+
+                      "טיילו עם הכלב או הילדים בפארק רחב הידיים שלמרגלות דירתכם, המשובץ בפינות נוי ושבילי הליכה. רדו לסיבוב שופינג בקניון TLV עם כל המותגים הכי שווים, שממתין לכם מתחת למתחם (מעלית פרטית לשירותכם). צאו להליכה רגלית קצרה מהבית, שתביא אתכם אל כל מוסדות התרבות והפנאי של העיר (הבימה, הסינמטק, מתחם שרונה, שדרות רוטשילד, כיכר רבין ועוד)."
+                }],
+                "imageUrl": "https://dreamseu.z6.web.core.windows.net/new/dev/gindimobile/about/ginditlv/family.jpg",
+                "order": 1
+            },
+            {
+                "title": [{
+                    "lang": "en",
+                    "value": "Residential Experience"
+                }, {
+                    "lang": "he",
+                    "value": "חווית המגורים"
+                }],
+                "description": [{
+                    "lang": "en",
+                    "value": "<b>Apartments in the perfect Tel Aviv location, built with premium specifications of the highest standard, and surrounded by a diverse, welcoming community.</b>"+
+                      "<br><br>"+
+                      "The neighborhood was designed and built as a private complex with a pastoral atmosphere in" +
+                      " the heart of the bustling urban setting. With four 48-story residential skyscrapers and eleven 14-story residential buildings, this unique complex presents a combination of innovative architecture and the highest building standards in the world."+
+                      "<br><br>"+
+                      "At the summit of Tower 3, the Rooftop awaits. The sophisticated design of this one-of-a-kind" +
+                      " space boasts a swimming pool and sitting areas against the backdrop of a breathtaking panoramic view of the sea and the open spaces surrounding the city."
+                }, {
+                    "lang": "he",
+                    "value": "<b>דירות בתל אביב בסטנדרט גבוה לצד שכונה אותנטית וקהילה רב גונית במיקום מדויק.</b>"+
+                      "<br><br>"+
+                      "השכונה עוצבה ונבנתה כמתחם פרטי באווירה פסטורלית בלב הכרך האורבני. בשכונה 4 מגדלי מגורים בני" +
+                      " 48 קומות. מגדלי המגורים מציגים שילוב בין אדריכלות מהודקת וחדשנית, לבין איכות חיים גבוהה."+
+                      "<br><br>"+
+                      "במעלה המגדל השלישי יוקם מתחם Rooftop, יחיד מסוגו בתל אביב, המציע עיצוב מתוחכם עם בריכת שחייה" +
+                      " ופינות ישיבה אל מול נוף פנורמי עוצר נשימה של הים והמרחבים הפתוחים."
+                }],
+                "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/gindimobile\/about\/ginditlv\/buildings4.jpg",
+                "order": 1
+            },
+            {
+                "title": [{
+                    "lang": "en",
+                    "value": ""
+                }, {
+                    "lang": "he",
+                    "value": ""
+                }],
+                "description": [{
+                    "lang": "en",
+                    "value": "Every tower provides 24/7 security and, of course, expansive underground parking. Each" +
+                      " building has a magnificent lobby with 15-meter-high ceilings, a residents' club perfect for events or meetings, a state-of-the-art children's club and a fitness room."+
+                      "<br><br>"+
+                      "<b>Live at the heart of the action with an apartment in an exclusive Tel Aviv tower.</b>"+
+                      "<br><br>"+
+                      "Gindi TLV's unique residential experience creates the perfect combination of the magnificent, stylish apartment in a spectacular Tel Aviv tower and the ideal, full life in the heart of urban bustle as part of a diverse community of people who support and are there for one another."
+                }, {
+                    "lang": "he",
+                    "value": "בכל אחד מהמגדלים נמצא שומר 24/7 וכמובן חניון תת קרקעי רחב ידיים. למגדלים לובי מפואר עם "+
+                      "תקרות גבוהות של כ-15 מ', חדר דיירים מושלם לאירוח או לישיבות, מועדון ילדים חדשני וחדר כושר."+
+                      "<br><br>"+
+                      "<b>השילוב המושלם בין דירה במגדל בתל אביב לבין חיים בלב הכרך</b>"+
+                      "<br><br>"+
+                      "חווית המגורים בשכונת גינדי TLV מייצרת את השילוב המושלם שבין דירה נהדרת ומעוצבת במגדל"+
+                      "מגורים מרהיב בתל אביב, לבין חיים שלמים ומלאים בלב הכרך האורבני, כחלק מקהילה רב-גונית"+
+                      "המקיימת דיאלוג של שותפות, שכנות וערבות הדדית."
+                }],
+                "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/gindimobile\/about\/ginditlv\/ng8.jpg",
+                "order": 1
+            },
+            {
+                "title": [{
+                    "lang": "en",
+                    "value": "Facilities and services available in all towers:"
+                }, {
+                    "lang": "he",
+                    "value": "הפסיליטיס במגדלים:"
+                }],
+                "description": [{
+                    "lang": "en",
+                    "value": "<ul>"+
+                      "<li>Luxurious, spacious lobby with high ceilings (15 meters high)</li>"+
+                      "<li>24/7 guard at the building entrance</li>"+
+                      "<li>Advanced, state-of-the-art fitness room in every tower</li>"+
+                      "<li>Sophisticated and beautifully-designed event/business venue (including sitting areas and" +
+                      " a large table for meetings or hospitality)</li>"+
+                      "<li>Innovative children's club</li>"+
+                      "<li>Access to the exclusive Rooftop lounge on the roof of Tower 3, available only to" +
+                      " residents of the tower</li>"+
+                      "<li>Plentiful and easy parking beneath the building</li>"+
+                      "</ul>"
+                }, {
+                    "lang": "he",
+                    "value": "<ul>"+
+                      "<li>לובי מפואר ומרווח עם תקרות גבוהות (15 מ')</li>"+
+                      "<li>שומר בקומת הכניסה 24/7</li>"+
+                      "<li>חדר כושר מתקדם וחדשני</li>"+
+                      "<li>לאונג׳ עסקים בעיצוב מתוחכם כולל פינות ישיבה</li>"+
+                      "<li>מועדון ילדים חדשני</li>"+
+                      "<li>Rooftop על גג המגדל השלישי, לדיירי מגדל 3 ו-4</li>"+
+                      "<li>חניון גדול ונוח מתחת לבית</li>"+
+                      "</ul>"
+                }],
+                "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/gindimobile\/about\/ginditlv\/rooftop1000.jpg",
+                "order": 1
+            },
+            {
+                "title": [{
+                    "lang": "en",
+                    "value": "Choose your apartment, choose your view"
+                }, {
+                    "lang": "he",
+                    "value": "בחרו את הדירה, בחרו את הנוף"
+                }],
+                "description": [{
+                    "lang": "en",
+                    "value": "In the unique towers of Gindi TLV, there are a variety of luxurious homes just waiting" +
+                      " for you. Choose your perfect large and spacious 1-4 bedroom apartment from options that include mini penthouses, penthouses and duplexes."+
+                      "<br><br>"+
+                      "<b>Impeccably decorated and extremely spacious, the apartments have especially high ceilings" +
+                      " for an expansive open-air feel.</b>"+
+                      "<br><br>"+
+                      "Floor-to-ceiling windows allow the maximum amount of natural light to bathe the apartment. Choose from a variety of apartments with different exposures and a selection of balcony sizes. The unique clover-shaped design of the Gindi TLV buildings affords each apartment an unobstructed view, providing residents with their choice of an urban, sea or park vista."
+                }, {
+                    "lang": "he",
+                    "value": "במגדלים הייחודיים שבשכונת גינדי TLV תמצאו מגוון דירות 2-5 חדרים גדולות ומרווחות. תוכלו" +
+                      " לבחור את הדירה המושלמת לכם מבין המבחר הכולל גם מיני פנטהאוזים, פנטהאוזים ודופלקסים."+
+                      "<br><br>"+
+                      "<b>הדירות מעוצבות בקפידה עם חללים כפולים ותקרות גבוהות הנותנות תחושה של מרחב פתוח ומאוורר</b>"+
+                      "<br><br>"+
+                      "איבזור הדירות בחלונות מסך מאפשר ניצול מקסימלי של תאורה טבעית. תוכלו לבחור בין דירות עם מרפסות בגדלים משתנים, הפונות לכיווני אוויר שונים. צורת התלתן הייחודית של מגדלי גינדי תל אביב מאפשרת לדירות שבהם להנות מנוף פתוח, ואתם יכולים לבחור את הנוף המועדף עליכם - אם נוף אורבני, לים או לפארק."
+                }],
+                "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/gindimobile\/about\/ginditlv\/exp1.jpg",
+                "order": 1
+            },
+            {
+                "title": [{
+                    "lang": "en",
+                    "value": "Personal Apartment Planning & Design"
+                }, {
+                    "lang": "he",
+                    "value": "Showroom לבחירת הגמרים לדירה לנוחות הדיירים"
+                }],
+                "description": [{
+                    "lang": "en",
+                    "value": "At Gindi TLV, you not only enjoy a variety of apartment types, you also have the freedom to design and customize your apartment to suit your needs."
+                }, {
+                    "lang": "he",
+                    "value": "בגינדי TLV תוכלו ליהנות לא רק ממגוון סוגי דירות, אלא גם מהנוחות לבחור את כל הגמרים לדירה במקום אחד באופן שיתאים לכם בצורה מושלמת."
+                }],
+                "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/gindimobile\/about\/ginditlv\/personal-apt.jpg",
+                "order": 1
+            },
+            {
+                "title": [{
+                    "lang": "en",
+                    "value": "About the Community"
+                }, {
+                    "lang": "he",
+                    "value": "על הקהילה"
+                }],
+                "description": [{
+                    "lang": "en",
+                    "value": "<b>We've seen it in New York, we've heard about it in London, we've experienced it in" +
+                      " Tokyo, and now, finally – we will also enjoy it in Tel Aviv, the non-stop city.</b>"+
+                      "<br><br>"+
+                      "Everyone loves Tel Aviv, but for some, Tel Aviv is also a way of life. At Gindi TLV, our community is made up of these people. People like you. People who love people who love Tel Aviv. People who want to live together and experience Israel's most fantastic, dynamic city.."
+                }, {
+                    "lang": "he",
+                    "value": "<b>אנחנו רואים את זה בניו יורק, שומעים על זה בלונדון, נפגשים עם זה בטוקיו, ועכשיו" +
+                      " סוף-סוף – גם בעיר העברית הראשונה</b>"+
+                      "<br><br>"+
+                      "כולם אוהבים את תל אביב, אבל יש אנשים שעבורם זוהי עיר שהיא גם דרך חיים. הקהילה שלנו בגינדי TLV מורכבת מהסוג השני. אנשים כמוכם. אנשים שאוהבים את תל אביב. אנשים שרוצים לחיות ביחד ולחוות ביחד את העיר המדהימה ביותר בישראל."
+                }],
+                "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/gindimobile\/about\/ginditlv\/rooftop-youngsters.jpg",
+                "order": 1
+            },
+            {
+                "title": [{
+                    "lang": "en",
+                    "value": "Community Services"
+                }, {
+                    "lang": "he",
+                    "value": "שירותים לחברי הקהילה"
+                }],
+                "description": [{
+                    "lang": "en",
+                    "value": "<ul>"+
+                      "<li>Shared mobility services</li>"+
+                      "<li>Lectures and workshops</li>"+
+                      "<li>Event discounts</li>"+
+                      "<li>Dog-walking services</li>"+
+                      "<li>Laundry services</li>"+
+                      "</ul>"+
+                      "<br>"+
+                      "<b>Community Events</b>"+
+                      "<br><br>"+
+                      "An integral part of community living in Gindi TLV lies in the assortment of exclusive local and neighborhood events available to its residents all year around. What's on the schedule? Holiday events in the park, morning and evening sports activities, activities for children during holidays and school breaks, guided tours of the city, lectures and workshops, community Shabbat meals, and the list goes on. Gindi TLV residents go with the flow and like to be surprised. They're always up for something new. There will always be neighbors who are happy to join the amazing collaborative atmosphere of every event."
+                }, {
+                    "lang": "he",
+                    "value": "<ul>"+
+                      "<li>הסעות משותפות</li>"+
+                      "<li>הרצאות וסדנאות</li>"+
+                      "<li>הנחות לאירועים</li>"+
+                      "<li>שירותי דוג-ווקר</li>"+
+                      "<li>שירותי כביסה</li>"+
+                      "</ul>"+
+                      "<br>"+
+                      "<b>אירועים קהילתיים</b>"+
+                      "<br><br>"+
+                      "חלק בלתי נפרד מהחיים הקהילתיים בגינדי TLV טמון בכך שלאורך השנה מתוכננים להתקיים בשכונה ובסביבתה מגוון אירועים אקסקלוסיביים לחברי השכונה והקהילה. מה בתוכנית? אירועי חגים בפארק, פעילויות ספורט בבקרים ובערב, הפעלות לילדים בחופשות ובחגים, סיורים מודרכים בעיר, הרצאות וסדנאות, ארוחות שבת ביחד והרשימה נמשכת. כמובן שמעל לכל זה הקהילה שלנו מורכבת מאנשים כך שאתם מוזמנים ליזום ולהפתיע. לכל רעיון תמיד יהיו שכנים וחברי קהילה שישמחו להצטרף, באווירה שיתופית נפלאה."
+                }],
+                "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/gindimobile\/about\/ginditlv\/basketball.jpg",
+                "order": 1
+            },
+            {
+                "title": [{
+                    "lang": "en",
+                    "value": "Live in the Heart of Tel Aviv"
+                }, {
+                    "lang": "he",
+                    "value": "לגור בלב תל אביב"
+                }],
+                "description": [{
+                    "lang": "en",
+                    "value": "<b>In the most desirable location in Tel Aviv, Gindi TLV offers you an unsurpassed" +
+                      " urban experience with a pastoral community atmosphere.</b>"+
+                      "<br><br>"+
+                      "Right here, at the corner of HaHashmonaim and Carlebach Streets, you will find the perfect" +
+                      " mix of a private complex that has everything, and closeness to a variety of services and activities across the city."
+                }, {
+                    "lang": "he",
+                    "value": "<b>במיקום הכי נחשק בתל אביב, פרויקט גינדי TLV מציע לכם חוויה אורבנית באווירה פסטורלית" +
+                      " וקהילתית</b>"+
+                      "<br><br>"+
+                      "בדיוק כאן, בפינת הרחובות החשמונאים וקרליבך, תמצאו שילוב יוצא דופן בין מתחם פרטי שיש בו הכל לבין קרבה למגוון שירותים ופעילויות ברחבי העיר."
+                }],
+                "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/gindimobile\/about\/ginditlv\/live2.jpg",
+                "order": 1
+            },
+            {
+                "title": [{
+                    "lang": "en",
+                    "value": ""
+                }, {
+                    "lang": "he",
+                    "value": ""
+                }],
+                "description": [{
+                    "lang": "en",
+                    "value": "Gindi TLV's outstanding location puts you at the center of everything, surrounded by not only the trendiest and most well-known restaurants, but also the little hidden gems that only the locals (meaning you) know about. There are also those wonderful cafés you'll only find in Tel Aviv, and atmospheric bars perfect for whiskey and cocktails at the end of the day. Bicycle paths and picturesque boulevards are enveloped by the shade of ficus trees. Easy access to the city's beloved cultural institutions, plus the beach, Rothschild Boulevard and Dizengoff Center, make this the perfect location.\n" +
+                      "Don't forget the many kindergartens and schools in the neighborhood, and year-round community" +
+                      " activities as well.\n"+
+                      "<br><br>"+
+                      "Why is this the best location in the city? It's very simple. The corner of HaHashmonaim-Carlebach is the hub of Tel Aviv. All the neighborhood's wonderful experiences will become part of your daily life, and you don't even have to move your car."
+                }, {
+                    "lang": "he",
+                    "value": "הלוקיישן המעולה של גינדי TLV שם אתכם במרכז העניינים. גם המסעדות הכי טרנדיות ושוות, וגם"+
+                      "מקומות קטנים ונסתרים שרק המקומיים (כלומר, אתם) מכירים. גם בתי קפה מקסימים שיש כמותם רק"+
+                      "בתל אביב, וגם ברים אפלוליים המגישים וויסקי וקוקטיילים בסוף היום. גם שבילי אופניים וגם שדרות"+
+                      "ציוריות הטובלות בצל עצי פיקוס. גם מוסדות התרבות האהובים של העיר, וגם גישה מהירה לים,"+
+                      "לשדרות רוטשילד או לדיזינגוף סנטר. גם גני ילדים ובית ספר במתחם השכונה, וגם פעילויות קהילתיות"+
+                      "מסביב ללוח השנה."+
+                      "<br><br>"+
+                      "ולמה זה הלוקיישן הכי טוב בעיר? פשוט מאד - משום שכל החוויות הנפלאות האלה יהפכו ליום-יום"+
+                      "שלכם מבלי שתוציאו את האוטו מהחנייה. פינת הרחובות החשמונאים-קרליבך היא הטבור של תל אביב."
+                }],
+                "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/gindimobile\/about\/ginditlv\/live.jpg",
+                "order": 1
+            },
+            {
+                "title": [{
+                    "lang": "en",
+                    "value": "Local Culture & Entertainment"
+                }, {
+                    "lang": "he",
+                    "value": "תרבות ובילוי בסביבה"
+                }],
+                "description": [{
+                    "lang": "en",
+                    "value": "Walk to HaBima or Cameri Theater to watch the most talked-about show in the city, come home from work to catch a movie at Cinematheque, enjoy a front row seat for all the cultural and entertainment events that happen year-round in Tel Aviv (marathons, festivals, food fairs, exhibitions and more), shop in Sarona Market, and enjoy everything that Tel Aviv has to offer, without even moving your car from its parking spot."
+                }, {
+                    "lang": "he",
+                    "value":"ללכת ברגל להבימה או לקאמרי כדי לראות את ההצגה הכי מדוברת בעיר, לחזור מהמשרד ולתפוס הקרנת ערב בסינמטק, לגור בקו הראשון לכל אירועי התרבות והפנאי של תל אביב, המתקיימים לאורך כל השנה (מרתונים, פסטיבלים, ירידי אוכל, תערוכות ועוד), לעשות קניות בשוק שרונה ולהנות מכל מה שיש לתל אביב להציע לכם מבלי להוציא את הרכב מהחנייה."
+                }],
+                "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/gindimobile\/about\/ginditlv\/habima.jpg",
+                "order": 1
+            }
+        ]
     },
     {
         "chapter": [{
@@ -45,9 +374,6 @@ let aboutUsData = [
         }, {
             "lang": "he",
             "value": "היזמים"
-        }, {
-            "lang": "ru",
-            "value": "The Developers"
         }],
         "order": 2,
         "sections": [{
@@ -56,23 +382,70 @@ let aboutUsData = [
                 "value": "The Developers"
             }, {
                 "lang": "he",
-                "value": "היזמים"
-            }, {
-                "lang": "ru",
-                "value": "The Developers"
+                "value": "על היזם"
             }],
             "description": [{
                 "lang": "en",
-                "value": "“Odessa 2020 Arcadia” Project was established by Green Park Entrepreneurship and Construction – an Israeli company with a decade of experience building a large number of projects in Israel and worldwide, while specializing in Eastern Europe region. The project is supervised by an Israeli construction inspector, Mr. Shlomo Yaffe, and designed by an Israeli architect, Mr. Assaf Shaul – co-owner of CPSL architectural firm. The project also features an Israeli management company led by Mr. David Maor, and a trustee for investors’ funds – Fischer, Behar, Chen & Co. law firm, which releases the funds according to construction progress and subject to the approval of the inspection company."
+                "value": "Gindi, the renowned international real estate company, has been one of the leading and" +
+                  " most innovative companies in Israel for the past 50 years. It is engaged in initiating," +
+                  " developing, marketing and managing commercial and residential projects, malls and commercial" +
+                  " centers, and luxury towers and residential neighborhoods, with a scope of thousands of housing" +
+                  " units and hundreds of thousands of square meters in Israel and abroad. " +
+                  "<br><br>Within the framework of its activity, Gindi has built itself a strong reputation as an" +
+                  " established company that conducts itself with the utmost professionalism and is dedicated to the best interests of customers and investors alike." +
+                  "<br><br><b>At the head of this company is the next generation of the renowned Gindi real estate" +
+                  " dynasty: brothers Manor and Kfir Gindi, as well as their brother-in-law, Ori Levy. Like" +
+                  " their entire staff, they have a joint vision for leading the real estate market. Their goal" +
+                  " is to develop and construct unique projects that respond to specific customer needs, while" +
+                  " maintaining full integrity and a level of implementation that is no less than perfect.</b>"
             }, {
                 "lang": "he",
-                "value": "פרויקט אודסה 2020 ארקדיה הוקם על ידי  החברה הישראלית גרין פארק יזמות ובניה, היוזמת ובונה למעלה מ-10 שנים מספר רב של פרויקטים בישראל ובעולם, עם התמחות במזרח אירופה.\n" +
-                  "לפרויקט מפקח בניה ישראלי מר שלמה יפה, אדריכל ישראלי מר אסף שאול, מבעלי חברת האדריכלים CPSL, חברת ניהול" +
-                  " ישראלית בניהולו של מר דוד מאור ( מנהלים עשרות פרויקטים ברחבי אוקראינה), ונאמן לכספי המשקיעים משרד עורכי הדין פישר בכר חן, שמשחרר את הכספים לפי קצב התקדמות הבניה ורק בכפוף לאישור חברת הפיקוח."
+                "value": "חברת הנדל”ן גינדי הינה מהמובילות והחדשניות בישראל למותג נדל”ן בן 50 שנה. החברה עוסקת" +
+                  " בייזום, פיתוח, שיווק וניהול פרויקטים למסחר, מגורים, קניונים, מרכזים מסחריים, מגדלי יוקרה ושכונות" +
+                  " מגורים, בהיקפים של אלפי יחידות דיור ומאות אלפי מ\"ר, בארץ ובחו”ל."+"<br><br>"+
+                  "במסגרת פעילותה, בנתה גינדי מוניטין חזק של חברה יציבה, השומרת על התנהלות מקצועית ומסורה מול קהל" +
+                  " לקוחותיה וציבור המשקיעים."+"<br><br>"+
+                  "<b>בראש הקבוצה עומד דור ההמשך של משפחת הנדל\"ן הידועה, המעבירה את שרביט בניין הארץ מדור לדור: האחים מנור וכפיר גינדי, ואורי לוי. לשלושתם, כמו לכל הצוות הרחב של גינדי, חזון משותף להוביל את שוק הנדל\"ן הישראלי. ליזום ולהקים פרויקטים ייחודיים אשר מספקים מענה מדויק לצרכי הלקוחות, תוך הקפדה על יושרה מלאה.</b>"
             }],
-            "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Develop\/dev_2.png",
+            "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/gindimobile\/about\/developers\/management.jpg",
             "order": 2
-        }]
+        },
+            {
+                "title": [{
+                    "lang": "en",
+                    "value": "About the Architects"
+                }, {
+                    "lang": "he",
+                    "value": "על האדריכלים"
+                }],
+                "description": [{
+                    "lang": "en",
+                    "value": "Behind the spectacular architecture of Gindi TLV's four towers stands MYS Architects. This international Israeli architectural firm is considered one of the leaders in the Israeli architectural field. Over the past 10 years, MYS has integrated elegance, creative vitality, flexible thinking, accumulated knowledge and vast experience in community urban architecture into their work. The firm is responsible for the planning of the most prominent and important projects in Israel, including many that have become synonymous with excellence and innovation.\n" +
+                      "\n" +
+                      "<br><br>“The magnificent towers of the Gindi TLV project, which reach an impressive height of" +
+                      " 180 meters, were planned specifically to make them a spectacular addition to the Tel Aviv skyline. The designers invested in an innovative and iconic clover-leaf design for the towers, so that all of the apartments on all 48 floors would have breathtaking views of the sea and the open spaces surrounding the city.”\n" +
+                      "\n" +
+                      "<br><br><b>-- Rachel Feller, Project Architect</b>"
+                }, {
+                    "lang": "he",
+                    "value": "מאחורי האדריכלות המרהיבה של ארבעת המגדלים בפרויקט גינדי TLV עומד משרד"+
+                      "האדריכלים יסקי-מור-סיון. משרד אדריכלים ישראלי בינלאומי אשר נחשב לאחד מהמובילים"+
+                      "בענף האדריכלות בישראל. מזה עשרות שנים, שהתכנונים האדריכליים של יסקי-מור-סיוון"+
+                      "שוזרים באלגנטיות רעננות יצירתית, גמישות מחשבתית, ידע נצבר, וניסיון רב באדריכלות"+
+                      "אורבנית-קהילתית. המשרד אחראי לתכנון מהפרויקטים הבולטים והחשובים בישראל, מתוכם"+
+                      "רבים שהפכו שם נרדף למצוינות ולחדשנות."+
+                      "<br><br>"+
+                      "\"את המגדלים בפרויקט גינדי TLV, המתנשאים לגובה של 180 מ', תכננו באופן שיהווה תוספת"+
+                      "מרהיבה לקו הרקיע של תל אביב, בעיצוב חדשני ואייקוני של מגדל בצורת עלה תלתן, כך שבכל"+
+                      "אחת מהדירות ב- 48 הקומות תיהנו מנופים עוצרי נשימה של הים והמרחבים הפתוחים"+
+                      "המקיפים את העיר.\""+
+                      "<br><br>"+
+                      "<b>-- רחל פללר, אדריכלית הפרויקט</b>"
+                }],
+                "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/gindimobile\/about\/developers\/east-west.jpg",
+                "order": 2
+            }
+        ]
     }
     ];
 
@@ -84,7 +457,6 @@ let hasUbuntuFont = false;
 let aboutUsSections = [];
 let mode = 'dev';
 let aboutUsMainContainer;
-const imageDark = 'https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Develop\/dev_1.png';
 let activeTabInd;
 try{
     callbackFunction();
@@ -106,36 +478,7 @@ window.addEventListener("DOMContentLoaded", function (event) {
 
 window.addEventListener('orientationchange', orientationHandler);
 window.addEventListener('resize', orientationHandler);
-window.addEventListener('load',()=>{
-    cropImageToText();
-    setWrapperContainerHeight();
-});
-
-function setWrapperContainerHeight() {
-    if (window.innerWidth < 1024) {
-        const tabsContent = aboutUsMainContainer.querySelectorAll('.tab-content__container');
-        const menuHeight = aboutUsMainContainer.querySelector('.menu__items').getBoundingClientRect().height;
-        const isPortrait = isWindowInPortrait();
-        tabsContent.forEach(tab=>{
-            if (isPortrait){
-                if (tab.scrollHeight < window.innerHeight && tab.scrollHeight > 0){
-                    tab.style.height = window.innerHeight - menuHeight - 24 + 16 +'px';
-                }else{
-                    tab.style.height = '100%';
-                }
-            } else {
-                tab.style.height = '100%';
-            }
-        });
-    } else{
-        const mainHeight = aboutUsMainContainer.getBoundingClientRect().height;
-        if (mainHeight < window.innerHeight){
-            aboutUsMainContainer.style.height = window.innerHeight+'px';
-        }else{
-            aboutUsMainContainer.style.height = '100%';
-        }
-    }
-}
+window.addEventListener('load',cropImageToText);
 
 function cropImageToText() {
     if (window.innerWidth >= 1024){
@@ -173,10 +516,6 @@ function orientationHandler() {
                 contentWrapper.style.marginLeft = 0 + 'px';
             }
         }
-
-        // setTimeout(() => {
-        //     setWrapperContainerHeight();
-        // }, 200);
     } else {
         clearContent();
         insertMenu(activeTabInd);
@@ -331,20 +670,23 @@ function buildTabsContent(container, objectContent) {
 
             textWrapper = creatHtmlElement(section,'','div',['text-content__wrapper']);
             const subWrapper = creatHtmlElement(textWrapper,'','div',['about-us__sub-wrapper']);
-            title = creatHtmlElement(subWrapper, sectionData.title.filter(el => el.lang === lang)[0].value, 'h3', ['tab-content__title']);
+            if (sectionData.title.filter(el => el.lang === lang)[0].value.length > 0){
+                title = creatHtmlElement(subWrapper, sectionData.title.filter(el => el.lang === lang)[0].value, 'h3', ['tab-content__title']);
+            }
+
             text = creatHtmlElement(subWrapper, sectionData.description.filter(el => el.lang === lang)[0].value, 'p', ['tab-content__text']);
         } else {
-            title = creatHtmlElement(section, sectionData.title.filter(el => el.lang === lang)[0].value, 'h3', ['tab-content__title']);
+            if (sectionData.title.filter(el => el.lang === lang)[0].value.length > 0){
+                title = creatHtmlElement(section, sectionData.title.filter(el => el.lang === lang)[0].value, 'h3', ['tab-content__title']);
+            }
+
             text = creatHtmlElement(section, sectionData.description.filter(el => el.lang === lang)[0].value, 'p', ['tab-content__text']);
         }
 
         const imgContainer = creatHtmlElement(section, '', 'div', ['about-us__img-container']);
         const img = creatHtmlElement(imgContainer, '', 'img', ['tab-content__image']);
-        if (sectionData.imageUrl === 'https://dreamsimages.bmby.com/new/dev/odessa2020/projectassets/Develop/dev_2.png' && window.innerWidth >= 1024){
-            img.src = imageDark;
-        }else {
-            img.src = sectionData.imageUrl;
-        }
+        img.src = sectionData.imageUrl;
+
         if (objectContent.order !== 0) {
             if (aboutUsData.length > 1){
                 tab.classList.add('hide-tab');
@@ -374,7 +716,6 @@ function switchTab(e) {
         setActiveTab(parent, e);
         activeTabInd = e.dataset.order;
         toggleTabContent(e.dataset.order);
-        setWrapperContainerHeight();
         cropImageToText();
     }
 }
@@ -466,6 +807,18 @@ body{
 
 .tab-content__image{
   width: 100%;
+}
+
+  .tabs-data-content__wrapper::before{
+    content:'';
+    display: block;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+    top:0;
+    left:0;
+    background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%);
 }
 
 .tab-content__title{
@@ -578,6 +931,14 @@ body{
     width: 100%;
     margin: 0 auto;
   }
+
+  .tabs-data-content__wrapper{
+  padding-bottom: 50px;
+  }
+
+  .tabs-data-content__wrapper::before{
+    background: #F7F7F7;
+}
   .menu__item{
     margin: 0;
     padding: 11px 49px;
@@ -611,12 +972,13 @@ body{
     color: #1A2F43;
     font-size: 30px;
     font-weight: 500;
+    padding-bottom: 48px;
   }
   .tab-content__text{
     color: #03233A;
     font-weight: 300;
     font-size: 16px;
-    padding-top: 48px;
+    // padding-top: 48px;
     line-height: 18px;
     letter-spacing: -0.21px;
   }

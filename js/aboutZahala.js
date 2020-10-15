@@ -2,7 +2,7 @@ let aboutUsData = [
     {
         "chapter": [{
             "lang": "en",
-            "value": "The Amos Luzon"
+            "value": ""
         }, {
             "lang": "he",
             "value": "עמוס לוזון"
@@ -91,36 +91,7 @@ window.addEventListener("DOMContentLoaded", function (event) {
 
 window.addEventListener('orientationchange', orientationHandler);
 window.addEventListener('resize', orientationHandler);
-window.addEventListener('load',()=>{
-    cropImageToText();
-    setWrapperContainerHeight();
-});
-
-function setWrapperContainerHeight() {
-    if (window.innerWidth < 1024) {
-        const tabsContent = aboutUsMainContainer.querySelectorAll('.tab-content__container');
-        const menuHeight = aboutUsMainContainer.querySelector('.menu__items').getBoundingClientRect().height;
-        const isPortrait = isWindowInPortrait();
-        tabsContent.forEach(tab=>{
-            if (isPortrait){
-                if (tab.scrollHeight < window.innerHeight && tab.scrollHeight > 0){
-                    tab.style.height = window.innerHeight - menuHeight - 24 + 16 +'px';
-                }else{
-                    tab.style.height = '100%';
-                }
-            } else {
-                tab.style.height = '100%';
-            }
-        });
-    } else{
-        const mainHeight = aboutUsMainContainer.getBoundingClientRect().height;
-        if (mainHeight < window.innerHeight){
-            aboutUsMainContainer.style.height = window.innerHeight+'px';
-        }else{
-            aboutUsMainContainer.style.height = '100%';
-        }
-    }
-}
+window.addEventListener('load',cropImageToText);
 
 function cropImageToText() {
     if (window.innerWidth >= 1024){
@@ -158,10 +129,6 @@ function orientationHandler() {
                 contentWrapper.style.marginLeft = 0 + 'px';
             }
         }
-
-        // setTimeout(() => {
-        //     setWrapperContainerHeight();
-        // }, 200);
     } else {
         clearContent();
         insertMenu(activeTabInd);
@@ -316,20 +283,23 @@ function buildTabsContent(container, objectContent) {
 
             textWrapper = creatHtmlElement(section,'','div',['text-content__wrapper']);
             const subWrapper = creatHtmlElement(textWrapper,'','div',['about-us__sub-wrapper']);
-            title = creatHtmlElement(subWrapper, sectionData.title.filter(el => el.lang === lang)[0].value, 'h3', ['tab-content__title']);
+            if (sectionData.title.filter(el => el.lang === lang)[0].value.length > 0){
+                title = creatHtmlElement(subWrapper, sectionData.title.filter(el => el.lang === lang)[0].value, 'h3', ['tab-content__title']);
+            }
+
             text = creatHtmlElement(subWrapper, sectionData.description.filter(el => el.lang === lang)[0].value, 'p', ['tab-content__text']);
         } else {
-            title = creatHtmlElement(section, sectionData.title.filter(el => el.lang === lang)[0].value, 'h3', ['tab-content__title']);
+            if (sectionData.title.filter(el => el.lang === lang)[0].value.length > 0){
+                title = creatHtmlElement(section, sectionData.title.filter(el => el.lang === lang)[0].value, 'h3', ['tab-content__title']);
+            }
+
             text = creatHtmlElement(section, sectionData.description.filter(el => el.lang === lang)[0].value, 'p', ['tab-content__text']);
         }
 
         const imgContainer = creatHtmlElement(section, '', 'div', ['about-us__img-container']);
         const img = creatHtmlElement(imgContainer, '', 'img', ['tab-content__image']);
-        if (sectionData.imageUrl === 'https://dreamsimages.bmby.com/new/dev/odessa2020/projectassets/Develop/dev_2.png' && window.innerWidth >= 1024){
-            img.src = imageDark;
-        }else {
-            img.src = sectionData.imageUrl;
-        }
+        img.src = sectionData.imageUrl;
+
         if (objectContent.order !== 0) {
             if (aboutUsData.length > 1){
                 tab.classList.add('hide-tab');
@@ -359,7 +329,6 @@ function switchTab(e) {
         setActiveTab(parent, e);
         activeTabInd = e.dataset.order;
         toggleTabContent(e.dataset.order);
-        setWrapperContainerHeight();
         cropImageToText();
     }
 }
@@ -451,6 +420,18 @@ body{
 
 .tab-content__image{
   width: 100%;
+}
+
+  .tabs-data-content__wrapper::before{
+    content:'';
+    display: block;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+    top:0;
+    left:0;
+    background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%);
 }
 
 .tab-content__title{
@@ -563,6 +544,14 @@ body{
     width: 100%;
     margin: 0 auto;
   }
+  
+  .tabs-data-content__wrapper{
+  padding-bottom: 50px;
+  }
+  
+  .tabs-data-content__wrapper::before{
+    background: #F7F7F7;
+}
   .menu__item{
     margin: 0;
     padding: 11px 49px;
@@ -596,12 +585,13 @@ body{
     color: #1A2F43;
     font-size: 30px;
     font-weight: 500;
+    padding-bottom: 48px;
   }
   .tab-content__text{
     color: #03233A;
     font-weight: 300;
     font-size: 16px;
-    padding-top: 48px;
+    // padding-top: 48px;
     line-height: 18px;
     letter-spacing: -0.21px;
   }

@@ -170,11 +170,13 @@ function checkUserAgent () {
 }
 
 function reduceImage () {
-    const startUrl ='https://dreamsimages.bmby.com';
-    const reduceImgUrl = '/cdn-cgi/image/width=800';
+    const reduceImgUrl = 'cdn-cgi/image/width=800';
     imgData.forEach(img =>{
-        const splitedImgUrl = img.imageUrl.split('https://dreamsimages.bmby.com');
-        img.imageUrl = startUrl+reduceImgUrl+splitedImgUrl[1];
+        const parseUrl = img.imageUrl.replace('https://','').split('/');
+        parseUrl.unshift('https:/');
+        parseUrl.splice(2,0,reduceImgUrl);
+        const buildUrl = parseUrl.join('/');
+        img.imageUrl = buildUrl;
     });
 }
 
