@@ -438,7 +438,7 @@ function addUbuntuFont() {
 }
 
 function addBasicStyle () {
-    const replacedStyle = basicStyle.replaceAll('main-container-gallery', canvasClass);
+    const replacedStyle = basicStyle.replace(/main-container-gallery/g, canvasClass);
     document.head.innerHTML +='<style>'+replacedStyle+'</style>';
 
 }
