@@ -69,8 +69,8 @@ const imgData = [
 
     {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":4,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Neighborhood\/neig_2.jpg","order":31},
     ];
-const lang = 'he';
-const dir = 'rtl';
+const lang = 'en';
+const dir = 'ltr';
 
 const galleryData = categoriesData.map((el) => {
     el.images = imgData.filter(imgEl => imgEl.categoryId === el.categoryId);
@@ -300,10 +300,12 @@ function anchorActivity () {
                 const isVisible = isScrolledIntoView(image.firstElementChild);
                 if (isVisible){
                     setActiveTab(image.dataset.categoryId,gallery.dataset.index);
+                    sessionStorage.setItem('galleryActiveTabId',image.dataset.categoryId);
                 }
             } else {
-                if (image.ariaHidden === 'false') {
+                if (image.getAttribute('aria-hidden') === 'false') {
                     setActiveTab(image.dataset.categoryId, gallery.dataset.index);
+                    sessionStorage.setItem('galleryActiveTabId',image.dataset.categoryId);
                 }
             }
         });
@@ -338,8 +340,15 @@ function insertMenu () {
             if (element.images.length > 0){
                 const li = creatHtmlElement(ul,menuItemName[0].value,'li',['menu__item']);
                 li.dataset.categoryId = element.categoryId;
-                if (index ===0){
-                    li.classList.add('active');
+                const sessionTabId = sessionStorage.getItem('galleryActiveTabId');
+                if (sessionTabId){
+                    if (index === Number(sessionTabId) -1){
+                        li.classList.add('active');
+                    }
+                } else {
+                    if (index ===0){
+                        li.classList.add('active');
+                    }
                 }
             }
         });
@@ -429,6 +438,12 @@ function initGallery () {
             fancyboxInit();
 
             slickInit();
+
+            const sessionTabId = sessionStorage.getItem('galleryActiveTabId');
+            if (sessionTabId){
+                const menuElement = document.querySelector('.menu__item[data-category-id="'+sessionTabId+'"]');
+                scrollToImages(menuElement);
+            }
 
             $('.images__container').on('swipe', function(event, slick, direction){
                 onScrollGallery();
@@ -638,6 +653,7 @@ function switchTab(e) {
             if (e === menu){
                 scrollContainer(e);
                 scrollToImages(menu);
+                sessionStorage.setItem('galleryActiveTabId',e.dataset.categoryId);
             }
         });
     }

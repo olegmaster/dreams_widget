@@ -128,7 +128,7 @@ window.addEventListener('orientationchange',orientationHandler);
 window.addEventListener('resize',orientationHandler);
 
 function scriptsChecker () {
-    return Boolean(window.$ && window.jQuery && window.$.fn.slick)
+    return Boolean(window.$ && window.jQuery && window.$.fn.slick);
 }
 
 function checkUserAgent () {
@@ -152,6 +152,7 @@ function reduceImage () {
         img.imageUrl = buildUrl;
     });
 }
+
 
 function insertCaptionContainer () {
     galleryContainer.forEach((container,index) =>{
@@ -279,10 +280,12 @@ function anchorActivity () {
                 const isVisible = isScrolledIntoView(image.firstElementChild);
                 if (isVisible){
                     setActiveTab(image.dataset.categoryId,gallery.dataset.index);
+                    sessionStorage.setItem('galleryActiveTabId',image.dataset.categoryId);
                 }
             } else {
-                if (image.ariaHidden === 'false') {
+                if (image.getAttribute('aria-hidden') === 'false') {
                     setActiveTab(image.dataset.categoryId, gallery.dataset.index);
+                    sessionStorage.setItem('galleryActiveTabId',image.dataset.categoryId);
                 }
             }
         });
@@ -314,11 +317,18 @@ function insertMenu () {
         ul.dataset.index = index;
         galleryData.forEach((element,index) => {
             let menuItemName = element.name.filter(el => el.lang === lang);
-            if (element.pictures.length > 0){
+            if (element.images.length > 0){
                 const li = creatHtmlElement(ul,menuItemName[0].value,'li',['menu__item']);
                 li.dataset.categoryId = element.categoryId;
-                if (index ===0){
-                    li.classList.add('active');
+                const sessionTabId = sessionStorage.getItem('galleryActiveTabId');
+                if (sessionTabId){
+                    if (index === Number(sessionTabId) -1){
+                        li.classList.add('active');
+                    }
+                } else {
+                    if (index ===0){
+                        li.classList.add('active');
+                    }
                 }
             }
         });
@@ -408,6 +418,12 @@ function initGallery () {
     fancyboxInit();
 
     slickInit();
+
+    const sessionTabId = sessionStorage.getItem('galleryActiveTabId');
+    if (sessionTabId){
+        const menuElement = document.querySelector('.menu__item[data-category-id="'+sessionTabId+'"]');
+        scrollToImages(menuElement);
+    }
 
     $('.images__container').on('swipe', function(event, slick, direction){
         onScrollGallery();
@@ -617,6 +633,7 @@ function switchTab(e) {
             if (e === menu){
                 scrollContainer(e);
                 scrollToImages(menu);
+                sessionStorage.setItem('galleryActiveTabId',e.dataset.categoryId);
             }
         });
     }
