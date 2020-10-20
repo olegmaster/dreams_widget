@@ -317,7 +317,7 @@ function insertMenu () {
         ul.dataset.index = index;
         galleryData.forEach((element,index) => {
             let menuItemName = element.name.filter(el => el.lang === lang);
-            if (element.images.length > 0){
+            if (element.pictures.length > 0){
                 const li = creatHtmlElement(ul,menuItemName[0].value,'li',['menu__item']);
                 li.dataset.categoryId = element.categoryId;
                 const sessionTabId = sessionStorage.getItem('galleryActiveTabId');
