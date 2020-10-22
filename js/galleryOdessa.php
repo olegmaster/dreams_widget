@@ -208,8 +208,8 @@ function orientationHandler (e) {
         let activeMenu;
         const menus = document.querySelectorAll('.menu__container');
         menus.forEach((menu,index) =>{
-           activeMenu = menu.querySelector('.menu__items > .menu__item.active');
-           menu.remove();
+            activeMenu = menu.querySelector('.menu__items > .menu__item.active');
+            menu.remove();
         });
         insertMenu();
         $('.images__container').slick('unslick');
@@ -446,10 +446,10 @@ function initGallery () {
             slickInit();
 
             const sessionTabId = sessionStorage.getItem('galleryActiveTabId');
-                        if (sessionTabId){
-                            const menuElement = document.querySelector('.menu__item[data-category-id="'+sessionTabId+'"]');
-                            scrollToImages(menuElement);
-                        }
+            if (sessionTabId){
+                const menuElement = document.querySelector('.menu__item[data-category-id="'+sessionTabId+'"]');
+                scrollToImages(menuElement);
+            }
 
             $('.images__container').on('swipe', function(event, slick, direction){
                 onScrollGallery();
@@ -495,6 +495,9 @@ function addUbuntuFont() {
 function addBasicStyle () {
     const replacedStyle = basicStyle.replace(/main-container-gallery/g, canvasClass);
     document.head.innerHTML +='<style>'+replacedStyle+'</style>';
+    if (dir === 'rtl'){
+        document.head.innerHTML +='<style>'+rtlStyle+'</style>';
+    }
 
 }
 
@@ -855,7 +858,7 @@ body{
     flex-basis: 33.3%;
     min-width: fit-content;
   }
-  
+
   .active {
   border-bottom: 3px solid #1A2F43;
   color: #1A2F43;
@@ -877,7 +880,7 @@ body{
     color: #C0C0C0;
     cursor: default;
   }
-  
+
   .prev-btn{
     margin-right: 18px;
   }
@@ -903,14 +906,13 @@ body{
     // background: #603EF2;
     background: #1A2F43;
   }
-  
+
   .arrows__container{
     display: flex;
     justify-content: center;
     flex-basis: 33.3%;
-    direction: ltr;
   }
-  .dots__container{    
+  .dots__container{
   flex-basis: 33.3%;
   }
   .main-container-gallery {
@@ -948,7 +950,35 @@ body{
   opacity: 1 !important;
 }
 
-  
+
+}
+
+`;
+
+const rtlStyle =`
+@media screen and (min-width: 1024px){
+.menu__container{
+    flex-direction: row-reverse;
+}
+.menu__items{
+    direction: rtl;
+    justify-content: initial;
+}
+.next-btn, .prev-btn{
+    transform: rotate(180deg);
+}
+.arrows__container{
+    direction: rtl;
+}
+.slick-dots{
+    direction: rtl;
+    justify-content: flex-end;
+}
+.prev-btn{
+    margin-right: 0;
+    margin-left: 18px;
+}
+
 }
 
 `;

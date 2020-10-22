@@ -1,119 +1,7 @@
 // each element contains data about the certain category and pictures belonging to it
 // this data is obtained from API
-const galleryData =[
-    {
-        "categoryId": 1,
-        "name": [
-            { "lang": "en", "value": "Interior" },
-            { "lang": "he", "value": "Interior" },
-            { "lang": "ru", "value": "Interior" }
-        ],
-        "pictures": [
-            {
-                "title": [
-                    { "lang": "en", "value": "Image 8" },
-                    { "lang": "he", "value": "Image 7" },
-                    { "lang": "ru", "value": "Image 7" }
-                ],
-                "imageUrl": "https://dreamseu.z6.web.core.windows.net/251West117thStreet/projectassets/gallery/F576CADE-8088-49E7-B1B7-D9B11411FE3A/reka_les_gory_130651_720x1280.jpg",
-                "order": 3
-            },
-            {
-                "title": [
-                    { "lang": "en", "value": "Image 7" },
-                    { "lang": "he", "value": "fwf" },
-                    { "lang": "ru", "value": "\u041a\u0430\u0440\u0442\u0438\u043d\u043a\u0430 7" }
-                ],
-                "imageUrl": "https://dreamseu.z6.web.core.windows.net/251West117thStreet/projectassets/gallery/1525126F-87A1-461F-B734-65D2624CAE60/kakao_zefir_pled_kniga_osen_118517_1400x1050.jpg",
-                "order": 4
-            }
-        ]
-    },
-    {
-        "categoryId": 2,
-        "name": [
-            { "lang": "en", "value": "Exterior" },
-            { "lang": "he", "value": "Exterior" },
-            { "lang": "ru", "value": "Exterior" }
-        ],
-        "pictures": [
-            {
-                "title": [
-                    { "lang": "en", "value": "Image 6" },
-                    { "lang": "he", "value": "\u05ea\u05de\u05d5\u05e0\u05d4 \u05e8\u05d0\u05e9\u05d5\u05e0\u05d4 \u05e9\u05dc\u05d9'" },
-                    { "lang": "ru", "value": "Image 5" }
-                ],
-                "imageUrl": "https://dreamseu.z6.web.core.windows.net/251West117thStreet/projectassets/gallery/66ACC033-8673-459D-9F36-67E7B0F2F0DD/inzhir_vinograd_chernika_101724_1400x1050.jpg",
-                "order": 0
-            },
-            {
-                "title": [
-                    { "lang": "en", "value": "Image 3" },
-                    { "lang": "he", "value": "wefew" },
-                    { "lang": "ru", "value": "wef" }
-                ],
-                "imageUrl": "https://dreamseu.z6.web.core.windows.net/251West117thStreet/projectassets/gallery/F0AA02A0-DB7C-4470-9257-A2A4240F9B9C/the_lion_king_2021-wallpaper-1600x900.jpg",
-                "order": 1
-            }
-        ]
-    },
-    {
-        "categoryId": 3,
-        "name": [
-            { "lang": "en", "value": "Amenities" },
-            { "lang": "he", "value": "Amenities" },
-            { "lang": "ru", "value": "Amenities" }
-        ],
-        "pictures": [
-            {
-                "title": [
-                    { "lang": "en", "value": "grgrg" },
-                    { "lang": "he", "value": "\u05de\u05e9\u05d4'" },
-                    { "lang": "ru", "value": "" }
-                ],
-                "imageUrl": "https://dreamseu.z6.web.core.windows.net/251West117thStreet/projectassets/gallery/E569E87D-3D09-4117-B424-6E78DDC7EF80/spider_man_4-wallpaper-1600x900.jpg",
-                "order": 2
-            },
-            {
-                "title": [
-                    { "lang": "en", "value": "My Pic 2" },
-                    { "lang": "he", "value": "'\u05ea\u05de\u05d5\u05e0\u05d4 \u05e8\u05d0\u05e9\u05d5\u05e0\u05d4 \u05e9\u05dc'" },
-                    { "lang": "ru", "value": "\u041c\u043e\u044f \u043f\u0435\u0440\u0432\u0430\u044f \u043a\u0430\u0440\u0442\u0438\u043d\u043a\u0430 111" }
-                ],
-                "imageUrl": "https://dreamseu.z6.web.core.windows.net/251West117thStreet/projectassets/gallery/D9A93F2C-9205-4A83-A09A-E550200FCCD1/large_thumbnail.jpg",
-                "order": 5
-            }
-        ]
-    },
-    {
-        "categoryId": 4,
-        "name": [
-            { "lang": "en", "value": "Neighborhood" },
-            { "lang": "he", "value": "Neighborhood" },
-            { "lang": "ru", "value": "Neighborhood" }
-        ],
-        "pictures": [
-            {
-                "title": [
-                    { "lang": "en", "value": "" },
-                    { "lang": "he", "value": "" },
-                    { "lang": "ru", "value": "" }
-                ],
-                "imageUrl": "https://dreamseu.z6.web.core.windows.net/251West117thStreet/projectassets/gallery/259CD220-32CC-4EF6-AA95-2500491BC779/apt 2d.png",
-                "order": 6
-            },
-            {
-                "title": [
-                    { "lang": "en", "value": "" },
-                    { "lang": "he", "value": "" },
-                    { "lang": "ru", "value": "" }
-                ],
-                "imageUrl": "https://dreamseu.z6.web.core.windows.net/251West117thStreet/projectassets/gallery/4E2425A1-2D8C-4FB6-A6D8-1BDA4739D7EA/apt 3d.png",
-                "order": 7
-            }
-        ]
-    }
-];
+// t
+let galleryData = [{"categoryId":1,"name":[{"lang":"en","value":"Interior"},{"lang":"he","value":"Interior"}],"order":0,"pictures":[]},{"categoryId":2,"name":[{"lang":"en","value":"Exterior"},{"lang":"he","value":"Exterior"}],"order":1,"pictures":[{"title":[{"lang":"en","value":"Image 1"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamsimages.bmby.com\/251West117thStreet\/projectassets\/gallery\/46E31C93-F57A-4B82-A2B8-A92E9C9D70E9\/the_lion_king_2021-wallpaper-1600x900.jpg","order":0},{"title":[{"lang":"en","value":"Image 2"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamsimages.bmby.com\/251West117thStreet\/projectassets\/gallery\/F640B4B5-CA08-4C66-8235-69717D8DDD66\/kitajskaya_grusha_frukty_razdelochnaya_doska_108809_1024x768.jpg","order":1},{"title":[{"lang":"en","value":"Image 3"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamsimages.bmby.com\/251West117thStreet\/projectassets\/gallery\/406D5C7D-9763-4189-A769-C4F6A8DFCED4\/spider_man_4-wallpaper-1600x900.jpg","order":2}]},{"categoryId":3,"name":[{"lang":"en","value":"Amenities"},{"lang":"he","value":"Amenities"}],"order":2,"pictures":[]},{"categoryId":4,"name":[{"lang":"en","value":"Neighborhood"},{"lang":"he","value":"Neighborhood"}],"order":3,"pictures":[]}];
 
 // this variable contains all images for all categories
 // for building the general gallery
@@ -180,6 +68,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             checkUserAgent();
             insertCaptionContainer();
             initGallery();
+            changeImagesTumbs();
             setTimeout(()=>{
                 changeImagesContainerHeight();
                 showCaption();
@@ -261,16 +150,37 @@ function orientationHandler (e) {
         const menus = document.querySelectorAll('.menu__container');
         menus.forEach((menu,index) =>{
            activeMenu = menu.querySelector('.menu__items > .menu__item.active');
-           menu.remove();
+            menu.remove();
         });
         insertMenu();
         $('.images__container').slick('unslick');
         slickInit();
         fancyboxInit();
         changeImagesContainerHeight();
+        changeImagesTumbs();
         showCaption();
         switchTab(activeMenu);
     }
+}
+
+function changeImagesTumbs () {
+    const gallery = document.querySelectorAll('.'+canvasClass);
+    gallery.forEach(container =>{
+       const menuItems = container.querySelector('.menu__items');
+       if (menuItems.style.display === 'none'){
+           const imgTumbs = container.querySelectorAll('.img__tumbs');
+           const isPortrait = isWindowInPortrait();
+           imgTumbs.forEach(img =>{
+              if (isPortrait){
+                  img.style.width = '100vw';
+                  img.style.height = '100vw';
+              } else {
+                  img.style.width = '100vh';
+                  img.style.height = '100vh';
+              }
+           });
+       }
+    });
 }
 
 function showCaption (slide = document.querySelector('.image__href')) {
@@ -395,7 +305,7 @@ function insertMenu () {
         ul.dataset.index = index;
         galleryData.forEach((element,index) => {
             let menuItemName = element.name.filter(el => el.lang === lang);
-            if (element.images.length > 0){
+            if (element.pictures.length > 0){
                 const li = creatHtmlElement(ul,menuItemName[0].value,'li',['menu__item']);
                 li.dataset.categoryId = element.categoryId;
                 const sessionTabId = sessionStorage.getItem('galleryActiveTabId');
@@ -404,9 +314,7 @@ function insertMenu () {
                         li.classList.add('active');
                     }
                 } else {
-                    if (index ===0){
-                        li.classList.add('active');
-                    }
+                    ul.firstChild.classList.add('active');
                 }
             }
         });
@@ -547,6 +455,9 @@ function addUbuntuFont() {
 function addBasicStyle () {
     const replacedStyle = basicStyle.replace(/main-container-gallery/g, canvasClass);
     document.head.innerHTML +='<style>'+replacedStyle+'</style>';
+    if (dir === 'rtl'){
+        document.head.innerHTML +='<style>'+rtlStyle+'</style>';
+    }
 
 }
 
@@ -814,7 +725,7 @@ body{
   opacity: 1 !important;
 }
 
-.fancybox-caption{
+ .fancybox-inner >.fancybox-caption{
   background: rgba(17, 23, 45, 0.8);
   padding: 12px 16px 37px 16px;
   color: #fff;
@@ -947,7 +858,6 @@ body{
     display: flex;
     justify-content: center;
     flex-basis: 33.3%;
-    direction: ltr;
   }
   .dots__container{    
   flex-basis: 33.3%;
@@ -983,6 +893,34 @@ body{
 }
 
   
+}
+
+`;
+
+const rtlStyle =`
+@media screen and (min-width: 1024px){
+.menu__container{
+    flex-direction: row-reverse;
+}
+.menu__items{
+    direction: rtl;
+    justify-content: initial;
+}
+.next-btn, .prev-btn{
+    transform: rotate(180deg);
+}
+.arrows__container{
+    direction: rtl;
+}
+.slick-dots{
+    direction: rtl;
+    justify-content: flex-end;
+}
+.prev-btn{
+    margin-right: 0;
+    margin-left: 18px;
+}
+
 }
 
 `;

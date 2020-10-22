@@ -29,8 +29,8 @@ const imgData = [
 
     {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/gindi_3.jpg","order":12}
     ];
-const lang = 'en';
-const dir = 'ltr';
+const lang = 'he';
+const dir = 'rtl';
 
 const galleryData = categoriesData.map((el) => {
     el.images = imgData.filter(imgEl => imgEl.categoryId === el.categoryId);
@@ -449,7 +449,9 @@ function addUbuntuFont() {
 function addBasicStyle () {
     const replacedStyle = basicStyle.replace(/main-container-gallery/g, canvasClass);
     document.head.innerHTML +='<style>'+replacedStyle+'</style>';
-
+    if (dir === 'rtl'){
+        document.head.innerHTML +='<style>'+rtlStyle+'</style>';
+    }
 }
 
 function isLoadedScript(path) {
@@ -862,7 +864,6 @@ body{
     display: flex;
     justify-content: center;
     flex-basis: 33.3%;
-    direction: ltr;
   }
   .dots__container{    
   flex-basis: 33.3%;
@@ -903,6 +904,34 @@ body{
 }
 
   
+}
+
+`;
+
+const rtlStyle =`
+@media screen and (min-width: 1024px){
+.menu__container{
+    flex-direction: row-reverse;
+}
+.menu__items{
+    direction: rtl;
+    justify-content: initial;
+}
+.next-btn, .prev-btn{
+    transform: rotate(180deg);
+}
+.arrows__container{
+    direction: rtl;
+}
+.slick-dots{
+    direction: rtl;
+    justify-content: flex-end;
+}
+.prev-btn{
+    margin-right: 0;
+    margin-left: 18px;
+}
+
 }
 
 `;

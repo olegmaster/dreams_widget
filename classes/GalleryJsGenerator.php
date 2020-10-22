@@ -102,6 +102,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             checkUserAgent();
             insertCaptionContainer();
             initGallery();
+            changeImagesTumbs();
             setTimeout(()=>{
                 changeImagesContainerHeight();
                 showCaption();
@@ -183,16 +184,37 @@ function orientationHandler (e) {
         const menus = document.querySelectorAll('.menu__container');
         menus.forEach((menu,index) =>{
            activeMenu = menu.querySelector('.menu__items > .menu__item.active');
-           menu.remove();
+            menu.remove();
         });
         insertMenu();
         $('.images__container').slick('unslick');
         slickInit();
         fancyboxInit();
         changeImagesContainerHeight();
+        changeImagesTumbs();
         showCaption();
         switchTab(activeMenu);
     }
+}
+
+function changeImagesTumbs () {
+    const gallery = document.querySelectorAll('.'+canvasClass);
+    gallery.forEach(container =>{
+       const menuItems = container.querySelector('.menu__items');
+       if (menuItems.style.display === 'none'){
+           const imgTumbs = container.querySelectorAll('.img__tumbs');
+           const isPortrait = isWindowInPortrait();
+           imgTumbs.forEach(img =>{
+              if (isPortrait){
+                  img.style.width = '100vw';
+                  img.style.height = '100vw';
+              } else {
+                  img.style.width = '100vh';
+                  img.style.height = '100vh';
+              }
+           });
+       }
+    });
 }
 
 function showCaption (slide = document.querySelector('.image__href')) {
@@ -326,9 +348,7 @@ function insertMenu () {
                         li.classList.add('active');
                     }
                 } else {
-                    if (index ===0){
-                        li.classList.add('active');
-                    }
+                    ul.firstChild.classList.add('active');
                 }
             }
         });
@@ -469,6 +489,9 @@ function addUbuntuFont() {
 function addBasicStyle () {
     const replacedStyle = basicStyle.replace(/main-container-gallery/g, canvasClass);
     document.head.innerHTML +='<style>'+replacedStyle+'</style>';
+    if (dir === 'rtl'){
+        document.head.innerHTML +='<style>'+rtlStyle+'</style>';
+    }
 
 }
 
@@ -736,7 +759,7 @@ body{
   opacity: 1 !important;
 }
 
-.fancybox-caption{
+ .fancybox-inner >.fancybox-caption{
   background: rgba(17, 23, 45, 0.8);
   padding: 12px 16px 37px 16px;
   color: #fff;
@@ -869,7 +892,6 @@ body{
     display: flex;
     justify-content: center;
     flex-basis: 33.3%;
-    direction: ltr;
   }
   .dots__container{
   flex-basis: 33.3%;
@@ -904,6 +926,34 @@ body{
    display: none;
 }
 
+
+}
+
+`;
+
+const rtlStyle =`
+@media screen and (min-width: 1024px){
+.menu__container{
+    flex-direction: row-reverse;
+}
+.menu__items{
+    direction: rtl;
+    justify-content: initial;
+}
+.next-btn, .prev-btn{
+    transform: rotate(180deg);
+}
+.arrows__container{
+    direction: rtl;
+}
+.slick-dots{
+    direction: rtl;
+    justify-content: flex-end;
+}
+.prev-btn{
+    margin-right: 0;
+    margin-left: 18px;
+}
 
 }
 

@@ -489,6 +489,9 @@ function addUbuntuFont() {
 function addBasicStyle () {
     const replacedStyle = basicStyle.replace(/main-container-gallery/g, canvasClass);
     document.head.innerHTML +='<style>'+replacedStyle+'</style>';
+    if (dir === 'rtl'){
+        document.head.innerHTML +='<style>'+rtlStyle+'</style>';
+    }
 
 }
 
@@ -902,7 +905,6 @@ body{
     display: flex;
     justify-content: center;
     flex-basis: 33.3%;
-    direction: ltr;
   }
   .dots__container{    
   flex-basis: 33.3%;
@@ -943,6 +945,34 @@ body{
 }
 
   
+}
+
+`;
+
+const rtlStyle =`
+@media screen and (min-width: 1024px){
+.menu__container{
+    flex-direction: row-reverse;
+}
+.menu__items{
+    direction: rtl;
+    justify-content: initial;
+}
+.next-btn, .prev-btn{
+    transform: rotate(180deg);
+}
+.arrows__container{
+    direction: rtl;
+}
+.slick-dots{
+    direction: rtl;
+    justify-content: flex-end;
+}
+.prev-btn{
+    margin-right: 0;
+    margin-left: 18px;
+}
+
 }
 
 `;
