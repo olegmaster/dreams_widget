@@ -26,6 +26,9 @@ let aboutUsData = [
                 "value": "“Odessa 2020” Project is located in the heart of the city’s entertainment and recreation" +
                   " center, adjacent to the beach. The project’s unique location close to Arcadia promenade provides an incredible mix of vibrant nightlife, along with an abundance of restaurants offering rich cuisine, cultural and historical sites and marvelous beaches."+
                   "<br><br>"+
+                  "<div class='about-us__img-container'><img" +
+                  " src='https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Project\/proj_1.jpg'" +
+                  " class='tab-content__image'></div>"+
                 "The complex is composed of a luxury tower with 440 studio, 2 and 3-room apartments, fully furnished" +
                   " and equipped to suit all types of tourists (couples, families, businessmen, etc.). The complex" +
                   " has everything you need to enjoy life: a Dead Sea spa, transparent swimming pool on the 26th floor, gym, aesthetic center, conference rooms, restaurants and coffee shops, concierge service, underground parking, housekeeping and room service, and more. The project was planned and designed by an Israeli architect, Assaf Shaul – co-owner of CPSL architectural firm. Each apartment features a balcony overlooking the sea. The apartments will be rented to tourists by an Israeli management company for short periods via the Airbnb model. In the complex there is a business center “Emporium Business Tower”."+
@@ -38,6 +41,9 @@ let aboutUsData = [
                   "הייחודי בקרבת טיילת ארקדיה מעניק שילוב מדהים של חיי לילה תוססים, יחד עם מסעדות "+
                   "רבות המציעות קולינריה עשירה ומגוונת, אתרי תרבות והיסטוריה וכמובן חופי ים מרהיבים."+
                   "<br><br>"+
+                  "<div class='about-us__img-container'><img" +
+                  " src='https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Project\/proj_1.jpg'" +
+                  " class='tab-content__image'></div>"+
                   "בקומפלקס 2 מגדלי יוקרה, מגדל דירות עם 440 דירות סטודיו, 2 חדרים ו-3 חדרים, מרוהטות"+
                   "ומאובזרות באופן מלא המתאימות לכל סוגי התיירים (זוגות, משפחות, אנשי עסקים ועוד)."+
                   "המתחם כולל כל מה שצריך בכדי להנות מהחיים: ספא ים המלח, בריכת שחייה עם תחתית"+
@@ -55,7 +61,7 @@ let aboutUsData = [
                   "לתקופות קצרות, במודל של Airbnb ע\"י חברת ניהול ישראלית. כמו כן, באודסה קיים מחסור"+
                   "גדול של משרדים בשל הצמיחה הכלכלית ומעבר של חברות הייטק בינלאומיות לעיר."
             }],
-            "imageUrl": "https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Project\/proj_1.jpg",
+            "imageUrl": "",
             "order": 1
         }]
     },
@@ -102,8 +108,8 @@ let aboutUsData = [
 
 
 let canvasClass = 'bmby-about-wrapp';
-let lang = '<?=$lang?>';
-const dir = '<?=$dir?>';
+let lang = 'en';
+const dir = 'ltr';
 let hasUbuntuFont = false;
 let aboutUsSections = [];
 let mode = 'dev';
@@ -150,6 +156,19 @@ function cropImageToText() {
             }, 50);
         });
     }
+}
+
+function checkUserAgent () {
+    let userAgentData;
+    const userAgentArr = ['iPhone','iPad','Android','Windows'];
+    const userAgent = window.navigator.userAgent;
+    userAgentArr.forEach(agent =>{
+        const res = userAgent.match(agent);
+        if (res){
+            userAgentData = res[0];
+        }
+    });
+    return userAgentData;
 }
 
 function orientationHandler() {
@@ -205,6 +224,11 @@ function addFont() {
 function addBasicStyle() {
     const replacedStyle = basicStyle.replace(/main-container-about/g, canvasClass);
     document.head.innerHTML += '<style>' + replacedStyle + '</style>';
+    const userAgent = checkUserAgent();
+    if (userAgent !== 'iPad' && window.innerWidth >= 1024){
+        const desktopReplaced = desktopStyle.replace(/main-container-about/g, canvasClass);
+        document.head.innerHTML +='<style>'+desktopReplaced+'</style>';
+    }
 }
 
 function insertMenu(activeTab = 0) {
@@ -452,7 +476,7 @@ body{
 }
 
 .about-us__img-container{
- padding: 0 16px;
+ // padding: 0 16px;
  padding-bottom: 16px;
 }
 
@@ -551,6 +575,96 @@ body{
 @media screen and (min-width: 1024px) {
   .main-container-about {
     padding: 0 10px;
+    background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%);
+    color: #fff;
+    font-family: 'Assistant', sans-serif;
+    font-style: normal;
+  }
+  .menu__items{
+    display: flex;
+    // border-bottom: 1px solid #C0C0C0;
+    flex-basis: 40%;
+    position: inherit;
+    width: 100%;
+    top: 0;
+    color: #fff;
+  }
+  .menu-content__wrapper::after{
+    content: '';
+    width: 100%;
+    display:block;
+    height: 1px;
+    margin-top: -2px;
+    background: #fff ;
+  }
+
+  .active {
+    border-bottom: 3px solid #603EF2;
+    color: #603EF2;
+    }
+   .tabs-data-content__wrapper, .menu-content__wrapper{
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .tabs-data-content__wrapper::before{
+    background: linear-gradient(180deg, #2A3549 0%, #131A2D 10%);
+}
+  .menu__item{
+    margin: 0;
+    padding: 11px 49px;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    cursor: pointer;
+  }
+   .tab-content__title{
+    margin: 0;
+    padding-top: 0;
+  }
+   .tab-content__text{
+    padding: 0;
+  }
+  .tab-content__image{
+    object-fit: cover;
+  }
+  .about-us__img-container{
+    padding: 0;
+  }
+  .tab-content__container-section{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+  }
+  .tab-content__container-section:nth-child(odd){
+    flex-direction: row-reverse;
+  }
+   .tab-content__title{
+    color: #fff;
+    font-size: 30px;
+    font-weight: 500;
+  }
+  .tab-content__text{
+    color: #fff;
+    font-weight: 300;
+    font-size: 16px;
+    padding-top: 48px;
+    line-height: 18px;
+    letter-spacing: -0.21px;
+  }
+   .text-content__wrapper{
+    flex-basis: 47%;
+  }
+
+}
+
+`;
+
+const desktopStyle = `
+@media screen and (min-width: 1024px) {
+  .main-container-about {
+    padding: 0 10px;
     background: #F7F7F7;
     font-family: 'Ubuntu', sans-serif;
     font-style: normal;
@@ -633,8 +747,6 @@ body{
   }
 
 }
-
-
 `;
 
 /*!

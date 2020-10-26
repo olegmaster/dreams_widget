@@ -127,7 +127,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         if (scriptsChecker()){
             clearInterval(isScriptsLoaded);
             insertMenu();
-            checkUserAgent();
+            const userAgent = checkUserAgent();
+            if (userAgent && userAgent !== 'Windows'){
+                reduceImage();
+            }
             insertCaptionContainer();
             initGallery();
             setTimeout(()=>{
@@ -150,7 +153,6 @@ const fancyBoxTemplate =`
 </div>`;
 
 
-window.onscroll = ()=>onScrollGallery();
 window.addEventListener('orientationchange',orientationHandler);
 window.addEventListener('resize',orientationHandler);
 
@@ -159,14 +161,16 @@ function scriptsChecker () {
 }
 
 function checkUserAgent () {
+    let userAgentData;
     const userAgentArr = ['iPhone','iPad','Android','Windows'];
     const userAgent = window.navigator.userAgent;
     userAgentArr.forEach(agent =>{
         const res = userAgent.match(agent);
-        if (res && res[0] !=='Windows'){
-            reduceImage();
+        if (res){
+            userAgentData = res[0];
         }
     });
+    return userAgentData;
 }
 
 function reduceImage () {
@@ -203,21 +207,30 @@ function changeImagesContainerHeight () {
     });
 }
 
+function clearContent(targetContent) {
+    while (targetContent.firstChild) {
+        targetContent.removeChild(targetContent.firstChild);
+    }
+}
+
 function orientationHandler (e) {
     if (scriptsChecker()){
-        let activeMenu;
-        const menus = document.querySelectorAll('.menu__container');
-        menus.forEach((menu,index) =>{
-            activeMenu = menu.querySelector('.menu__items > .menu__item.active');
-            menu.remove();
-        });
-        insertMenu();
+        let chInt;
+        const imagesContainer = document.querySelector('.images__container');
         $('.images__container').slick('unslick');
-        slickInit();
-        fancyboxInit();
-        changeImagesContainerHeight();
-        showCaption();
-        switchTab(activeMenu);
+        chInt = setInterval(()=>{
+            if (imagesContainer.slick.unslicked === true){
+                clearInterval(chInt);
+                clearContent(document.querySelector('.'+canvasClass));
+                insertMenu();
+                insertCaptionContainer();
+                initGallery();
+                setTimeout(()=>{
+                    changeImagesContainerHeight();
+                    showCaption();
+                },100);
+            }
+        },100);
     }
 }
 
@@ -423,7 +436,10 @@ function initGallery () {
         const imagesContainer = creatHtmlElement(container,'','div',['images__container']);
         imagesContainer.setAttribute('dir',dir);
         imagesContainer.dataset.index = index;
-        imagesContainer.onscroll = ()=>onScrollGallery();
+        imagesContainer.addEventListener('wheel',onScrollGallery);
+        imagesContainer.addEventListener('touchstart',onScrollGallery);
+        imagesContainer.addEventListener('touchend',onScrollGallery);
+        imagesContainer.addEventListener('touchmove',onScrollGallery);
         imgData.sort((prev,next)=>prev.categoryId - next.categoryId);
         imgData.forEach((img,ind) =>{
             let titleImg = img.title.filter(el => el.lang === lang);
@@ -495,6 +511,11 @@ function addUbuntuFont() {
 function addBasicStyle () {
     const replacedStyle = basicStyle.replace(/main-container-gallery/g, canvasClass);
     document.head.innerHTML +='<style>'+replacedStyle+'</style>';
+    const userAgent = checkUserAgent();
+    if (userAgent !== 'iPad' && window.innerWidth >= 1024){
+        const desktopReplaced = desktopStyle.replace(/main-container-gallery/g, canvasClass);
+        document.head.innerHTML +='<style>'+desktopReplaced+'</style>';
+    }
     if (dir === 'rtl'){
         document.head.innerHTML +='<style>'+rtlStyle+'</style>';
     }
@@ -804,6 +825,155 @@ body{
 
 @media screen and (min-width: 1024px){
 .main-container-gallery {
+  color: #fff;
+  background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%);
+}
+
+  .img__tumbs{
+    width: 100vw;
+    height: calc(100vh - 46px);
+  }
+  .menu__container {
+    bottom: 0;
+    top: inherit;
+    position: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%);
+  }
+  .images__container{
+    padding-top: 0px;
+    overflow-x: hidden;
+    margin-top: -2px;
+  }
+    .image-caption__text{
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    // bottom: 47px;
+    z-index: 2;
+    align-items: center;
+    display: flex;
+    transition: all 0.5s;
+    justify-content: center;
+    // background: rgba(17, 23, 45, 0.8);
+    background: rgba(255, 255, 255, 0.72);
+    color: #1A2F43;
+    font-weight: 300;
+    line-height: 16px;
+  }
+   .img__tumbs{
+    object-fit: contain;
+  }
+  .caption__hide{
+  display: none;
+}
+  .caption__img__text{
+    margin: 0;
+    margin-right: 15px;
+  }
+  .menu__items{
+    justify-content: flex-end;
+    margin-right: 18px;
+    flex-basis: 33.3%;
+    min-width: fit-content;
+  }
+
+  .active {
+  border-bottom: 3px solid #603EF2;
+  color: #603EF2;
+}
+  .slick-dots{
+    display: flex;
+    list-style: none;
+    flex-grow: 1;
+    padding-left: 30px;
+    margin: 0;
+    flex-wrap: wrap;
+  }
+  .next-btn,.prev-btn{
+    padding: 15px;
+    cursor: pointer;
+    color: #fff;
+  }
+   .next-btn[aria-disabled="true"],.prev-btn[aria-disabled="true"]{
+    color: #C0C0C0;
+    cursor: default;
+  }
+
+  .prev-btn{
+    margin-right: 18px;
+  }
+  .dots__btn-style{
+    height: 10px;
+    width: 10px;
+    padding: 0;
+    background: #fff;
+    border-radius: 50%;
+    border-style: none;
+    cursor:pointer;
+    outline: none;
+    // margin-right: 30px;
+  }
+  .dots__parent-element{
+    margin-right: 22px;
+    border-radius: 50%;
+  }
+   .slick-active{
+    // background: #1A2F43;
+  }
+    li.slick-active > button{
+    // background: #603EF2;
+    background: #603EF2;
+  }
+
+  .arrows__container{
+    display: flex;
+    justify-content: center;
+    flex-basis: 33.3%;
+  }
+  .dots__container{
+  flex-basis: 33.3%;
+  }
+  .main-container-gallery {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+   .fancybox-inner > .fancybox-toolbar >.fancybox-button{
+    background: transparent;
+    color: #fff;
+}
+
+   .fancybox-inner > .fancybox-navigation > .fancybox-button{
+    background: transparent;
+    color: #fff;
+}
+   .fancybox-inner > .fancybox-navigation > .fancybox-button:disabled{
+    background: transparent;
+    color: #C0C0C0;
+}
+   .gallery-slide__arrow{
+    font-size: 18px;
+}
+
+.fancybox-inner > .fancybox-toolbar{
+  top: unset;
+  bottom: 0;
+}
+
+.fancybox-caption{
+   display: none;
+}
+
+
+}
+
+`;
+
+const desktopStyle =`
+@media screen and (min-width: 1024px){
+.main-container-gallery {
   color: #6E767E;
   background: #F7F7F7;
 }
@@ -949,7 +1119,6 @@ body{
   background: #F7F7F7 !important;
   opacity: 1 !important;
 }
-
 
 }
 

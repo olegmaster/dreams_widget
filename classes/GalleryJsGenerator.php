@@ -99,7 +99,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         if (scriptsChecker()){
             clearInterval(isScriptsLoaded);
             insertMenu();
-            checkUserAgent();
+            const userAgent = checkUserAgent();
+            if (userAgent && userAgent !== 'Windows'){
+                reduceImage();
+            }
             insertCaptionContainer();
             initGallery();
             changeImagesTumbs();
@@ -124,7 +127,6 @@ const fancyBoxTemplate =`
 </div>`;
 
 
-window.onscroll = ()=>onScrollGallery();
 window.addEventListener('orientationchange',orientationHandler);
 window.addEventListener('resize',orientationHandler);
 
@@ -133,14 +135,16 @@ function scriptsChecker () {
 }
 
 function checkUserAgent () {
+    let userAgentData;
     const userAgentArr = ['iPhone','iPad','Android','Windows'];
     const userAgent = window.navigator.userAgent;
     userAgentArr.forEach(agent =>{
         const res = userAgent.match(agent);
-        if (res && res[0] !=='Windows'){
-            reduceImage();
+        if (res){
+            userAgentData = res[0];
         }
     });
+    return userAgentData;
 }
 
 function reduceImage () {
@@ -178,22 +182,31 @@ function changeImagesContainerHeight () {
     });
 }
 
+function clearContent(targetContent) {
+    while (targetContent.firstChild) {
+        targetContent.removeChild(targetContent.firstChild);
+    }
+}
+
 function orientationHandler (e) {
     if (scriptsChecker()){
-        let activeMenu;
-        const menus = document.querySelectorAll('.menu__container');
-        menus.forEach((menu,index) =>{
-           activeMenu = menu.querySelector('.menu__items > .menu__item.active');
-            menu.remove();
-        });
-        insertMenu();
+        let chInt;
+        const imagesContainer = document.querySelector('.images__container');
         $('.images__container').slick('unslick');
-        slickInit();
-        fancyboxInit();
-        changeImagesContainerHeight();
-        changeImagesTumbs();
-        showCaption();
-        switchTab(activeMenu);
+        chInt = setInterval(()=>{
+            if (imagesContainer.slick.unslicked === true){
+                clearInterval(chInt);
+                clearContent(document.querySelector('.'+canvasClass));
+                insertMenu();
+                insertCaptionContainer();
+                initGallery();
+                setTimeout(()=>{
+                    changeImagesContainerHeight();
+                    changeImagesTumbs();
+                    showCaption();
+                },100);
+            }
+        },100);
     }
 }
 
@@ -208,7 +221,7 @@ function changeImagesTumbs () {
               if (isPortrait){
                   img.style.width = '100vw';
                   img.style.height = '100vw';
-              } else {
+              } else if (window.innerWidth < 1024) {
                   img.style.width = '100vh';
                   img.style.height = '100vh';
               }
@@ -401,6 +414,7 @@ function setMenuStyle (menuItems) {
         }
     } else if (lengthItems <= 2){
         menuItems.style.display = 'none';
+        menuItems.parentElement.style.justifyContent = 'end';
         imagesContainerInterval = setInterval(()=>{
             const imagesContainer = document.querySelector('.images__container[data-index="'+menuItems.dataset.index+'"]');
             if (imagesContainer){
@@ -417,7 +431,10 @@ function initGallery () {
         const imagesContainer = creatHtmlElement(container,'','div',['images__container']);
         imagesContainer.setAttribute('dir',dir);
         imagesContainer.dataset.index = index;
-        imagesContainer.onscroll = ()=>onScrollGallery();
+        imagesContainer.addEventListener('wheel',onScrollGallery);
+        imagesContainer.addEventListener('touchstart',onScrollGallery);
+        imagesContainer.addEventListener('touchend',onScrollGallery);
+        imagesContainer.addEventListener('touchmove',onScrollGallery);
         imgData.sort((prev,next)=>prev.categoryId - next.categoryId);
         imgData.forEach((img,ind) =>{
             let titleImg = img.title.filter(el => el.lang === lang);
