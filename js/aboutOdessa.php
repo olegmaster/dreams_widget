@@ -26,7 +26,7 @@ let aboutUsData = [
                 "value": "“Odessa 2020” Project is located in the heart of the city’s entertainment and recreation" +
                   " center, adjacent to the beach. The project’s unique location close to Arcadia promenade provides an incredible mix of vibrant nightlife, along with an abundance of restaurants offering rich cuisine, cultural and historical sites and marvelous beaches."+
                   "<br><br>"+
-                  "<div class='about-us__img-container'><img" +
+                  "<div class='about-us__img-in-text about-us__img-container'><img" +
                   " src='https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Project\/proj_1.jpg'" +
                   " class='tab-content__image'></div>"+
                 "The complex is composed of a luxury tower with 440 studio, 2 and 3-room apartments, fully furnished" +
@@ -41,7 +41,7 @@ let aboutUsData = [
                   "הייחודי בקרבת טיילת ארקדיה מעניק שילוב מדהים של חיי לילה תוססים, יחד עם מסעדות "+
                   "רבות המציעות קולינריה עשירה ומגוונת, אתרי תרבות והיסטוריה וכמובן חופי ים מרהיבים."+
                   "<br><br>"+
-                  "<div class='about-us__img-container'><img" +
+                  "<div class='about-us__img-in-text about-us__img-container'><img" +
                   " src='https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Project\/proj_1.jpg'" +
                   " class='tab-content__image'></div>"+
                   "בקומפלקס 2 מגדלי יוקרה, מגדל דירות עם 440 דירות סטודיו, 2 חדרים ו-3 חדרים, מרוהטות"+
@@ -61,7 +61,7 @@ let aboutUsData = [
                   "לתקופות קצרות, במודל של Airbnb ע\"י חברת ניהול ישראלית. כמו כן, באודסה קיים מחסור"+
                   "גדול של משרדים בשל הצמיחה הכלכלית ומעבר של חברות הייטק בינלאומיות לעיר."
             }],
-            "imageUrl": "",
+            "imageUrl": "https://dreamsimages.bmby.com/new/dev/odessa2020/projectassets/Project/proj_1.jpg",
             "order": 1
         }]
     },
@@ -356,11 +356,14 @@ function buildTabsContent(container, objectContent) {
 
         const imgContainer = creatHtmlElement(section, '', 'div', ['about-us__img-container']);
         const img = creatHtmlElement(imgContainer, '', 'img', ['tab-content__image']);
-        if (sectionData.imageUrl === 'https://dreamsimages.bmby.com/new/dev/odessa2020/projectassets/Develop/dev_2.png' && window.innerWidth >= 1024){
+        if (sectionData.imageUrl === 'https://dreamsimages.bmby.com/new/dev/odessa2020/projectassets/Develop/dev_2.png' && window.innerWidth > 1024){
             img.src = imageDark;
         }else {
             img.src = sectionData.imageUrl;
         }
+         if (sectionData.imageUrl === 'https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Project\/proj_1.jpg' && window.innerWidth < 1024){
+                    img.src = '';
+                }
         if (objectContent.order !== 0) {
             if (aboutUsData.length > 1){
                 tab.classList.add('hide-tab');
@@ -632,6 +635,9 @@ body{
   .about-us__img-container{
     padding: 0;
   }
+  .about-us__img-in-text{
+      display:none;
+    }
   .tab-content__container-section{
     display: flex;
     justify-content: space-between;
