@@ -17,6 +17,9 @@
     <?php if(isset($_GET['page']) && $_GET['page'] === 'gallery'): ?>
         <script src="js/gallery.php?key=4CEFC377-5791-41BD-9BB1-6E431F11F5D9&type=US"></script>
     <?php endif; ?>
+    <?php if(isset($_GET['page']) && $_GET['page'] === 'poi'): ?>
+        <script src="js/poi.php?key=4CEFC377-5791-41BD-9BB1-6E431F11F5D9&type=US"></script>
+    <?php endif; ?>
     <title>Document</title>
 </head>
 <body style="margin: 0">
@@ -32,6 +35,9 @@
 <?php endif; ?>
 <?php if(isset($_GET['page']) && $_GET['page'] === 'gallery'): ?>
     <div class="bmby-gallery"></div>
+<?php endif; ?>
+<?php if(isset($_GET['page']) && $_GET['page'] === 'poi'): ?>
+    <div class="bmby-poi"></div>
 <?php endif; ?>
 
 </body>
