@@ -7,12 +7,14 @@ class WidgetApiInteractor extends ApiHelper
 
     private $galleryFnc = 'api/dreamsv2/gallery';
     private $aboutFnc = 'api/dreamsv2/about/';
-    private $poiCategoriesFnc = '/api/dreamsv2/poicategories/';
-    private $poiFnc = '/api/dreamsv2/poi/';
+    private $poiCategoriesFnc = 'api/dreamsv2/poicategories';
+    private $poiFnc = 'api/dreamsv2/poi';
     private $apiKey;
 
     public function __construct(string $apiKey, string $type)
     {
+        // add on local debug
+        //$_SERVER['endpoint_US'] = 'https://dreamsapi.bmby.com/';
         $this->apiKey = $apiKey;
         $this->apiEndPoint = ($type == 'US')?$_SERVER['endpoint_US']:$_SERVER['endpoint_IL'];
     }
@@ -65,7 +67,6 @@ class WidgetApiInteractor extends ApiHelper
      * @return bool|string
      */
     private function sendRequest(string $url){
-
         return $this->sendGetRequest($this->apiEndPoint . "/" . $url . "/" . $this->apiKey);
     }
 }
