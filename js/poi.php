@@ -1,7 +1,7 @@
 <?php
 require_once '../classes/WidgetApiInteractor.php';
 require_once '../classes/ApiHelper.php';
-require_once '../classes/GalleryJsGenerator.php';
+require_once '../classes/PoiJsGenerator.php';
 
 $canvasClass = $_GET['canvas'] ?? 'bmby-poi';
 
@@ -11,13 +11,13 @@ $callback = $_GET['callback'] ?? '';
 $lang = $_GET['lang'] ?? 'en';
 
 $apiInteractor = new WidgetApiInteractor($_GET['key'] ?? '', $_GET['type'] ?? '');
-$galleryData = $apiInteractor->getPoiApiData();
+$poiData = $apiInteractor->getPoiData();
 
-$galleryCategoriesData = $apiInteractor->getPoiCategoriesApiData();
+$poiCategoriesData = $apiInteractor->getPoiCategoriesData();
 
-$galleryJsGenerator = new PoiJsGenerator($galleryData, $canvasClass, $lang, $callback);
+$poiJsGenerator = new PoiJsGenerator($poiData, $poiCategoriesData, $canvasClass, $lang, $callback);
 
-$galleryJsGenerator->showJs();
+$poiJsGenerator->showJs();
 
 
 
