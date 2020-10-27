@@ -7,7 +7,8 @@ class WidgetApiInteractor extends ApiHelper
 
     private $galleryFnc = 'api/dreamsv2/gallery';
     private $aboutFnc = 'api/dreamsv2/about/';
-    private $galleryCategoriesFnc = 'api/dreamsv2/galleryCategories/';
+    private $poiCategoriesFnc = '/api/dreamsv2/poicategories/';
+    private $poiFnc = '/api/dreamsv2/poi/';
     private $apiKey;
 
     public function __construct(string $apiKey, string $type)
@@ -17,6 +18,8 @@ class WidgetApiInteractor extends ApiHelper
     }
 
     /**
+     * Get gallery data from API
+     * by sending http request
      * @return bool|string
      */
     public function getGalleryApiData()
@@ -25,6 +28,8 @@ class WidgetApiInteractor extends ApiHelper
     }
 
     /**
+     * get about us data from API
+     * by sending http request
      * @return bool|string
      */
     public function getAboutUsPageData()
@@ -32,6 +37,33 @@ class WidgetApiInteractor extends ApiHelper
         return $this->sendRequest($this->aboutFnc);
     }
 
+    /**
+     * get poi categories data from API
+     * by sending http request
+     * @return bool|string
+     */
+    public function getPoiCategoriesData()
+    {
+        return $this->sendRequest($this->poiCategoriesFnc);
+    }
+
+    /**
+     * get Poi data from API
+     * by sending http request
+     * @return bool|string
+     */
+    public function getPoiData()
+    {
+        return $this->sendRequest($this->poiFnc);
+    }
+
+    /**
+     * this function is used for sending http requests
+     * by specified url
+     * it can be extended for another http methods
+     * @param string $url
+     * @return bool|string
+     */
     private function sendRequest(string $url){
 
         return $this->sendGetRequest($this->apiEndPoint . "/" . $url . "/" . $this->apiKey);
