@@ -2,6 +2,11 @@
 
 require_once 'JsGenerator.php';
 
+/**
+ * the class for generating JavaScript for the poi
+ * the generated js will be used for building the poi page
+ * Class PoiJsGenerator
+ */
 class PoiJsGenerator implements JsGenerator
 {
 
