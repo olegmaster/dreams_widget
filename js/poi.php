@@ -11,11 +11,11 @@ $callback = $_GET['callback'] ?? '';
 $lang = $_GET['lang'] ?? 'en';
 
 $apiInteractor = new WidgetApiInteractor($_GET['key'] ?? '', $_GET['type'] ?? '');
-$galleryData = $apiInteractor->getGalleryApiData();
+$galleryData = $apiInteractor->getPoiApiData();
 
-$galleryCategoriesData = $apiInteractor->getGalleryCategoriesApiData();
+$galleryCategoriesData = $apiInteractor->getPoiCategoriesApiData();
 
-$galleryJsGenerator = new GalleryJsGenerator($galleryData, $canvasClass, $lang, $callback);
+$galleryJsGenerator = new PoiJsGenerator($galleryData, $canvasClass, $lang, $callback);
 
 $galleryJsGenerator->showJs();
 
