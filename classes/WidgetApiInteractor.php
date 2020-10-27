@@ -1,16 +1,33 @@
 <?php
 require_once 'ApiHelper.php';
 
+/**
+ * the class for interacting wit REST API
+ * we can get data from API using methods from it
+ * and make other operations (create update delete) if it's necessary
+ * Class WidgetApiInteractor
+ */
 class WidgetApiInteractor extends ApiHelper
 {
+    // API endpoint
     private $apiEndPoint = '';
 
+    // specific API paths
+    // it wil be concatenated with API endpoint
     private $galleryFnc = 'api/dreamsv2/gallery';
     private $aboutFnc = 'api/dreamsv2/about/';
     private $poiCategoriesFnc = 'api/dreamsv2/poicategories';
     private $poiFnc = 'api/dreamsv2/poi';
+
+    // API key or projectGuid
     private $apiKey;
 
+
+    /**
+     * WidgetApiInteractor constructor.
+     * @param string $apiKey
+     * @param string $type is the type of api endpoint
+     */
     public function __construct(string $apiKey, string $type)
     {
         // add on local debug
