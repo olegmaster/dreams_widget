@@ -27,14 +27,6 @@ class WidgetApiInteractor extends ApiHelper
     /**
      * @return bool|string
      */
-    public function getGalleryCategoriesApiData()
-    {
-        return $this->sendRequest($this->galleryCategoriesFnc);
-    }
-
-    /**
-     * @return bool|string
-     */
     public function getAboutUsPageData()
     {
         return $this->sendRequest($this->aboutFnc);
