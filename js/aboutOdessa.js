@@ -503,6 +503,7 @@ body{
 
 .tab-content__text{
   font-size: 14px;
+  text-align: justify;
   font-weight: 300;
   line-height: 16px;
   color: #fff;
@@ -744,6 +745,7 @@ const desktopStyle = `
     padding-top: 48px;
     line-height: 18px;
     letter-spacing: -0.21px;
+    text-align: inherit;
   }
    .text-content__wrapper{
     flex-basis: 47%;

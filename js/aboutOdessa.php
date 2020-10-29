@@ -108,8 +108,8 @@ let aboutUsData = [
 
 
 let canvasClass = 'bmby-about-wrapp';
-let lang = 'en';
-const dir = 'ltr';
+const lang = '<?=$lang?>';
+const dir = '<?=$dir?>';
 let hasUbuntuFont = false;
 let aboutUsSections = [];
 let mode = 'dev';
@@ -507,6 +507,7 @@ body{
 
 .tab-content__text{
   font-size: 14px;
+  text-align: justify;
   font-weight: 300;
   line-height: 16px;
   color: #fff;
@@ -747,6 +748,7 @@ const desktopStyle = `
     padding-top: 48px;
     line-height: 18px;
     letter-spacing: -0.21px;
+    text-align: inherit;
   }
    .text-content__wrapper{
     flex-basis: 47%;
