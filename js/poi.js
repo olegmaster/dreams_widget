@@ -89,10 +89,14 @@ function addBasicStyle () {
     document.head.innerHTML +='<style>'+resetCss+'</style>';
     document.head.innerHTML +='<style>'+styleCss+'</style>';
     document.head.innerHTML +='<style>'+expMapStyle+'</style>';
+    document.head.innerHTML +='<style>'+newStyle+'</style>';
+    if (window.innerWidth <= 768){
+        document.head.innerHTML +='<style>'+mobileStyle+'</style>';
+    }
 }
 
 function addFont() {
-    document.head.innerHTML += '<link href="https://fonts.googleapis.com/css?family=Assistant:300,400,500,600,700,800&display=swap" rel="stylesheet">';
+    document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">';
 }
 
 function isLoadedScript(path) {
@@ -2185,7 +2189,12 @@ function add_experimental_map (options) {
                     subtitle: '',
                     bgImg: '',
                     body: content,
-                    category_color : marker1.category_color
+                    category_title: marker.category_title,
+                    category_icon: marker.category_img,
+                    category_color : marker1.category_color,
+                    description: marker.marker_description,
+                    route: route_wrap,
+                    info: go_to_website_text,
                 }),
                 closeWhenOthersOpen: true,
                 panOnOpen : false,
@@ -2426,7 +2435,8 @@ function add_experimental_map (options) {
                         } else {
                             duration_html = ' <div class="row"><span class="word">' + get_lang('seconds') + ' </span><span class="number">' + duration_value + ' </span></div>';
                         }
-                        $(container).find('.get-route-title .bottom-text').html( distance_html + '<div class="middle"> - </div>' + duration_html);
+                        $(container).find('.get-route-title .bottom-text').html( distance_html + '<div' +
+                          ' class="middle"> . </div>' + duration_html);
                         if (request.travelMode == 'WALKING') {
                             route_html += '<b>Travel mode: walking</b><br>';
                             $(container).find('.get-route-title .top-text').html(get_lang ('Walking route to this place'));
@@ -2580,39 +2590,47 @@ const hb1 =`
 const hb2 = `
 <section class="custom-content">
             <div class="custom-header-wrap">
-<!--                <h1 class="custom-header">-->
-<!--                    {{title}}-->
-<!--                </h1>-->
                 <div class="custom-header-img"></div>
             </div>
-            <div class="custom-title">
-            <h1 class="custom-header">{{title}}</h1>
-            
+            <div class="custom-content__wrapper">
+                <div class="custom-title">
+                    <h1 class="custom-header">{{title}}</h1>
+                </div>
+                <div class="custom-category">
+                    <div class="custom-category__img-container">
+                        <img class="custom-category__img" src="{{{category_icon}}}" alt="category icon">
+                    </div>
+                    <h3 class="category-title">{{category_title}}</h3>
+                </div>
+                <div class="custom-description">
+                    <p class="custom-description__text">{{description}}</p>
+                </div>
+                <div class="custom-route">{{{route}}}</div>
+                <div class="custom-info">{{{info}}}</div>
+          
             </div>
-            <div class="custom-description"></div>
-<!--            <div class="custom-body">{{{body}}}</div>-->
         </section>
 `;
 
 const dictionary = {
     'Walking route to this place' : {
-        'en' : 'Walking route to this place',
-        'he' : 'מסלול הליכה למקום זה'
+        'en' : '',
+        'he' : ''
     },
     'Cycling route to this place' : {
-        'en' : 'Cycling route to this place',
-        'he' : 'מסלול נסיעה ממקום זה'
+        'en' : '',
+        'he' : ''
     },
     'Car route to this place' : {
-        'en' : 'Car route to this place',
-        'he' : 'מסלול נסיעה ממקום זה'
+        'en' : '',
+        'he' : ''
     },
     'Navigate to' : {
         'en' : 'Navigate to',
         'he' : 'נווט אל'
     },
     'meter' : {
-        'en' : 'meter',
+        'en' : 'm',
         'he' : 'מטר'
     },
     'km' : {
@@ -2620,11 +2638,11 @@ const dictionary = {
         'he' : 'ק"מ'
     },
     'seconds' : {
-        'en' : 'seconds',
+        'en' : 'sec',
         'he' : 'שניות'
     },
     'minutes' : {
-        'en' : 'minutes',
+        'en' : 'mins',
         'he' : 'דקות'
     },
     'All points of interest' : {
@@ -2677,7 +2695,7 @@ text-decoration: none;
 }
 
 body{
-font-family: 'Assistant', sans-serif;
+font-family: 'Ubuntu', sans-serif;
 background: #111114;
 margin: 0 auto;
 max-width: 100%;
@@ -2998,7 +3016,7 @@ margin-right: 50px;
 
 #header-menu li a{
 display: inline-block;
-font-family: 'Assistant', sans-serif;
+font-family: 'Ubuntu', sans-serif;
 font-style: normal;
 font-weight: normal;
 font-size: 15px;
@@ -3101,7 +3119,7 @@ cursor: pointer;
 
 header .bottom .text{
 transform: translateX(21px);
-font-family: 'Assistant', sans-serif;
+font-family: 'Ubuntu', sans-serif;
 font-style: normal;
 font-weight: 600;
 font-size: 16px;
@@ -3422,7 +3440,7 @@ cursor: pointer;
 .play-bg-video-2 .text{
 display: inline-block;
 transform: translateX(21px);
-font-family: 'Assistant', sans-serif;
+font-family: 'Ubuntu', sans-serif;
 font-style: normal;
 font-weight: 600;
 font-size: 16px;
@@ -4303,7 +4321,7 @@ display: none;
 .footer-title {
 opacity: 0.8;
 color: #FFFFFF;
-font-family: Assistant;
+font-family: 'Ubuntu', sans-serif;
 font-size: 18px;
 line-height: 30px;
 padding-bottom: 15px;
@@ -5458,7 +5476,6 @@ display: none;
 .custom-header {
 position: relative;
 margin: 0;
-padding: 30px;
 background-color: #603ef2;
 color: #fff;
 font-size: 20px;
@@ -5552,26 +5569,24 @@ padding-top: 0;
 .custom-img {
 height: 160px; }
 .custom-header {
-padding: 10px;
 line-height: 1.5;
-padding-left: 20px;
 }
 
 ::-webkit-scrollbar:horizontal,
 ::-webkit-scrollbar {
 width: 5px;
 height: 5px;
-background-color: rgba(175, 176, 178, 0.26);
+// background-color: rgba(175, 176, 178, 0.26);
 }
 ::-webkit-scrollbar-track:horizontal,
 ::-webkit-scrollbar-track {
-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+// box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 ::-webkit-scrollbar-thumb:horizontal,
 ::-webkit-scrollbar-thumb {
-background-color: #603ef2;
-outline: 1px solid slategrey;
+// background-color: #603ef2;
+// outline: 1px solid slategrey;
 }
 
 
@@ -5919,7 +5934,7 @@ const expMapStyle =`
     line-height: normal;
     letter-spacing: normal;
     color: #000000;
-    padding: 20px; }
+     }
   .map-parent .custom-body {
     background-color: white;
     padding-bottom: 20px; }
@@ -6179,11 +6194,9 @@ const expMapStyle =`
     display: none; }
   .map-parent .route-type-btns {
     display: flex;
-    padding-bottom: 15px;
-    padding-left: 13px; }
+     }
     .map-parent .route-type-btns .route-type-btn {
       border-radius: 100%;
-      border: 1px solid #603ef2;
       width: 44px;
       height: 44px;
       position: relative;
@@ -6201,19 +6214,20 @@ const expMapStyle =`
         cursor: pointer;
         transition: 0.5s;
         background-size: 25px; }
-      .map-parent .route-type-btns .route-type-btn:hover, .map-parent .route-type-btns .route-type-btn.active {
-        background-color: #603ef2; }
         .map-parent .route-type-btns .route-type-btn:hover:after, .map-parent .route-type-btns .route-type-btn.active:after {
-          filter: brightness(0) invert(1); }
+          filter: grayscale(0) invert(0); }
     .map-parent .route-type-btns .change-to-walking:after {
+      filter: grayscale(1) invert(1);
       background-image: url(./img/walking-ic.svg); }
     .map-parent .route-type-btns .change-to-bicycle:after {
+      filter: grayscale(1) invert(1);
       background-image: url(./img/bicycle-ic.svg); }
     .map-parent .route-type-btns .change-to-driving:after {
+      filter: grayscale(1) invert(1);
       background-image: url(./img/car-ic.svg); }
   .map-parent .get-route-title {
     font-size: 18px;
-    padding-left: 19px; }
+    }
   .map-parent .map-type {
     color: white;
     position: absolute;
@@ -6365,3 +6379,178 @@ img {
 }
 
 `;
+
+const newStyle =`
+.custom-content{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
+    color: #03233A;
+}
+.custom-content__wrapper{
+    padding: 16px;
+}
+.custom-content .custom-header{
+    font-weight: 500;
+    font-size: 30px;
+}
+.custom-category{
+    display: flex;
+}
+.custom-route{
+    border-top: 1px solid #C0C0C0;
+    border-bottom: 1px solid #C0C0C0;
+}
+.category-title{
+    margin-left: 8px;
+    font-weight: 300;
+    font-size: 16px;
+}
+.custom-description{
+    margin: 12px 0;
+}
+.custom-description__text{
+    font-size: 14px;
+    color: #6E767E;
+}
+.custom-category__img-container{
+    width: 16px;
+    height: 16px;
+}
+.custom-category__img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.route-wrap{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+}
+.route-type-btns{
+    flex-direction: row-reverse;
+}
+.get-route-title{
+    width: 50%;
+}
+.get-route-title .bottom-text{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: center;
+    font-weight: 500;
+    font-size: 16px;
+}
+.get-route-title .bottom-text .row {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.get-route-title .bottom-text .middle{
+    padding-bottom: 7px;
+}
+.get-route-title .bottom-text .row .number{
+    padding-right: 5px;
+}
+.custom-info{
+    font-size: 16px;
+    color: #1A2F43;
+}
+.custom-info .links-btns-wrap .map-place{
+    display: flex;
+    align-items: flex-end;
+    color: inherit;
+}
+.custom-info .links-btns-wrap{
+    display: flex;
+    flex-direction: column;
+}
+.custom-info .links-btns-wrap .map-place:before {
+    content:'';
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-image: url(./img/new_map_ic_compass.svg);
+    background-position: center;
+    background-size: 18px;
+    margin-right: 9px;
+}
+.custom-info .links-btns-wrap .phone-btn:before {
+    content:'';
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-image: url(./img/new_map_ic_call.svg);
+    margin-right: 9px;
+}
+.custom-info .links-btns-wrap .go-to-website:before{
+    content:'';
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-image: url(./img/new_map_ic_globe.svg);
+  background-position: top;
+    background-size: 18px;
+    margin-right: 9px;
+}
+.custom-info .links-btns-wrap .go-to-website{
+    margin-top: 16px;
+    display: flex;
+    align-items: flex-end;
+}
+.custom-info .links-btns-wrap .phone-btn{
+    margin: 16px 0;
+    display: flex;
+    align-items: flex-end;
+}
+.gmnoprint{
+    display: none;
+}
+
+`;
+
+const mobileStyle =`
+.map-parent .custom-window{
+   width: inherit;
+   top: 35vh;
+   margin-top: -54px !important;
+}
+
+.map-parent .custom-window .si-pointer-bg-top{
+    display: none;
+}
+.map-parent.for-app .map-type{
+    top: 50%;
+}
+.map-parent .map-type .map-type-toggler{
+    width: 42px;
+    height: 42px;
+    box-shadow: none;
+}
+.map-parent .filter .filter-btn{
+    bottom: inherit;
+    top: -45vh;
+    left: 10px;
+    width: 42px;
+    height: 42px;
+    right: auto;
+}
+.custom-info, .custom-description{
+    display: none;
+}
+.map-parent .custom-window .custom-content .custom-header-wrap.with-img{
+    display: none;
+}
+.custom-close{
+    filter: brightness(0);
+}
+.custom-route{
+    border-bottom: none;   
+}
+.map-parent .custom-window .custom-close{
+    top: 0;
+    right: 0;
+}
+
+
+`;
+
