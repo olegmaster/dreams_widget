@@ -219,6 +219,7 @@ function init_map () {
                         'title': dataName,
                         'lat': catData.latitude,
                         'lng': catData.longitude,
+                        'color': category.color,
                         // 'marker_icon': category.icon,
                         'marker_icon': 'img/odessa.png',
                         'cluster_icon': category.iconCluster,
@@ -323,6 +324,22 @@ function add_experimental_map (options) {
         smoothlyAnimatePanTo(map, center);
     }
 
+    function changeBtnStyleWhenCardOpened (container, action) {
+        if (window.innerWidth <=768){
+            mapCenterChangeHandler();
+            const filterBtn = document.querySelector('.filter-btn');
+            const mapType = document.querySelector('.map-type');
+            if (action === 'open'){
+                const containerHeight = container.getBoundingClientRect().height;
+                filterBtn.style.top = 'calc((100vh - '+ (80+containerHeight) +'px) - 100vh)';
+                mapType.style.top = 'calc(100vh - '+(115+containerHeight)+'px)';
+            }else if (action === 'close'){
+                filterBtn.style.top = 'calc((100vh - '+ (80) +'px) - 100vh)';
+                mapType.style.top = 'calc(100vh - '+(115)+'px)';
+            }
+        }
+    }
+
 
     function mapCenterChangeHandler(){
         var destPixel = getPixel(center, map.getZoom());
@@ -331,36 +348,31 @@ function add_experimental_map (options) {
         var diffY = (destPixel.y - mapPixel.y);
         const max = 50;
         const min = 0;
-        const mobileScale = 13;
-        const desktopScale = 3;
-        let addY;
+        const scale = (1740 / window.innerWidth) * 3;
+        let addY = window.innerWidth / window.innerHeight;
         let cardHeight = 0;
         const homeIcon = document.querySelector('.home-btn__img');
+        const card = document.querySelector('.si-wrapper-top.custom-window.open.active');
+        let mapHeight = window.innerHeight / 1.7;
 
-        if (Math.abs(diffX) > window.innerWidth / 1.7 || Math.abs(diffY) > window.innerHeight / 1.7){
-            const card = document.querySelector('.si-wrapper-top.custom-window.open.active');
+        if (card){
+            mapHeight = mapHeight - card.getBoundingClientRect().height;
+        }
+
+        if (Math.abs(diffX) > window.innerWidth / 1.7 || (diffY > window.innerHeight / 2.7 && Math.abs(diffY) > mapHeight) ||(diffY < (window.innerHeight / 2) * -1 && Math.abs(diffY) > mapHeight) || (!card && Math.abs(diffY) > mapHeight )){
+
             if (card){
                 cardHeight = card.getBoundingClientRect().height;
             }
 
-
-            if (window.innerWidth >= 768){
-                diffX = diffX * desktopScale;
-                diffY = diffY * desktopScale;
-                addY = 2
-            } else {
-                diffX = diffX * mobileScale;
-                diffY = diffY * mobileScale;
-                addY = 0.7;
-            }
-
+                diffX = diffX * scale;
+                diffY = diffY * scale;
 
             if (diffY < 0){
                 removeAllStyleProporty();
                 const calcY = max - (Math.abs(diffY) / max) * addY;
                 if (calcY <= max && calcY > min){
                     btnGoHome.style.top = calcY +'%';
-
                 } else {
                     btnGoHome.style.top = 0;
                 }
@@ -421,9 +433,21 @@ function add_experimental_map (options) {
                 removeAllStyleProporty();
                 const calcY = max - (Math.abs(diffY) / max) * addY;
                 if (calcY <= max && calcY > min){
-                    btnGoHome.style.bottom = calcY+'%';
+                    if (card){
+                        if (calcY > ((cardHeight * 100) / window.innerHeight)){
+                            btnGoHome.style.bottom = calcY+'%';
+                        } else {
+                            btnGoHome.style.bottom = cardHeight+'px';
+                        }
+                    } else {
+                        btnGoHome.style.bottom = calcY+'%';
+                    }
                 } else {
-                    btnGoHome.style.bottom = 0;
+                    if (card){
+                        btnGoHome.style.bottom = cardHeight+'px';
+                    }else {
+                        btnGoHome.style.bottom = 0;
+                    }
                 }
 
                 if(diffX > 0){
@@ -443,46 +467,73 @@ function add_experimental_map (options) {
                     }
                 }
 
-                if (parseFloat(btnGoHome.style.bottom) > 0 && parseFloat(btnGoHome.style.left) > 0){
-                    if (parseFloat(btnGoHome.style.bottom) > parseFloat(btnGoHome.style.left)){
-                        btnGoHome.style.left = 0;
-                    }else {
-                        btnGoHome.style.bottom = 0;
+                if (!card){
+                    if (parseFloat(btnGoHome.style.bottom) > 0 && parseFloat(btnGoHome.style.left) > 0){
+                        if (parseFloat(btnGoHome.style.bottom) > parseFloat(btnGoHome.style.left)){
+                            btnGoHome.style.left = 0;
+                        }else {
+                            btnGoHome.style.bottom = 0;
+                        }
+                    }
+
+                    if (parseFloat(btnGoHome.style.bottom) > 0 && parseFloat(btnGoHome.style.right) > 0){
+                        if (parseFloat(btnGoHome.style.bottom) > parseFloat(btnGoHome.style.right)){
+                            btnGoHome.style.right = 0;
+                        }else {
+                            btnGoHome.style.bottom = 0;
+                        }
                     }
                 }
 
-                if (parseFloat(btnGoHome.style.bottom) > 0 && parseFloat(btnGoHome.style.right) > 0){
-                    if (parseFloat(btnGoHome.style.bottom) > parseFloat(btnGoHome.style.right)){
-                        btnGoHome.style.right = 0;
-                    }else {
-                        btnGoHome.style.bottom = 0;
+
+                if(!card){
+                    if (parseFloat(btnGoHome.style.bottom) === 0){
+                        homeIcon.src = './img/home/home_bottom.svg';
                     }
+
+                    if (parseFloat(btnGoHome.style.right) === 0){
+                        homeIcon.src = './img/home/home_right.svg';
+                    }
+
+                    if (parseFloat(btnGoHome.style.left) === 0){
+                        homeIcon.src = './img/home/home_left.svg';
+                    }
+
+                    if (parseFloat(btnGoHome.style.bottom) === 0 && parseFloat(btnGoHome.style.left) === 0){
+                        homeIcon.src = './img/home/home_bottom_left.svg';
+                    }
+
+                    if (parseFloat(btnGoHome.style.bottom) === 0 && parseFloat(btnGoHome.style.right) === 0){
+                        homeIcon.src = './img/home/home_bottom_right.svg';
+                    }
+                } else {
+                    if (Math.floor(parseFloat(btnGoHome.style.bottom)) === Math.floor(cardHeight)){
+                        homeIcon.src = './img/home/home_bottom.svg';
+                    }
+
+                    if (parseFloat(btnGoHome.style.right) === 0){
+                        homeIcon.src = './img/home/home_right.svg';
+                    }
+
+                    if (parseFloat(btnGoHome.style.left) === 0){
+                        homeIcon.src = './img/home/home_left.svg';
+                    }
+
+                    if (Math.floor(parseFloat(btnGoHome.style.bottom)) === Math.floor(cardHeight) && parseFloat(btnGoHome.style.left) === 0){
+                        homeIcon.src = './img/home/home_bottom_left.svg';
+                    }
+
+                    if (Math.floor(parseFloat(btnGoHome.style.bottom)) === Math.floor(cardHeight) && parseFloat(btnGoHome.style.right) === 0){
+                        homeIcon.src = './img/home/home_bottom_right.svg';
+                    }
+
                 }
 
-
-                if (parseFloat(btnGoHome.style.bottom) === 0){
-                    homeIcon.src = './img/home/home_bottom.svg';
-                }
-
-                if (parseFloat(btnGoHome.style.right) === 0){
-                    homeIcon.src = './img/home/home_right.svg';
-                }
-
-                if (parseFloat(btnGoHome.style.left) === 0){
-                    homeIcon.src = './img/home/home_left.svg';
-                }
-
-                if (parseFloat(btnGoHome.style.bottom) === 0 && parseFloat(btnGoHome.style.left) === 0){
-                    homeIcon.src = './img/home/home_bottom_left.svg';
-                }
-
-                if (parseFloat(btnGoHome.style.bottom) === 0 && parseFloat(btnGoHome.style.right) === 0){
-                    homeIcon.src = './img/home/home_bottom_right.svg';
-                }
             }
         } else {
             removeAllStyleProporty();
         }
+
     }
 
     function removeAllStyleProporty(){
@@ -520,6 +571,7 @@ function add_experimental_map (options) {
         if (card){
             card.remove();
             directionsRenderer.setMap(null);
+            changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'),'close');
         }
     }
 
@@ -2071,6 +2123,7 @@ function add_experimental_map (options) {
             $(container).find('.filter-btn').toggleClass('open');
             $(container).find('.map-container').toggleClass('open');
             directionsRenderer.setMap(null);
+            mapClickHandler();
         });
 
 
@@ -2166,7 +2219,7 @@ function add_experimental_map (options) {
             marker1 = new google.maps.Marker({
                 title: title,
                 label : {
-                    color : marker_text_color,
+                    color : marker.color,
                     text : labelTitle,
                     fontWeight : '700',
                     textAlign : center,
@@ -2234,6 +2287,7 @@ function add_experimental_map (options) {
                         const newContainer = document.querySelector('.snazzy-card__window');
                         clearContent(newContainer);
                         directionsRenderer.setMap(null);
+                        changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'),'close');
 
                         var wrapper = $(this.getWrapper());
 
@@ -2312,6 +2366,7 @@ function add_experimental_map (options) {
                         var service = new google.maps.places.PlacesService(map);
                         service.findPlaceFromQuery(poi_request, function(results, status) {
                             if (status === google.maps.places.PlacesServiceStatus.OK) {
+                                console.log(results);
                                 for (var i = 0; i < results.length; i++) {
                                     if (results[i].photos) {
                                         if (results[i].photos.length > 0) {
@@ -2376,7 +2431,26 @@ function add_experimental_map (options) {
                         let marker_position_lat_cor = marker_position_lat + difference_quoter;
 
                         if (window.innerWidth <=768){
+                            let start;
                             newContainer.appendChild(wrapper[0]);
+
+                            function openMiniCard (timestamp) {
+                                if (start === undefined)
+                                    start = timestamp;
+                                const elapsed = ((timestamp - start) / 4);
+                                newContainer.style.bottom = (35 - elapsed) * -1 +'%';
+
+                                if (elapsed < 35){
+                                    window.requestAnimationFrame(openMiniCard);
+                                } else {
+                                    newContainer.style.bottom = '0';
+                                    setTimeout(()=>{
+                                        changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'),'open');
+                                    },500);
+                                }
+                            }
+                            window.requestAnimationFrame(openMiniCard);
+
                             const cont = document.querySelector('.custom-content');
                             cont.addEventListener('touchstart', handleTouchStart, false);
                             cont.addEventListener('touchmove', handleTouchMove, false);
@@ -2396,6 +2470,7 @@ function add_experimental_map (options) {
                         wrapper.find('.custom-close').on('click', ()=>{
                             closeDelayHandler();
                             clearContent(document.querySelector('.snazzy-card__window'));
+                            changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'),'close');
                             directionsRenderer.setMap(null);
                         });
                     },
@@ -2459,6 +2534,7 @@ function add_experimental_map (options) {
                     }
                 } else {
                     if ( yDiff > 0 ) {
+                        /* up swipe */
                         const isLoaded = document.getElementById('openedCardStyle');
                         if (!isLoaded){
                             document.head.innerHTML +='<style id="openedCardStyle">'+mobileOpenedCard+'</style>';
@@ -2472,7 +2548,6 @@ function add_experimental_map (options) {
                                 start = timestamp;
                             const elapsed = (timestamp - start) / 2;
                             card.style.height = elapsed +'vh';
-                            console.log('anim');
 
                             if (elapsed < 100){
                                 window.requestAnimationFrame(openFullscreenCard);
@@ -2481,15 +2556,52 @@ function add_experimental_map (options) {
                             }
                         }
                         window.requestAnimationFrame(openFullscreenCard);
-
-
-
-                        /* up swipe */
                     } else {
-                        closeDelayHandler();
-                        directionsRenderer.setMap(null);
-                        clearContent(document.querySelector('.snazzy-card__window'));
                         /* down swipe */
+                        const card = document.querySelector('.map-parent .custom-window');
+                        const parent = card.parentElement;
+                        const cardStyle = card.style.height;
+                        if (cardStyle){
+                            let start;
+
+                            function closeFullscreenCard (timestamp) {
+                                if (start === undefined)
+                                    start = timestamp;
+                                const elapsed = (timestamp - start) / 2;
+                                card.style.height = 100 - elapsed +'vh';
+
+                                if (elapsed < 100){
+                                    window.requestAnimationFrame(closeFullscreenCard);
+                                } else {
+                                    closeDelayHandler();
+                                    directionsRenderer.setMap(null);
+                                    clearContent(document.querySelector('.snazzy-card__window'));
+                                    card.style.height = '0';
+                                    changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'),'close');
+                                }
+                            }
+                            window.requestAnimationFrame(closeFullscreenCard);
+                        } else {
+                            let start;
+
+                            function closeMiniCard (timestamp) {
+                                if (start === undefined)
+                                    start = timestamp;
+                                const elapsed = ((timestamp - start) / 2) * -1;
+                                parent.style.bottom = elapsed +'%';
+
+                                if (Math.abs(elapsed) < 35){
+                                    window.requestAnimationFrame(closeMiniCard);
+                                } else {
+                                    closeDelayHandler();
+                                    directionsRenderer.setMap(null);
+                                    clearContent(document.querySelector('.snazzy-card__window'));
+                                    parent.style.bottom = 0;
+                                    changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'),'close');
+                                }
+                            }
+                            window.requestAnimationFrame(closeMiniCard);
+                        }
                     }
                 }
                 /* reset values */
@@ -6633,7 +6745,7 @@ const newStyle =`
     color: #1A2F43;
 }
 .custom-info .links-btns-wrap .map-place{
-    display: flex;
+    display: none;
     align-items: flex-end;
     color: inherit;
 }
@@ -6672,7 +6784,7 @@ const newStyle =`
 .custom-info .links-btns-wrap .go-to-website{
     margin-top: 16px;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
 }
 .custom-info .links-btns-wrap .phone-btn{
     margin: 16px 0;
@@ -6689,13 +6801,15 @@ const mobileStyle =`
 .map-parent .custom-window{
    width: 100%;
    max-width: 100%;
+  -webkit-transition: none;
+   transition: none;
 }
 
 .map-parent .custom-window .si-pointer-bg-top{
     display: none;
 }
 .map-parent.for-app .map-type{
-    top: 50%;
+    top: calc(100vh - 115px);
 }
 .map-parent .map-type .map-type-toggler{
     width: 42px;
@@ -6704,7 +6818,7 @@ const mobileStyle =`
 }
 .map-parent .filter .filter-btn{
     bottom: inherit;
-    top: -45vh;
+    top: calc((100vh - 80px) - 100vh);
     left: 10px;
     width: 42px;
     height: 42px;
@@ -6767,7 +6881,7 @@ const mobileStyle =`
 }
 .snazzy-card__window{
     position: absolute;
-    bottom: 0;
+    bottom: -35%;
     width: 100%;
 }
 .map-parent.for-app .custom-window .si-content-wrapper{
@@ -6789,9 +6903,6 @@ const mobileOpenedCard = `
 .snazzy-card__window{
     z-index: 3;
 }
-// .map-parent .custom-window{
-//     height: 100vh;
-// }
 .custom-title:before{
     display: none;
 }
