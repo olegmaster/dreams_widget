@@ -22,6 +22,7 @@ let map;
 let mapGlobalOption;
 let xDown = null;
 let yDown = null;
+let miniCardIsOpened = false;
 
 try{
     nonExistentFunction();
@@ -101,8 +102,11 @@ function addBasicStyle () {
     document.head.innerHTML +='<style>'+styleCss+'</style>';
     document.head.innerHTML +='<style>'+expMapStyle+'</style>';
     document.head.innerHTML +='<style>'+newStyle+'</style>';
-    if (window.innerWidth <= 768){
+    if (detectMobile){
         document.head.innerHTML +='<style>'+mobileStyle+'</style>';
+    }
+    if (dir === 'rtl'){
+        document.head.innerHTML +='<style>'+rtlStyle+'</style>';
     }
 }
 
@@ -265,12 +269,11 @@ function init_map () {
                         'lat': catData.latitude,
                         'lng': catData.longitude,
                         'color': category.color,
-                        // 'marker_icon': category.icon,
-                        'marker_icon': 'img/odessa.png',
-                        'cluster_icon': category.iconCluster,
+                        'marker_icon': generateSvg(poiIcons,category.icon,category.color),
+                        'cluster_icon': generateSvgCluster('#6E767E'),
                         'category_title': categoryName,
                         'category_zoom': 16,
-                        'category_img': category.iconMenu,
+                        'category_img': generateSvg(poiIcons,category.iconMenu),
                         'info_window_img': 'null',
                         'marker_description': description,
                         'web_site_url': catData.url,
@@ -296,7 +299,7 @@ function init_map () {
                 'lat': 46.435974,
                 'lng': 30.7610757,
                 'marker_icon': 'img/odessa.png',
-                'marker_text': '',
+                'marker_text': 'Odessa',
             }
         },
     };
@@ -369,17 +372,27 @@ function add_experimental_map (options) {
     }
 
     function changeBtnStyleWhenCardOpened (container, action) {
-        if (window.innerWidth <=768){
+        let openInterval;
+        if (detectMobile){
             mapCenterChangeHandler();
             const filterBtn = document.querySelector('.filter-btn');
             const mapType = document.querySelector('.map-type');
+            const zoomContainer = document.querySelector('.zoom-control');
             if (action === 'open'){
-                const containerHeight = container.getBoundingClientRect().height;
-                filterBtn.style.top = 'calc((100vh - '+ (80+containerHeight) +'px) - 100vh)';
-                mapType.style.top = 'calc(100vh - '+(115+containerHeight)+'px)';
+                openInterval = setInterval(()=>{
+                    if (miniCardIsOpened){
+                        clearInterval(openInterval);
+                        const containerHeight = container.getBoundingClientRect().height;
+                        filterBtn.style.bottom = 10 + containerHeight +'px';
+                        mapType.style.bottom = 70 +containerHeight+'px';
+                        zoomContainer.style.bottom = 10 + containerHeight+ 'px';
+                    }
+                },100);
             }else if (action === 'close'){
-                filterBtn.style.top = 'calc((100vh - '+ (80) +'px) - 100vh)';
-                mapType.style.top = 'calc(100vh - '+(115)+'px)';
+                filterBtn.style.bottom = '10px';
+                mapType.style.bottom = '70px';
+                zoomContainer.style.bottom = '10px';
+                miniCardIsOpened = false;
             }
         }
     }
@@ -622,1369 +635,7 @@ function add_experimental_map (options) {
     experimental_map_obj.map = map;
 
     directionsRenderer.setMap(map);
-    // let is_gindi = true;
-    // if (is_gindi) {
-    //     let check = false;
-    //     (function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) check = true;})(navigator.userAgent||navigator.vendor||window.opera);
-    //     if (!check) {
-    //         if (get_url_param('lang') !== 'en') {
-    //             add_metro_routes ();
-    //         }
-    //     }
-    // }
-    // function add_metro_routes () {
-    //     window.add_points_mode = false;
-    //     window.addEventListener( 'keydown', function ( event ) {
-    //         if (event.ctrlKey) {
-    //             window.ctrl = true;
-    //             if (event.altKey) {
-    //                 event.code;
-    //                 switch ( event.code ) {
-    //                     case 'KeyP':  //  P
-    //                         if (window.add_points_mode ) {
-    //                             window.add_points_mode = false;
-    //                             console.log('Режим добавления точек выключен');
-    //                         } else {
-    //                             window.add_points_mode = true;
-    //                             console.log('Режим добавления точек включен');
-    //                         }
-    //                         break;
-    //                     case 'KeyR':  //  P
-    //                         if (window.polyline_points.length > 0 ) {
-    //                             update_polyline(window.polyline_points[0].lat, window.polyline_points[0].lng)
-    //                         }
-    //                         break;
-    //                 }
-    //             }
-    //             if (event.code === 'KeyZ') {
-    //                 if (window.polyline_points.length > 0) {
-    //                     let with_marker = window.polyline_points[window.polyline_points.length - 1]['with_marker'];
-    //
-    //                     if (with_marker) {
-    //                         if (window.polyline_markers.length > 0) {
-    //                             window.polyline_markers[window.polyline_markers.length - 1].setMap(null);
-    //                         }
-    //                     }
-    //                     window.polyline_points.pop();
-    //                     window.polyline_markers.pop();
-    //                     update_polyline();
-    //                 }
-    //             }
-    //         }
-    //     });
-    //     window.addEventListener( 'keyup', function ( event ) {
-    //         if (!event.ctrlKey) {
-    //             window.ctrl = false;
-    //             console.log('клавиша контрол отжата');
-    //         }
-    //     });
-    //
-    //     window.polyline_points = [];
-    //     /*    update_polyline(window.polyline_points[0].lat, window.polyline_points[0].lng);
-    //         update_polyline(window.polyline_points[0].lat, window.polyline_points[0].lng);*/
-    //     window.polyline_markers = [];
-    //
-    //     let exist_polylines = [
-    //         {
-    //             color: '#00a04a',
-    //             img : 'img/metro/circle_green.svg',
-    //             points : [
-    //                 {
-    //                     "lat": 32.16344711531778,
-    //                     "lng": 34.805245139886665,
-    //                     "with_marker": true,
-    //                     "marker_title": "אבא אבן"
-    //                 },
-    //                 {
-    //                     "lat": 32.15979595223486,
-    //                     "lng": 34.80385039119892,
-    //                     "with_marker": true,
-    //                     "marker_title": "החושלים"
-    //                 },
-    //                 {
-    //                     "lat": 32.155563326369005,
-    //                     "lng": 34.801490047265816,
-    //                     "with_marker": true,
-    //                     "marker_title": "אלטנוילנד"
-    //                 },
-    //                 {
-    //                     "lat": 32.152534360001596,
-    //                     "lng": 34.80052985129912,
-    //                     "with_marker": true,
-    //                     "marker_title": "חוף התכלת צפון"
-    //                 },
-    //                 {
-    //                     "lat": 32.147138660182456,
-    //                     "lng": 34.798877610545944,
-    //                     "with_marker": true,
-    //                     "marker_title": "חוף התכלת דרום"
-    //                 },
-    //                 {
-    //                     "lat": 32.14272680106809,
-    //                     "lng": 34.79678884887324,
-    //                     "with_marker": true,
-    //                     "marker_title": "יוניצ’מן"
-    //                 },
-    //                 {
-    //                     "lat": 32.14209073367346,
-    //                     "lng": 34.79592393486031,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.140682634373604,
-    //                     "lng": 34.7946793898774,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.139483461698354,
-    //                     "lng": 34.7937245234681,
-    //                     "with_marker": true,
-    //                     "marker_title": "מכללת לוינסקי צפון"
-    //                 },
-    //                 {
-    //                     "lat": 32.13825781148531,
-    //                     "lng": 34.793219959910004,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.136658868568695,
-    //                     "lng": 34.792941010172456,
-    //                     "with_marker": true,
-    //                     "marker_title": "מכללת לוינסקי דרום"
-    //                 },
-    //                 {
-    //                     "lat": 32.13510479372708,
-    //                     "lng": 34.79272927201185,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.133533051421544,
-    //                     "lng": 34.792064084176154,
-    //                     "with_marker": true,
-    //                     "marker_title": "שושנה פרסיץ"
-    //                 },
-    //                 {
-    //                     "lat": 32.13151177735811,
-    //                     "lng": 34.790896368782015,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.12976734559699,
-    //                     "lng": 34.78984494284818,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.12851351466569,
-    //                     "lng": 34.78905100897977,
-    //                     "with_marker": true,
-    //                     "marker_title": "אזורי חן"
-    //                 },
-    //                 {
-    //                     "lat": 32.12685988520535,
-    //                     "lng": 34.78851456717679,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.125079019961994,
-    //                     "lng": 34.78834290579984,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.12415222940111,
-    //                     "lng": 34.788149786750765,
-    //                     "with_marker": true,
-    //                     "marker_title": "פרופס"
-    //                 },
-    //                 {
-    //                     "lat": 32.11865935491899,
-    //                     "lng": 34.786033956350245,
-    //                     "with_marker": true,
-    //                     "marker_title": "הגוש הגדול"
-    //                 },
-    //                 {
-    //                     "lat": 32.11582424425463,
-    //                     "lng": 34.78466066533462,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.111316952581774,
-    //                     "lng": 34.78457483464614,
-    //                     "with_marker": true,
-    //                     "marker_title": "איינשטיין"
-    //                 },
-    //                 {
-    //                     "lat": 32.10949943330456,
-    //                     "lng": 34.78397401982681,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.108808766492544,
-    //                     "lng": 34.78341612035171,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.10717295583482,
-    //                     "lng": 34.78285822087661,
-    //                     "with_marker": true,
-    //                     "marker_title": "דוב"
-    //                 },
-    //                 {
-    //                     "lat": 32.105200046941825,
-    //                     "lng": 34.781570760549464,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.10381864305278,
-    //                     "lng": 34.781570760549464,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.10189191325837,
-    //                     "lng": 34.781527845205225,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.09909262962323,
-    //                     "lng": 34.782772390188136,
-    //                     "with_marker": true,
-    //                     "marker_title": "רדינג"
-    //                 },
-    //                 {
-    //                     "lat": 32.098220108095475,
-    //                     "lng": 34.78322300130264,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.09743846714945,
-    //                     "lng": 34.78346976453201,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.096393239153464,
-    //                     "lng": 34.783534137548365,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.09558431536455,
-    //                     "lng": 34.78360923940078,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.095029880315806,
-    //                     "lng": 34.783544866384425,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.09345393223595,
-    //                     "lng": 34.78318113774598,
-    //                     "with_marker": true,
-    //                     "marker_title": "נורדאו"
-    //                 },
-    //                 {
-    //                     "lat": 32.09179057820804,
-    //                     "lng": 34.78284854382813,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.08926367644101,
-    //                     "lng": 34.78237647504151,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.08848195886382,
-    //                     "lng": 34.782204813664556,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.0867548846946,
-    //                     "lng": 34.78184003323853,
-    //                     "with_marker": true,
-    //                     "marker_title": "ארלוזורוב מערב"
-    //                 },
-    //                 {
-    //                     "lat": 32.084864155546974,
-    //                     "lng": 34.781475252812506,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.08313701300524,
-    //                     "lng": 34.78119630307496,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.08182799902082,
-    //                     "lng": 34.78111047238648,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.07991898668826,
-    //                     "lng": 34.78106755704224,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.0792280962091,
-    //                     "lng": 34.78111047238648,
-    //                     "with_marker": true,
-    //                     "marker_title": "רבין"
-    //                 },
-    //                 {
-    //                     "lat": 32.077595499711876,
-    //                     "lng": 34.7810782858783,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.075959130102866,
-    //                     "lng": 34.78138942212403,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.07450455475027,
-    //                     "lng": 34.78155035466492,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.07375907591268,
-    //                     "lng": 34.78160399884522,
-    //                     "with_marker": true,
-    //                     "marker_title": "קפלן"
-    //                 },
-    //                 {
-    //                     "lat": 32.072677211666566,
-    //                     "lng": 34.78166837186158,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.07156806024279,
-    //                     "lng": 34.78162545651734,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.07111348610019,
-    //                     "lng": 34.78177566022217,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.07027706377332,
-    //                     "lng": 34.78239793271363,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.06969520025093,
-    //                     "lng": 34.78256959409058,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.06861328792177,
-    //                     "lng": 34.78287000150025,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.067685924308954,
-    //                     "lng": 34.78308457822144,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.067032792241726,
-    //                     "lng": 34.78326965837684,
-    //                     "with_marker": true,
-    //                     "marker_title": "קרליבך"
-    //                 },
-    //                 {
-    //                     "lat": 32.06611637576035,
-    //                     "lng": 34.783505520707585,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.06597772262079,
-    //                     "lng": 34.78344651210926,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.065702688721906,
-    //                     "lng": 34.78331776607654,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.06528445376991,
-    //                     "lng": 34.782923481351354,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.064602544855674,
-    //                     "lng": 34.78193642843387,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.063584218078816,
-    //                     "lng": 34.780133983975865,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.06286932350639,
-    //                     "lng": 34.77851857734852,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.062409922558615,
-    //                     "lng": 34.777944297143215,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.061600697986066,
-    //                     "lng": 34.777402490922206,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.061155166794904,
-    //                     "lng": 34.77714499885678,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.060482319658405,
-    //                     "lng": 34.77710208351254,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.059754911781475,
-    //                     "lng": 34.77811059410214,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.05877290197261,
-    //                     "lng": 34.777456135102504,
-    //                     "with_marker": true,
-    //                     "marker_title": "לוינסקי"
-    //                 },
-    //                 {
-    //                     "lat": 32.05753470957245,
-    //                     "lng": 34.77677076188668,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.05609802715762,
-    //                     "lng": 34.77584808198556,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.05435215487141,
-    //                     "lng": 34.77507560578927,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.05333371398683,
-    //                     "lng": 34.77458207933053,
-    //                     "with_marker": true,
-    //                     "marker_title": "חזקיהו"
-    //                 },
-    //                 {
-    //                     "lat": 32.05187877877381,
-    //                     "lng": 34.77404563752755,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.05033288476287,
-    //                     "lng": 34.773423365036095,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.04976908162473,
-    //                     "lng": 34.77327316133126,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.0486232774482,
-    //                     "lng": 34.77297275392159,
-    //                     "with_marker": true,
-    //                     "marker_title": "קיבוץ גלויות"
-    //                 },
-    //                 {
-    //                     "lat": 32.04644075361692,
-    //                     "lng": 34.772135904708946,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.04518577884724,
-    //                     "lng": 34.77172820893868,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.04411267083193,
-    //                     "lng": 34.77147071687325,
-    //                     "with_marker": true,
-    //                     "marker_title": "אבו כביר"
-    //                 },
-    //                 {
-    //                     "lat": 32.04287585276799,
-    //                     "lng": 34.771663835922325,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.042166493690665,
-    //                     "lng": 34.77205007402047,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.04131161775523,
-    //                     "lng": 34.773144415298546,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.04103878332937,
-    //                     "lng": 34.773702314773644,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.04050143379172,
-    //                     "lng": 34.77457514425214,
-    //                     "with_marker": true,
-    //                     "marker_title": "גיתית"
-    //                 },
-    //                 {
-    //                     "lat": 32.03965563693979,
-    //                     "lng": 34.77584114690717,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.03892806350344,
-    //                     "lng": 34.7769998612016,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.03860065357068,
-    //                     "lng": 34.77757921834882,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.03827324246708,
-    //                     "lng": 34.77785816808637,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.037145484148205,
-    //                     "lng": 34.77781525274213,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.03576305177511,
-    //                     "lng": 34.77674236913617,
-    //                     "with_marker": true,
-    //                     "marker_title": "צומת חולון"
-    //                 },
-    //                 {
-    //                     "lat": 32.034144124173984,
-    //                     "lng": 34.77581968923505,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.032361451682725,
-    //                     "lng": 34.774918467006046,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.03076065497595,
-    //                     "lng": 34.77410307546552,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.029487273977765,
-    //                     "lng": 34.77354517599042,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.02790461863241,
-    //                     "lng": 34.77333059926923,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.02677673261692,
-    //                     "lng": 34.77350226064618,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.025694765729824,
-    //                     "lng": 34.773840650800516,
-    //                     "with_marker": true,
-    //                     "marker_title": "יד לבנים"
-    //                 },
-    //                 {
-    //                     "lat": 32.02312965262491,
-    //                     "lng": 34.77443073678379,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.022617618428974,
-    //                     "lng": 34.77464445709756,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.022572136797905,
-    //                     "lng": 34.77509506821206,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.022572136797905,
-    //                     "lng": 34.77538474678567,
-    //                     "with_marker": true,
-    //                     "marker_title": "הנשיאים"
-    //                 },
-    //                 {
-    //                     "lat": 32.022499366141204,
-    //                     "lng": 34.77617868065408,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.02219009020544,
-    //                     "lng": 34.77615722298196,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.021189484436526,
-    //                     "lng": 34.77602847694924,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.020061515739314,
-    //                     "lng": 34.77592118858865,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.01770671225643,
-    //                     "lng": 34.77550292862379,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.01733315232331,
-    //                     "lng": 34.775455715930114,
-    //                     "with_marker": true,
-    //                     "marker_title": "ההסתדרות"
-    //                 },
-    //                 {
-    //                     "lat": 32.01683519830308,
-    //                     "lng": 34.77538597849573,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.01664871170315,
-    //                     "lng": 34.77538597849573,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.013555707870694,
-    //                     "lng": 34.774924638545166,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.01266872427574,
-    //                     "lng": 34.7747690704223,
-    //                     "with_marker": true,
-    //                     "marker_title": "גולדה מאיר"
-    //                 },
-    //                 {
-    //                     "lat": 32.00834233923043,
-    //                     "lng": 34.77379118493931,
-    //                     "with_marker": true,
-    //                     "marker_title": "לבון"
-    //                 },
-    //                 {
-    //                     "lat": 32.0040046843169,
-    //                     "lng": 34.773387877863094,
-    //                     "with_marker": true,
-    //                     "marker_title": "בגין"
-    //                 },
-    //                 {
-    //                     "lat": 32.0031994925953,
-    //                     "lng": 34.773323504846736,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.00255351446329,
-    //                     "lng": 34.77327522508447,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.00162843925699,
-    //                     "lng": 34.7731526850621,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 31.99984513406409,
-    //                     "lng": 34.77310976971786,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 31.999590373348063,
-    //                     "lng": 34.77300248135727,
-    //                     "with_marker": true,
-    //                     "marker_title": "חיים שרון"
-    //                 },
-    //                 {
-    //                     "lat": 31.998962567133624,
-    //                     "lng": 34.773576474086454,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 31.998462138811615,
-    //                     "lng": 34.77414510239761,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 31.997883847597514,
-    //                     "lng": 34.77475074158393,
-    //                     "with_marker": true,
-    //                     "marker_title": "לסקוב"
-    //                 },
-    //                 {
-    //                     "lat": 31.997665476642172,
-    //                     "lng": 34.77490899191581,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 31.9961529817113,
-    //                     "lng": 34.7764584753393,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 31.995843616865344,
-    //                     "lng": 34.776780340421084,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 31.99535227055321,
-    //                     "lng": 34.77705929015863,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 31.995024704882635,
-    //                     "lng": 34.776994917142275,
-    //                     "with_marker": true,
-    //                     "marker_title": "ח’ 5"
-    //                 },
-    //                 {
-    //                     "lat": 31.99202196505171,
-    //                     "lng": 34.77733823989618,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 31.99141815101208,
-    //                     "lng": 34.777252984759755,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 31.98950725281034,
-    //                     "lng": 34.77611572813744,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 31.98926156301052,
-    //                     "lng": 34.77596552443261,
-    //                     "with_marker": true,
-    //                     "marker_title": "סחרוב"
-    //                 },
-    //                 {
-    //                     "lat": 31.984875725360087,
-    //                     "lng": 34.773150572599654,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 31.982746284397937,
-    //                     "lng": 34.77194894296098,
-    //                     "with_marker": true,
-    //                     "marker_title": "אבני חושן"
-    //                 },
-    //                 {
-    //                     "lat": 31.98236407181436,
-    //                     "lng": 34.77158416253496,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 31.982464175263953,
-    //                     "lng": 34.77130521279741,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 31.982641631110702,
-    //                     "lng": 34.77100480538774,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 31.983474303962065,
-    //                     "lng": 34.76930964929033,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 31.984686199039523,
-    //                     "lng": 34.76681801378005,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 31.98594200262279,
-    //                     "lng": 34.76417839137812,
-    //                     "with_marker": true,
-    //                     "marker_title": "לישנסקי"
-    //                 },
-    //                 {
-    //                     "lat": 31.98641380429387,
-    //                     "lng": 34.763126572468025,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 31.986468403778947,
-    //                     "lng": 34.76246138463233,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 31.986759600483868,
-    //                     "lng": 34.76101299176429,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 31.987241892993172,
-    //                     "lng": 34.75882430920814,
-    //                     "with_marker": true,
-    //                     "marker_title": "מסוף דיין"
-    //                 }
-    //             ]
-    //         }, {
-    //             color: '#ee1d22',
-    //             img : 'img/metro/circle_red.svg',
-    //             points : [
-    //                 {
-    //                     "lat": 32.09385600631248,
-    //                     "lng": 34.84549880214337,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.092638039560796,
-    //                     "lng": 34.84475851245526,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.09255623524186,
-    //                     "lng": 34.84472632594708,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.09245625208588,
-    //                     "lng": 34.843589069324764,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.09261986082958,
-    //                     "lng": 34.841346742588314,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.09274254784496,
-    //                     "lng": 34.84040114217203,
-    //                     "with_marker": true,
-    //                     "marker_title": "אהרונוביץ'"
-    //                 },
-    //                 {
-    //                     "lat": 32.092760726551774,
-    //                     "lng": 34.83877035909097,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.09281526265048,
-    //                     "lng": 34.83759018712442,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.09281526265048,
-    //                     "lng": 34.83634564214151,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.09245168804419,
-    //                     "lng": 34.834092586569,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.09223354258595,
-    //                     "lng": 34.832955329946685,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.0917608923063,
-    //                     "lng": 34.83158203893106,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.0915427451987,
-    //                     "lng": 34.830680816702056,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.091615460959105,
-    //                     "lng": 34.82889982991617,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.091833607893086,
-    //                     "lng": 34.82737633519571,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.091615460959105,
-    //                     "lng": 34.82628199391763,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.09122748903861,
-    //                     "lng": 34.824836995715536,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.090954803480805,
-    //                     "lng": 34.823120381946005,
-    //                     "with_marker": true,
-    //                     "marker_title": "בן-גוריון"
-    //                 },
-    //                 {
-    //                     "lat": 32.090591221471115,
-    //                     "lng": 34.82140786042358,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.09024581722186,
-    //                     "lng": 34.81988436570312,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.08979133595721,
-    //                     "lng": 34.818918770457756,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.08930049365233,
-    //                     "lng": 34.81778151383544,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.08911869953696,
-    //                     "lng": 34.81685883393432,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.08875511022118,
-    //                     "lng": 34.815442627574456,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.08855513548084,
-    //                     "lng": 34.814820355083,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.08751889572605,
-    //                     "lng": 34.8132539450183,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.086565722698225,
-    //                     "lng": 34.811798587523185,
-    //                     "with_marker": true,
-    //                     "marker_title": "ביאליק"
-    //                 },
-    //                 {
-    //                     "lat": 32.085419036589556,
-    //                     "lng": 34.81054133250601,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.084310039756865,
-    //                     "lng": 34.80903929545767,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.083710085041425,
-    //                     "lng": 34.80706518962271,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.08329193245614,
-    //                     "lng": 34.80528420283682,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.08311012638755,
-    //                     "lng": 34.80431860759146,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.08310103607463,
-    //                     "lng": 34.802988231920075,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.08314648763021,
-    //                     "lng": 34.80237668826468,
-    //                     "with_marker": true,
-    //                     "marker_title": "אבא הלל"
-    //                 },
-    //                 {
-    //                     "lat": 32.082410169647126,
-    //                     "lng": 34.80008071734793,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.08181020246024,
-    //                     "lng": 34.79855722262747,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.08134888315536,
-    //                     "lng": 34.797517948595754,
-    //                     "with_marker": true,
-    //                     "marker_title": "ארלוזורוב"
-    //                 },
-    //                 {
-    //                     "lat": 32.07951239208074,
-    //                     "lng": 34.79471607462552,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.07849423133901,
-    //                     "lng": 34.793063833872345,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.07695417064714,
-    //                     "lng": 34.79213865729336,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.07659897312528,
-    //                     "lng": 34.79192680194266,
-    //                     "with_marker": true,
-    //                     "marker_title": "שאול המלך"
-    //                 },
-    //                 {
-    //                     "lat": 32.075362594203966,
-    //                     "lng": 34.79121869876273,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.07368981963794,
-    //                     "lng": 34.79033893420584,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.07187155170144,
-    //                     "lng": 34.78969520404227,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.07105582584618,
-    //                     "lng": 34.78926412451235,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.07090581578859,
-    //                     "lng": 34.78902272570101,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.07071489354123,
-    //                     "lng": 34.78879205572573,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.070501241982235,
-    //                     "lng": 34.78852919924227,
-    //                     "with_marker": true,
-    //                     "marker_title": "יהודית"
-    //                 },
-    //                 {
-    //                     "lat": 32.06967560711756,
-    //                     "lng": 34.78782394301469,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.0692301152603,
-    //                     "lng": 34.78738406073625,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.06876643775696,
-    //                     "lng": 34.78693344962175,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.06749358546666,
-    //                     "lng": 34.78540995490129,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.0668116930236,
-    //                     "lng": 34.78468039404924,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.06624799143196,
-    //                     "lng": 34.78397229086931,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.065911587213755,
-    //                     "lng": 34.7836289681154,
-    //                     "with_marker": true,
-    //                     "marker_title": "קרליבך"
-    //                 },
-    //                 {
-    //                     "lat": 32.065508550670764,
-    //                     "lng": 34.78335149043996,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.065372169628816,
-    //                     "lng": 34.78319055789907,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.0650448542984,
-    //                     "lng": 34.782793590964864,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.06447204965153,
-    //                     "lng": 34.78197819942434,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.06406290127889,
-    //                     "lng": 34.78120572322805,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.06357192081578,
-    //                     "lng": 34.78040106052358,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.06312639922588,
-    //                     "lng": 34.77962858432729,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.06303547618581,
-    //                     "lng": 34.77938182109792,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.06340826007575,
-    //                     "lng": 34.778802463950704,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.06369012005703,
-    //                     "lng": 34.77811581844289,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.063744673501475,
-    //                     "lng": 34.77691418880422,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.06369921230003,
-    //                     "lng": 34.776549408378195,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.06253539784985,
-    //                     "lng": 34.77495081180532,
-    //                     "with_marker": true,
-    //                     "marker_title": "אלנבי"
-    //                 },
-    //                 {
-    //                     "lat": 32.06118971893257,
-    //                     "lng": 34.77216131442983,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.059553055731925,
-    //                     "lng": 34.767311880530904,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.05944394381072,
-    //                     "lng": 34.76598150485952,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.05893475312448,
-    //                     "lng": 34.76493007892568,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.05824370408849,
-    //                     "lng": 34.76344949954946,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.05811640501251,
-    //                     "lng": 34.763084719123434,
-    //                     "with_marker": true,
-    //                     "marker_title": "אליפלט"
-    //                 },
-    //                 {
-    //                     "lat": 32.05756174268559,
-    //                     "lng": 34.76143247837026,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.057425349795004,
-    //                     "lng": 34.76070291751821,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.056997984087715,
-    //                     "lng": 34.75991971248586,
-    //                     "with_marker": false
-    //                 },
-    //                 {
-    //                     "lat": 32.05676156815799,
-    //                     "lng": 34.75975877994497,
-    //                     "with_marker": false
-    //                 }
-    //             ]
-    //         }
-    //     ];
-    //     exist_polylines.forEach(function(lines_array){
-    //         let color = lines_array.color;
-    //         let img = lines_array.img;
-    //
-    //         let lines = new google.maps.Polyline({
-    //             path: lines_array.points,
-    //             geodesic: true,
-    //             strokeColor: color,
-    //             strokeOpacity: 0.8,
-    //             strokeWeight: 5
-    //         });
-    //         lines.setMap(map);
-    //         lines_array.points.forEach(function(point){
-    //             if (point.with_marker) {
-    //                 let lat = point.lat;
-    //                 let lng = point.lng;
-    //                 let title = point.marker_title;
-    //                 var icon_img = new google.maps.MarkerImage();
-    //                 icon_img.url = img;
-    //                 icon_img.labelOrigin = new google.maps.Point(0, 50);
-    //                 icon_img.scaledSize = new google.maps.Size(20,20);
-    //                 icon_img.size = new google.maps.Size(20, 30);
-    //                 icon_img.origin = new google.maps.Point(0, -10);
-    //                 var marker = new google.maps.Marker({
-    //                     position: { lat: lat -0.00015, lng: lng },
-    //                     icon: icon_img,
-    //                     map: map,
-    //                     title : title,
-    //                     /*                   label : {
-    //                                            color : '#000000',
-    //                                            text : title,
-    //                                            fontWeight : '700',
-    //                                            textAlign : center,
-    //                                        },*/
-    //                 });
-    //                 let infowindow = new google.maps.InfoWindow({
-    //                     content: '<span class="line-title" style="color : ' + color +'">' + title + '<span></span>'
-    //                 });
-    //                 marker.addListener('mouseover', function() {
-    //                     infowindow.open(map, this);
-    //                 });
-    //                 marker.addListener('mouseout', function() {
-    //                     infowindow.close();
-    //                 });
-    //             }
-    //         });
-    //     });
-    //
-    //
-    //
-    //     map.addListener('click' ,function(e){
-    //         if (window.add_points_mode) {
-    //             const lat = e.latLng.lat();
-    //             const lng = e.latLng.lng();
-    //             console.log(e);
-    //             if (window.ctrl == true) {
-    //                 let title = prompt('заголовок маркера', 'Заголовок');
-    //                 window.polyline_points.push({ lat: lat, lng: lng, with_marker : true , marker_title : title});
-    //                 window.ctrl = false;
-    //             } else {
-    //                 window.polyline_points.push({ lat: lat, lng: lng, with_marker : false });
-    //             }
-    //             update_polyline (lat, lng);
-    //         }
-    //     });
-    //     function update_polyline (lat, lng) {
-    //         if (window.flightPath ) {
-    //             // window.flightPath.setPoints (window.polyline_points);
-    //             window.flightPath.setMap(null);
-    //             window.flightPath  =  new google.maps.Polyline({
-    //                 path: window.polyline_points,
-    //                 geodesic: true,
-    //                 strokeColor: '#00a04a',
-    //                 strokeOpacity: 0.8,
-    //                 strokeWeight: 5
-    //             });
-    //             window.flightPath.setMap(map);
-    //         } else {
-    //             window.flightPath  =  new google.maps.Polyline({
-    //                 path: [{ lat: lat, lng: lng }, { lat: lat, lng: lng }],
-    //                 geodesic: true,
-    //                 strokeColor: '#00a04a',
-    //                 strokeOpacity: 0.8,
-    //                 strokeWeight: 5
-    //             });
-    //             window.flightPath.setMap(map);
-    //         }
-    //         if (window.polyline_points.length > 0) {
-    //             if (window.polyline_markers) {
-    //                 window.polyline_markers.forEach(function(marker){
-    //                     marker.setMap(null);
-    //                 });
-    //             }
-    //             window.polyline_markers = [];
-    //             window.polyline_points.forEach(function(point){
-    //                 if (point.with_marker) {
-    //                     console.log(point);
-    //                     let lat = point.lat;
-    //                     let lng = point.lng;
-    //                     let title = point.marker_title;
-    //                     var icon_img = new google.maps.MarkerImage();
-    //                     icon_img.url = 'img/metro/circle_green.svg';
-    //                     icon_img.labelOrigin = new google.maps.Point(0, 50);
-    //                     icon_img.scaledSize = new google.maps.Size(20,20);
-    //                     icon_img.size = new google.maps.Size(20, 30);
-    //                     icon_img.origin = new google.maps.Point(0, -10);
-    //                     var marker = new google.maps.Marker({
-    //                         position: { lat: lat -0.00015, lng: lng },
-    //                         icon: icon_img,
-    //                         map: map,
-    //                         title : title,
-    //                         /*                   label : {
-    //                                                color : '#000000',
-    //                                                text : title,
-    //                                                fontWeight : '700',
-    //                                                textAlign : center,
-    //                                            },*/
-    //                     });
-    //                     let infowindow = new google.maps.InfoWindow({
-    //                         content: '<span class="green-line">' + title + '<span></span>'
-    //                     });
-    //                     marker.addListener('mouseover', function() {
-    //                         infowindow.open(map, this);
-    //                     });
-    //                     marker.addListener('mouseout', function() {
-    //                         infowindow.close();
-    //                     });
-    //                     window.polyline_markers.push(marker);
-    //                 }
-    //             });
-    //         }
-    //
-    //     }
-    // }
+
     let filter = $(container).find('.filter');
     let filter_list = $(container).find('.filters-list');
     let filter_open = false;
@@ -2194,11 +845,17 @@ function add_experimental_map (options) {
             //icon_img.scaledSize = new google.maps.Size(100 ,100);
             //icon_img.size = new google.maps.Size(100,100);
 
-
+            icon_img.labelOrigin = new google.maps.Point(18, 70);
 
             marker1 = new google.maps.Marker({
                 title: title,
                 position: pos,
+                label : {
+                    color : '#000000',
+                    text : title,
+                    fontWeight : '700',
+                    textAlign : center,
+                },
                 map: map,
                 icon: icon_img,
                 animation: google.maps.Animation.DROP,
@@ -2250,8 +907,8 @@ function add_experimental_map (options) {
                         };*/
 
             var icon_img = new google.maps.MarkerImage(  );
-            // icon_img.url = marker.marker_icon;
-            icon_img.url = generateSvg(poiIcons,marker.icon,marker.color);
+            icon_img.url = marker.marker_icon;
+            // icon_img.url = generateSvg(poiIcons,marker.icon,marker.color);
             //icon_img.labelOrigin = new google.maps.Point(20, 0);
             //icon_img.scaledSize = new google.maps.Size(45,38 * 3);
             // icon_img.size = new google.maps.Size(45,38 * 3);
@@ -2276,7 +933,7 @@ function add_experimental_map (options) {
                 cluster_ic: marker.cluster_icon,
                 category_title :  marker.category_title,
                 category_zoom :  marker.category_zoom,
-                category_ic: marker.category_img,
+                category_ic: generateSvg(poiIcons,marker.iconMenu),
                 map: map,
                 icon: icon_img,
                 animation: google.maps.Animation.DROP,
@@ -2358,7 +1015,7 @@ function add_experimental_map (options) {
 
                         let custom_header_text = wrapper.find('.custom-header').html();
 
-                        if (window.innerWidth > 768){
+                        if (!detectMobile){
                             get_route(directionsService,directionsRenderer, request, custom_header_text);
                             content_container.find('.route-type-btn').eq(0).addClass('active');
                             content_container.find('.route-type-btn').click(function(){
@@ -2367,7 +1024,7 @@ function add_experimental_map (options) {
                                 request.travelMode = $(this).data('type');
                                 get_route(directionsService,directionsRenderer, request, custom_header_text);
                             });
-                        } else {
+                        } else if (detectMobile) {
                             get_route(directionsService,directionsRenderer, request, custom_header_text);
                             content_container.find('.route-type-btn').eq(0).addClass('active');
                             content_container.find('.route-type-btn').click(function(){
@@ -2482,7 +1139,7 @@ function add_experimental_map (options) {
                         let difference_quoter = (map_lat_top - map_lat_bottom) / coef;
                         let marker_position_lat_cor = marker_position_lat + difference_quoter;
 
-                        if (window.innerWidth <=768){
+                        if (detectMobile){
                             let start;
                             newContainer.appendChild(wrapper[0]);
 
@@ -2496,9 +1153,7 @@ function add_experimental_map (options) {
                                     window.requestAnimationFrame(openMiniCard);
                                 } else {
                                     newContainer.style.bottom = '0';
-                                    setTimeout(()=>{
                                         changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'),'open');
-                                    },500);
                                 }
                             }
                             window.requestAnimationFrame(openMiniCard);
@@ -2589,25 +1244,27 @@ function add_experimental_map (options) {
                         /* up swipe */
                         const isLoaded = document.getElementById('openedCardStyle');
                         if (!isLoaded){
-                            document.head.innerHTML +='<style id="openedCardStyle">'+mobileOpenedCard+'</style>';
-                        }
+                                document.head.innerHTML +='<style id="openedCardStyle">'+mobileOpenedCard+'</style>';
 
-                        let start;
-                        const card = document.querySelector('.map-parent .custom-window');
+                            let start;
+                            const card = document.querySelector('.map-parent .custom-window');
 
-                        function openFullscreenCard (timestamp) {
-                            if (start === undefined)
-                                start = timestamp;
-                            const elapsed = (timestamp - start) / 2;
-                            card.style.height = elapsed +'vh';
+                            function openFullscreenCard (timestamp) {
+                                if (start === undefined)
+                                    start = timestamp;
+                                const elapsed = (timestamp - start) / 2;
+                                card.style.height = elapsed +'vh';
 
-                            if (elapsed < 100){
-                                window.requestAnimationFrame(openFullscreenCard);
-                            } else {
-                                card.style.height = '100vh';
+                                if (elapsed < 100){
+                                    window.requestAnimationFrame(openFullscreenCard);
+                                } else {
+                                    card.style.height = '100vh';
+                                }
                             }
+                                window.requestAnimationFrame(openFullscreenCard);
+
                         }
-                        window.requestAnimationFrame(openFullscreenCard);
+
                     } else {
                         /* down swipe */
                         const card = document.querySelector('.map-parent .custom-window');
@@ -2704,6 +1361,7 @@ function add_experimental_map (options) {
 
 
         function getRoutesDuration (directionsService,originPoint,destination) {
+            let routesInterval;
             const routesMethods =['DRIVING','BICYCLING','WALKING'];
             const htmlArr =[];
             htmlArr.length = 2;
@@ -2736,9 +1394,13 @@ function add_experimental_map (options) {
                    }
                 });
             });
-            setTimeout(()=>{
+            routesInterval = setInterval(()=>{
+                if (htmlArr.length === 3){
+                    clearInterval(routesInterval);
                     timeForRouteContainer.innerHTML = htmlArr.join('');
-            },500);
+                    miniCardIsOpened = true;
+                }
+            },100);
         }
         
         function get_route (directionsService,directionsRenderer, request , title) {
@@ -2812,14 +1474,6 @@ function add_experimental_map (options) {
 
     return experimental_map_obj;
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -6042,7 +4696,7 @@ right: 10px;
 }
 
 body .map-parent .map-type {
-top: 15px;
+top: 10px;
 right: 10px;
 }
 
@@ -6155,8 +4809,9 @@ padding-right: 15px;
 let expMapStyle =`
 .map-parent {
   width: 100vw;
-  height: 100vh;
-  position: relative;
+  // height: 100vh;
+  position: fixed;
+  top: 0;
   overflow: hidden; }
   .map-parent .green-line {
     color: #00a04a;
@@ -6235,7 +4890,7 @@ let expMapStyle =`
             position: relative;
             z-index: 1; }
     .map-parent .filter .filter-btn {
-      position: absolute;
+      position: fixed;
       bottom: 10px;
       right: 10px;
       width: 55px;
@@ -6246,9 +4901,9 @@ let expMapStyle =`
       background-image: url(FILTER__ICON);
       background-position: center;
       background-repeat: no-repeat;
-      background-size: 20px;
+      background-size: 24px;
       transition: none;
-      z-index: 2;
+      z-index: 1;
       box-shadow: 1px 1px 10px rgba(46, 13, 191, 0.5); }
       .map-parent .filter .filter-btn.open {
         background-size: 18px;
@@ -6260,6 +4915,7 @@ let expMapStyle =`
   .map-parent.for-app .zoom-control {
     display: none; }
   .map-parent.for-app .map-type {
+    box-shadow: 1px 1px 10px rgba(26, 47, 67, 0.5);
     left: 10px;
     right: initial;
     top: initial;
@@ -6400,6 +5056,7 @@ let expMapStyle =`
   .map-parent .map-container {
     width: 100%;
     height: calc(100vh + 25px);
+    // height: 100vh;
     transition: 0.5s; }
     .map-parent .map-container.open {
       filter: blur(4px) grayscale(1) brightness(0.4); }
@@ -6473,7 +5130,7 @@ let expMapStyle =`
     width: 44px;
     height: 89px;
     background-color: #603ef2;
-    position: absolute;
+    position: fixed;
     bottom: 10px;
     right: initial;
     left: 10px;
@@ -6572,22 +5229,24 @@ let expMapStyle =`
     }
   .map-parent .map-type {
     color: white;
-    position: absolute;
+    box-shadow: 1px 1px 10px rgba(26, 47, 67, 0.5);
+    position: fixed;
     top: 10px;
     right: 10px;
-    border-radius: 33px;
-    height: 55px;
+    // border-radius: 33px;
+    border-radius: 100%;
+    // height: 55px;
     display: flex;
     overflow: hidden; }
     .map-parent .map-type .map-type-toggler {
       display: flex;
-      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+      box-shadow: 1px 1px 10px rgba(46, 13, 191, 0.5);
       width: 55px;
       height: 55px;
       background-image: url(SATELLITE__ICON);
       background-color: #1A2F43;
       background-position: center;
-      background-size: 35px;
+      background-size: 24px;
       background-repeat: no-repeat;
       }
       .map-parent .map-type .map-type-toggler.satellite {
@@ -6653,7 +5312,7 @@ body.desktop .map-parent .filter .filters-list .filter-list-btn.active .move-par
 .map__go-home__btn {
   width: 52px;
   height: 52px;
-  position: absolute;
+  position: fixed;
   z-index: 3;
   cursor: pointer; }
 
@@ -6841,6 +5500,7 @@ let newStyle =`
     margin-top: 16px;
     display: flex;
     align-items: center;
+    color: #1A2F43;
 }
 .custom-info .links-btns-wrap .phone-btn{
     margin: 16px 0;
@@ -6851,8 +5511,21 @@ let newStyle =`
     display: none;
 }
 
-.cluster > img {
-  
+body.mobile .map-parent .map-type{
+    box-shadow: 1px 1px 10px rgba(46, 13, 191, 0.5);
+}
+
+body.mobile .map-parent .map-type .map-type-toggler{
+    background-color: #603ef2;
+}
+
+body.desktop .map-parent .filter .filter-btn{
+    left: unset;
+}
+
+body.desktop .map-parent .map-type .map-type-toggler{
+    background-color: #1A2F43;
+    box-shadow: 1px 1px 10px rgba(26, 47, 67, 0.5);
 }
 
 `;
@@ -6869,20 +5542,26 @@ const mobileStyle =`
     display: none;
 }
 .map-parent.for-app .map-type{
-    top: calc(100vh - 115px);
+    top: unset;
+    bottom: 70px;
+    height: 42px;
+    width: 42px;
+    box-shadow: 1px 1px 10px rgba(46, 13, 191, 0.5);
 }
 .map-parent .map-type .map-type-toggler{
     width: 42px;
     height: 42px;
     box-shadow: none;
+    border-radius: 50%;
+    background-color: #603ef2;
 }
 .map-parent .filter .filter-btn{
-    bottom: inherit;
-    top: calc((100vh - 80px) - 100vh);
-    left: 10px;
+    bottom: 10px;
+    top: unset;
     width: 42px;
     height: 42px;
-    right: auto;
+    right: unset;
+    left: 10px;
 }
 .custom-info, .custom-description{
     display: none;
@@ -6940,7 +5619,8 @@ const mobileStyle =`
     position: absolute;
 }
 .snazzy-card__window{
-    position: absolute;
+    position: fixed;
+    z-index: 2;
     bottom: -35%;
     width: 100%;
 }
@@ -6979,6 +5659,7 @@ const mobileOpenedCard = `
     right: 10px;
     filter: unset;
     display: block;
+    position: fixed;
 }
 .map-parent .custom-window .custom-content .custom-header-wrap.with-img{
     display: block;
@@ -7014,6 +5695,35 @@ const mobileOpenedCard = `
 }
 .custom-info .links-btns-wrap .go-to-website, .custom-info .links-btns-wrap .phone-btn{
     color: #1A2F43;
+}
+
+`;
+
+const rtlStyle = `
+.map-parent .custom-window{
+    direction: rtl;
+}
+.category-title{
+    margin-left: 0;
+    margin-right: 8px;
+}
+.custom-info .links-btns-wrap .go-to-website:before, .custom-info .links-btns-wrap .phone-btn:before{
+    margin-right: 0px;
+    margin-left: 9px;
+}
+.custom-info .links-btns-wrap .map-place:before{
+    margin-right: 0px;
+}
+.custom-content__wrapper .custom-info .links-btns-wrap .map-place{
+    padding: 13px 16px 13px 13px;
+}
+.get-route-title .bottom-text .row .number{
+    padding-right: 0px;
+    padding-left: 5px;
+}
+.time-for-route .number{
+    margin-right: 0px;
+    margin-left: 4px;
 }
 
 `;
@@ -7338,53 +6048,8 @@ const poiIcons = {
 };
 
 const projectIcons = {
-    'FILTER__ICON': '<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"' +
-      ' xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n' +
-      '\t viewBox="0 0 389.341 389.341" style="enable-background:new 0 0 389.341 389.341;" xml:space="preserve">\n' +
-      '<g>\n' +
-      '\t<g>\n' +
-      '\t\t<path d="M389.341,24.25c0-11.782-9.551-21.333-21.333-21.333H21.335c-4.393,0-8.68,1.357-12.273,3.884\n' +
-      '\t\t\tc-9.637,6.778-11.954,20.086-5.176,29.723l125.695,178.702l0.353,130.007c0.022,8.115,2.435,16.044,6.936,22.797\n' +
-      '\t\t\tc12.652,18.979,38.294,24.107,57.273,11.455l44.894-29.929c11.928-7.952,19.066-21.364,18.999-35.699l-0.456-97.845\n' +
-      '\t\t\tL385.383,36.629C387.958,33.014,389.341,28.687,389.341,24.25z M214.851,202.455l0.52,111.599l-42.776,28.518l-0.383-140.901\n' +
-      '\t\t\tL62.423,45.583h264.193L214.851,202.455z"/>\n' +
-      '\t</g>\n' +
-      '</g>\n' +
-      '<g>\n' +
-      '</g>\n' +
-      '<g>\n' +
-      '</g>\n' +
-      '<g>\n' +
-      '</g>\n' +
-      '<g>\n' +
-      '</g>\n' +
-      '<g>\n' +
-      '</g>\n' +
-      '<g>\n' +
-      '</g>\n' +
-      '<g>\n' +
-      '</g>\n' +
-      '<g>\n' +
-      '</g>\n' +
-      '<g>\n' +
-      '</g>\n' +
-      '<g>\n' +
-      '</g>\n' +
-      '<g>\n' +
-      '</g>\n' +
-      '<g>\n' +
-      '</g>\n' +
-      '<g>\n' +
-      '</g>\n' +
-      '<g>\n' +
-      '</g>\n' +
-      '<g>\n' +
-      '</g>\n' +
-      '\t<style>\n' +
-      '\t\tsvg * {\n' +
-      '\t\t\t  fill :white;\n' +
-      '\t\t}\n' +
-      '    </style>\n' +
+    'FILTER__ICON': '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">\n' +
+      '<path d="M20 4H4V7L10 14V20H14V14L20 6V4Z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/>\n' +
       '</svg>',
     'CONTROLS__PLUS': '<svg width="39px" height="39px" viewBox="0 0 39 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">\n' +
       '    <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->\n' +
