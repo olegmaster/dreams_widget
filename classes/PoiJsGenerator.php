@@ -1146,8 +1146,7 @@
                                                  $(container).find('.links-btns-wrap .phone-btn').remove();
                                                  if (detect_mobile()) {
                                                      $(container).find('.links-btns-wrap').append(`<a
-                                                     class="phone-btn circle-btn" href="tel:\${details
-                                                     .formatted_phone_number}">\${details.formatted_phone_number}</a>`);
+                                                     class="phone-btn circle-btn" href="tel:\${details.formatted_phone_number}">\${details.formatted_phone_number}</a>`);
                                                  } else {
                                                      $(container).find('.links-btns-wrap').append(`<div
                                                      class="phone-btn circle-btn" >\${details.formatted_phone_number}</div>`);
@@ -1163,16 +1162,14 @@
                                              map_app_url = `https://www.google
                                              .com/maps?f=d&daddr=\${marker_position_lat +','+ marker_position_lng}`;
                                              $(container).find('.links-btns-wrap').append(`<a class="map-place
-                                             circle-btn" target="_blank" href="\${map_app_url}">\${get_lang('Navigate
-                                              to')}</a>`);
+                                             circle-btn" target="_blank" href="\${map_app_url}">\${get_lang('Navigate to')}</a>`);
 
                                          } else {
                                              // https://www.google.com/maps?f=d&saddr=Thompson+St,+New+York,+NY,+USA&daddr=Wooster+St,+New+York,+NY,+USA&dirflg=d
                                              map_app_url = `https://www.google
                                              .com/maps?f=d&daddr=\${marker_position_lat +','+ marker_position_lng}`;
                                              $(container).find('.links-btns-wrap').append(`<a class="map-place
-                                             circle-btn" target="_blank" href="\${map_app_url}">\${get_lang('Navigate
-                                              to')}</a>`);
+                                             circle-btn" target="_blank" href="\${map_app_url}">\${get_lang('Navigate to')}</a>`);
                                          }
                                      })
 
