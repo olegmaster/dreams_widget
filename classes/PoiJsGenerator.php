@@ -1429,15 +1429,12 @@ function add_experimental_map (options) {
                        if (duration > 60) {
                            routesHtml = ' <div class="route__'+routeMethod.toLowerCase()+'"><span class="number"> ' + Math.round(duration / 60)  + '</span><span class="word">' + get_lang('minutes') + '</span></div>';
                        } else {
-                           routesHtml = ' <div class="route__'+routeMethod.toLowerCase()+'"><span' +
-                             ' class="number">' + duration + ' </span><span class="word">' + get_lang('seconds') + ' </span></div>';
+                           routesHtml = ' <div class="route__'+routeMethod.toLowerCase()+'"><span' +' class="number">' + duration + ' </span><span class="word">' + get_lang('seconds') + ' </span></div>';
                        }
                        htmlArr[index] = routesHtml;
 
                    } else{
-                       routesHtml = ' <div class="route__'+routeMethod.toLowerCase()+'"><span' +
-                         ' class="number">0</span><span' +
-                         ' class="word">' + get_lang('minutes') + '</span></div>';
+                       routesHtml = ' <div class="route__'+routeMethod.toLowerCase()+'"><span' +' class="number">0</span><span' +' class="word">' + get_lang('minutes') + '</span></div>';
 
                        htmlArr[index] = routesHtml;
 
@@ -1471,8 +1468,7 @@ function add_experimental_map (options) {
                     for (var i = 0; i < route.legs.length; i++) {
                         var routeSegment = i + 1;
                         let route_html = '';
-                        route_html += '<b>Route to: ' + title +
-                          '</b><br>';
+                        route_html += '<b>Route to: ' + title +'</b><br>';
                         route_html += '<b>Distance: ' + route.legs[i].distance.text + '</b><br>';
                         let distance_value = route.legs[i].distance.value;
                         let distance_html = '';
@@ -1488,8 +1484,7 @@ function add_experimental_map (options) {
                         } else {
                             duration_html = ' <div class="row"><span class="word">' + get_lang('seconds') + ' </span><span class="number">' + duration_value + ' </span></div>';
                         }
-                        $(container).find('.get-route-title .bottom-text').html( distance_html + '<div' +
-                          ' class="middle"> . </div>' + duration_html);
+                        $(container).find('.get-route-title .bottom-text').html( distance_html + '<div' +' class="middle"> . </div>' + duration_html);
                         if (request.travelMode == 'WALKING') {
                             route_html += '<b>Travel mode: walking</b><br>';
                             $(container).find('.get-route-title .top-text').html(get_lang ('Walking route to this place'));
