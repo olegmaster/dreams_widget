@@ -1,7 +1,7 @@
 const categoriesData = [
   {"categoryId":1,"name":[{"lang":"en","value":"Interior"},{"lang":"he","value":"פְּנִים"},{"lang":"ru","value":"Интерьер"},{"lang":"ua","value":"Interior"}]},
     {"categoryId":2,"name":[{"lang":"en","value":"Exterior"},{"lang":"he","value":"חִיצוֹנִי"},{"lang":"ru","value":"Внешний вид"},{"lang":"ua","value":"Exterior"}]},
-    {"categoryId":3,"name":[{"lang":"en","value":"Infrastructure"},{"lang":"he","value":"תַשׁתִית"},{"lang":"ru","value":"Инфраструктура"},{"lang":"ua","value":"Infrastructure"}]},
+    {"categoryId":3,"name":[{"lang":"en","value":"Amenities"},{"lang":"he","value":"תַשׁתִית"},{"lang":"ru","value":"Удобства"},{"lang":"ua","value":"Amenities"}]},
     {"categoryId":4,"name":[{"lang":"en","value":"Neighborhood"},{"lang":"he","value":"שְׁכוּנָה"},{"lang":"ru","value":"Район"},{"lang":"ua","value":"Neighborhood"}]}
     ];
 const imgData = [
