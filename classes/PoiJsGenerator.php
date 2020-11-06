@@ -4918,6 +4918,8 @@ function generateSvg (iconColection,icon,color,newColor) {
        overflow: auto; }
        .map-parent .filter .filters-list .filter-list-btn {
          color: white;
+         width: max-content;
+         cursor: pointer;
          display: flex;
          font-size: 20px;
          line-height: 2; }
@@ -5572,6 +5574,7 @@ function generateSvg (iconColection,icon,color,newColor) {
 
  body.mobile .map-parent .map-type{
      box-shadow: 1px 1px 10px rgba(46, 13, 191, 0.5);
+     background-color: #603ef2;
  }
 
  body.mobile .map-parent .map-type .map-type-toggler{
