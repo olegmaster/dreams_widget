@@ -767,9 +767,8 @@ function add_experimental_map (options) {
             markers_clusters[category] = new_cluster;
 
 
-
             let marker_data = filter_markers_categories[category][0];
-            markers_list_html += '<div class="filter-list-btn" data-category-zoom="' + marker_data.category_zoom +'" data-category="'+ category +'"><span class="marker-ic" style="background-image: url(' + marker_data.category_ic +')"></span><div class="move-part"><span class="text">' + marker_data.category_title +'</span></div></div>'
+            markers_list_html += '<div class="filter-list-btn" data-category-zoom="' + marker_data.category_zoom +'" data-category="'+ category +'"><span class="marker-ic" style="background-image: url(' + marker_data.category_ic +')"></span><div class="move-part"><span class="text" style="color:'+marker_data.color+'">' + marker_data.category_title +'</span></div></div>'
             // markers_list_html += '<div class="filter-list-btn" data-category-zoom="' + marker_data.category_zoom +'" data-category="'+ category +'"><span class="marker-ic" style="background-image: url(' + marker_data.category_ic +')"></span><div class="move-part"><span class="text">' + marker_data.category_title +'</span></div></div>'
 
         }
@@ -939,6 +938,7 @@ function add_experimental_map (options) {
                 icon: icon_img,
                 animation: google.maps.Animation.DROP,
                 zIndex : 1,
+                color: marker.color,
             });
 
             if (filter_markers_categories[category] == undefined) {
