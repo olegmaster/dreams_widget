@@ -23,8 +23,6 @@ const imgData = [
 
     {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Exterior\/ext_1.jpg","order":8},
 
-    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/zahala\/gallery\/TestGalleryImage\/1.png","order":88},
-
     {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Exterior\/ext_2.jpg","order":9},
 
     {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Exterior\/ext_3.png","order":10},
