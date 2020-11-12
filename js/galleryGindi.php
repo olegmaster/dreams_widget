@@ -94,6 +94,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
             if (userAgent && userAgent !== 'Windows'){
                 reduceImage();
             }
+             if (userAgent === 'Windows'){
+                            window.addEventListener('resize',orientationHandler);
+                        }
             insertCaptionContainer();
             initGallery();
             setTimeout(()=>{
@@ -117,7 +120,6 @@ const fancyBoxTemplate =`
 
 
 window.addEventListener('orientationchange',orientationHandler);
-window.addEventListener('resize',orientationHandler);
 
 function scriptsChecker () {
     return Boolean(window.$ && window.jQuery && window.$.fn.slick)
