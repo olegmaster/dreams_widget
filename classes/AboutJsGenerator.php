@@ -70,6 +70,10 @@ window.addEventListener("DOMContentLoaded", function (event) {
     aboutUsMainContainer.classList.add(dir);
     addFont();
     addBasicStyle();
+    const userAgent = checkUserAgent();
+        if (userAgent && userAgent !== 'Windows'){
+            reduceImage();
+        }
     insertMenu(aboutUsData[0].order);
     orientationHandler();
 });
@@ -168,6 +172,21 @@ function addBasicStyle() {
         const desktopReplaced = desktopStyle.replace(/main-container-about/g, canvasClass);
         document.head.innerHTML +='<style>'+desktopReplaced+'</style>';
     }
+}
+
+function reduceImage () {
+    const reduceImgUrl = 'cdn-cgi/image/width=800';
+    aboutUsData.forEach(data=>{
+       data.sections.forEach(section =>{
+           if (section.imageUrl.length>0){
+               const parseUrl = section.imageUrl.replace('https://','').split('/');
+               parseUrl.unshift('https:/');
+               parseUrl.splice(2,0,reduceImgUrl);
+               const buildUrl = parseUrl.join('/');
+               section.imageUrl = buildUrl;
+           }
+       });
+    });
 }
 
 function insertMenu(activeTab = 0) {

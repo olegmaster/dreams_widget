@@ -71,6 +71,9 @@ let canvasClass = '$this->canvasClass';
 let galleryContainer;
 let timer = null;
 let imagesCount=0;
+let basicTransform;
+let basicWidth;
+let basicHeight;
 
 let galleries = [];
 
@@ -486,19 +489,81 @@ function initGallery () {
     });
 }
 
+function fullScreenZoom () {
+    const contentContainer = document.querySelector('.fancybox-slide--current > .fancybox-content');
+    const image = contentContainer.firstElementChild;
+    const fullScreenBtn = document.querySelector('.full-screen__zoom');
+
+    contentContainer.addEventListener('click', ()=>{
+        if (contentContainer.classList.contains('analog-full-screen-zoom')) {
+            contentContainer.classList.remove('analog-full-screen-zoom');
+            image.style.removeProperty('objectFit');
+            contentContainer.style.transform = basicTransform;
+            contentContainer.style.width = basicWidth;
+            contentContainer.style.height = basicHeight;
+            fullScreenBtn.innerHTML = zoomInIcon;
+        }
+    });
+
+    if (!contentContainer.classList.contains('analog-full-screen-zoom')){
+        basicTransform = contentContainer.style.transform;
+        basicWidth = contentContainer.style.width;
+        basicHeight = contentContainer.style.height;
+
+        contentContainer.style.transition = 'all 0.3s';
+        contentContainer.style.transform = 'none';
+        contentContainer.style.width = '100%';
+        contentContainer.style.height = '100%';
+        image.style.objectFit = 'cover';
+        contentContainer.classList.add('analog-full-screen-zoom');
+        fullScreenBtn.innerHTML = zoomOutIcon;
+
+    } else {
+        contentContainer.style.transform = basicTransform;
+        contentContainer.style.width = basicWidth;
+        contentContainer.style.height = basicHeight;
+        image.style.removeProperty('objectFit');
+        contentContainer.classList.remove('analog-full-screen-zoom');
+        fullScreenBtn.innerHTML = zoomInIcon;
+    }
+}
+
+function fullScreenBtnEnable () {
+    const contentContainer = document.querySelector('.fancybox-slide--current > .fancybox-content');
+    const fullScreenBtn = document.querySelector('.full-screen__zoom');
+    if (fullScreenBtn){
+        const image = contentContainer.firstElementChild;
+        const imgHeight = image.getBoundingClientRect().height;
+        const imgWidth = image.getBoundingClientRect().width;
+        if (imgWidth > imgHeight) {
+            fullScreenBtn.style.display = 'inline-block';
+        }else {
+            fullScreenBtn.style.display = 'none';
+        }
+    }
+}
+
 function fancyboxInit () {
     $('[data-fancybox]').fancybox({
-        buttons: window.innerWidth >= 1024? ['close']: [],
+        buttons: window.innerWidth >= 1024? ['full','close']: [],
+        touch : {
+             vertical : false
+        },
         arrows: false,
-        // btnTpl:{
+         btnTpl:{
+               full: '<button class="full-screen__zoom" onclick="fullScreenZoom()">'+zoomInIcon+'</button>',
         //     arrowLeft: '<button data-fancybox-prev class="fancybox-button fancybox-button--arrow_left" title="{{PREV}}">' +
         //       '<div><i class="gallery-slide__arrow fas fa-chevron-left"></i></div>' +
         //       "</button>",
         //     arrowRight: '<button data-fancybox-next class="fancybox-button fancybox-button--arrow_right" title="{{NEXT}}">' +
         //       '<div><i class="gallery-slide__arrow fas fa-chevron-right"></i></div>' +
         //       "</button>"
-        // },
+        },
         infobar: false,
+        idleTime: false,
+        afterShow: function() {
+            fullScreenBtnEnable();
+        },
         animationEffect: 'fade',
         backFocus: false,
         animationDuration: 150,
@@ -705,6 +770,26 @@ function scrollContainer (container) {
 
 }
 
+const zoomOutIcon = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+  '<path d="M9.5 4.5V9.5H4.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M9.5 9.5L4.5 4.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M17.5 11.5V6.5H12.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M6.5 12.5V17.5H11.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M14.5 19.5V14.5H19.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M14.5 14.5L19.5 19.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
+  '</svg>';
+
+const zoomInIcon = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+  '<path d="M4.5 9.5V4.5H9.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M4.5 4.5L9.5 9.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M19.5 9.5V4.5H14.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M19.5 4.5L14.5 9.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M4.5 14.5V19.5H9.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M4.5 19.5L9.5 14.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M19.5 14.5V19.5H14.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M19.5 19.5L14.5 14.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
+  '</svg>';
+
 const basicStyle =`
 html{
   // scroll-behavior: smooth;
@@ -810,6 +895,24 @@ body{
 
 .slick-list{
     height: 100% !important;
+}
+
+.full-screen__zoom{
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    cursor: pointer;
+    display: inline-block;
+    height: 44px;
+    margin: 0;
+    outline: none;
+    padding: 10px;
+    position: relative;
+    transition: color .2s;
+    vertical-align: top;
+    visibility: inherit;
+    width: 44px;
+    background: transparent;
 }
 
 @media (orientation: landscape) {
