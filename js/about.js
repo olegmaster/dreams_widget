@@ -1,145 +1,147 @@
-let aboutUsData = [{
-    "chapter": [{
-        "lang": "en",
-        "value": "Chapter 14"
-    }, {
-        "lang": "he",
-        "value": "Chapter 1"
-    }, {
-        "lang": "ru",
-        "value": "Chapter 1"
-    }],
-    "order": 1,
-    "sections": [{
-        "title": [{
-            "lang": "en",
-            "value": "Section 1"
-        }, {
-            "lang": "he",
-            "value": "\u05e1\u05e7\u05e9\u05df 1"
-        }, {
-            "lang": "ru",
-            "value": "\u0441\u0435\u043a\u0442\u0446\u0438\u044f 1"
-        }],
-        "description": [{
-            "lang": "en",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
-        }, {
-            "lang": "he",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
-        }, {
-            "lang": "ru",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
-        }],
-        "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg",
-        "order": 1
-    }, {
-        "title": [{
-            "lang": "en",
-            "value": "Section 3"
-        }, {
-            "lang": "he",
-            "value": "Section 3"
-        }, {
-            "lang": "ru",
-            "value": "Section 3"
-        }],
-        "description": [{
-            "lang": "en",
-            "value": "jjkhjk"
-        }, {
-            "lang": "he",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
-        }, {
-            "lang": "ru",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
-        }],
-        "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg",
-        "order": 2
-    }, {
-        "title": [{
-            "lang": "en",
-            "value": "Section 7"
-        }, {
-            "lang": "he",
-            "value": "Section 7"
-        }, {
-            "lang": "ru",
-            "value": "Section 7"
-        }],
-        "description": [{
-            "lang": "en",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
-        }, {
-            "lang": "he",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
-        }, {
-            "lang": "ru",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
-        }],
-        "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg",
-        "order": 4
-    }, {
-        "title": [{
-            "lang": "en",
-            "value": "Section 8"
-        }, {
-            "lang": "he",
-            "value": "Section 8"
-        }, {
-            "lang": "ru",
-            "value": "Section 8"
-        }],
-        "description": [{
-            "lang": "en",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
-        }, {
-            "lang": "he",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
-        }, {
-            "lang": "ru",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
-        }],
-        "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/4B955B0C-FD2F-474F-8A74-4840D8523468\/kitajskaya_grusha_frukty_razdelochnaya_doska_108809_1024x768.jpg",
-        "order": 5
-    }]
-}, {
-    "chapter": [{
-        "lang": "en",
-        "value": "Chapter 2"
-    }, {
-        "lang": "he",
-        "value": "Chapter 2"
-    }, {
-        "lang": "ru",
-        "value": "Chapter 2"
-    }],
-    "order": 2,
-    "sections": [{
-        "title": [{
-            "lang": "en",
-            "value": "Section 6"
-        }, {
-            "lang": "he",
-            "value": "Section 1 ch 2"
-        }, {
-            "lang": "ru",
-            "value": "Section 1 ch 2"
-        }],
-        "description": [{
-            "lang": "en",
-            "value": ""
-        }, {
-            "lang": "he",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
-        }, {
-            "lang": "ru",
-            "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
-        }],
-        "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg",
-        "order": 3
-    }]
-}];
+// let aboutUsData = [{
+//     "chapter": [{
+//         "lang": "en",
+//         "value": "Chapter 14"
+//     }, {
+//         "lang": "he",
+//         "value": "Chapter 1"
+//     }, {
+//         "lang": "ru",
+//         "value": "Chapter 1"
+//     }],
+//     "order": 1,
+//     "sections": [{
+//         "title": [{
+//             "lang": "en",
+//             "value": "Section 1"
+//         }, {
+//             "lang": "he",
+//             "value": "\u05e1\u05e7\u05e9\u05df 1"
+//         }, {
+//             "lang": "ru",
+//             "value": "\u0441\u0435\u043a\u0442\u0446\u0438\u044f 1"
+//         }],
+//         "description": [{
+//             "lang": "en",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }, {
+//             "lang": "he",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }, {
+//             "lang": "ru",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }],
+//         "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg",
+//         "order": 1
+//     }, {
+//         "title": [{
+//             "lang": "en",
+//             "value": "Section 3"
+//         }, {
+//             "lang": "he",
+//             "value": "Section 3"
+//         }, {
+//             "lang": "ru",
+//             "value": "Section 3"
+//         }],
+//         "description": [{
+//             "lang": "en",
+//             "value": "jjkhjk"
+//         }, {
+//             "lang": "he",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }, {
+//             "lang": "ru",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }],
+//         "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg",
+//         "order": 2
+//     }, {
+//         "title": [{
+//             "lang": "en",
+//             "value": "Section 7"
+//         }, {
+//             "lang": "he",
+//             "value": "Section 7"
+//         }, {
+//             "lang": "ru",
+//             "value": "Section 7"
+//         }],
+//         "description": [{
+//             "lang": "en",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }, {
+//             "lang": "he",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }, {
+//             "lang": "ru",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }],
+//         "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg",
+//         "order": 4
+//     }, {
+//         "title": [{
+//             "lang": "en",
+//             "value": "Section 8"
+//         }, {
+//             "lang": "he",
+//             "value": "Section 8"
+//         }, {
+//             "lang": "ru",
+//             "value": "Section 8"
+//         }],
+//         "description": [{
+//             "lang": "en",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }, {
+//             "lang": "he",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }, {
+//             "lang": "ru",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }],
+//         "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/4B955B0C-FD2F-474F-8A74-4840D8523468\/kitajskaya_grusha_frukty_razdelochnaya_doska_108809_1024x768.jpg",
+//         "order": 5
+//     }]
+// }, {
+//     "chapter": [{
+//         "lang": "en",
+//         "value": "Chapter 2"
+//     }, {
+//         "lang": "he",
+//         "value": "Chapter 2"
+//     }, {
+//         "lang": "ru",
+//         "value": "Chapter 2"
+//     }],
+//     "order": 2,
+//     "sections": [{
+//         "title": [{
+//             "lang": "en",
+//             "value": "Section 6"
+//         }, {
+//             "lang": "he",
+//             "value": "Section 1 ch 2"
+//         }, {
+//             "lang": "ru",
+//             "value": "Section 1 ch 2"
+//         }],
+//         "description": [{
+//             "lang": "en",
+//             "value": ""
+//         }, {
+//             "lang": "he",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }, {
+//             "lang": "ru",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }],
+//         "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg",
+//         "order": 3
+//     }]
+// }];
+
+let aboutUsData = [{"chapter":[{"lang":"en","value":"About Maverick"},{"lang":"he","value":"The Project"}],"order":1,"sections":[{"title":[{"lang":"en","value":"CREATIVITY ADDRESSED"},{"lang":"he","value":"Section 6"}],"description":[{"lang":"en","value":"<p><span style=\"background-color:rgb(197, 166, 168); color:rgb(0, 0, 0)\">A natural addition to Chelsea, rising at<\/span><br \/>\n<span style=\"background-color:rgb(197, 166, 168); color:rgb(0, 0, 0)\">the crossroads of the city\u2019s most exciting<\/span><br \/>\n<span style=\"background-color:rgb(197, 166, 168); color:rgb(0, 0, 0)\">neighborhoods. Impeccably appointed<\/span><br \/>\n<span style=\"background-color:rgb(197, 166, 168); color:rgb(0, 0, 0)\">condominium residences complemented by<\/span><br \/>\n<span style=\"background-color:rgb(197, 166, 168); color:rgb(0, 0, 0)\">three levels of exceptional indoor and outdoor<\/span><br \/>\n<span style=\"background-color:rgb(197, 166, 168); color:rgb(0, 0, 0)\">amenities. Everything you ever wanted comes<\/span><br \/>\n<span style=\"background-color:rgb(197, 166, 168); color:rgb(0, 0, 0)\">together at a place designed just for yo<\/span><\/p>\n"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamsimages.bmby.com\/251West117thStreet\/projectassets\/about\/3BABB7EB-27DC-43A9-A318-D26F078430F4\/kitajskaya_grusha_frukty_razdelochnaya_doska_108809_1024x768.jpg","order":1},{"title":[{"lang":"en","value":"Luxurious Amenities"},{"lang":"he","value":"Luxurious Amenities"}],"description":[{"lang":"en","value":"<p>HAP Eight is a post-war condominium building in downtown Manhattan's\u00a0Chelsea\u00a0neighborhood finished in 2018. Situated at 215 West 28th Street, between Seventh Avenue and Eighth Avenue, the building contains 117 units and rises 21 stories. The elevatored building's amenities\u00a0include:\u00a0elevator, children's playroom, fitness center, rooftop\u00a0terrace\u00a0and courtyard<\/p>\n"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamsimages.bmby.com\/251West117thStreet\/projectassets\/about\/64002E3C-69FD-489E-A7A6-69227BC9521C\/kitajskaya_grusha_frukty_razdelochnaya_doska_108809_1024x768.jpg","order":2}]},{"chapter":[{"lang":"en","value":"About HAP"},{"lang":"he","value":"About the Project"}],"order":2,"sections":[{"title":[{"lang":"en","value":"HAP Investments is an international, full-service real estate development company headquartered in New York City"},{"lang":"he","value":"Section 1"}],"description":[{"lang":"en","value":"<p>The firm is keenly focused on identifying and investing in projects strategically situated in emerging and prime markets in the New York metropolitan area. Founded in 1998 by partners Eran Polack, Amir Hasid and Nir Amsel, HAP Investments has successfully acquired, designed and developed a diverse portfolio of residential and commercial real estate that is renowned for its location, proximity to mass transit, and innovative, high-quality construction and design. Its U.S. portfolio is currently comprised of 11 residential projects totaling more 1.8 million square feet in various stages of development, completion and operation.<\/p>\n\n<p>HAP Investments leverages its two decades of experience, knowledge and expertise along with its strategic partnerships to continually assess and stay ahead of market trends and best position its developments for financial success. The firm collaborates with global partners including top lenders, investors, architects and brokers to ensure each project is distinctive and delivered on time and within budget. The company\u2019s development approach is combined with its respect for the communities in which it works, creating buildings that enhance the lives of both its residents and neighbors.<\/p>\n\n<p>The company\u2019s talented team of seasoned professionals are passionate and fiercely committed to every project and adhere to a hands-on approach to all aspects of development from start to finish. From land acquisition through design, construction and property management, HAP Investments carefully oversees every development to deliver premier quality and maximum value. Known for its entrepreneurial spirit and ability to navigate complex projects, HAP Investments has earned a stellar reputation for always persevering and building high-quality developments despite any challenge.<\/p>\n"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamsimages.bmby.com\/251West117thStreet\/projectassets\/about\/97CD2A95-9DF5-4E17-B395-BCA2075FB452\/kitajskaya_grusha_frukty_razdelochnaya_doska_108809_1024x768.jpg","order":1},{"title":[{"lang":"en","value":"Hap section"},{"lang":"he","value":"Hap section"}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamsimages.bmby.com\/251West117thStreet\/projectassets\/about\/CFDC6065-758F-424A-9CD8-3087BA5B19D6\/kitajskaya_grusha_frukty_razdelochnaya_doska_108809_1024x768.jpg","order":2}]}];
 
 let canvasClass = 'bmby-about-wrapp';
 let lang = 'en';
@@ -172,7 +174,6 @@ window.addEventListener("DOMContentLoaded", function (event) {
 });
 
 window.addEventListener('orientationchange', orientationHandler);
-window.addEventListener('resize', orientationHandler);
 window.addEventListener('load',cropImageToText);
 
 function cropImageToText() {
@@ -208,26 +209,28 @@ function checkUserAgent () {
 }
 
 function orientationHandler() {
-    const isPortrait = isWindowInPortrait();
-    if (window.innerWidth < 1024) {
-        clearContent();
-        insertMenu(activeTabInd);
+    setTimeout(()=>{
+        const isPortrait = isWindowInPortrait();
+        if (window.innerWidth < 1024) {
+            clearContent();
+            insertMenu(activeTabInd);
 
-        if (aboutUsData.length > 1){
-            const contentWrapper = document.querySelector('.tabs-data-content__wrapper');
-            if (!isPortrait && dir === 'ltr') {
-                contentWrapper.style.marginLeft = 114 + 'px';
-            } else if (!isPortrait && dir === 'rtl') {
-                contentWrapper.style.marginRight = 114 + 'px';
-            } else {
-                contentWrapper.style.marginRight = 0 + 'px';
-                contentWrapper.style.marginLeft = 0 + 'px';
+            if (aboutUsData.length > 1){
+                const contentWrapper = document.querySelector('.tabs-data-content__wrapper');
+                if (!isPortrait && dir === 'ltr') {
+                    contentWrapper.style.marginLeft = 114 + 'px';
+                } else if (!isPortrait && dir === 'rtl') {
+                    contentWrapper.style.marginRight = 114 + 'px';
+                } else {
+                    contentWrapper.style.marginRight = 0 + 'px';
+                    contentWrapper.style.marginLeft = 0 + 'px';
+                }
             }
+        } else {
+            clearContent();
+            insertMenu(activeTabInd);
         }
-    } else {
-        clearContent();
-        insertMenu(activeTabInd);
-    }
+    }, 250);
 }
 
 function clearContent() {
@@ -453,23 +456,12 @@ function setActiveTab(parent, e) {
     menuItemsCollection.forEach(menu => {
         if (e === menu) {
             menu.classList.add('active');
-            scrollContainer(menu);
         } else {
             menu.classList.remove('active');
         }
     });
 }
 
-function scrollContainer(container) {
-    const main = container.parentElement;
-    const menuItem = container.getBoundingClientRect();
-
-    if (menuItem.right > main.offsetWidth) {
-        container.parentElement.scrollTo(menuItem.right - main.offsetWidth + menuItem.width, 0);
-    } else if (menuItem.left < 0) {
-        container.parentElement.scrollTo(menuItem.left, 0);
-    }
-}
 
 const basicStyle = `
 

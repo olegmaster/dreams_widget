@@ -139,7 +139,6 @@ window.addEventListener("DOMContentLoaded", function (event) {
 });
 
 window.addEventListener('orientationchange', orientationHandler);
-window.addEventListener('resize', orientationHandler);
 window.addEventListener('load',  cropImageToText);
 
 
@@ -176,26 +175,28 @@ function checkUserAgent () {
 }
 
 function orientationHandler() {
-    const isPortrait = isWindowInPortrait();
-    if (window.innerWidth < 1024) {
-        clearContent();
-        insertMenu(activeTabInd);
+    setTimeout(()=>{
+            const isPortrait = isWindowInPortrait();
+            if (window.innerWidth < 1024) {
+                clearContent();
+                insertMenu(activeTabInd);
 
-        if (aboutUsData.length > 1){
-            const contentWrapper = document.querySelector('.tabs-data-content__wrapper');
-            if (!isPortrait && dir === 'ltr') {
-                contentWrapper.style.marginLeft = 114 + 'px';
-            } else if (!isPortrait && dir === 'rtl') {
-                contentWrapper.style.marginRight = 114 + 'px';
+                if (aboutUsData.length > 1){
+                    const contentWrapper = document.querySelector('.tabs-data-content__wrapper');
+                    if (!isPortrait && dir === 'ltr') {
+                        contentWrapper.style.marginLeft = 114 + 'px';
+                    } else if (!isPortrait && dir === 'rtl') {
+                        contentWrapper.style.marginRight = 114 + 'px';
+                    } else {
+                        contentWrapper.style.marginRight = 0 + 'px';
+                        contentWrapper.style.marginLeft = 0 + 'px';
+                    }
+                }
             } else {
-                contentWrapper.style.marginRight = 0 + 'px';
-                contentWrapper.style.marginLeft = 0 + 'px';
+                clearContent();
+                insertMenu(activeTabInd);
             }
-        }
-    } else {
-        clearContent();
-        insertMenu(activeTabInd);
-    }
+        }, 250);
 }
 
 function clearContent() {
@@ -422,22 +423,10 @@ function setActiveTab(parent, e) {
     menuItemsCollection.forEach(menu => {
         if (e === menu) {
             menu.classList.add('active');
-            scrollContainer(menu);
         } else {
             menu.classList.remove('active');
         }
     });
-}
-
-function scrollContainer(container) {
-    const main = container.parentElement;
-    const menuItem = container.getBoundingClientRect();
-
-    if (menuItem.right > main.offsetWidth) {
-        container.parentElement.scrollTo(menuItem.right - main.offsetWidth + menuItem.width, 0);
-    } else if (menuItem.left < 0) {
-        container.parentElement.scrollTo(menuItem.left, 0);
-    }
 }
 
 const basicStyle = `

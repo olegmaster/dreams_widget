@@ -441,21 +441,29 @@ function initGallery () {
             });
 }
 
+function desktopImageZoomClickHandler () {
+    const contentContainer = document.querySelector('.fancybox-slide--current > .fancybox-content');
+    const image = contentContainer.firstElementChild;
+    const fullScreenBtn = document.querySelector('.full-screen__zoom');
+
+    if (contentContainer.classList.contains('analog-full-screen-zoom')) {
+        contentContainer.classList.remove('analog-full-screen-zoom');
+        image.style.removeProperty('objectFit');
+        contentContainer.style.transition = 'all 0.3s';
+        contentContainer.style.transform = basicTransform;
+        contentContainer.style.width = basicWidth;
+        contentContainer.style.height = basicHeight;
+        fullScreenBtn.innerHTML = zoomInIcon;
+    }
+}
+
 function fullScreenZoom () {
     const contentContainer = document.querySelector('.fancybox-slide--current > .fancybox-content');
     const image = contentContainer.firstElementChild;
     const fullScreenBtn = document.querySelector('.full-screen__zoom');
 
-    contentContainer.addEventListener('click', ()=>{
-        if (contentContainer.classList.contains('analog-full-screen-zoom')) {
-            contentContainer.classList.remove('analog-full-screen-zoom');
-            image.style.removeProperty('objectFit');
-            contentContainer.style.transform = basicTransform;
-            contentContainer.style.width = basicWidth;
-            contentContainer.style.height = basicHeight;
-            fullScreenBtn.innerHTML = zoomInIcon;
-        }
-    });
+    contentContainer.addEventListener('click', desktopImageZoomClickHandler );
+    contentContainer.addEventListener('touchend', desktopImageZoomClickHandler );
 
     if (!contentContainer.classList.contains('analog-full-screen-zoom')){
         basicTransform = contentContainer.style.transform;
@@ -727,23 +735,23 @@ function scrollContainer (container) {
 }
 
 const zoomOutIcon = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-  '<path d="M9.5 4.5V9.5H4.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
-  '<path d="M9.5 9.5L4.5 4.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
-  '<path d="M17.5 11.5V6.5H12.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
-  '<path d="M6.5 12.5V17.5H11.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
-  '<path d="M14.5 19.5V14.5H19.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
-  '<path d="M14.5 14.5L19.5 19.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M9.5 4.5V9.5H4.5" stroke="#1A2F43" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M9.5 9.5L4.5 4.5" stroke="#1A2F43" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M17.5 11.5V6.5H12.5" stroke="#1A2F43" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M6.5 12.5V17.5H11.5" stroke="#1A2F43" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M14.5 19.5V14.5H19.5" stroke="#1A2F43" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M14.5 14.5L19.5 19.5" stroke="#1A2F43" stroke-width="1.6" stroke-linecap="round"/>' +
   '</svg>';
 
 const zoomInIcon = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-  '<path d="M4.5 9.5V4.5H9.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
-  '<path d="M4.5 4.5L9.5 9.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
-  '<path d="M19.5 9.5V4.5H14.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
-  '<path d="M19.5 4.5L14.5 9.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
-  '<path d="M4.5 14.5V19.5H9.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
-  '<path d="M4.5 19.5L9.5 14.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
-  '<path d="M19.5 14.5V19.5H14.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
-  '<path d="M19.5 19.5L14.5 14.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M4.5 9.5V4.5H9.5" stroke="#1A2F43" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M4.5 4.5L9.5 9.5" stroke="#1A2F43" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M19.5 9.5V4.5H14.5" stroke="#1A2F43" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M19.5 4.5L14.5 9.5" stroke="#1A2F43" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M4.5 14.5V19.5H9.5" stroke="#1A2F43" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M4.5 19.5L9.5 14.5" stroke="#1A2F43" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M19.5 14.5V19.5H14.5" stroke="#1A2F43" stroke-width="1.6" stroke-linecap="round"/>' +
+  '<path d="M19.5 19.5L14.5 14.5" stroke="#1A2F43" stroke-width="1.6" stroke-linecap="round"/>' +
   '</svg>';
 
 const basicStyle =`
@@ -837,6 +845,10 @@ body{
   font-weight: 300;
   text-align: start;
   line-height: 16px;
+}
+
+.full-screen__zoom{
+    filter: brightness(10);
 }
 
 .rtl {
@@ -1179,6 +1191,14 @@ const desktopStyle =`
 .fancybox-bg {
   background: #F7F7F7 !important;
   opacity: 1 !important;
+}
+
+.fancybox-toolbar{
+  background-color: #F7F7F7;
+}
+
+.full-screen__zoom{
+   filter: none;
 }
 
 }
