@@ -37,7 +37,7 @@
     <div class="bmby-gallery"></div>
 <?php endif; ?>
 <?php if(isset($_GET['page']) && $_GET['page'] === 'poi'): ?>
-    <div class="bmby-poi-wrapp"></div>
+    <div class="bmby-poi"></div>
 <?php endif; ?>
 
 </body>
