@@ -14,8 +14,9 @@ $apiInteractor = new WidgetApiInteractor($_GET['key'] ?? '', $_GET['type'] ?? ''
 $poiData = $apiInteractor->getPoiData();
 
 $poiCategoriesData = $apiInteractor->getPoiCategoriesData();
+$poiSettingsData = $apiInteractor->getPoiSettingsData();
 
-$poiJsGenerator = new PoiJsGenerator($poiData, $poiCategoriesData, $canvasClass, $lang, $callback);
+$poiJsGenerator = new PoiJsGenerator($poiData, $poiCategoriesData, $poiSettingsData, $canvasClass, $lang, $callback);
 
 $poiJsGenerator->showJs();
 
