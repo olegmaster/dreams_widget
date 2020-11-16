@@ -13,7 +13,15 @@ class PoiJsGenerator implements JsGenerator
   private $jsString;
   private $poiData;
   private $poiCategoriesData;
+
+// this is the parameters of base marker where map will be focused in the start
+// map base marker title, longitude, latitude
+  private $baseMarkerTitle;
+  private $baseMarkerLongitude;
+  private $baseMarkerLatitude;
+
   private $poiStyles;
+
   private $lang;
   private $canvasClass;
   private $callbackFunctionName;
@@ -26,10 +34,19 @@ class PoiJsGenerator implements JsGenerator
     $this->poiData = $poiData;
     $this->poiCategoriesData = $poiCategoriesData;
 
+    // $poiSettings it is the json string from API
+    // that contains base marker data, styles, and other settings
+    // we transform it to std class object
+    $poiSettingsObj = json_decode($poiSettings);
+
+    // set base marker data
+    $this->baseMarkerTitle = $poiSettingsObj->title ?? '';
+    $this->baseMarkerLongitude = $poiSettingsObj->longitude ?? 0;
+    $this->baseMarkerLatitude = $poiSettingsObj->latitude ?? 0;
+
     // get poi styles from poi settings
     // poi settings are received from API /api/dreamsv2/poisettings/
-    $poiSettings = json_decode($poiSettings);
-    $this->poiStyles = isset($poiSettings->style) ? json_encode($poiSettings->style) : '';
+    $this->poiStyles = isset($poiSettingsObj->style) ? json_encode($poiSettingsObj->style) : '';
 
     $this->canvasClass = $canvasClass;
     $this->lang = $lang;
@@ -311,15 +328,6 @@ function generateSvg (iconColection,icon,color,newColor) {
      options.container = document.querySelector('.'+canvasClass);
      options.filtered_markers={};
      let key =0;
-     
-     // set base position of google map on some default marker
-     // we can have many markers in different countries
-     // let's show the first marker by default
-     // this is the variables for the marker name, latitude, and longitude
-     let baseMarkerName;
-     let baseMarkerLatitude;
-     let baseMarkerLongitude;
-
 
      poiCategoriesData.forEach(category =>{
          if (category.data.length > 0){
@@ -327,14 +335,7 @@ function generateSvg (iconColection,icon,color,newColor) {
              category.data.forEach(catData =>{
                  const dataName = catData.name.filter(dataElementName => dataElementName.lang === lang)[0].value;
                  const description = catData.description.filter(dataDescription => dataDescription.lang === lang)[0].value;
-                 
-                 // set the first marker as a base marker, to focus google map on it by default                  
-                 if (baseMarkerName === undefined || baseMarkerLatitude === undefined || baseMarkerLongitude === undefined){
-                    baseMarkerName = dataName;
-                    baseMarkerLatitude = catData.latitude;
-                    baseMarkerLongitude = catData.longitude;
-                 }
-                 
+                
                  const obj = {
                     [key]:{
                         'category': categoryName,
@@ -363,14 +364,14 @@ function generateSvg (iconColection,icon,color,newColor) {
      options.popup_templates = [template_1];
      options.map_settings = {
          map_style : map_style,
-         lng : baseMarkerLongitude,
-         lat : baseMarkerLatitude,
+         lng : $this->baseMarkerLongitude,
+         lat : $this->baseMarkerLatitude,
          zoom: 16,
          static_markers : {
             '0':{
-                'title': baseMarkerName,
-                'lat': baseMarkerLatitude,
-                'lng': baseMarkerLongitude,
+                'title': '$this->baseMarkerTitle',
+                'lat': $this->baseMarkerLatitude,
+                'lng': $this->baseMarkerLongitude,
                 'marker_icon': generateSvg(poiIcons,'mainBuilding','#C0C0C0','#000000'),
                 'marker_text': '',
             }
