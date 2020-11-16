@@ -50,11 +50,10 @@ class PoiJsGenerator implements JsGenerator
     $this->jsString = <<<EOD
  // each element contains data about the certain poi
  // this data is obtained from API
- let poiData = $this->poiData;
-
+ let poiData = $this->poiData; 
 
  // this variable contains all poi categories
- let poiCategoriesData  = $this->poiCategoriesData;
+ let poiCategoriesData  = $this->poiCategoriesData; 
 
  const lang = '$this->lang';
  const dir = '$this->dir';
@@ -303,6 +302,14 @@ function generateSvg (iconColection,icon,color,newColor) {
      options.container = document.querySelector('.'+canvasClass);
      options.filtered_markers={};
      let key =0;
+     
+     // set base position of google map on some default marker
+     // we can have many markers in different countries
+     // let's show the first marker by default
+     // this is the variables for the marker name, latitude, and longitude
+     let baseMarkerName;
+     let baseMarkerLatitude;
+     let baseMarkerLongitude;
 
 
      poiCategoriesData.forEach(category =>{
@@ -311,6 +318,14 @@ function generateSvg (iconColection,icon,color,newColor) {
              category.data.forEach(catData =>{
                  const dataName = catData.name.filter(dataElementName => dataElementName.lang === lang)[0].value;
                  const description = catData.description.filter(dataDescription => dataDescription.lang === lang)[0].value;
+                 
+                 // set the first marker as a base marker, to focus google map on it by default                  
+                 if (baseMarkerName === undefined || baseMarkerLatitude === undefined || baseMarkerLongitude === undefined){
+                    baseMarkerName = dataName;
+                    baseMarkerLatitude = catData.latitude;
+                    baseMarkerLongitude = catData.longitude;
+                 }
+                 
                  const obj = {
                     [key]:{
                         'category': categoryName,
@@ -339,14 +354,14 @@ function generateSvg (iconColection,icon,color,newColor) {
      options.popup_templates = [template_1];
      options.map_settings = {
          map_style : map_style,
-         lng : 30.7610757,
-         lat : 46.435974,
+         lng : baseMarkerLongitude,
+         lat : baseMarkerLatitude,
          zoom: 16,
          static_markers : {
             '0':{
-                'title': 'Odessa 2020',
-                'lat': 46.435974,
-                'lng': 30.7610757,
+                'title': baseMarkerName,
+                'lat': baseMarkerLatitude,
+                'lng': baseMarkerLongitude,
                 'marker_icon': generateSvg(poiIcons,'mainBuilding','#C0C0C0','#000000'),
                 'marker_text': '',
             }
