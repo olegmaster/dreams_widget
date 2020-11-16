@@ -13,17 +13,24 @@ class PoiJsGenerator implements JsGenerator
   private $jsString;
   private $poiData;
   private $poiCategoriesData;
+  private $poiStyles;
   private $lang;
   private $canvasClass;
   private $callbackFunctionName;
   private $dir;
   private $rtlLangs = ['he'];
 
-  public function __construct(string $poiData, string $poiCategoriesData, string $canvasClass = 'bmby-gallery', string $lang = 'en', string $callbackFunctionName = '')
+  public function __construct(string $poiData, string $poiCategoriesData, string $poiSettings, string $canvasClass = 'bmby-gallery', string $lang = 'en', string $callbackFunctionName = '')
   {
     $this->jsString = '';
     $this->poiData = $poiData;
     $this->poiCategoriesData = $poiCategoriesData;
+
+    // get poi styles from poi settings
+    // poi settings are received from API /api/dreamsv2/poisettings/
+    $poiSettings = json_decode($poiSettings);
+    $this->poiStyles = isset($poiSettings->style) ? json_encode($poiSettings->style) : '';
+
     $this->canvasClass = $canvasClass;
     $this->lang = $lang;
     $this->callbackFunctionName = empty($callbackFunctionName) ? 'nonExistentFunction' : $callbackFunctionName ;
@@ -58,6 +65,8 @@ class PoiJsGenerator implements JsGenerator
  const lang = '$this->lang';
  const dir = '$this->dir';
  let canvasClass = '$this->canvasClass';
+ // the styles from the API poi settings method
+ let styles = '$this->poiStyles';
  let mode = 'prod';
  let detectMobile = detect_mobile();
  let query = '?key=AIzaSyDuH95F2ljG3Z-AtGByCNYMkaUwwGc-SUc&libraries=places';
