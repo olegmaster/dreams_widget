@@ -34,7 +34,7 @@ class WidgetApiInteractor extends ApiHelper
         // add on local debug
         //$_SERVER['endpoint_US'] = 'https://dreamsapi.bmby.com/';
         $this->apiKey = $apiKey;
-        $this->apiEndPoint = ($type == 'US')?$_SERVER['endpoint_US']:'https://mbeat.bmby.com/';
+        $this->apiEndPoint = ($type == 'US')?$_SERVER['endpoint_US']:$_SERVER['endpoint_IL'];
     }
 
     /**
