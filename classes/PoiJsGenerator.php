@@ -13,17 +13,41 @@ class PoiJsGenerator implements JsGenerator
   private $jsString;
   private $poiData;
   private $poiCategoriesData;
+
+// this is the parameters of base marker where map will be focused in the start
+// map base marker title, longitude, latitude
+  private $baseMarkerTitle;
+  private $baseMarkerLongitude;
+  private $baseMarkerLatitude;
+
+  private $poiStyles;
+
   private $lang;
   private $canvasClass;
   private $callbackFunctionName;
   private $dir;
   private $rtlLangs = ['he'];
 
-  public function __construct(string $poiData, string $poiCategoriesData, string $canvasClass = 'bmby-gallery', string $lang = 'en', string $callbackFunctionName = '')
+  public function __construct(string $poiData, string $poiCategoriesData, string $poiSettings, string $canvasClass = 'bmby-gallery', string $lang = 'en', string $callbackFunctionName = '')
   {
     $this->jsString = '';
     $this->poiData = $poiData;
     $this->poiCategoriesData = $poiCategoriesData;
+
+    // $poiSettings it is the json string from API
+    // that contains base marker data, styles, and other settings
+    // we transform it to std class object
+    $poiSettingsObj = json_decode($poiSettings);
+
+    // set base marker data
+    $this->baseMarkerTitle = $poiSettingsObj->title ?? '';
+    $this->baseMarkerLongitude = $poiSettingsObj->longitude ?? 0;
+    $this->baseMarkerLatitude = $poiSettingsObj->latitude ?? 0;
+
+    // get poi styles from poi settings
+    // poi settings are received from API /api/dreamsv2/poisettings/
+    $this->poiStyles = isset($poiSettingsObj->style) ? json_encode($poiSettingsObj->style) : '';
+
     $this->canvasClass = $canvasClass;
     $this->lang = $lang;
     $this->callbackFunctionName = empty($callbackFunctionName) ? 'nonExistentFunction' : $callbackFunctionName ;
@@ -50,15 +74,16 @@ class PoiJsGenerator implements JsGenerator
     $this->jsString = <<<EOD
  // each element contains data about the certain poi
  // this data is obtained from API
- let poiData = $this->poiData;
-
+ let poiData = $this->poiData; 
 
  // this variable contains all poi categories
- let poiCategoriesData  = $this->poiCategoriesData;
+ let poiCategoriesData  = $this->poiCategoriesData; 
 
  const lang = '$this->lang';
  const dir = '$this->dir';
  let canvasClass = '$this->canvasClass';
+ // the styles from the API poi settings method
+ let styles = '$this->poiStyles';
  let mode = 'prod';
  let detectMobile = detect_mobile();
  let query = '?key=AIzaSyDuH95F2ljG3Z-AtGByCNYMkaUwwGc-SUc&libraries=places';
@@ -304,13 +329,13 @@ function generateSvg (iconColection,icon,color,newColor) {
      options.filtered_markers={};
      let key =0;
 
-
      poiCategoriesData.forEach(category =>{
          if (category.data.length > 0){
              const categoryName = category.name.filter(elName=>elName.lang === lang)[0].value;
              category.data.forEach(catData =>{
                  const dataName = catData.name.filter(dataElementName => dataElementName.lang === lang)[0].value;
                  const description = catData.description.filter(dataDescription => dataDescription.lang === lang)[0].value;
+                
                  const obj = {
                     [key]:{
                         'category': categoryName,
@@ -339,14 +364,14 @@ function generateSvg (iconColection,icon,color,newColor) {
      options.popup_templates = [template_1];
      options.map_settings = {
          map_style : map_style,
-         lng : 30.7610757,
-         lat : 46.435974,
+         lng : $this->baseMarkerLongitude,
+         lat : $this->baseMarkerLatitude,
          zoom: 16,
          static_markers : {
             '0':{
-                'title': 'Odessa 2020',
-                'lat': 46.435974,
-                'lng': 30.7610757,
+                'title': '$this->baseMarkerTitle',
+                'lat': $this->baseMarkerLatitude,
+                'lng': $this->baseMarkerLongitude,
                 'marker_icon': generateSvg(poiIcons,'mainBuilding','#C0C0C0','#000000'),
                 'marker_text': '',
             }
