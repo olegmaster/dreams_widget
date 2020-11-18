@@ -29,8 +29,8 @@ const imgData = [
 
     {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/gindi_3.jpg","order":12}
     ];
-const lang = 'he';
-const dir = 'rtl';
+const lang = 'en';
+const dir = 'ltr';
 
 const galleryData = categoriesData.map((el) => {
     el.images = imgData.filter(imgEl => imgEl.categoryId === el.categoryId);
