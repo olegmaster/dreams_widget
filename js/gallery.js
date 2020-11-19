@@ -457,33 +457,51 @@ function initGallery () {
     });
 }
 
-function fullScreenZoom () {
-    const container = $.fancybox.getInstance().current.$slide[0].firstChild;
-    const current = $.fancybox.getInstance().current;
-   for (let img of container.children){
-       if (!img.style.display){
-           const obj ={
-               target:{
-                   parentElement: container
-               }
-           }
-           sliderHandler(current,obj);
-       }
-   }
+function resizeImage () {
+    const current = getCurrentInstance();
+    const container = current.$content[0];
+    const { naturalWidth, naturalHeight } = getNaturalImageSize(current);
+    const btn = document.querySelector('.full-screen__zoom');
+
+    switch (btn.dataset.icon) {
+        case 'fullScreen':
+            $.fancybox.getInstance().scaleToFit();
+            btn.innerHTML = zoomInIcon;
+            btn.dataset.icon = 'zoomInIcon';
+        break;
+        case 'zoomInIcon':
+            if (naturalWidth > window.innerWidth && naturalHeight > window.innerHeight){
+                current.width = naturalWidth;
+                current.height = naturalHeight;
+                $.fancybox.getInstance().scaleToActual();
+                container.classList.add('is-zoomed');
+                btn.innerHTML = zoomOutIcon;
+                btn.dataset.icon = 'zoomOutIcon';
+            } else {
+                current.width = naturalWidth * 3;
+                current.height = naturalHeight * 3;
+                $.fancybox.getInstance().scaleToActual();
+                container.classList.add('is-zoomed');
+                btn.innerHTML = zoomOutIcon;
+                btn.dataset.icon = 'zoomOutIcon';
+            }
+        break;
+        case 'zoomOutIcon':
+                monoImageView(current);
+        break;
+    }
 }
 
 function fancyboxInit () {
     $('[data-fancybox]').fancybox({
         buttons: window.innerWidth >= 1024 && userAgent === 'iPad' ? ['close']: window.innerWidth >= 1024 ? ['full','close'] : [],
         touch : {
-            vertical : false
+            vertical : false,
         },
         arrows: false,
         autoSize: false,
-        width: window.innerWidth >= 1024 && userAgent !== 'iPad' ? window.innerWidth * 4 : 0 ,
-        height: window.innerWidth >= 1024 && userAgent !== 'iPad' ? window.innerHeight * 4 : 0 ,
         btnTpl:{
-            full: '<button class="full-screen__zoom" onclick="fullScreenZoom()">'+zoomInIcon+'</button>',
+            full: '<button class="full-screen__zoom" onclick="resizeImage()">'+zoomInIcon+'</button>',
         //     arrowLeft: '<button data-fancybox-prev class="fancybox-button fancybox-button--arrow_left" title="{{PREV}}">' +
         //       '<div><i class="gallery-slide__arrow fas fa-chevron-left"></i></div>' +
         //       "</button>",
@@ -497,7 +515,7 @@ function fancyboxInit () {
 
         },
         dblclickContent: function(current, event) {
-            sliderHandler(current,event);
+            resizeImage();
         },
         mobile: {
             clickContent: function(current, event) {
@@ -505,31 +523,35 @@ function fancyboxInit () {
             },
             dblclickContent: function(current, event) {
                 if (window.innerWidth >=1440){
-                    sliderHandler(current,event);
+                   resizeImage();
                 } else {
                     return 'zoom';
                 }
             },
         },
         afterShow: function(instance,current) {
-            if (window.innerWidth >=1024 && userAgent !== 'iPad'){
-                const slide = document.querySelector('.fancybox-slide.fancybox-slide--image.fancybox-slide--current');
-                slide.style.paddingBottom = '0px';
+            if (window.innerWidth >=1440){
+                if (!instance.firstRun){
+                    monoImageView(current);
+                }
             }
-        },
+            },
         beforeShow: function(instance,current){
-          let interval;
-            if (window.innerWidth >=1024 && userAgent !== 'iPad'){
+            if (window.innerWidth >=1440){
+                let interval;
                 interval = setInterval(()=>{
                     if (current){
                         clearInterval(interval);
-                        setSlideImageSize(current);
+                        monoImageView(current);
                     }
-                },100);
+                },10);
             }
+
         },
         afterLoad : function(instance, current) {
-
+            if (window.innerWidth >=1440){
+                monoImageView(current);
+            }
         },
         animationEffect: 'fade',
         backFocus: false,
@@ -543,97 +565,54 @@ function fancyboxInit () {
     });
 }
 
-function sliderHandler (current,event) {
-    if (current.type ==='image' && event){
-        const zoomBtn = document.querySelector('.full-screen__zoom');
-        const container = event.target.parentElement;
-        if (container.classList.contains('is-zoomed')){
-            container.classList.remove('is-zoomed');
-            setSlideImageSize(current);
-            if (zoomBtn){
-                zoomBtn.innerHTML = zoomInIcon;
-            }
-        } else {
-            setSlideOriginalSize(current);
-            if (zoomBtn) {
-                zoomBtn.innerHTML = zoomOutIcon;
-            }
-        }
-    }
-}
-
-
-function setSlideOriginalSize (slide) {
-    const img = slide.$image[0];
-    const {objectFit,naturalWidth,naturalHeight} = calcObjectFitProperty(slide);
-    const container = img.parentElement;
-
-    container.classList.add('is-zoomed');
-
-    if (window.innerWidth > naturalWidth && window.innerHeight > naturalHeight){
-        container.style.transition = 'all 0.4s';
-        container.style.width = naturalWidth * 4 +'px';
-        container.style.height = naturalHeight * 4 +'px';
-        container.style.transform = 'translate('+(window.innerWidth - naturalWidth * 4) / 2+'px,'+(window.innerHeight - naturalHeight * 4) / 2+'px)';
-    } else {
-        container.style.transition = 'all 0.4s';
-        container.style.width = naturalWidth +'px';
-        container.style.height = naturalHeight +'px';
-        container.style.transform = 'translate('+(window.innerWidth - naturalWidth) / 2+'px,'+(window.innerHeight - naturalHeight) / 2+'px)';
-    }
-    img.style.objectFit = 'contain';
-}
-
-function calcObjectFitProperty (slide) {
-    const imgNaturalWidth = slide.$image[0].naturalWidth;
-    const imgNaturalHeight = slide.$image[0].naturalHeight;
-
-    if (imgNaturalWidth > window.innerWidth && imgNaturalHeight > window.innerHeight) {
-        return {
-            objectFit: 'cover',
-            naturalWidth: imgNaturalWidth,
-            naturalHeight: imgNaturalHeight,
-        };
-    } else {
-        return {
-            objectFit: 'contain',
-            naturalWidth: imgNaturalWidth,
-            naturalHeight: imgNaturalHeight,
-        };
-    }
-}
-
-function setSlideImageSize (slide) {
-    const container = document.querySelector('.fancybox-slide.fancybox-slide--image.fancybox-slide--current' +
-      ' > .fancybox-content');
-
-    const {objectFit, naturalWidth, naturalHeight } = calcObjectFitProperty(slide);
+function monoImageView (slide) {
+    const { naturalWidth, naturalHeight } = getNaturalImageSize(slide);
+    const slideContainer = slide.$slide[0];
+    const resizeBtn = document.querySelector('.full-screen__zoom');
 
     if (naturalWidth > window.innerWidth && naturalHeight > window.innerHeight){
-        if (container){
-            container.style.transition = 'all 0.4s';
-            container.style.transform='translate(0px,0px)';
-            container.style.width = '100%';
-            container.style.height = '100%';
-            for (let child of container.children){
-                    child.style.objectFit = objectFit;
-                    child.style.objectPosition = 'center';
-            }
-        }
-    } else {
-        if (container){
-            container.style.transition = 'all 0.1s';
-            container.style.transform='translate(0px,0px)';
-            container.style.width = '100%';
-            container.style.height ='100%';
-            for (let child of container.children){
-                setTimeout(()=>{
-                    child.style.objectFit = 'none';
-                    child.style.objectPosition = 'center';
-                },100);
+        resizeBtn.innerHTML = zoomInIcon;
+        resizeBtn.dataset.icon = 'zoomInIcon';
+        slide.width = window.innerWidth;
+        slide.height = window.innerHeight;
+        slide.$image[0].style.objectFit = 'cover';
+        $.fancybox.getInstance().scaleToActual();
+        slideContainer.style.paddingBottom = '0px';
+    } else if (naturalWidth > window.innerWidth && naturalHeight < window.innerHeight) {
+        resizeBtn.innerHTML = fullScreen;
+        resizeBtn.dataset.icon = 'fullScreen';
+        slide.width = naturalWidth;
+        slide.height = naturalHeight;
+        $.fancybox.getInstance().scaleToActual();
+        slide.$image[0].style.removeProperty('object-fit');
+        slideContainer.style.paddingBottom = '0px';
+    } else if (naturalWidth < window.innerWidth && naturalHeight < window.innerHeight){
+        resizeBtn.innerHTML = zoomInIcon;
+        resizeBtn.dataset.icon = 'zoomInIcon';
+        slide.width = naturalWidth;
+        slide.height = naturalHeight;
+        $.fancybox.getInstance().scaleToActual();
+        slide.$image[0].style.removeProperty('object-fit');
+        slideContainer.style.paddingBottom = '0px';
+    } else if (naturalWidth < window.innerWidth && naturalHeight > window.innerHeight) {
+        resizeBtn.innerHTML = fullScreen;
+        resizeBtn.dataset.icon = 'fullScreen';
+        slide.width = naturalWidth;
+        slide.height = naturalHeight;
+        $.fancybox.getInstance().scaleToActual();
+        slide.$image[0].style.removeProperty('object-fit');
+        slideContainer.style.paddingBottom = '0px';
+    }
+}
 
-            }
-        }
+function getCurrentInstance () {
+    return $.fancybox.getInstance().current;
+}
+
+function getNaturalImageSize (slide) {
+    return {
+        naturalWidth: slide.$image[0].naturalWidth,
+        naturalHeight: slide.$image[0].naturalHeight,
     }
 }
 
@@ -834,6 +813,15 @@ function scrollContainer (container) {
 
 }
 //#1A2F43
+const fullScreen = `
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.5 9.5V4.5H14.5" stroke="#1A2F43" stroke-width="1.6" stroke-linecap="round"/>
+<path d="M19.5 4.5L14.5 9.5" stroke="#1A2F43" stroke-width="1.6" stroke-linecap="round"/>
+<path d="M4.5 14.5V19.5H9.5" stroke="#1A2F43" stroke-width="1.6" stroke-linecap="round"/>
+<path d="M4.5 19.5L9.5 14.5" stroke="#1A2F43" stroke-width="1.6" stroke-linecap="round"/>
+</svg>
+`;
+
 const zoomOutIcon = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
   '<path d="M9.5 4.5V9.5H4.5" stroke="#1A2F43" stroke-width="1.6" stroke-linecap="round"/>' +
   '<path d="M9.5 9.5L4.5 4.5" stroke="#1A2F43" stroke-width="1.6" stroke-linecap="round"/>' +
