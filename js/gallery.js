@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             clearInterval(isScriptsLoaded);
             insertMenu();
             if (userAgent && userAgent !== 'Windows'){
-                // reduceImage();
+                reduceImage();
             }
             if (userAgent === 'Windows'){
                 window.addEventListener('resize',orientationHandler);
@@ -457,6 +457,27 @@ function initGallery () {
     });
 }
 
+function userCoverState (naturalWidth, naturalHeight ) {
+    const aspect = naturalWidth > naturalHeight ? naturalWidth / naturalHeight : naturalHeight / naturalWidth;
+    let newWidth = naturalWidth;
+    let newHeight = naturalHeight;
+    
+        if (naturalWidth < window.innerWidth){
+            while ( newWidth < window.innerWidth){
+                newWidth += aspect;
+                newHeight += aspect;
+            }
+        } else {
+            while ( newHeight < window.innerHeight){
+                newHeight += aspect;
+            }
+        }
+    return {
+        width: newWidth,
+        height: newHeight,
+    }
+}
+
 function resizeImage () {
     const current = getCurrentInstance();
     const container = current.$content[0];
@@ -465,7 +486,11 @@ function resizeImage () {
 
     switch (btn.dataset.icon) {
         case 'fullScreen':
-            $.fancybox.getInstance().scaleToFit();
+            const { width, height } = userCoverState(naturalWidth, naturalHeight);
+            current.width = width;
+            current.height = height;
+            current.$image[0].style.objectFit = 'cover';
+            $.fancybox.getInstance().scaleToActual();
             btn.innerHTML = zoomInIcon;
             btn.dataset.icon = 'zoomInIcon';
         break;
@@ -478,17 +503,35 @@ function resizeImage () {
                 btn.innerHTML = zoomOutIcon;
                 btn.dataset.icon = 'zoomOutIcon';
             } else {
-                current.width = naturalWidth * 3;
-                current.height = naturalHeight * 3;
+                current.width = naturalWidth;
+                current.height = naturalHeight;
                 $.fancybox.getInstance().scaleToActual();
                 container.classList.add('is-zoomed');
-                btn.innerHTML = zoomOutIcon;
-                btn.dataset.icon = 'zoomOutIcon';
+                btn.innerHTML = fullScreen;
+                btn.dataset.icon = 'fullScreen';
             }
         break;
         case 'zoomOutIcon':
                 monoImageView(current);
         break;
+    }
+}
+
+function manualScrollSlide (event) {
+
+    if (event.changedTouches !== undefined){
+        const touchPoint = event.changedTouches[0].clientX;
+        if (touchPoint < window.innerWidth / 2){
+            $.fancybox.getInstance().previous(1);
+        } else {
+            $.fancybox.getInstance().next(1);
+        }
+    } else {
+        if (event.clientX < window.innerWidth / 2){
+            $.fancybox.getInstance().previous(1);
+        } else {
+            $.fancybox.getInstance().next(1);
+        }
     }
 }
 
@@ -500,6 +543,7 @@ function fancyboxInit () {
         },
         arrows: false,
         autoSize: false,
+        wheel: false,
         btnTpl:{
             full: '<button class="full-screen__zoom" onclick="resizeImage()">'+zoomInIcon+'</button>',
         //     arrowLeft: '<button data-fancybox-prev class="fancybox-button fancybox-button--arrow_left" title="{{PREV}}">' +
@@ -511,18 +555,23 @@ function fancyboxInit () {
         },
         infobar: false,
         idleTime: false,
-        clickContent: function(current, event) {
-
+        clickSlide: function(current, event) {
+           manualScrollSlide(event);
         },
         dblclickContent: function(current, event) {
             resizeImage();
         },
         mobile: {
-            clickContent: function(current, event) {
+            clickSlide: function(current, event){
+                if (window.innerWidth >=1024 && userAgent !== 'iPad'){
+                    manualScrollSlide(event);
+                } else {
+                    return 'toggleControls';
+                }
 
             },
             dblclickContent: function(current, event) {
-                if (window.innerWidth >=1440){
+                if (window.innerWidth >=1024 && userAgent !== 'iPad'){
                    resizeImage();
                 } else {
                     return 'zoom';
@@ -530,14 +579,14 @@ function fancyboxInit () {
             },
         },
         afterShow: function(instance,current) {
-            if (window.innerWidth >=1440){
+            if (window.innerWidth >=1024 && userAgent !== 'iPad'){
                 if (!instance.firstRun){
                     monoImageView(current);
                 }
             }
             },
         beforeShow: function(instance,current){
-            if (window.innerWidth >=1440){
+            if (window.innerWidth >=1024 && userAgent !== 'iPad'){
                 let interval;
                 interval = setInterval(()=>{
                     if (current){
@@ -549,7 +598,7 @@ function fancyboxInit () {
 
         },
         afterLoad : function(instance, current) {
-            if (window.innerWidth >=1440){
+            if (window.innerWidth >=1024 && userAgent !== 'iPad'){
                 monoImageView(current);
             }
         },
@@ -587,8 +636,8 @@ function monoImageView (slide) {
         slide.$image[0].style.removeProperty('object-fit');
         slideContainer.style.paddingBottom = '0px';
     } else if (naturalWidth < window.innerWidth && naturalHeight < window.innerHeight){
-        resizeBtn.innerHTML = zoomInIcon;
-        resizeBtn.dataset.icon = 'zoomInIcon';
+        resizeBtn.innerHTML = fullScreen;
+        resizeBtn.dataset.icon = 'fullScreen';
         slide.width = naturalWidth;
         slide.height = naturalHeight;
         $.fancybox.getInstance().scaleToActual();
