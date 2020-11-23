@@ -4,35 +4,37 @@ $dir = (in_array($lang, ['he']))?'rtl':'ltr';
 ?>
 
 const categoriesData = [
- {"categoryId":1,"name":[{"lang":"en","value":"Interior"},{"lang":"he","value":"פנים"},{"lang":"ru","value":"Interior"},{"lang":"ua","value":"Interior"}]},
- {"categoryId":2,"name":[{"lang":"en","value":"Amenities"},{"lang":"he","value":"שירותים"},{"lang":"ru","value":"Amenities"},{"lang":"ua","value":"Amenities"}]}
+  {"categoryId":1,"name":[{"lang":"en","value":"Exterior"},{"lang":"he","value":"חיצוני"},{"lang":"ru","value":"Exterior"},{"lang":"ua","value":"Exterior"}]},
+  {"categoryId":2,"name":[{"lang":"en","value":"Interior"},{"lang":"he","value":"פנים"},{"lang":"ru","value":"Interior"},{"lang":"ua","value":"Interior"}]},
+    {"categoryId":3,"name":[{"lang":"en","value":"Amenities"},{"lang":"he","value":"תשתיות"},{"lang":"ru","value":"Amenities"},{"lang":"ua","value":"Amenities"}]},
+    {"categoryId":4,"name":[{"lang":"en","value":"Neighbourhood"},{"lang":"he","value":"שכונה"},{"lang":"ru","value":"Neighbourhood"},{"lang":"ua","value":"Neighbourhood"}]}
     ];
 const imgData = [
-{"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":1,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/1.jpg","order":0},
+  {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/1.jpg","order":0},
 
-    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":1,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/2.jpg","order":1},
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/2.jpg","order":1},
 
-    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":1,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/d100.jpg","order":2},
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/d100.jpg","order":2},
 
-    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":1,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/d200.jpg","order":3},
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/d200.jpg","order":3},
 
-    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":1,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Interior\/int_5.jpg","order":4},
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Interior\/int_5.jpg","order":4},
 
-    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":1,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Interior\/int_6.jpg","order":5},
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/gallery\/Interior\/int_6.jpg","order":5},
 
-    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/fc-103-s.jpg","order":6},
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":4,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/fc-103-s.jpg","order":6},
 
-    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/fc-108-s.jpg","order":7},
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":3,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/fc-108-s.jpg","order":7},
 
-    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/fg-1-s.jpg","order":8},
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":4,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/fg-1-s.jpg","order":8},
 
-    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/fn-101-s.jpg","order":9},
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":4,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/fn-101-s.jpg","order":9},
 
-    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/gindi_1.jpg","order":10},
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":1,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/gindi_1.jpg","order":10},
 
-    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/gindi_2.jpg","order":11},
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":4,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/gindi_2.jpg","order":11},
 
-    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/gindi_3.jpg","order":12}
+    {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":1,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/gindi_3.jpg","order":12}
     ];
 
 const lang = '<?=$lang?>';
