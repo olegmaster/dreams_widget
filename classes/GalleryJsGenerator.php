@@ -1333,3 +1333,7 @@ li.slick-active > button{
 
 }
 `;
+EOD;
+
+    }
+}
