@@ -93,10 +93,10 @@ class WidgetApiInteractor extends ApiHelper
    * by specified url
    * it can be extended for another http methods
    * @param string $url
-   * @param array $params
+   * @param array|null $params
    * @return bool|string
    */
-    private function sendRequest(string $url, array $params){
+    private function sendRequest(string $url, array $params = null){
         $url = $this->apiEndPoint . "/" . $url . "/" . $this->apiKey;
         if($params){
          $i = 0;
