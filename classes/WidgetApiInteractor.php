@@ -16,9 +16,9 @@ class WidgetApiInteractor extends ApiHelper
     // it wil be concatenated with API endpoint
     private $galleryFnc = 'api/dreamsv2/gallery';
     private $aboutFnc = 'api/dreamsv2/about/';
-    private $poiCategoriesFnc = 'api/dreamsv2/poicategories';
-    private $poiFnc = 'api/dreamsv2/poi';
-    private $poiSettingsFnc = 'api/dreamsv2/poisettings';
+    private $poiCategoriesFnc = 'api/dreamsv3/poicategories';
+    private $poiFnc = 'api/dreamsv3/poi';
+    private $poiSettingsFnc = 'api/dreamsv3/poisettings';
 
     // API key or projectGuid
     private $apiKey;
@@ -37,24 +37,26 @@ class WidgetApiInteractor extends ApiHelper
         $this->apiEndPoint = ($type == 'US')?$_SERVER['endpoint_US']:$_SERVER['endpoint_IL'];
     }
 
-    /**
-     * Get gallery data from API
-     * by sending http request
-     * @return bool|string
-     */
-    public function getGalleryApiData()
+  /**
+   * Get gallery data from API
+   * by sending http request
+   * @param array|null $params
+   * @return bool|string
+   */
+    public function getGalleryApiData(array $params = null)
     {
-        return $this->sendRequest($this->galleryFnc);
+        return $this->sendRequest($this->galleryFnc, $params);
     }
 
-    /**
-     * get about us data from API
-     * by sending http request
-     * @return bool|string
-     */
-    public function getAboutUsPageData()
+  /**
+   * get about us data from API
+   * by sending http request
+   * @param array|null $params
+   * @return bool|string
+   */
+    public function getAboutUsPageData(array $params = null)
     {
-        return $this->sendRequest($this->aboutFnc);
+        return $this->sendRequest($this->aboutFnc, $params);
     }
 
     /**
@@ -86,14 +88,24 @@ class WidgetApiInteractor extends ApiHelper
         return $this->sendRequest($this->poiSettingsFnc);
     }
 
-    /**
-     * this function is used for sending http requests
-     * by specified url
-     * it can be extended for another http methods
-     * @param string $url
-     * @return bool|string
-     */
-    private function sendRequest(string $url){
-        return $this->sendGetRequest($this->apiEndPoint . "/" . $url . "/" . $this->apiKey);
+  /**
+   * this function is used for sending http requests
+   * by specified url
+   * it can be extended for another http methods
+   * @param string $url
+   * @param array $params
+   * @return bool|string
+   */
+    private function sendRequest(string $url, array $params){
+        $url = $this->apiEndPoint . "/" . $url . "/" . $this->apiKey;
+        if($params){
+         $i = 0;
+          foreach($params as $key => $value){
+              $url.=($i == 0)?'?':'&';
+              $url = $url.$key.'='.$value;
+              $i++;
+          }
+        }
+        return $this->sendGetRequest($url);
     }
 }
