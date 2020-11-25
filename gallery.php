@@ -7,7 +7,7 @@ $path = sprintf(
 
 $url = "{$path}/gallery.js?canvas=bmby-gallery-wrapp&key={$_GET['key']}&type={$_GET['type']}&lang={$_GET['lang']}";
 if($_GET['categoryid']){
-  $url.="categoryid=".$_GET['categoryid'];
+  $url.="&categoryid=".$_GET['categoryid'];
 }
 ?>
 

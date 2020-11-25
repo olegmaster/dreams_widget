@@ -7,7 +7,7 @@ $path = sprintf(
 
 $url = "{$path}/about.js?canvas=bmby-about-wrapp&key={$_GET['key']}&type={$_GET['type']}&lang={$_GET['lang']}";
 if($_GET['chapterid']){
-  $url.="chapterid=".$_GET['chapterid'];
+  $url.="&chapterid=".$_GET['chapterid'];
 }
 ?>
 
