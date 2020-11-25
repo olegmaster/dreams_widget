@@ -106,7 +106,6 @@ class WidgetApiInteractor extends ApiHelper
               $i++;
           }
         }
-        echo $url;
         return $this->sendGetRequest($url);
     }
 }
