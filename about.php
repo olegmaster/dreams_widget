@@ -1,9 +1,14 @@
 <?php
-$url = sprintf(
+$path = sprintf(
   "%s://%s",
   isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off'?'https':'http',
   $_SERVER['SERVER_NAME']
 );
+
+$url = "{$path}/about.js?canvas=bmby-about-wrapp&key={$_GET['key']}&type={$_GET['type']}&lang={$_GET['lang']}";
+if($_GET['chapterid']){
+  $url.="&chapterid=".$_GET['chapterid'];
+}
 ?>
 
 <!doctype html>
@@ -14,7 +19,7 @@ $url = sprintf(
         content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script
-    src="<?=$url?>/about.js?canvas=bmby-about-wrapp&key=<?=$_GET['key']?>&type=<?=$_GET['type']?>&lang=<?=$_GET['lang']?>"></script>
+    src="<?=$url?>"></script>
   <title>Document</title>
 </head>
 
