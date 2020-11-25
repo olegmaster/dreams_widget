@@ -103,8 +103,8 @@ let aboutUsData = [
 
 
 let canvasClass = 'bmby-about-wrapp';
-let lang = 'he';
-const dir = 'rtl';
+let lang = 'en';
+const dir = 'ltr';
 let hasUbuntuFont = false;
 let aboutUsSections = [];
 let mode = 'dev';
@@ -376,7 +376,7 @@ function buildTabsContent(container, objectContent) {
         }else {
             img.src = sectionData.imageUrl;
         }
-        if (sectionData.imageUrl === 'https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Project\/proj_1.jpg' && window.innerWidth < 1024){
+        if (sectionData.imageUrl.match('proj_1.jpg') && window.innerWidth < 1024){
             img.src = '';
         }
 

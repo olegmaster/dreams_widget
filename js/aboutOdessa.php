@@ -381,7 +381,7 @@ function buildTabsContent(container, objectContent) {
         }else {
             img.src = sectionData.imageUrl;
         }
-         if (sectionData.imageUrl === 'https:\/\/dreamsimages.bmby.com\/new\/dev\/odessa2020\/projectassets\/Project\/proj_1.jpg' && window.innerWidth < 1024){
+         if (sectionData.imageUrl.match('proj_1.jpg') && window.innerWidth < 1024){
                     img.src = '';
                 }
         if (objectContent.order !== 0) {
