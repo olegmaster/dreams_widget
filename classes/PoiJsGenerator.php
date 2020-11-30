@@ -1554,6 +1554,29 @@ function generateSvg (iconColection,icon,color,newColor) {
          }
      };
 
+     function setInitialZoom () {
+             let needZoomOut = false;
+             const currentZoom = map.getZoom();
+
+             Object.values(mapGlobalOption.filtered_markers).forEach(marker =>{
+                const markerCoords = new google.maps.LatLng(marker.lat, marker.lng);
+                const destPixel = getPixel(markerCoords, map.getZoom());
+                const mapPixel = getPixel(map.getCenter(), map.getZoom());
+                const diffX = (destPixel.x - mapPixel.x);
+                const diffY = (destPixel.y - mapPixel.y);
+                 if (Math.abs(diffX) > window.innerWidth / 2  || (diffY > window.innerHeight / 2)){
+                     needZoomOut = true;
+                 }
+             });
+
+             if (needZoomOut){
+                 map.setZoom(currentZoom - 1);
+                 mapGlobalOption.map_settings.zoom = map.getZoom();
+                 setInitialZoom();
+             }
+         }
+         setInitialZoom();
+
 
      return experimental_map_obj;
  }
@@ -4991,6 +5014,7 @@ function generateSvg (iconColection,icon,color,newColor) {
        z-index: 1;
        box-shadow: 1px 1px 10px rgba(46, 13, 191, 0.5); }
        .map-parent .filter .filter-btn.open {
+         z-index: 5;
          background-size: 18px;
          background-color: #603ef2;
          background-image: url(CLOSE__BTN);

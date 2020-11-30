@@ -1484,34 +1484,20 @@ function add_experimental_map (options) {
 
     function setInitialZoom () {
         let needZoomOut = false;
-        const firstElement = mapGlobalOption.filtered_markers[0];
         const currentZoom = map.getZoom();
 
-        // Object.values(mapGlobalOption.filtered_markers).forEach(marker =>{
-        //    const markerCoords = new google.maps.LatLng(marker.lat, marker.lng);
-        //    const destPixel = getPixel(markerCoords, map.getZoom());
-        //    const mapPixel = getPixel(map.getCenter(), map.getZoom());
-        //    const diffX = (destPixel.x - mapPixel.x);
-        //    const diffY = (destPixel.y - mapPixel.y);
-        //    console.log(diffX,diffY);
-        //     if (Math.abs(diffX) > window.innerWidth / 2  || (diffY > window.innerHeight / 2)){
-        //         needZoomOut = true;
-        //     }
-        // });
-        //
-        // if (needZoomOut){
-        //     map.setZoom(currentZoom - 1);
-        //     mapGlobalOption.map_settings.zoom = map.getZoom();
-        //     setInitialZoom();
-        // }
+        Object.values(mapGlobalOption.filtered_markers).forEach(marker =>{
+           const markerCoords = new google.maps.LatLng(marker.lat, marker.lng);
+           const destPixel = getPixel(markerCoords, map.getZoom());
+           const mapPixel = getPixel(map.getCenter(), map.getZoom());
+           const diffX = (destPixel.x - mapPixel.x);
+           const diffY = (destPixel.y - mapPixel.y);
+            if (Math.abs(diffX) > window.innerWidth / 2  || (diffY > window.innerHeight / 2)){
+                needZoomOut = true;
+            }
+        });
 
-        const firstElementCoords = new google.maps.LatLng(firstElement.lat, firstElement.lng);
-        var destPixel = getPixel(firstElementCoords, map.getZoom());
-        var mapPixel = getPixel(map.getCenter(), map.getZoom());
-        var diffX = (destPixel.x - mapPixel.x);
-        var diffY = (destPixel.y - mapPixel.y);
-
-        if (Math.abs(diffX) > window.innerWidth / 2 || (diffY > window.innerHeight / 2)){
+        if (needZoomOut){
             map.setZoom(currentZoom - 1);
             mapGlobalOption.map_settings.zoom = map.getZoom();
             setInitialZoom();
