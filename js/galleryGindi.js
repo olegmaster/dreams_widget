@@ -2,7 +2,7 @@ const categoriesData = [
     {"categoryId":1,"name":[{"lang":"en","value":"Exterior"},{"lang":"he","value":"חיצוני"},{"lang":"ru","value":"Exterior"},{"lang":"ua","value":"Exterior"}]},
     {"categoryId":2,"name":[{"lang":"en","value":"Interior"},{"lang":"he","value":"פנים"},{"lang":"ru","value":"Interior"},{"lang":"ua","value":"Interior"}]},
     {"categoryId":3,"name":[{"lang":"en","value":"Amenities"},{"lang":"he","value":"תשתיות"},{"lang":"ru","value":"Amenities"},{"lang":"ua","value":"Amenities"}]},
-    {"categoryId":4,"name":[{"lang":"en","value":"Neighbourhood"},{"lang":"he","value":"שכונה"},{"lang":"ru","value":"Neighbourhood"},{"lang":"ua","value":"Neighbourhood"}]}
+    {"categoryId":4,"name":[{"lang":"en","value":"Neighborhood"},{"lang":"he","value":"שכונה"},{"lang":"ru","value":"Neighborhood"},{"lang":"ua","value":"Neighborhood"}]}
 ];
 const imgData = [
     {"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""},{"lang":"ua","value":""}],"categoryId":2,"imageUrl":"https:/\/\dreamsimages.bmby.com\/new\/dev\/gindimobile\/gallery\/1.jpg","order":0},
