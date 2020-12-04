@@ -749,6 +749,10 @@ const zoomInIcon = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
   '</svg>';
 
 const basicStyle =`
+:root {
+--bg-color: #1D274A;
+}
+
 html{
   // scroll-behavior: smooth;
 }
@@ -764,7 +768,7 @@ body{
   color: #fff;
   font-weight: 600;
   position: relative;
-  background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%);
+  background: var(--bg-color);
 }
 .img__tumbs {
   object-fit: cover;
@@ -777,7 +781,7 @@ body{
   position: -webkit-sticky;
   z-index: 5;
   top:0;
-  background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%);
+  background: var(--bg-color);
   width: 100%;
 }
 .menu__items {
@@ -828,7 +832,7 @@ body{
   font-family: 'Ubuntu', sans-serif;
 }
 .fancybox-bg {
-  background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%) !important;
+  background: var(--bg-color) !important;
   opacity: 1 !important;
 }
 

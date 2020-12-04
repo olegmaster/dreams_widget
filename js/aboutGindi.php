@@ -771,6 +771,9 @@ function setActiveTab(parent, e) {
 
 
 const basicStyle = `
+:root {
+--bg-color: #1D274A;
+}
 
 body{
   margin: 0;
@@ -788,7 +791,7 @@ body{
   color: #FFFFFF;
   font-weight: 600;
   position: relative;
-  background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%);
+  background: var(--bg-color);
 }
 
 .menu__items {
@@ -845,7 +848,7 @@ body{
     z-index: -1;
     top:0;
     left:0;
-    background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%);
+    background: var(--bg-color);
 }
 
 .tab-content__title{
