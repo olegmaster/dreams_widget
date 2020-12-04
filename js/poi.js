@@ -629,9 +629,12 @@ function add_experimental_map (options) {
         gestureHandling : gestureHandling,
     };
     map = new google.maps.Map(map_container, mapOptions);
-
-    map.addListener('center_changed', mapCenterChangeHandler);
+    map.addListener('center_changed', ()=>{
+        mapCenterChangeHandler();
+    });
     map.addListener('click', mapClickHandler);
+    // map.addListener('zoom_changed', addClusterEvent);
+
 
     function mapClickHandler(){
         const card = document.querySelector('.si-wrapper-top.custom-window.open');
@@ -730,18 +733,18 @@ function add_experimental_map (options) {
     function add_map_filter_n_clusters () {
         let static_markers = options.map_settings.static_markers;
         let markers_for_filter = options.filtered_markers;
-        let static_markers_on_map  = [];
+        let static_markers_on_map = [];
         let template_1 = popup_templates[0];
         let filter_markers_categories = [];
         let snazzy_info_windows_arr = [];
         let static_markers_keys = Object.keys(static_markers)
-        static_markers_keys.forEach(function(key){
+        static_markers_keys.forEach(function(key) {
             addMarker(static_markers[key]);
         });
 
 
         let markers_for_filter_keys = Object.keys(markers_for_filter)
-        markers_for_filter_keys.forEach(function(key){
+        markers_for_filter_keys.forEach(function(key) {
             add_filtered_Marker(markers_for_filter[key]);
         });
         /*        for (i = 0; i < static_markers.length; i++) {
@@ -751,18 +754,18 @@ function add_experimental_map (options) {
         /*        for (i = 0; i < markers_for_filter.length; i++) {
                     add_filtered_Marker(markers_for_filter[i]);
                 }*/
-        let markers_clusters = {};
-        let markers_list_html = '<div class="filter-list-btn active" data-category=""  data-category-zoom="' + options.map_settings.zoom + '"><span class="marker-ic all"  style="background-image: url(' + generateSvg(projectIcons,'ALL__CATEGORY__ICON') + ')" ></span><div class="move-part"><span class="text">' + get_lang('All points of interest') + '</span></div></div>';
+        window.markers_clusters = {};
+        let markers_list_html = '<div class="filter-list-btn active" data-category=""  data-category-zoom="' + options.map_settings.zoom + '"><span class="marker-ic all"  style="background-image: url(' + generateSvg(projectIcons, 'ALL__CATEGORY__ICON') + ')" ></span><div class="move-part"><span class="text">' + get_lang('All points of interest') + '</span></div></div>';
 
         for (let category in filter_markers_categories) {
             let cluster_obj = {
                 url: filter_markers_categories[category][0]['cluster_ic'],
-                textColor : 'white',
-                textSize : 20,
+                textColor: 'white',
+                textSize: 20,
                 width: 48,
                 height: 44,
             };
-            let  mcOptions = {
+            let mcOptions = {
                 ignoreHidden: true,
                 styles: [
                     cluster_obj,
@@ -773,12 +776,11 @@ function add_experimental_map (options) {
                 ]
             };
 
-            let new_cluster =  new MarkerClusterer(map, filter_markers_categories[category], mcOptions);
+            let new_cluster = new MarkerClusterer(map, filter_markers_categories[category], mcOptions);
             markers_clusters[category] = new_cluster;
 
-
             let marker_data = filter_markers_categories[category][0];
-            markers_list_html += '<div class="filter-list-btn" data-category-zoom="' + marker_data.category_zoom +'" data-category="'+ category +'"><span class="marker-ic" style="background-image: url(' + marker_data.category_ic +')"></span><div class="move-part"><span class="text" style="color:'+marker_data.color+'">' + marker_data.category_title +'</span></div></div>'
+            markers_list_html += '<div class="filter-list-btn" data-category-zoom="' + marker_data.category_zoom + '" data-category="' + category + '"><span class="marker-ic" style="background-image: url(' + marker_data.category_ic + ')"></span><div class="move-part"><span class="text" style="color:' + marker_data.color + '">' + marker_data.category_title + '</span></div></div>'
             // markers_list_html += '<div class="filter-list-btn" data-category-zoom="' + marker_data.category_zoom +'" data-category="'+ category +'"><span class="marker-ic" style="background-image: url(' + marker_data.category_ic +')"></span><div class="move-part"><span class="text">' + marker_data.category_title +'</span></div></div>'
 
         }
@@ -786,12 +788,12 @@ function add_experimental_map (options) {
             // global cluster
             let cluster_obj = {
                 url: generateSvgCluster('#6E767E'),
-                textColor : 'white',
-                textSize : 20,
+                textColor: 'white',
+                textSize: 20,
                 width: 48,
                 height: 44,
             };
-            let  mcOptions = {
+            let mcOptions = {
                 ignoreHidden: true,
                 styles: [
                     cluster_obj,
@@ -807,24 +809,25 @@ function add_experimental_map (options) {
 
         filter_list.html(markers_list_html);
         let filter_btns = filter_list.find('.filter-list-btn');
-        filter_btns.click(function(){
+        filter_btns.click(function() {
             filter_btns.removeClass('active');
             $(this).addClass('active');
             $($(this).attr('data-category'));
             filterMarkers($(this).attr('data-category'));
-            let target_zoom = Number($(this).attr('data-category-zoom'));
-            if ($(window).width() > 768) {
-                target_zoom = target_zoom;
-            } else {
-                target_zoom = target_zoom - 2;
-            }
+            let target_zoom = mapGlobalOption.map_settings.zoom;
+            // let target_zoom = Number($(this).attr('data-category-zoom'));
+            // if ($(window).width() > 768) {
+            //     target_zoom = target_zoom;
+            // } else {
+            //     target_zoom = target_zoom - 2;
+            // }
             console.log('target_zoom: ' + target_zoom);
             map.setZoom(target_zoom);
             map.setCenter(mapOptions.center);
-            snazzy_info_windows_arr.forEach(function(item){
+            snazzy_info_windows_arr.forEach(function(item) {
                 item.close();
             });
-            filter_list_animate ()
+            filter_list_animate()
             $(container).find('.filter-btn').toggleClass('open');
             $(container).find('.map-container').toggleClass('open');
             directionsRenderer.setMap(null);
@@ -832,12 +835,12 @@ function add_experimental_map (options) {
         });
 
 
-        function addMarker(marker) {
+        function addMarker (marker) {
             var title = marker.title;
             var pos = new google.maps.LatLng(marker.lat, marker.lng);
 
 
-            var content =  marker.marker_text;
+            var content = marker.marker_text;
             var icon_img = new google.maps.MarkerImage();
             icon_img.url = marker.marker_icon;
             {
@@ -858,16 +861,16 @@ function add_experimental_map (options) {
             marker1 = new google.maps.Marker({
                 title: title,
                 position: pos,
-                label : {
-                    color : '#000000',
-                    text : title,
-                    fontWeight : '700',
-                    textAlign : center,
+                label: {
+                    color: '#000000',
+                    text: title,
+                    fontWeight: '700',
+                    textAlign: center,
                 },
                 map: map,
                 icon: icon_img,
                 animation: google.maps.Animation.DROP,
-                zIndex : 99999999999999999999,
+                zIndex: 99999999999999999999,
             });
 
             static_markers_on_map.push(marker1);
@@ -884,37 +887,37 @@ function add_experimental_map (options) {
             };
         }
 
-        function add_filtered_Marker(marker) {
+        function add_filtered_Marker (marker) {
             var title = marker.title; // title
             var category = marker.category;
             var pos = new google.maps.LatLng(marker.lat, marker.lng);
             let go_to_website_text = '<div class="links-btns-wrap"></div>';
-            let url_text = marker.web_site_url.replace('https://','').replace('http://','').substr(0, 35);
+            let url_text = marker.web_site_url.replace('https://', '').replace('http://', '').substr(0, 35);
             if (marker.web_site_url.length > 35) {
                 url_text += '...';
             }
-            if (marker.web_site_url.length  > 0) {
-                go_to_website_text = '<div class="links-btns-wrap"><a class="go-to-website" target="_blank" href="' + marker.web_site_url + '">'  + url_text +'</a></div>';
+            if (marker.web_site_url.length > 0) {
+                go_to_website_text = '<div class="links-btns-wrap"><a class="go-to-website" target="_blank" href="' + marker.web_site_url + '">' + url_text + '</a></div>';
             }
             let body_text = '';
             if (marker.marker_description.length > 0) {
                 body_text = '<div class="text">' + marker.marker_description + '</div>';
             }
             let marker_array = {
-                'title' : title,
-                'lat' : marker.lat,
-                'lng' : marker.lng
+                'title': title,
+                'lat': marker.lat,
+                'lng': marker.lng
             }
             window.markers_poi_array.push(marker_array);
 
             let route_wrap = '<div class="route-wrap"></div><div class="time-for-route"></div>';
-            var content =  body_text + route_wrap + go_to_website_text;
+            var content = body_text + route_wrap + go_to_website_text;
             /*            var icon_img = {
                             url: marker.marker_icon,
                             labelOrigin : new google.maps.Point(30, 75),
                         };*/
 
-            var icon_img = new google.maps.MarkerImage(  );
+            var icon_img = new google.maps.MarkerImage();
             icon_img.url = marker.marker_icon;
             // icon_img.url = generateSvg(poiIcons,marker.icon,marker.color);
             //icon_img.labelOrigin = new google.maps.Point(20, 0);
@@ -929,24 +932,24 @@ function add_experimental_map (options) {
 
             marker1 = new google.maps.Marker({
                 title: title,
-                label : {
-                    color : '#000000',
+                label: {
+                    color: '#000000',
                     // color : marker.color,
-                    text : labelTitle,
-                    fontWeight : '700',
-                    textAlign : center,
+                    text: labelTitle,
+                    fontWeight: '700',
+                    textAlign: center,
                 },
                 position: pos,
                 category: category,
                 cluster_ic: marker.cluster_icon,
-                category_title :  marker.category_title,
-                category_zoom :  marker.category_zoom,
+                category_title: marker.category_title,
+                category_zoom: marker.category_zoom,
                 // category_ic: generateSvg(poiIcons,marker.iconMenu),
                 category_ic: marker.category_img,
                 map: map,
                 icon: icon_img,
                 animation: google.maps.Animation.DROP,
-                zIndex : 1,
+                zIndex: 1,
                 color: marker.color,
             });
 
@@ -988,20 +991,20 @@ function add_experimental_map (options) {
                     body: content,
                     category_title: marker1.category_title,
                     category_icon: marker1.category_ic,
-                    category_color : marker1.category_color,
+                    category_color: marker1.category_color,
                     description: marker.marker_description,
                     route: route_wrap,
                     info: go_to_website_text,
                 }),
                 closeWhenOthersOpen: true,
-                panOnOpen : false,
+                panOnOpen: false,
                 callbacks: {
                     open: function(e) {
 
                         const newContainer = document.querySelector('.snazzy-card__window');
                         clearContent(newContainer);
                         directionsRenderer.setMap(null);
-                        changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'),'close');
+                        changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'), 'close');
 
                         var wrapper = $(this.getWrapper());
 
@@ -1017,57 +1020,54 @@ function add_experimental_map (options) {
                         let travel_mode = 'WALKING';
                         let request = {
                             origin: origin_point,
-                            destination : this._marker.getPosition(),
-                            travelMode : travel_mode
+                            destination: this._marker.getPosition(),
+                            travelMode: travel_mode
                         };
                         // directionsRenderer.setMap(null);
                         $(container).find('.route-panel').hide();
 
                         let custom_header_text = wrapper.find('.custom-header').html();
 
-                        if (!detectMobile){
-                            get_route(directionsService,directionsRenderer, request, custom_header_text);
+                        if (!detectMobile) {
+                            get_route(directionsService, directionsRenderer, request, custom_header_text);
                             content_container.find('.route-type-btn').eq(0).addClass('active');
-                            content_container.find('.route-type-btn').click(function(){
+                            content_container.find('.route-type-btn').click(function() {
                                 content_container.find('.route-type-btn').removeClass('active');
                                 $(this).addClass('active');
                                 request.travelMode = $(this).data('type');
-                                get_route(directionsService,directionsRenderer, request, custom_header_text);
+                                get_route(directionsService, directionsRenderer, request, custom_header_text);
                             });
                         } else if (detectMobile) {
-                            get_route(directionsService,directionsRenderer, request, custom_header_text);
+                            get_route(directionsService, directionsRenderer, request, custom_header_text);
                             content_container.find('.route-type-btn').eq(0).addClass('active');
-                            content_container.find('.route-type-btn').click(function(){
+                            content_container.find('.route-type-btn').click(function() {
                                 content_container.find('.route-type-btn').removeClass('active');
                                 $(this).addClass('active');
                                 request.travelMode = $(this).data('type');
-                                get_route(directionsService,directionsRenderer, request, custom_header_text);
+                                get_route(directionsService, directionsRenderer, request, custom_header_text);
                             });
-                            getRoutesDuration(directionsService,origin_point,this._marker.getPosition());
+                            getRoutesDuration(directionsService, origin_point, this._marker.getPosition());
                         }
 
                         $(this.getWrapper()).addClass('open');
-                        if (marker.marker_description.length == 0 && marker.web_site_url.length  == 0) {
+                        if (marker.marker_description.length == 0 && marker.web_site_url.length == 0) {
                             $(this.getWrapper()).addClass('min');
                         }
-
-
 
 
                         let marker_position = this._marker.getPosition();
                         let marker_position_lat = marker_position.lat();
                         let marker_position_lng = marker_position.lng();
                         marker_position_lat = 'rip' + marker_position_lat;
-                        marker_position_lat = Number(marker_position_lat.replace('rip',''));
+                        marker_position_lat = Number(marker_position_lat.replace('rip', ''));
                         marker_position_lng = 'rip' + marker_position_lng;
-                        marker_position_lng = Number(marker_position_lng.replace('rip',''));
+                        marker_position_lng = Number(marker_position_lng.replace('rip', ''));
                         let map_app_url = '';
-
 
 
                         if (marker.info_window_img.length > 5) {
                             let json_array = JSON.parse(marker.info_window_img);
-                            let img_html = '<img src="' + json_array.sizes.medium +  '" alt="">';
+                            let img_html = '<img src="' + json_array.sizes.medium + '" alt="">';
                             $(container).find('.custom-header-img').html(img_html);
                             $(container).find('.custom-header-wrap').addClass('with-img');
                             $(container).find('.custom-body').addClass('with-img');
@@ -1092,16 +1092,16 @@ function add_experimental_map (options) {
                                             }
                                         }
                                     } else {
-                                        let img_html = '<img src="'+generateSvg(projectIcons,'POI__PLUG')+'" alt="">';
+                                        let img_html = '<img src="' + generateSvg(projectIcons, 'POI__PLUG') + '" alt="">';
                                         $(container).find('.custom-header-img').html(img_html);
                                         $(container).find('.custom-header-wrap').addClass('with-img');
                                         $(container).find('.custom-body').addClass('with-img');
                                     }
                                     var id_request = {
                                         placeId: results[i].place_id,
-                                        fields: ['name', 'rating', 'formatted_phone_number', 'geometry', 'url' , 'place_id' ]
+                                        fields: ['name', 'rating', 'formatted_phone_number', 'geometry', 'url', 'place_id']
                                     };
-                                    service.getDetails(id_request, function(details, status){
+                                    service.getDetails(id_request, function(details, status) {
                                         if (details.formatted_phone_number != undefined) {
                                             if (details.formatted_phone_number.length > 0) {
                                                 $(container).find('.links-btns-wrap .phone-btn').remove();
@@ -1118,12 +1118,12 @@ function add_experimental_map (options) {
                                           (navigator.platform.indexOf("iPad") != -1) ||
                                           (navigator.platform.indexOf("iPod") != -1)) {
                                             //map_app_url = 'http://maps.apple.com/?ll=' + marker_position_lat +','+ marker_position_lng;
-                                            map_app_url = `https://www.google.com/maps?f=d&daddr=${marker_position_lat +','+ marker_position_lng}`;
+                                            map_app_url = `https://www.google.com/maps?f=d&daddr=${marker_position_lat + ',' + marker_position_lng}`;
                                             $(container).find('.links-btns-wrap').append(`<a class="map-place circle-btn" target="_blank" href="${map_app_url}">${get_lang('Navigate to')}</a>`);
 
                                         } else {
                                             // https://www.google.com/maps?f=d&saddr=Thompson+St,+New+York,+NY,+USA&daddr=Wooster+St,+New+York,+NY,+USA&dirflg=d
-                                            map_app_url = `https://www.google.com/maps?f=d&daddr=${marker_position_lat +','+ marker_position_lng}`;
+                                            map_app_url = `https://www.google.com/maps?f=d&daddr=${marker_position_lat + ',' + marker_position_lng}`;
                                             $(container).find('.links-btns-wrap').append(`<a class="map-place circle-btn" target="_blank" href="${map_app_url}">${get_lang('Navigate to')}</a>`);
                                         }
                                     })
@@ -1134,11 +1134,11 @@ function add_experimental_map (options) {
 
                         /*                        if ($(window).width() < 992 ) {*/
                         let text = wrapper.find('.text');
-                        let img =  wrapper.find('.custom-header-img img');
+                        let img = wrapper.find('.custom-header-img img');
                         let coef = 3;
                         if (text.length > 0 || img.length > 0) {
                             coef = 3;
-                        }  else {
+                        } else {
                             coef = 5;
                         }
                         let map_bounds = map.getBounds();
@@ -1149,7 +1149,7 @@ function add_experimental_map (options) {
                         let difference_quoter = (map_lat_top - map_lat_bottom) / coef;
                         let marker_position_lat_cor = marker_position_lat + difference_quoter;
 
-                        if (detectMobile){
+                        if (detectMobile) {
                             let start;
                             newContainer.appendChild(wrapper[0]);
 
@@ -1157,38 +1157,39 @@ function add_experimental_map (options) {
                                 if (start === undefined)
                                     start = timestamp;
                                 const elapsed = ((timestamp - start) / 4);
-                                newContainer.style.bottom = (35 - elapsed) * -1 +'%';
+                                newContainer.style.bottom = (35 - elapsed) * -1 + '%';
 
-                                if (elapsed < 35){
+                                if (elapsed < 35) {
                                     window.requestAnimationFrame(openMiniCard);
                                 } else {
                                     newContainer.style.bottom = '0';
-                                        changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'),'open');
+                                    changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'), 'open');
                                 }
                             }
+
                             window.requestAnimationFrame(openMiniCard);
 
                             const cont = document.querySelector('.custom-content');
                             cont.addEventListener('touchstart', handleTouchStart, false);
                             cont.addEventListener('touchmove', handleTouchMove, false);
-                            map.panTo({lat  : marker_position_lat , lng:marker_position_lng });
+                            map.panTo({lat: marker_position_lat, lng: marker_position_lng});
                         } else {
-                            map.panTo({lat  : marker_position_lat_cor , lng:marker_position_lng });
+                            map.panTo({lat: marker_position_lat_cor, lng: marker_position_lng});
                         }
 
                         /*                        } else {
                                                     map.panTo({lat  : marker_position_lat , lng:marker_position_lng });
                                                 }*/
-                    const title = document.querySelector('.category-title');
-                    title.style.color = marker.color;
+                        const title = document.querySelector('.category-title');
+                        title.style.color = marker.color;
                     },
                     afterOpen: function() {
                         var wrapper = $(this.getWrapper());
                         wrapper.addClass('active');
-                        wrapper.find('.custom-close').on('click', ()=>{
+                        wrapper.find('.custom-close').on('click', () => {
                             closeDelayHandler();
                             clearContent(document.querySelector('.snazzy-card__window'));
-                            changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'),'close');
+                            changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'), 'close');
                             directionsRenderer.setMap(null);
                         });
                     },
@@ -1217,24 +1218,24 @@ function add_experimental_map (options) {
 
             function removeStyleSheet (id) {
                 const style = document.getElementById(id);
-                if (style){
+                if (style) {
                     style.remove();
                 }
             }
 
-            function getTouches(evt) {
+            function getTouches (evt) {
                 return evt.touches ||             // browser API
                   evt.originalEvent.touches; // jQuery
             }
 
-            function handleTouchStart(evt) {
+            function handleTouchStart (evt) {
                 const firstTouch = getTouches(evt)[0];
                 xDown = firstTouch.clientX;
                 yDown = firstTouch.clientY;
             }
 
-            function handleTouchMove(evt) {
-                if ( ! xDown || ! yDown ) {
+            function handleTouchMove (evt) {
+                if (!xDown || !yDown) {
                     return;
                 }
 
@@ -1244,18 +1245,18 @@ function add_experimental_map (options) {
                 var xDiff = xDown - xUp;
                 var yDiff = yDown - yUp;
 
-                if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
-                    if ( xDiff > 0 ) {
+                if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
+                    if (xDiff > 0) {
                         /* left swipe */
                     } else {
                         /* right swipe */
                     }
                 } else {
-                    if ( yDiff > 0 ) {
+                    if (yDiff > 0) {
                         /* up swipe */
                         const isLoaded = document.getElementById('openedCardStyle');
-                        if (!isLoaded){
-                                document.head.innerHTML +='<style id="openedCardStyle">'+mobileOpenedCard+'</style>';
+                        if (!isLoaded) {
+                            document.head.innerHTML += '<style id="openedCardStyle">' + mobileOpenedCard + '</style>';
 
                             let start;
                             const card = document.querySelector('.map-parent .custom-window');
@@ -1264,15 +1265,16 @@ function add_experimental_map (options) {
                                 if (start === undefined)
                                     start = timestamp;
                                 const elapsed = (timestamp - start) / 2;
-                                card.style.height = elapsed +'vh';
+                                card.style.height = elapsed + 'vh';
 
-                                if (elapsed < 100){
+                                if (elapsed < 100) {
                                     window.requestAnimationFrame(openFullscreenCard);
                                 } else {
                                     card.style.height = '100vh';
                                 }
                             }
-                                window.requestAnimationFrame(openFullscreenCard);
+
+                            window.requestAnimationFrame(openFullscreenCard);
 
                         }
 
@@ -1281,25 +1283,26 @@ function add_experimental_map (options) {
                         const card = document.querySelector('.map-parent .custom-window');
                         const parent = card.parentElement;
                         const cardStyle = card.style.height;
-                        if (cardStyle){
+                        if (cardStyle) {
                             let start;
 
                             function closeFullscreenCard (timestamp) {
                                 if (start === undefined)
                                     start = timestamp;
                                 const elapsed = (timestamp - start) / 2;
-                                card.style.height = 100 - elapsed +'vh';
+                                card.style.height = 100 - elapsed + 'vh';
 
-                                if (elapsed < 100){
+                                if (elapsed < 100) {
                                     window.requestAnimationFrame(closeFullscreenCard);
                                 } else {
                                     closeDelayHandler();
                                     directionsRenderer.setMap(null);
                                     clearContent(document.querySelector('.snazzy-card__window'));
                                     card.style.height = '0';
-                                    changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'),'close');
+                                    changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'), 'close');
                                 }
                             }
+
                             window.requestAnimationFrame(closeFullscreenCard);
                         } else {
                             let start;
@@ -1308,18 +1311,19 @@ function add_experimental_map (options) {
                                 if (start === undefined)
                                     start = timestamp;
                                 const elapsed = ((timestamp - start) / 2) * -1;
-                                parent.style.bottom = elapsed +'%';
+                                parent.style.bottom = elapsed + '%';
 
-                                if (Math.abs(elapsed) < 35){
+                                if (Math.abs(elapsed) < 35) {
                                     window.requestAnimationFrame(closeMiniCard);
                                 } else {
                                     closeDelayHandler();
                                     directionsRenderer.setMap(null);
                                     clearContent(document.querySelector('.snazzy-card__window'));
                                     parent.style.bottom = 0;
-                                    changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'),'close');
+                                    changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'), 'close');
                                 }
                             }
+
                             window.requestAnimationFrame(closeMiniCard);
                         }
                     }
@@ -1328,6 +1332,7 @@ function add_experimental_map (options) {
                 xDown = null;
                 yDown = null;
             }
+
             snazzy_info_windows_arr.push(snazzy_info_window);
             /*        google.maps.event.addListener(marker1, 'click', (function (marker1, content) {
                         return function () {
@@ -1341,7 +1346,7 @@ function add_experimental_map (options) {
         }
 
 
-        filterMarkers = function (category) {
+        filterMarkers = function(category) {
             if (category.length === 0) {
                 for (let category in filter_markers_categories) {
                     markers_clusters[category].clearMarkers();
@@ -1350,7 +1355,7 @@ function add_experimental_map (options) {
             } else {
                 markers_clusters['all'].clearMarkers();
                 for (let category in filter_markers_categories) {
-                    markers_clusters[category].addMarkers( filter_markers_categories[category]);
+                    markers_clusters[category].addMarkers(filter_markers_categories[category]);
                 }
             }
             for (i = 0; i < map_filtered_markers_on_map.length; i++) {
@@ -1370,53 +1375,52 @@ function add_experimental_map (options) {
             }
         };
 
-
-        function getRoutesDuration (directionsService,originPoint,destination) {
+        function getRoutesDuration (directionsService, originPoint, destination) {
             let routesInterval;
-            const routesMethods =['DRIVING','BICYCLING','WALKING'];
-            const htmlArr =[];
+            const routesMethods = ['DRIVING', 'BICYCLING', 'WALKING'];
+            const htmlArr = [];
             htmlArr.length = 2;
-            let routesHtml='';
+            let routesHtml = '';
             const timeForRouteContainer = document.querySelector('.time-for-route');
-            routesMethods.forEach((routeMethod, index) =>{
+            routesMethods.forEach((routeMethod, index) => {
                 const request = {
                     origin: originPoint,
-                    destination : destination,
-                    travelMode : routeMethod
+                    destination: destination,
+                    travelMode: routeMethod
                 };
-                directionsService.route(request, (response, status)=>{
-                   if (status === 'OK') {
-                       const duration = response.routes[0].legs[0].duration.value;
-                       if (duration > 60) {
-                           routesHtml = ' <div class="route__'+routeMethod.toLowerCase()+'"><span class="number"> ' + Math.round(duration / 60)  + '</span><span class="word">' + get_lang('minutes') + '</span></div>';
-                       } else {
-                           routesHtml = ' <div class="route__'+routeMethod.toLowerCase()+'"><span' +
-                             ' class="number">' + duration + ' </span><span class="word">' + get_lang('seconds') + ' </span></div>';
-                       }
-                       htmlArr[index] = routesHtml;
+                directionsService.route(request, (response, status) => {
+                    if (status === 'OK') {
+                        const duration = response.routes[0].legs[0].duration.value;
+                        if (duration > 60) {
+                            routesHtml = ' <div class="route__' + routeMethod.toLowerCase() + '"><span class="number"> ' + Math.round(duration / 60) + '</span><span class="word">' + get_lang('minutes') + '</span></div>';
+                        } else {
+                            routesHtml = ' <div class="route__' + routeMethod.toLowerCase() + '"><span' +
+                              ' class="number">' + duration + ' </span><span class="word">' + get_lang('seconds') + ' </span></div>';
+                        }
+                        htmlArr[index] = routesHtml;
 
-                   } else{
-                       routesHtml = ' <div class="route__'+routeMethod.toLowerCase()+'"><span' +
-                         ' class="number">0</span><span' +
-                         ' class="word">' + get_lang('minutes') + '</span></div>';
+                    } else {
+                        routesHtml = ' <div class="route__' + routeMethod.toLowerCase() + '"><span' +
+                          ' class="number">0</span><span' +
+                          ' class="word">' + get_lang('minutes') + '</span></div>';
 
-                       htmlArr[index] = routesHtml;
+                        htmlArr[index] = routesHtml;
 
-                   }
+                    }
                 });
             });
-            routesInterval = setInterval(()=>{
-                if (htmlArr.length === 3){
+            routesInterval = setInterval(() => {
+                if (htmlArr.length === 3) {
                     clearInterval(routesInterval);
                     timeForRouteContainer.innerHTML = htmlArr.join('');
                     miniCardIsOpened = true;
                 }
-            },100);
+            }, 100);
         }
-        
-        function get_route (directionsService,directionsRenderer, request , title) {
+
+        function get_route (directionsService, directionsRenderer, request, title) {
             directionsRenderer.setMap(map);
-            directionsService.route(request , function(response, status) {
+            directionsService.route(request, function(response, status) {
                 if (status === 'OK') {
 
                     directionsRenderer.setDirections(response);
@@ -1438,28 +1442,28 @@ function add_experimental_map (options) {
                         let distance_value = route.legs[i].distance.value;
                         let distance_html = '';
                         if (distance_value > 1000) {
-                            distance_html = ' <div class="row"><span class="word">' + get_lang('km') +' </span><span class="number">' + Math.floor(distance_value / 100) / 10 + '</span></div>';
+                            distance_html = ' <div class="row"><span class="word">' + get_lang('km') + ' </span><span class="number">' + Math.floor(distance_value / 100) / 10 + '</span></div>';
                         } else {
-                            distance_html = ' <div class="row"><span class="word">' + get_lang('meter') +' </span><span class="number">' + distance_value + ' </span></div>';
+                            distance_html = ' <div class="row"><span class="word">' + get_lang('meter') + ' </span><span class="number">' + distance_value + ' </span></div>';
                         }
                         let duration_value = route.legs[i].duration.value;
                         let duration_html = '';
                         if (duration_value > 60) {
-                            duration_html = ' <div class="row"><span class="word">' + get_lang('minutes') + '</span><span class="number"> ' + Math.round(duration_value / 60)  + '</span></div>';
+                            duration_html = ' <div class="row"><span class="word">' + get_lang('minutes') + '</span><span class="number"> ' + Math.round(duration_value / 60) + '</span></div>';
                         } else {
                             duration_html = ' <div class="row"><span class="word">' + get_lang('seconds') + ' </span><span class="number">' + duration_value + ' </span></div>';
                         }
-                        $(container).find('.get-route-title .bottom-text').html( distance_html + '<div' +
+                        $(container).find('.get-route-title .bottom-text').html(distance_html + '<div' +
                           ' class="middle"> . </div>' + duration_html);
                         if (request.travelMode == 'WALKING') {
                             route_html += '<b>Travel mode: walking</b><br>';
-                            $(container).find('.get-route-title .top-text').html(get_lang ('Walking route to this place'));
+                            $(container).find('.get-route-title .top-text').html(get_lang('Walking route to this place'));
                         } else if (request.travelMode == 'BICYCLING') {
                             route_html += '<b>Travel mode: bicycling</b><br>';
-                            $(container).find('.get-route-title .top-text').html(get_lang ('Cycling route to this place'));
+                            $(container).find('.get-route-title .top-text').html(get_lang('Cycling route to this place'));
                         } else if (request.travelMode == 'DRIVING') {
                             route_html += '<b>Travel mode: driving</b><br>';
-                            $(container).find('.get-route-title .top-text').html(get_lang ('Car route to this place'));
+                            $(container).find('.get-route-title .top-text').html(get_lang('Car route to this place'));
                         }
                         summaryPanel.innerHTML = route_html;
                     }
@@ -1472,7 +1476,7 @@ function add_experimental_map (options) {
 
         filterMarkers('');
 
-        function makeMarker(position, icon, title, map) {
+        function makeMarker (position, icon, title, map) {
             new google.maps.Marker({
                 position: position,
                 map: map,
@@ -1480,7 +1484,62 @@ function add_experimental_map (options) {
                 title: title
             });
         }
-    };
+    }
+
+    function addClusterСhamomile () {
+        if (map.zoom === 22){
+            const clusters = markers_clusters.all.getClusters();
+            if (clusters.length > 0){
+                clusters.forEach(cluster =>{
+                    // console.log(cluster);
+                    // changeClusterIcon(generateSvgCluster('#000000'),cluster);
+                   //  console.log(cluster);
+                   // cluster.clusterIcon_.url_ = generateSvgCluster('#000000');
+                   // cluster.markerClusterer_.redraw_();
+                });
+
+            }
+        }
+
+    }
+
+    function changeClusterIcon (newIcon, oldCluster) {
+        const map = oldCluster.getMap(),
+          markers = oldCluster.getMarkers();
+
+        oldCluster.markerClusterer_.clearMarkers();
+
+        var updatedMarkerCluster = new MarkerClusterer(map, markers,
+          {imagePath: newIcon});
+    }
+
+
+
+
+    function addClusterEvent () {
+        const clusters = markers_clusters.all.getClusters();
+        clusters.forEach(cluster =>{
+            cluster.markerClusterer_.addListener('click', (e)=>{
+                addClusterСhamomile();
+            });
+        });
+
+        // if (map.zoom === 22){
+        //     setTimeout(()=>{
+        //         const clusters = markers_clusters.all.getClusters();
+        //         if (clusters.length > 0){
+        //             clusters.forEach(cluster => {
+        //                 cluster.markerClusterer_.addListener('click', addClusterСhamomile);
+        //             });
+        //         }
+        //     },500);
+        // }
+
+
+        // cl.forEach(el => {
+        //     el.markerClusterer_.addListener('click', addClusterСhamomile);
+        // });
+    }
 
     function setInitialZoom () {
         let needZoomOut = false;
@@ -1504,6 +1563,10 @@ function add_experimental_map (options) {
         }
     }
     setInitialZoom();
+    setTimeout(()=>{
+        addClusterEvent();
+    },300);
+
 
 
     return experimental_map_obj;
