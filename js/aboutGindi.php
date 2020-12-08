@@ -852,6 +852,7 @@ body{
 }
 
 .tab-content__title{
+  text-decoration: underline;
   font-size: 18px;
   color: #fff;
   margin: 24px 16px 12px 16px;
