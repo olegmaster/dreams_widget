@@ -21,7 +21,7 @@ class GalleryJsGenerator implements JsGenerator
     private $rtlLangs = ['he'];
 
     public function __construct(string $galleryData, string $canvasClass = 'bmby-gallery', string $lang = 'en', string $callbackFunctionName = '',
-    string $categoryid = null)
+    string $categoryid = '')
     {
         $this->jsString = '';
         $this->galleryData = $galleryData;
