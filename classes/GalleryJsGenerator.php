@@ -15,16 +15,19 @@ class GalleryJsGenerator implements JsGenerator
     private $galleryCategoriesData;
     private $lang;
     private $canvasClass;
+    private $categoryid;
     private $callbackFunctionName;
     private $dir;
     private $rtlLangs = ['he'];
 
-    public function __construct(string $galleryData, string $canvasClass = 'bmby-gallery', string $lang = 'en', string $callbackFunctionName = '')
+    public function __construct(string $galleryData, string $canvasClass = 'bmby-gallery', string $lang = 'en', string $callbackFunctionName = '',
+    string $categoryid = null)
     {
         $this->jsString = '';
         $this->galleryData = $galleryData;
         $this->canvasClass = $canvasClass;
         $this->lang = $lang;
+        $this->categoryid = $categoryid;
         $this->callbackFunctionName = empty($callbackFunctionName) ? 'nonExistentFunction' : $callbackFunctionName ;
         $this->dir = (in_array($lang, $this->rtlLangs))?'rtl':'ltr';
         $this->setJs();
@@ -67,6 +70,7 @@ galleryData.forEach(galleryElement => {
 });
 const lang = '$this->lang';
 const dir = '$this->dir';
+const activeCategory = '$this->categoryid';
 let canvasClass = '$this->canvasClass';
 let galleryContainer;
 let timer = null;
@@ -485,7 +489,7 @@ function initGallery () {
 
     slickInit();
 
-    const sessionTabId = sessionStorage.getItem('galleryActiveTabId');
+    const sessionTabId = activeCategory || sessionStorage.getItem('galleryActiveTabId');
     if (sessionTabId){
         const menuElement = document.querySelector('.menu__item[data-category-id="'+sessionTabId+'"]');
         scrollToImages(menuElement);

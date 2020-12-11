@@ -82,6 +82,7 @@ let imagesCount=0;
 let basicTransform;
 let basicWidth;
 let basicHeight;
+const activeCategory = null;
 
 let galleries = [];
 
@@ -459,7 +460,7 @@ function initGallery () {
 
             slickInit();
 
-            const sessionTabId = sessionStorage.getItem('galleryActiveTabId');
+            const sessionTabId = activeCategory || sessionStorage.getItem('galleryActiveTabId');
             if (sessionTabId){
                 const menuElement = document.querySelector('.menu__item[data-category-id="'+sessionTabId+'"]');
                 scrollToImages(menuElement);

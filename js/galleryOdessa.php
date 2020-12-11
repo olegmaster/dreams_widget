@@ -1,6 +1,7 @@
 <?php
 $lang = $_GET['lang'] ?? 'en';
 $dir = (in_array($lang, ['he']))?'rtl':'ltr';
+$categoryId = $_GET['categoryId'] ?? null;
 ?>
 
 const categoriesData = [
@@ -73,6 +74,7 @@ const imgData = [
 
 const lang = '<?=$lang?>';
 const dir = '<?=$dir?>';
+const activeCategory = '<?=$categoryId?>';
 
 const galleryData = categoriesData.map((el) => {
     el.images = imgData.filter(imgEl => imgEl.categoryId === el.categoryId);
@@ -462,7 +464,7 @@ function initGallery () {
 
             slickInit();
 
-            const sessionTabId = sessionStorage.getItem('galleryActiveTabId');
+            const sessionTabId = activeCategory || sessionStorage.getItem('galleryActiveTabId');
             if (sessionTabId){
                 const menuElement = document.querySelector('.menu__item[data-category-id="'+sessionTabId+'"]');
                 scrollToImages(menuElement);

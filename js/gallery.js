@@ -22,6 +22,7 @@ galleryData.forEach(galleryElement => {
 
 const lang = 'en';
 const dir = 'ltr';
+const activeCategory = null;
 
 let canvasClass = 'bmby-gallery-wrapp';
 let galleryContainer;
@@ -440,7 +441,7 @@ function initGallery () {
 
     slickInit();
 
-    const sessionTabId = sessionStorage.getItem('galleryActiveTabId');
+    const sessionTabId = activeCategory || sessionStorage.getItem('galleryActiveTabId');
     if (sessionTabId){
         const menuElement = document.querySelector('.menu__item[data-category-id="'+sessionTabId+'"]');
         scrollToImages(menuElement);
