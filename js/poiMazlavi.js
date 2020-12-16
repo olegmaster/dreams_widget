@@ -1,18 +1,547 @@
-// each element contains data about the certain poi
-// this data is obtained from API
-// let poiData = [{"name":[{"lang":"en","value":"Tel Aviv Museum of Art"},{"lang":"he","value":"\u05de\u05d5\u05d6\u05d9\u05d0\u05d5\u05df \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05dc\u05d0\u05de\u05e0\u05d5\u05ea"}],"description":[{"lang":"en","value":"The Golda Meir Cultural and Art Center, Sderot Sha'ul HaMelech 27, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"The Golda Meir Cultural and Art Center, Sderot Sha'ul HaMelech 27, Tel Aviv-Yafo, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"The Golda Meir Cultural and Art Center, Sderot Sha'ul HaMelech 27, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"The Golda Meir Cultural and Art Center, Sderot Sha'ul HaMelech 27, Tel Aviv-Yafo, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":5,"url":"http:\/\/www.tamuseum.org.il\/he\/default.aspx","latitude":"32.0771722","longitude":"34.7860861","coords3d":{"x":"32.0771722","y":"34.7860861","z":0},"distanceToPoint":{"walk":"1241","bike":"2198","drive":"1756"},"timeToPoint":{"walk":"1039","bike":"580","drive":"393"},"phone":"03-607-7020","internationalPhone":"+97236077020","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"ChIJpz9FAptLHRURE7h6eDCkS_c"},{"name":[{"lang":"en","value":"The Israeli Opera"},{"lang":"he","value":"\u05d4\u05d0\u05d5\u05e4\u05e8\u05d4 \u05d4\u05d9\u05e9\u05e8\u05d0\u05dc\u05d9\u05ea"}],"description":[{"lang":"en","value":"Sderot Sha'ul HaMelech 19, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05e9\u05d3\u05e8\u05d5\u05ea \u05e9\u05d0\u05d5\u05dc \u05d4\u05de\u05dc\u05da 19, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"Sderot Sha'ul HaMelech 19, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05e9\u05d3\u05e8\u05d5\u05ea \u05e9\u05d0\u05d5\u05dc \u05d4\u05de\u05dc\u05da 19, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":2,"url":"http:\/\/www.israel-opera.co.il\/","latitude":"32.0762784","longitude":"34.7849475","coords3d":{"x":"32.0762784","y":"34.7849475","z":0},"distanceToPoint":{"walk":"1275","bike":"2232","drive":"1498"},"timeToPoint":{"walk":"1076","bike":"607","drive":"345"},"phone":"03-692-7777","internationalPhone":"+97236927777","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"ChIJF8dPS5tLHRURfw7nDQNZpIo"},{"name":[{"lang":"en","value":"Cameri Theater"},{"lang":"he","value":"\u05d4\u05ea\u05d9\u05d0\u05d8\u05e8\u05d5\u05df \u05d4\u05e7\u05d0\u05de\u05e8\u05d9"}],"description":[{"lang":"en","value":"Sderot Sha'ul HaMelech 19, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05e9\u05d3\u05e8\u05d5\u05ea \u05e9\u05d0\u05d5\u05dc \u05d4\u05de\u05dc\u05da 19, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"Sderot Sha'ul HaMelech 19, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05e9\u05d3\u05e8\u05d5\u05ea \u05e9\u05d0\u05d5\u05dc \u05d4\u05de\u05dc\u05da 19, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":2,"url":"http:\/\/www.cameri.co.il\/","latitude":"32.0767494","longitude":"34.7846172","coords3d":{"x":"32.0767494","y":"34.7846172","z":0},"distanceToPoint":{"walk":"988","bike":"1412","drive":"1542"},"timeToPoint":{"walk":"854","bike":"533","drive":"355"},"phone":"03-606-0900","internationalPhone":"03-606-0900","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"ChIJF8dPS5tLHRURZA_VUPaQ-mE"},{"name":[{"lang":"en","value":"Nehama Vahetzi"},{"lang":"he","value":"\u05e0\u05d7\u05de\u05d4 \u05d5\u05d7\u05e6\u05d9"}],"description":[{"lang":"en","value":"Ahad Ha'Am St 144, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05d0\u05d7\u05d3 \u05d4\u05e2\u05dd 144, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"Ahad Ha'Am St 144, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05d0\u05d7\u05d3 \u05d4\u05e2\u05dd 144, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":1,"url":"","latitude":"32.0720562","longitude":"34.7786152","coords3d":{"x":"32.0720562","y":"34.7786152","z":0},"distanceToPoint":{"walk":"1018","bike":"1659","drive":"2436"},"timeToPoint":{"walk":"818","bike":"395","drive":"635"},"phone":"03-685-2326","internationalPhone":"+97236852326","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"ChIJNVQ84YFLHRURqzjMQp3RVGY"},{"name":[{"lang":"en","value":"Aluf Albert Mandler Street"},{"lang":"he","value":"\u05d0\u05dc\u05d5\u05e3 \u05d0\u05dc\u05d1\u05e8\u05d8 \u05de\u05e0\u05d3\u05dc\u05e8"}],"description":[{"lang":"en","value":"Aluf Albert Mandler St, Ramat Gan, Israel"},{"lang":"he","value":"\u05d0\u05dc\u05d5\u05e3 \u05d0\u05dc\u05d1\u05e8\u05d8 \u05de\u05e0\u05d3\u05dc\u05e8, \u05e8\u05de\u05ea \u05d2\u05df, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"Aluf Albert Mandler St, Ramat Gan, Israel"},{"lang":"he","value":"\u05d0\u05dc\u05d5\u05e3 \u05d0\u05dc\u05d1\u05e8\u05d8 \u05de\u05e0\u05d3\u05dc\u05e8, \u05e8\u05de\u05ea \u05d2\u05df, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":3,"url":"","latitude":"32.0918002","longitude":"34.8192725","coords3d":{"x":"32.0918002","y":"34.8192725","z":0},"distanceToPoint":{"walk":"4363","bike":"4727","drive":"4703"},"timeToPoint":{"walk":"3530","bike":"1071","drive":"793"},"phone":"","internationalPhone":"","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"EilBbHVmIEFsYmVydCBNYW5kbGVyIFN0LCBSYW1hdCBHYW4sIElzcmFlbCIuKiwKFAoSCUVWKdksSh0VERccjfRuTU3jEhQKEgmt5JTnhkwdFRFvUhfnPr8ALQ"},{"name":[{"lang":"en","value":"Bakery"},{"lang":"he","value":"Bakery"}],"description":[{"lang":"en","value":"Dizengoff Square 6, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05db\u05d9\u05db\u05e8 \u05e6\u05d9\u05e0\u05d4 \u05d3\u05d9\u05d6\u05e0\u05d2\u05d5\u05e3 6, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"Dizengoff Square 6, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05db\u05d9\u05db\u05e8 \u05e6\u05d9\u05e0\u05d4 \u05d3\u05d9\u05d6\u05e0\u05d2\u05d5\u05e3 6, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":3,"url":"https:\/\/www.bakerytlv.co.il\/","latitude":"32.07776509999999","longitude":"34.77475909999999","coords3d":{"x":"32.07776509999999","y":"34.77475909999999","z":0},"distanceToPoint":{"walk":"1834","bike":"2597","drive":"2431"},"timeToPoint":{"walk":"1415","bike":"599","drive":"591"},"phone":"","internationalPhone":"","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"ChIJ_x-5znVLHRURJnGklZN6ogk"},{"name":[{"lang":"en","value":"Bakery"},{"lang":"he","value":"Bakery"}],"description":[{"lang":"en","value":"Dizengoff Square 6, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05db\u05d9\u05db\u05e8 \u05e6\u05d9\u05e0\u05d4 \u05d3\u05d9\u05d6\u05e0\u05d2\u05d5\u05e3 6, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"Dizengoff Square 6, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05db\u05d9\u05db\u05e8 \u05e6\u05d9\u05e0\u05d4 \u05d3\u05d9\u05d6\u05e0\u05d2\u05d5\u05e3 6, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":2,"url":"https:\/\/www.bakerytlv.co.il\/","latitude":"32.07776509999999","longitude":"34.77475909999999","coords3d":{"x":"32.07776509999999","y":"34.77475909999999","z":0},"distanceToPoint":{"walk":"1834","bike":"2597","drive":"2431"},"timeToPoint":{"walk":"1415","bike":"599","drive":"591"},"phone":"03-563-3239","internationalPhone":"+97235633239","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"ChIJ_x-5znVLHRURJnGklZN6ogk"}];
-//
-//
-// // this variable contains all poi categories
-// let poiCategoriesData  = [{"name":[{"lang":"en","value":"Restaurants"},{"lang":"he","value":"Restaurants"}],"description":[{"lang":"en","value":"Cafes Description"},{"lang":"he","value":"Cafes Description"}],"categoryId":"1","color":"#D95877","icon":"restaurants_f","iconMenu":"restaurants_i"},{"name":[{"lang":"en","value":"Culture"},{"lang":"he","value":"Culture"}],"description":[{"lang":"en","value":"Culture"},{"lang":"he","value":"Culture"}],"categoryId":"2","color":"#EB5757","icon":"culture_f","iconMenu":"culture_i"},{"name":[{"lang":"en","value":"Public Transport"},{"lang":"he","value":"Public Transport"}],"description":[{"lang":"en","value":"Public Transport"},{"lang":"he","value":"Public Transport"}],"categoryId":"3","color":"#F2994A","icon":"transport_f","iconMenu":"transport_i"},{"name":[{"lang":"en","value":"Healthcare"},{"lang":"he","value":"Healthcare"}],"description":[{"lang":"en","value":"Healthcare"},{"lang":"he","value":"Healthcare"}],"categoryId":"4","color":"#FDC536","icon":"healthcare_f","iconMenu":"healthcare_i"},{"name":[{"lang":"en","value":"General"},{"lang":"he","value":"General"}],"description":[{"lang":"en","value":"General"},{"lang":"he","value":"General"}],"categoryId":"5","color":"#6FCF97","icon":"general_f","iconMenu":"general_i"},{"name":[{"lang":"en","value":"Supermarkets"},{"lang":"he","value":"Supermarkets"}],"description":[{"lang":"en","value":"Supermarkets"},{"lang":"he","value":"Supermarkets"}],"categoryId":"6","color":"#219653","icon":"supermarkets_f","iconMenu":"supermarkets_i"},{"name":[{"lang":"en","value":"Shopping"},{"lang":"he","value":"Shopping"}],"description":[{"lang":"en","value":"Shopping"},{"lang":"he","value":"Shopping"}],"categoryId":"7","color":"#2F80ED","icon":"shopping_f","iconMenu":"shopping_i"},{"name":[{"lang":"en","value":"Parks"},{"lang":"he","value":"Parks"}],"description":[{"lang":"en","value":"Parks"},{"lang":"he","value":"Parks"}],"categoryId":"8","color":"#D95877","icon":"park_f","iconMenu":"park_i"},{"name":[{"lang":"en","value":"Business"},{"lang":"he","value":"Business"}],"description":[{"lang":"en","value":"Business"},{"lang":"he","value":"Business"}],"categoryId":"9","color":"#EB5757","icon":"business_f","iconMenu":"business_i"},{"name":[{"lang":"en","value":"Construction"},{"lang":"he","value":"Construction"}],"description":[{"lang":"en","value":"Construction"},{"lang":"he","value":"Construction"}],"categoryId":"10","color":"#F2994A","icon":"construction_f","iconMenu":"construction_i"},{"name":[{"lang":"en","value":"Beaches"},{"lang":"he","value":"Beaches"}],"description":[{"lang":"en","value":"Beaches"},{"lang":"he","value":"Beaches"}],"categoryId":"11","color":"#FDC536","icon":"beaches_f","iconMenu":"beaches_i"},{"name":[{"lang":"en","value":"Sports"},{"lang":"he","value":"Sports"}],"description":[{"lang":"en","value":"Sports"},{"lang":"he","value":"Sports"}],"categoryId":"12","color":"#6FCF97","icon":"sports_f","iconMenu":"sports_i"},{"name":[{"lang":"en","value":"Subway"},{"lang":"he","value":"Subway"}],"description":[{"lang":"en","value":"Subway"},{"lang":"he","value":"Subway"}],"categoryId":"13","color":"#219653","icon":"subway_f","iconMenu":"subway_i"},{"name":[{"lang":"en","value":"Street"},{"lang":"he","value":"Street"}],"description":[{"lang":"en","value":"Street"},{"lang":"he","value":"Street"}],"categoryId":"14","color":"#2F80ED","icon":"streets_f","iconMenu":"streets_i"},{"name":[{"lang":"en","value":"Kosher"},{"lang":"he","value":"Kosher"}],"description":[{"lang":"en","value":"Kosher"},{"lang":"he","value":"Kosher"}],"categoryId":"15","color":"#D95877","icon":"kosher_f","iconMenu":"kosher_i"},{"name":[{"lang":"en","value":"Synagogue"},{"lang":"he","value":"Synagogue"}],"description":[{"lang":"en","value":"Synagogue"},{"lang":"he","value":"Synagogue"}],"categoryId":"16","color":"#EB5757","icon":"synagogue_f","iconMenu":"synagogue_i"},{"name":[{"lang":"en","value":"For kids"},{"lang":"he","value":"For kids"}],"description":[{"lang":"en","value":"For kids"},{"lang":"he","value":"For kids"}],"categoryId":"17","color":"#F2994A","icon":"kids_f","iconMenu":"kids_i"},{"name":[{"lang":"en","value":"Office"},{"lang":"he","value":"Office"}],"description":[{"lang":"en","value":"Office"},{"lang":"he","value":"Office"}],"categoryId":"18","color":"#FDC536","icon":"office_f","iconMenu":"office_i"},{"name":[{"lang":"en","value":"Bus stations"},{"lang":"he","value":"Bus stations"}],"description":[{"lang":"en","value":"Bus stations"},{"lang":"he","value":"Bus stations"}],"categoryId":"19","color":"#6FCF97","icon":"busStation_f","iconMenu":"busStation_i"},{"name":[{"lang":"en","value":"Cafes"},{"lang":"he","value":"Cafes"}],"description":[{"lang":"en","value":"Cafes"},{"lang":"he","value":"Cafes"}],"categoryId":"20","color":"#219653","icon":"cafes_f","iconMenu":"cafes_i"},{"name":[{"lang":"en","value":"Education"},{"lang":"he","value":"Education"}],"description":[{"lang":"en","value":"Education"},{"lang":"he","value":"Education"}],"categoryId":"21","color":"#2F80ED","icon":"education_f","iconMenu":"education_i"}];
+let basePoiData;
+let poiData = [];
+basePoiData = [
+    {
+        "name": {
+            "he": "סטלה בי'ץ דג על הים",
+            "en": "Stella Beach"
+        },
+        "description": {
+            "he": "דרך בן גוריון 83, בת ים, 5955602, ישראל",
+            "en": "Derech Ben Gurion 83, Bat Yam, 5955602, Israel"
+        },
+        "address": {
+            "he": "דרך בן גוריון 83, בת ים, 5955602, ישראל",
+            "en": "Derech Ben Gurion 83, Bat Yam, 5955602, Israel"
+        },
+        "categoryId": 1,
+        "url": "http://www.stellabeach.co.il/",
+        "latitude": "32.0178821",
+        "longitude": "34.7384688",
+        "coords3d": {
+            "x": "32.0178821",
+            "y": "34.7384688",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "1930",
+            "bike": "2443",
+            "drive": "1892"
+        },
+        "timeToPoint": {
+            "walk": "1436",
+            "bike": "450",
+            "drive": "416"
+        },
+        "phone": "03-629-9878",
+        "internationalPhone": "03-629-9878",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": {
+                    "he": "",
+                    "en": ""
+                },
+                "description": {
+                    "he": "",
+                    "en": ""
+                },
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": {
+            "value": "ChIJh7iUJhqzAhURRalE-z2KD3w"
+        }
+    },
+    {
+        "name": {
+            "he": "שיפודי ציפורה",
+            "en": "Shipudei Tzipora"
+        },
+        "description": {
+            "he": "הלפר 26, בת ים, ישראל",
+            "en": "Halper St 26, Bat Yam, Israel"
+        },
+        "address": {
+            "he": "הלפר 26, בת ים, ישראל",
+            "en": "Halper St 26, Bat Yam, Israel"
+        },
+        "categoryId": 1,
+        "url": "http://tzipora-batyam.co.il/",
+        "latitude": "32.0275444",
+        "longitude": "34.7462099",
+        "coords3d": {
+            "x": "32.0275444",
+            "y": "34.7462099",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "2257",
+            "bike": "2465",
+            "drive": "4092"
+        },
+        "timeToPoint": {
+            "walk": "1667",
+            "bike": "566",
+            "drive": "867"
+        },
+        "phone": "03-659-1432",
+        "internationalPhone": "03-659-1432",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": {
+                    "he": "",
+                    "en": ""
+                },
+                "description": {
+                    "he": "",
+                    "en": ""
+                },
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": {
+            "value": "ChIJ0aNl4juzAhURtlCn8pMud0k"
+        }
+    },
+    {
+        "name": {
+            "he": "גן משה דיין",
+            "en": "Moshe Dayan Garden"
+        },
+        "description": {
+            "he": "בת ים, ישראל",
+            "en": "Bat Yam, Israel"
+        },
+        "address": {
+            "he": "בת ים, ישראל",
+            "en": "Bat Yam, Israel"
+        },
+        "categoryId": 8,
+        "url": "",
+        "latitude": "32.0196029",
+        "longitude": "34.7569879",
+        "coords3d": {
+            "x": "32.0196029",
+            "y": "34.7569879",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "736",
+            "bike": "735",
+            "drive": "1283"
+        },
+        "timeToPoint": {
+            "walk": "563",
+            "bike": "145",
+            "drive": "274"
+        },
+        "phone": "",
+        "internationalPhone": "",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": {
+                    "he": "",
+                    "en": ""
+                },
+                "description": {
+                    "he": "",
+                    "en": ""
+                },
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": {
+            "value": "ChIJNawqB2qzAhURk_aGxjwQbfs"
+        }
+    },
+    {
+        "name": {
+            "he": "גן יצחק רבין",
+            "en": "Yitshak Rabin Garden"
+        },
+        "description": {
+            "he": "בת ים, ישראל",
+            "en": "Bat Yam, Israel"
+        },
+        "address": {
+            "he": "בת ים, ישראל",
+            "en": "Bat Yam, Israel"
+        },
+        "categoryId": 8,
+        "url": "",
+        "latitude": "32.023606",
+        "longitude": "34.7521534",
+        "coords3d": {
+            "x": "32.023606",
+            "y": "34.7521534",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "1536",
+            "bike": "1697",
+            "drive": "1425"
+        },
+        "timeToPoint": {
+            "walk": "1125",
+            "bike": "279",
+            "drive": "307"
+        },
+        "phone": "",
+        "internationalPhone": "",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": {
+                    "he": "",
+                    "en": ""
+                },
+                "description": {
+                    "he": "",
+                    "en": ""
+                },
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": {
+            "value": "ChIJnWrrmUCzAhURk6S89lAoeuM"
+        }
+    },
+    {
+        "name": {
+            "he": "קרית ספורט",
+            "en": "Sports Campus"
+        },
+        "description": {
+            "he": "קרית ספורט, חולון, ישראל",
+            "en": "Sports Campus, Holon, Israel"
+        },
+        "address": {
+            "he": "קרית ספורט, חולון, ישראל",
+            "en": "Sports Campus, Holon, Israel"
+        },
+        "categoryId": 8,
+        "url": "",
+        "latitude": "32.002841",
+        "longitude": "34.75756500000001",
+        "coords3d": {
+            "x": "32.002841",
+            "y": "34.75756500000001",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "1763",
+            "bike": "1970",
+            "drive": "2068"
+        },
+        "timeToPoint": {
+            "walk": "1281",
+            "bike": "379",
+            "drive": "453"
+        },
+        "phone": "",
+        "internationalPhone": "",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": {
+                    "he": "",
+                    "en": ""
+                },
+                "description": {
+                    "he": "",
+                    "en": ""
+                },
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": {
+            "value": "ChIJwZFup3azAhURHumYklf3sfs"
+        }
+    },
+    {
+        "name": {
+            "he": "גן הי\"א",
+            "en": "HaYod-Alef Garden"
+        },
+        "description": {
+            "he": "בת ים, ישראל",
+            "en": "Bat Yam, Israel"
+        },
+        "address": {
+            "he": "בת ים, ישראל",
+            "en": "Bat Yam, Israel"
+        },
+        "categoryId": 8,
+        "url": "",
+        "latitude": "32.012021",
+        "longitude": "34.7562973",
+        "coords3d": {
+            "x": "32.012021",
+            "y": "34.7562973",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "537",
+            "bike": "806",
+            "drive": "1159"
+        },
+        "timeToPoint": {
+            "walk": "412",
+            "bike": "199",
+            "drive": "339"
+        },
+        "phone": "",
+        "internationalPhone": "",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": {
+                    "he": "",
+                    "en": ""
+                },
+                "description": {
+                    "he": "",
+                    "en": ""
+                },
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": {
+            "value": "ChIJwftHTGyzAhUR_ce1QhW8yFc"
+        }
+    },
+    {
+        "name": {
+            "he": "גן אשכול",
+            "en": "Eshkol Garden"
+        },
+        "description": {
+            "he": "רח' בר אילן, בת ים, ישראל",
+            "en": "רח' בר אילן, בת ים, Israel"
+        },
+        "address": {
+            "he": "רח' בר אילן, בת ים, ישראל",
+            "en": "רח' בר אילן, בת ים, Israel"
+        },
+        "categoryId": 8,
+        "url": "http://www.bat-yam.muni.il/%D7%92%D7%A0%D7%99%D7%9D_%D7%95%D7%9E%D7%A8%D7%97%D7%91_%D7%A6%D7%99%D7%91%D7%95%D7%A8%D7%99",
+        "latitude": "32.01235340000001",
+        "longitude": "34.7447284",
+        "coords3d": {
+            "x": "32.01235340000001",
+            "y": "34.7447284",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "1380",
+            "bike": "1480",
+            "drive": "1352"
+        },
+        "timeToPoint": {
+            "walk": "1015",
+            "bike": "336",
+            "drive": "300"
+        },
+        "phone": "",
+        "internationalPhone": "",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": {
+                    "he": "",
+                    "en": ""
+                },
+                "description": {
+                    "he": "",
+                    "en": ""
+                },
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": {
+            "value": "ChIJL7VhIA6zAhURQMb2o8nRsk4"
+        }
+    },
+    {
+        "name": {
+            "he": "גן דניאל",
+            "en": "Daniel Garden"
+        },
+        "description": {
+            "he": "בת ים, ישראל",
+            "en": "Bat Yam, Israel"
+        },
+        "address": {
+            "he": "בת ים, ישראל",
+            "en": "Bat Yam, Israel"
+        },
+        "categoryId": 8,
+        "url": "",
+        "latitude": "32.0179067",
+        "longitude": "34.7504267",
+        "coords3d": {
+            "x": "32.0179067",
+            "y": "34.7504267",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "770",
+            "bike": "916",
+            "drive": "1226"
+        },
+        "timeToPoint": {
+            "walk": "582",
+            "bike": "174",
+            "drive": "261"
+        },
+        "phone": "",
+        "internationalPhone": "",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": {
+                    "he": "",
+                    "en": ""
+                },
+                "description": {
+                    "he": "",
+                    "en": ""
+                },
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": {
+            "value": "ChIJ3WkX5xSzAhURvvsG6n0jWjQ"
+        }
+    },
+    {
+        "name": {
+            "he": "גן העיר ע\"ש בגין",
+            "en": "Begin City Garden"
+        },
+        "description": {
+            "he": "בת ים, ישראל",
+            "en": "Bat Yam, Israel"
+        },
+        "address": {
+            "he": "בת ים, ישראל",
+            "en": "Bat Yam, Israel"
+        },
+        "categoryId": 8,
+        "url": "",
+        "latitude": "32.0098653",
+        "longitude": "34.74115159999999",
+        "coords3d": {
+            "x": "32.0098653",
+            "y": "34.74115159999999",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "1890",
+            "bike": "1894",
+            "drive": "1889"
+        },
+        "timeToPoint": {
+            "walk": "1370",
+            "bike": "377",
+            "drive": "397"
+        },
+        "phone": "",
+        "internationalPhone": "",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": {
+                    "he": "",
+                    "en": ""
+                },
+                "description": {
+                    "he": "",
+                    "en": ""
+                },
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": {
+            "value": "ChIJfTO4Zw-zAhURB3h8uKH7AZQ"
+        }
+    }
+];
+basePoiData.forEach(function(item){
+    let newArrayElement = {
+        "name": [
+            { "lang": "en", "value": item.name.en },
+            { "lang": "he", "value": item.name.he }
+        ],
+        "description": [
+            { "lang": "en", "value": item.description.en },
+            { "lang": "he", "value": item.description.he }
+        ],
+        "address": [
+            { "lang": "en", "value": item.address.en },
+            { "lang": "he", "value": item.address.he }
+        ],
+        "categoryId": item.categoryId,
+        "url": item.url,
+        "latitude": item.latitude,
+        "longitude": item.longitude,
+        "coords3d": item.coords3d,
+        "distanceToPoint": item.distanceToPoint,
+        "timeToPoint": item.timeToPoint,
+        "phone": item.phone,
+        "internationalPhone": item.internationalPhone,
+        "customPhone": item.customPhone,
+        "promotion": [
+            {
+                "name": [
+                    { "lang": "en", "value": "" },
+                    { "lang": "he", "value": "" }
+                ],
+                "description": [
+                    { "lang": "en", "value": "" },
+                    { "lang": "he", "value": "" }
+                ],
+                "url": "",
+                "timeToLive": "1970-01-01 00:00"
+            }
+        ],
+        "googleMapsID": item.googleMapsID
+    };
+    poiData.push(newArrayElement);
+});
 
-let poiData = [{"name":[{"lang":"en","value":"Tel Aviv Museum of Art"},{"lang":"he","value":"\u05de\u05d5\u05d6\u05d9\u05d0\u05d5\u05df \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05dc\u05d0\u05de\u05e0\u05d5\u05ea"}],"description":[{"lang":"en","value":"The Golda Meir Cultural and Art Center, Sderot Sha'ul HaMelech 27, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"The Golda Meir Cultural and Art Center, Sderot Sha'ul HaMelech 27, Tel Aviv-Yafo, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"The Golda Meir Cultural and Art Center, Sderot Sha'ul HaMelech 27, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"The Golda Meir Cultural and Art Center, Sderot Sha'ul HaMelech 27, Tel Aviv-Yafo, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":6,"url":"http:\/\/www.tamuseum.org.il\/he\/default.aspx","latitude":"32.0771722","longitude":"34.7860861","coords3d":{"x":"40.45733610000001","y":0,"z":"12.45"},"distanceToPoint":{"walk":"1241","bike":"2198","drive":"1756"},"timeToPoint":{"walk":"1039","bike":"580","drive":"393"},"phone":"","internationalPhone":"","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":"1970-01-01 00:00"}],"googleMapsID":"ChIJpz9FAptLHRURE7h6eDCkS_c"},{"name":[{"lang":"en","value":"The Israeli Opera"},{"lang":"he","value":"\u05d4\u05d0\u05d5\u05e4\u05e8\u05d4 \u05d4\u05d9\u05e9\u05e8\u05d0\u05dc\u05d9\u05ea"}],"description":[{"lang":"en","value":"Sderot Sha'ul HaMelech 19, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05e9\u05d3\u05e8\u05d5\u05ea \u05e9\u05d0\u05d5\u05dc \u05d4\u05de\u05dc\u05da 19, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"Sderot Sha'ul HaMelech 19, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05e9\u05d3\u05e8\u05d5\u05ea \u05e9\u05d0\u05d5\u05dc \u05d4\u05de\u05dc\u05da 19, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":2,"url":"http:\/\/www.israel-opera.co.il\/","latitude":"32.0762784","longitude":"34.7849475","coords3d":{"x":"32.0762784","y":"34.7849475","z":0},"distanceToPoint":{"walk":"1275","bike":"2232","drive":"1498"},"timeToPoint":{"walk":"1076","bike":"607","drive":"345"},"phone":"03-692-7777","internationalPhone":"+97236927777","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"ChIJF8dPS5tLHRURfw7nDQNZpIo"},{"name":[{"lang":"en","value":"Cameri Theater"},{"lang":"he","value":"\u05d4\u05ea\u05d9\u05d0\u05d8\u05e8\u05d5\u05df \u05d4\u05e7\u05d0\u05de\u05e8\u05d9"}],"description":[{"lang":"en","value":"Sderot Sha'ul HaMelech 19, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05e9\u05d3\u05e8\u05d5\u05ea \u05e9\u05d0\u05d5\u05dc \u05d4\u05de\u05dc\u05da 19, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"Sderot Sha'ul HaMelech 19, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05e9\u05d3\u05e8\u05d5\u05ea \u05e9\u05d0\u05d5\u05dc \u05d4\u05de\u05dc\u05da 19, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":2,"url":"http:\/\/www.cameri.co.il\/","latitude":"32.0767494","longitude":"34.7846172","coords3d":{"x":"32.0767494","y":"34.7846172","z":0},"distanceToPoint":{"walk":"988","bike":"1412","drive":"1542"},"timeToPoint":{"walk":"854","bike":"533","drive":"355"},"phone":"03-606-0900","internationalPhone":"03-606-0900","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"ChIJF8dPS5tLHRURZA_VUPaQ-mE"},{"name":[{"lang":"en","value":"Nehama Vahetzi"},{"lang":"he","value":"\u05e0\u05d7\u05de\u05d4 \u05d5\u05d7\u05e6\u05d9"}],"description":[{"lang":"en","value":"Ahad Ha'Am St 144, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05d0\u05d7\u05d3 \u05d4\u05e2\u05dd 144, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"Ahad Ha'Am St 144, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05d0\u05d7\u05d3 \u05d4\u05e2\u05dd 144, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":1,"url":"","latitude":"32.0720562","longitude":"34.7786152","coords3d":{"x":"32.0720562","y":"34.7786152","z":0},"distanceToPoint":{"walk":"1018","bike":"1659","drive":"2436"},"timeToPoint":{"walk":"818","bike":"395","drive":"635"},"phone":"03-685-2326","internationalPhone":"+97236852326","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"ChIJNVQ84YFLHRURqzjMQp3RVGY"},{"name":[{"lang":"en","value":"Aluf Albert Mandler Street"},{"lang":"he","value":"\u05d0\u05dc\u05d5\u05e3 \u05d0\u05dc\u05d1\u05e8\u05d8 \u05de\u05e0\u05d3\u05dc\u05e8"}],"description":[{"lang":"en","value":"Aluf Albert Mandler St, Ramat Gan, Israel"},{"lang":"he","value":"\u05d0\u05dc\u05d5\u05e3 \u05d0\u05dc\u05d1\u05e8\u05d8 \u05de\u05e0\u05d3\u05dc\u05e8, \u05e8\u05de\u05ea \u05d2\u05df, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"Aluf Albert Mandler St, Ramat Gan, Israel"},{"lang":"he","value":"\u05d0\u05dc\u05d5\u05e3 \u05d0\u05dc\u05d1\u05e8\u05d8 \u05de\u05e0\u05d3\u05dc\u05e8, \u05e8\u05de\u05ea \u05d2\u05df, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":3,"url":"","latitude":"32.0918002","longitude":"34.8192725","coords3d":{"x":"32.0918002","y":"34.8192725","z":0},"distanceToPoint":{"walk":"4363","bike":"4727","drive":"4703"},"timeToPoint":{"walk":"3530","bike":"1071","drive":"793"},"phone":"","internationalPhone":"","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"EilBbHVmIEFsYmVydCBNYW5kbGVyIFN0LCBSYW1hdCBHYW4sIElzcmFlbCIuKiwKFAoSCUVWKdksSh0VERccjfRuTU3jEhQKEgmt5JTnhkwdFRFvUhfnPr8ALQ"},{"name":[{"lang":"en","value":"Bakery"},{"lang":"he","value":"Bakery"}],"description":[{"lang":"en","value":"Dizengoff Square 6, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05db\u05d9\u05db\u05e8 \u05e6\u05d9\u05e0\u05d4 \u05d3\u05d9\u05d6\u05e0\u05d2\u05d5\u05e3 6, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"Dizengoff Square 6, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05db\u05d9\u05db\u05e8 \u05e6\u05d9\u05e0\u05d4 \u05d3\u05d9\u05d6\u05e0\u05d2\u05d5\u05e3 6, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":3,"url":"https:\/\/www.bakerytlv.co.il\/","latitude":"32.07776509999999","longitude":"34.77475909999999","coords3d":{"x":"32.07776509999999","y":"34.77475909999999","z":0},"distanceToPoint":{"walk":"1834","bike":"2597","drive":"2431"},"timeToPoint":{"walk":"1415","bike":"599","drive":"591"},"phone":"","internationalPhone":"","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"ChIJ_x-5znVLHRURJnGklZN6ogk"},{"name":[{"lang":"en","value":"Bakery"},{"lang":"he","value":"Bakery"}],"description":[{"lang":"en","value":"Dizengoff Square 6, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05db\u05d9\u05db\u05e8 \u05e6\u05d9\u05e0\u05d4 \u05d3\u05d9\u05d6\u05e0\u05d2\u05d5\u05e3 6, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"Dizengoff Square 6, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05db\u05d9\u05db\u05e8 \u05e6\u05d9\u05e0\u05d4 \u05d3\u05d9\u05d6\u05e0\u05d2\u05d5\u05e3 6, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":2,"url":"https:\/\/www.bakerytlv.co.il\/","latitude":"32.07776509999999","longitude":"34.77475909999999","coords3d":{"x":"32.07776509999999","y":"34.77475909999999","z":0},"distanceToPoint":{"walk":"1834","bike":"2597","drive":"2431"},"timeToPoint":{"walk":"1415","bike":"599","drive":"591"},"phone":"03-563-3239","internationalPhone":"+97235633239","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"ChIJ_x-5znVLHRURJnGklZN6ogk"}];
 
 // this variable contains all poi categories
-let poiCategoriesData  = [{"name":[{"lang":"en","value":"Restaurants"},{"lang":"he","value":"Restaurants"}],"description":[{"lang":"en","value":"Cafes Description"},{"lang":"he","value":"Cafes Description"}],"categoryId":"1","color":"#D95877","icon":"restaurants_f","iconMenu":"restaurants_i"},{"name":[{"lang":"en","value":"Culture"},{"lang":"he","value":"Culture"}],"description":[{"lang":"en","value":"Culture"},{"lang":"he","value":"Culture"}],"categoryId":"2","color":"#EB5757","icon":"culture_f","iconMenu":"culture_i"},{"name":[{"lang":"en","value":"Public Transport(min)"},{"lang":"he","value":"Public Transport(min)"}],"description":[{"lang":"en","value":"Public Transport(min)"},{"lang":"he","value":"Public Transport(min)"}],"categoryId":"3","color":"#F2994A","icon":"transport_f","iconMenu":"transport_i"},{"name":[{"lang":"en","value":"Healthcare"},{"lang":"he","value":"Healthcare"}],"description":[{"lang":"en","value":"Healthcare"},{"lang":"he","value":"Healthcare"}],"categoryId":"4","color":"#FDC536","icon":"healthcare_f","iconMenu":"healthcare_i"},{"name":[{"lang":"en","value":"General"},{"lang":"he","value":"General"}],"description":[{"lang":"en","value":"General"},{"lang":"he","value":"General"}],"categoryId":"5","color":"#6FCF97","icon":"general_f","iconMenu":"general_i"},{"name":[{"lang":"en","value":"Supermarkets"},{"lang":"he","value":"Supermarkets"}],"description":[{"lang":"en","value":"Supermarkets"},{"lang":"he","value":"Supermarkets"}],"categoryId":"6","color":"#219653","icon":"supermarkets_f","iconMenu":"supermarkets_i"},{"name":[{"lang":"en","value":"Shopping"},{"lang":"he","value":"Shopping"}],"description":[{"lang":"en","value":"Shopping"},{"lang":"he","value":"Shopping"}],"categoryId":"7","color":"#2F80ED","icon":"shopping_f","iconMenu":"shopping_i"},{"name":[{"lang":"en","value":"Parks"},{"lang":"he","value":"Parks"}],"description":[{"lang":"en","value":"Parks"},{"lang":"he","value":"Parks"}],"categoryId":"8","color":"#D95877","icon":"park_f","iconMenu":"park_i"},{"name":[{"lang":"en","value":"Business"},{"lang":"he","value":"Business"}],"description":[{"lang":"en","value":"Business"},{"lang":"he","value":"Business"}],"categoryId":"9","color":"#EB5757","icon":"business_f","iconMenu":"business_i"},{"name":[{"lang":"en","value":"Construction"},{"lang":"he","value":"Construction"}],"description":[{"lang":"en","value":"Construction"},{"lang":"he","value":"Construction"}],"categoryId":"10","color":"#F2994A","icon":"construction_f","iconMenu":"construction_i"},{"name":[{"lang":"en","value":"Beaches"},{"lang":"he","value":"Beaches"}],"description":[{"lang":"en","value":"Beaches"},{"lang":"he","value":"Beaches"}],"categoryId":"11","color":"#FDC536","icon":"beaches_f","iconMenu":"beaches_i"},{"name":[{"lang":"en","value":"Sports"},{"lang":"he","value":"Sports"}],"description":[{"lang":"en","value":"Sports"},{"lang":"he","value":"Sports"}],"categoryId":"12","color":"#6FCF97","icon":"sports_f","iconMenu":"sports_i"},{"name":[{"lang":"en","value":"Subway"},{"lang":"he","value":"Subway"}],"description":[{"lang":"en","value":"Subway"},{"lang":"he","value":"Subway"}],"categoryId":"13","color":"#219653","icon":"subway_f","iconMenu":"subway_i"},{"name":[{"lang":"en","value":"Street"},{"lang":"he","value":"Street"}],"description":[{"lang":"en","value":"Street"},{"lang":"he","value":"Street"}],"categoryId":"14","color":"#2F80ED","icon":"streets_f","iconMenu":"streets_i"},{"name":[{"lang":"en","value":"Kosher"},{"lang":"he","value":"Kosher"}],"description":[{"lang":"en","value":"Kosher"},{"lang":"he","value":"Kosher"}],"categoryId":"15","color":"#D95877","icon":"kosher_f","iconMenu":"kosher_i"},{"name":[{"lang":"en","value":"Synagogue"},{"lang":"he","value":"Synagogue"}],"description":[{"lang":"en","value":"Synagogue"},{"lang":"he","value":"Synagogue"}],"categoryId":"16","color":"#EB5757","icon":"synagogue_f","iconMenu":"synagogue_i"},{"name":[{"lang":"en","value":"For kids"},{"lang":"he","value":"For kids"}],"description":[{"lang":"en","value":"For kids"},{"lang":"he","value":"For kids"}],"categoryId":"17","color":"#F2994A","icon":"kids_f","iconMenu":"kids_i"},{"name":[{"lang":"en","value":"Office"},{"lang":"he","value":"Office"}],"description":[{"lang":"en","value":"Office"},{"lang":"he","value":"Office"}],"categoryId":"18","color":"#FDC536","icon":"office_f","iconMenu":"office_i"},{"name":[{"lang":"en","value":"Bus stations"},{"lang":"he","value":"Bus stations"}],"description":[{"lang":"en","value":"Bus stations"},{"lang":"he","value":"Bus stations"}],"categoryId":"19","color":"#6FCF97","icon":"busStation_f","iconMenu":"busStation_i"},{"name":[{"lang":"en","value":"Cafes"},{"lang":"he","value":"Cafes"}],"description":[{"lang":"en","value":"Cafes"},{"lang":"he","value":"Cafes"}],"categoryId":"20","color":"#219653","icon":"cafes_f","iconMenu":"cafes_i"},{"name":[{"lang":"en","value":"Education"},{"lang":"he","value":"Education"}],"description":[{"lang":"en","value":"Education"},{"lang":"he","value":"Education"}],"categoryId":"21","color":"#2F80ED","icon":"education_f","iconMenu":"education_i"}];
+let poiCategoriesData  = [{"name":[{"lang":"en","value":"Restaurants"},{"lang":"he","value":"מסעדות"}],"description":[{"lang":"en","value":"Cafes Description"},{"lang":"he","value":"Cafes Description"}],"categoryId":"1","color":"#d69131","icon":"restaurants_f","iconMenu":"restaurants_i"},{"name":[{"lang":"en","value":"Culture"},{"lang":"he","value":"Culture"}],"description":[{"lang":"en","value":"Culture"},{"lang":"he","value":"Culture"}],"categoryId":"2","color":"#EB5757","icon":"culture_f","iconMenu":"culture_i"},{"name":[{"lang":"en","value":"Public Transport(min)"},{"lang":"he","value":"תחבורה"}],"description":[{"lang":"en","value":"Public Transport(min)"},{"lang":"he","value":"תחבורה"}],"categoryId":"3","color":"#F2994A","icon":"transport_f","iconMenu":"transport_i"},{"name":[{"lang":"en","value":"Healthcare"},{"lang":"he","value":"בריאות"}],"description":[{"lang":"en","value":"Healthcare"},{"lang":"he","value":"בריאות"}],"categoryId":"4","color":"#FDC536","icon":"healthcare_f","iconMenu":"healthcare_i"},{"name":[{"lang":"en","value":"General"},{"lang":"he","value":"כללי"}],"description":[{"lang":"en","value":"General"},{"lang":"he","value":"כללי"}],"categoryId":"5","color":"#6FCF97","icon":"general_f","iconMenu":"general_i"},{"name":[{"lang":"en","value":"Supermarkets"},{"lang":"he","value":"Supermarkets"}],"description":[{"lang":"en","value":"Supermarkets"},{"lang":"he","value":"Supermarkets"}],"categoryId":"6","color":"#219653","icon":"supermarkets_f","iconMenu":"supermarkets_i"},{"name":[{"lang":"en","value":"Shopping"},{"lang":"he","value":"Shopping"}],"description":[{"lang":"en","value":"Shopping"},{"lang":"he","value":"Shopping"}],"categoryId":"7","color":"#2F80ED","icon":"shopping_f","iconMenu":"shopping_i"},{"name":[{"lang":"en","value":"Parks"},{"lang":"he","value":"Parks"}],"description":[{"lang":"en","value":"Parks"},{"lang":"he","value":"Parks"}],"categoryId":"8","color":"#D95877","icon":"park_f","iconMenu":"park_i"},{"name":[{"lang":"en","value":"Business"},{"lang":"he","value":"עסק"}],"description":[{"lang":"en","value":"עסק"},{"lang":"he","value":"Business"}],"categoryId":"9","color":"#EB5757","icon":"business_f","iconMenu":"business_i"},{"name":[{"lang":"en","value":"Construction"},{"lang":"he","value":"בניה"}],"description":[{"lang":"en","value":"Construction"},{"lang":"he","value":"בניה"}],"categoryId":"10","color":"#F2994A","icon":"construction_f","iconMenu":"construction_i"},{"name":[{"lang":"en","value":"Beaches"},{"lang":"he","value":"Beaches"}],"description":[{"lang":"en","value":"Beaches"},{"lang":"he","value":"Beaches"}],"categoryId":"11","color":"#FDC536","icon":"beaches_f","iconMenu":"beaches_i"},{"name":[{"lang":"en","value":"Sports"},{"lang":"he","value":"ספורט"}],"description":[{"lang":"en","value":"Sports"},{"lang":"he","value":"ספורט"}],"categoryId":"12","color":"#6FCF97","icon":"sports_f","iconMenu":"sports_i"},{"name":[{"lang":"en","value":"Subway"},{"lang":"he","value":"רכבת תחתית"}],"description":[{"lang":"en","value":"Subway"},{"lang":"he","value":"רכבת תחתית"}],"categoryId":"13","color":"#219653","icon":"subway_f","iconMenu":"subway_i"},{"name":[{"lang":"en","value":"Street"},{"lang":"he","value":"רחוב"}],"description":[{"lang":"en","value":"Street"},{"lang":"he","value":"רחוב"}],"categoryId":"14","color":"#2F80ED","icon":"streets_f","iconMenu":"streets_i"},{"name":[{"lang":"en","value":"Kosher"},{"lang":"he","value":"Kosher"}],"description":[{"lang":"en","value":"Kosher"},{"lang":"he","value":"Kosher"}],"categoryId":"15","color":"#D95877","icon":"kosher_f","iconMenu":"kosher_i"},{"name":[{"lang":"en","value":"Synagogue"},{"lang":"he","value":"Synagogue"}],"description":[{"lang":"en","value":"Synagogue"},{"lang":"he","value":"Synagogue"}],"categoryId":"16","color":"#EB5757","icon":"synagogue_f","iconMenu":"synagogue_i"},{"name":[{"lang":"en","value":"For kids"},{"lang":"he","value":"For kids"}],"description":[{"lang":"en","value":"For kids"},{"lang":"he","value":"For kids"}],"categoryId":"17","color":"#F2994A","icon":"kids_f","iconMenu":"kids_i"},{"name":[{"lang":"en","value":"Office"},{"lang":"he","value":"משרד"}],"description":[{"lang":"en","value":"Office"},{"lang":"he","value":"משרד"}],"categoryId":"18","color":"#FDC536","icon":"office_f","iconMenu":"office_i"},{"name":[{"lang":"en","value":"Bus stations"},{"lang":"he","value":"Bus stations"}],"description":[{"lang":"en","value":"Bus stations"},{"lang":"he","value":"Bus stations"}],"categoryId":"19","color":"#6FCF97","icon":"busStation_f","iconMenu":"busStation_i"},{"name":[{"lang":"en","value":"Cafes"},{"lang":"he","value":"Cafes"}],"description":[{"lang":"en","value":"Cafes"},{"lang":"he","value":"Cafes"}],"categoryId":"20","color":"#219653","icon":"cafes_f","iconMenu":"cafes_i"},{"name":[{"lang":"en","value":"Education"},{"lang":"he","value":"חינוך"}],"description":[{"lang":"en","value":"Education"},{"lang":"he","value":"חינוך"}],"categoryId":"21","color":"#2F80ED","icon":"education_f","iconMenu":"education_i"}];
 
-
-const lang = 'en';
+function get_url_param (name) {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    if (urlParams != undefined) {
+        let param = urlParams.get(name);
+        if (param != null) {
+            return param;
+        } else {
+            return false;
+        }
+    }
+}
+let lang = 'en';
+if (get_url_param('lang')) {
+    lang = get_url_param('lang');
+}
 const dir = 'ltr';
 let canvasClass = 'bmby-poi-wrapp';
 let mode = 'dev';
@@ -295,14 +824,14 @@ function init_map () {
     options.popup_templates = [template_1];
     options.map_settings = {
         map_style : map_style,
-        lng : 34.7818,
-        lat : 32.0853,
-        zoom: 16,
+        lng : 34.755352,
+        lat : 32.016060,
+        zoom: 20,
         static_markers : {
             '0':{
-                'title': '251 West 117th Street',
-                'lat': 32.0853,
-                'lng': 34.7818,
+                'title': 'Ayalon Quarter',
+                'lat': 32.016060,
+                'lng': 34.755352,
                 'marker_icon': generateSvg(poiIcons,'mainBuilding','#C0C0C0','#000000'),
                 'marker_text': '',
                 // 'title': 'Odessa 2020',
@@ -629,12 +1158,9 @@ function add_experimental_map (options) {
         gestureHandling : gestureHandling,
     };
     map = new google.maps.Map(map_container, mapOptions);
-    map.addListener('center_changed', ()=>{
-        mapCenterChangeHandler();
-    });
-    map.addListener('click', mapClickHandler);
-    // map.addListener('zoom_changed', addClusterEvent);
 
+    map.addListener('center_changed', mapCenterChangeHandler);
+    map.addListener('click', mapClickHandler);
 
     function mapClickHandler(){
         const card = document.querySelector('.si-wrapper-top.custom-window.open');
@@ -733,18 +1259,18 @@ function add_experimental_map (options) {
     function add_map_filter_n_clusters () {
         let static_markers = options.map_settings.static_markers;
         let markers_for_filter = options.filtered_markers;
-        let static_markers_on_map = [];
+        let static_markers_on_map  = [];
         let template_1 = popup_templates[0];
         let filter_markers_categories = [];
         let snazzy_info_windows_arr = [];
         let static_markers_keys = Object.keys(static_markers)
-        static_markers_keys.forEach(function(key) {
+        static_markers_keys.forEach(function(key){
             addMarker(static_markers[key]);
         });
 
 
         let markers_for_filter_keys = Object.keys(markers_for_filter)
-        markers_for_filter_keys.forEach(function(key) {
+        markers_for_filter_keys.forEach(function(key){
             add_filtered_Marker(markers_for_filter[key]);
         });
         /*        for (i = 0; i < static_markers.length; i++) {
@@ -754,18 +1280,18 @@ function add_experimental_map (options) {
         /*        for (i = 0; i < markers_for_filter.length; i++) {
                     add_filtered_Marker(markers_for_filter[i]);
                 }*/
-        window.markers_clusters = {};
-        let markers_list_html = '<div class="filter-list-btn active" data-category=""  data-category-zoom="' + options.map_settings.zoom + '"><span class="marker-ic all"  style="background-image: url(' + generateSvg(projectIcons, 'ALL__CATEGORY__ICON') + ')" ></span><div class="move-part"><span class="text">' + get_lang('All points of interest') + '</span></div></div>';
+        let markers_clusters = {};
+        let markers_list_html = '<div class="filter-list-btn active" data-category=""  data-category-zoom="' + options.map_settings.zoom + '"><span class="marker-ic all"  style="background-image: url(' + generateSvg(projectIcons,'ALL__CATEGORY__ICON') + ')" ></span><div class="move-part"><span class="text">' + get_lang('All points of interest') + '</span></div></div>';
 
         for (let category in filter_markers_categories) {
             let cluster_obj = {
                 url: filter_markers_categories[category][0]['cluster_ic'],
-                textColor: 'white',
-                textSize: 20,
+                textColor : 'white',
+                textSize : 20,
                 width: 48,
                 height: 44,
             };
-            let mcOptions = {
+            let  mcOptions = {
                 ignoreHidden: true,
                 styles: [
                     cluster_obj,
@@ -776,11 +1302,12 @@ function add_experimental_map (options) {
                 ]
             };
 
-            let new_cluster = new MarkerClusterer(map, filter_markers_categories[category], mcOptions);
+            let new_cluster =  new MarkerClusterer(map, filter_markers_categories[category], mcOptions);
             markers_clusters[category] = new_cluster;
 
+
             let marker_data = filter_markers_categories[category][0];
-            markers_list_html += '<div class="filter-list-btn" data-category-zoom="' + marker_data.category_zoom + '" data-category="' + category + '"><span class="marker-ic" style="background-image: url(' + marker_data.category_ic + ')"></span><div class="move-part"><span class="text" style="color:' + marker_data.color + '">' + marker_data.category_title + '</span></div></div>'
+            markers_list_html += '<div class="filter-list-btn" data-category-zoom="' + marker_data.category_zoom +'" data-category="'+ category +'"><span class="marker-ic" style="background-image: url(' + marker_data.category_ic +')"></span><div class="move-part"><span class="text" style="color:'+marker_data.color+'">' + marker_data.category_title +'</span></div></div>'
             // markers_list_html += '<div class="filter-list-btn" data-category-zoom="' + marker_data.category_zoom +'" data-category="'+ category +'"><span class="marker-ic" style="background-image: url(' + marker_data.category_ic +')"></span><div class="move-part"><span class="text">' + marker_data.category_title +'</span></div></div>'
 
         }
@@ -788,12 +1315,12 @@ function add_experimental_map (options) {
             // global cluster
             let cluster_obj = {
                 url: generateSvgCluster('#6E767E'),
-                textColor: 'white',
-                textSize: 20,
+                textColor : 'white',
+                textSize : 20,
                 width: 48,
                 height: 44,
             };
-            let mcOptions = {
+            let  mcOptions = {
                 ignoreHidden: true,
                 styles: [
                     cluster_obj,
@@ -809,25 +1336,24 @@ function add_experimental_map (options) {
 
         filter_list.html(markers_list_html);
         let filter_btns = filter_list.find('.filter-list-btn');
-        filter_btns.click(function() {
+        filter_btns.click(function(){
             filter_btns.removeClass('active');
             $(this).addClass('active');
             $($(this).attr('data-category'));
             filterMarkers($(this).attr('data-category'));
-            let target_zoom = mapGlobalOption.map_settings.zoom;
-            // let target_zoom = Number($(this).attr('data-category-zoom'));
-            // if ($(window).width() > 768) {
-            //     target_zoom = target_zoom;
-            // } else {
-            //     target_zoom = target_zoom - 2;
-            // }
+            let target_zoom = Number($(this).attr('data-category-zoom'));
+            if ($(window).width() > 768) {
+                target_zoom = target_zoom;
+            } else {
+                target_zoom = target_zoom - 2;
+            }
             console.log('target_zoom: ' + target_zoom);
             map.setZoom(target_zoom);
             map.setCenter(mapOptions.center);
-            snazzy_info_windows_arr.forEach(function(item) {
+            snazzy_info_windows_arr.forEach(function(item){
                 item.close();
             });
-            filter_list_animate()
+            filter_list_animate ()
             $(container).find('.filter-btn').toggleClass('open');
             $(container).find('.map-container').toggleClass('open');
             directionsRenderer.setMap(null);
@@ -835,12 +1361,12 @@ function add_experimental_map (options) {
         });
 
 
-        function addMarker (marker) {
+        function addMarker(marker) {
             var title = marker.title;
             var pos = new google.maps.LatLng(marker.lat, marker.lng);
 
 
-            var content = marker.marker_text;
+            var content =  marker.marker_text;
             var icon_img = new google.maps.MarkerImage();
             icon_img.url = marker.marker_icon;
             {
@@ -861,21 +1387,20 @@ function add_experimental_map (options) {
             marker1 = new google.maps.Marker({
                 title: title,
                 position: pos,
-                label: {
-                    color: '#000000',
-                    text: title,
-                    fontWeight: '700',
-                    textAlign: center,
+                label : {
+                    color : '#000000',
+                    text : title,
+                    fontWeight : '700',
+                    textAlign : center,
                 },
                 map: map,
                 icon: icon_img,
                 animation: google.maps.Animation.DROP,
-                zIndex: google.maps.Marker.MAX_ZINDEX + 100,
-                // zIndex: 99999999999999999999,
+                zIndex : 99999999999999999999,
             });
 
             static_markers_on_map.push(marker1);
-            //
+
             // Marker click listener
             let snazzy_info_window;
             var closeDelayed = false;
@@ -888,37 +1413,37 @@ function add_experimental_map (options) {
             };
         }
 
-        function add_filtered_Marker (marker) {
+        function add_filtered_Marker(marker) {
             var title = marker.title; // title
             var category = marker.category;
             var pos = new google.maps.LatLng(marker.lat, marker.lng);
             let go_to_website_text = '<div class="links-btns-wrap"></div>';
-            let url_text = marker.web_site_url.replace('https://', '').replace('http://', '').substr(0, 35);
+            let url_text = marker.web_site_url.replace('https://','').replace('http://','').substr(0, 35);
             if (marker.web_site_url.length > 35) {
                 url_text += '...';
             }
-            if (marker.web_site_url.length > 0) {
-                go_to_website_text = '<div class="links-btns-wrap"><a class="go-to-website" target="_blank" href="' + marker.web_site_url + '">' + url_text + '</a></div>';
+            if (marker.web_site_url.length  > 0) {
+                go_to_website_text = '<div class="links-btns-wrap"><a class="go-to-website" target="_blank" href="' + marker.web_site_url + '">'  + url_text +'</a></div>';
             }
             let body_text = '';
             if (marker.marker_description.length > 0) {
                 body_text = '<div class="text">' + marker.marker_description + '</div>';
             }
             let marker_array = {
-                'title': title,
-                'lat': marker.lat,
-                'lng': marker.lng
+                'title' : title,
+                'lat' : marker.lat,
+                'lng' : marker.lng
             }
             window.markers_poi_array.push(marker_array);
 
             let route_wrap = '<div class="route-wrap"></div><div class="time-for-route"></div>';
-            var content = body_text + route_wrap + go_to_website_text;
+            var content =  body_text + route_wrap + go_to_website_text;
             /*            var icon_img = {
                             url: marker.marker_icon,
                             labelOrigin : new google.maps.Point(30, 75),
                         };*/
 
-            var icon_img = new google.maps.MarkerImage();
+            var icon_img = new google.maps.MarkerImage(  );
             icon_img.url = marker.marker_icon;
             // icon_img.url = generateSvg(poiIcons,marker.icon,marker.color);
             //icon_img.labelOrigin = new google.maps.Point(20, 0);
@@ -930,25 +1455,25 @@ function add_experimental_map (options) {
 
             marker1 = new google.maps.Marker({
                 title: title,
-                label: {
-                    color: '#000000',
+                label : {
+                    color : '#000000',
                     // color : marker.color,
-                    text: title,
-                    fontWeight: '700',
-                    textAlign: center,
+                    text : title,
+                    fontWeight : '700',
+                    textAlign : center,
                     className: title.length > 15 ? 'long__label-text' : '',
                 },
                 position: pos,
                 category: category,
                 cluster_ic: marker.cluster_icon,
-                category_title: marker.category_title,
-                category_zoom: marker.category_zoom,
+                category_title :  marker.category_title,
+                category_zoom :  marker.category_zoom,
                 // category_ic: generateSvg(poiIcons,marker.iconMenu),
                 category_ic: marker.category_img,
                 map: map,
                 icon: icon_img,
                 animation: google.maps.Animation.DROP,
-                zIndex: 1,
+                zIndex : 1,
                 color: marker.color,
             });
 
@@ -990,20 +1515,20 @@ function add_experimental_map (options) {
                     body: content,
                     category_title: marker1.category_title,
                     category_icon: marker1.category_ic,
-                    category_color: marker1.category_color,
+                    category_color : marker1.category_color,
                     description: marker.marker_description,
                     route: route_wrap,
                     info: go_to_website_text,
                 }),
                 closeWhenOthersOpen: true,
-                panOnOpen: false,
+                panOnOpen : false,
                 callbacks: {
                     open: function(e) {
 
                         const newContainer = document.querySelector('.snazzy-card__window');
                         clearContent(newContainer);
                         directionsRenderer.setMap(null);
-                        changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'), 'close');
+                        changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'),'close');
 
                         var wrapper = $(this.getWrapper());
 
@@ -1019,54 +1544,57 @@ function add_experimental_map (options) {
                         let travel_mode = 'WALKING';
                         let request = {
                             origin: origin_point,
-                            destination: this._marker.getPosition(),
-                            travelMode: travel_mode
+                            destination : this._marker.getPosition(),
+                            travelMode : travel_mode
                         };
                         // directionsRenderer.setMap(null);
                         $(container).find('.route-panel').hide();
 
                         let custom_header_text = wrapper.find('.custom-header').html();
 
-                        if (!detectMobile) {
-                            get_route(directionsService, directionsRenderer, request, custom_header_text);
+                        if (!detectMobile){
+                            get_route(directionsService,directionsRenderer, request, custom_header_text);
                             content_container.find('.route-type-btn').eq(0).addClass('active');
-                            content_container.find('.route-type-btn').click(function() {
+                            content_container.find('.route-type-btn').click(function(){
                                 content_container.find('.route-type-btn').removeClass('active');
                                 $(this).addClass('active');
                                 request.travelMode = $(this).data('type');
-                                get_route(directionsService, directionsRenderer, request, custom_header_text);
+                                get_route(directionsService,directionsRenderer, request, custom_header_text);
                             });
                         } else if (detectMobile) {
-                            get_route(directionsService, directionsRenderer, request, custom_header_text);
+                            get_route(directionsService,directionsRenderer, request, custom_header_text);
                             content_container.find('.route-type-btn').eq(0).addClass('active');
-                            content_container.find('.route-type-btn').click(function() {
+                            content_container.find('.route-type-btn').click(function(){
                                 content_container.find('.route-type-btn').removeClass('active');
                                 $(this).addClass('active');
                                 request.travelMode = $(this).data('type');
-                                get_route(directionsService, directionsRenderer, request, custom_header_text);
+                                get_route(directionsService,directionsRenderer, request, custom_header_text);
                             });
-                            getRoutesDuration(directionsService, origin_point, this._marker.getPosition());
+                            getRoutesDuration(directionsService,origin_point,this._marker.getPosition());
                         }
 
                         $(this.getWrapper()).addClass('open');
-                        if (marker.marker_description.length == 0 && marker.web_site_url.length == 0) {
+                        if (marker.marker_description.length == 0 && marker.web_site_url.length  == 0) {
                             $(this.getWrapper()).addClass('min');
                         }
+
+
 
 
                         let marker_position = this._marker.getPosition();
                         let marker_position_lat = marker_position.lat();
                         let marker_position_lng = marker_position.lng();
                         marker_position_lat = 'rip' + marker_position_lat;
-                        marker_position_lat = Number(marker_position_lat.replace('rip', ''));
+                        marker_position_lat = Number(marker_position_lat.replace('rip',''));
                         marker_position_lng = 'rip' + marker_position_lng;
-                        marker_position_lng = Number(marker_position_lng.replace('rip', ''));
+                        marker_position_lng = Number(marker_position_lng.replace('rip',''));
                         let map_app_url = '';
+
 
 
                         if (marker.info_window_img.length > 5) {
                             let json_array = JSON.parse(marker.info_window_img);
-                            let img_html = '<img src="' + json_array.sizes.medium + '" alt="">';
+                            let img_html = '<img src="' + json_array.sizes.medium +  '" alt="">';
                             $(container).find('.custom-header-img').html(img_html);
                             $(container).find('.custom-header-wrap').addClass('with-img');
                             $(container).find('.custom-body').addClass('with-img');
@@ -1091,16 +1619,16 @@ function add_experimental_map (options) {
                                             }
                                         }
                                     } else {
-                                        let img_html = '<img src="' + generateSvg(projectIcons, 'POI__PLUG') + '" alt="">';
+                                        let img_html = '<img src="'+generateSvg(projectIcons,'POI__PLUG')+'" alt="">';
                                         $(container).find('.custom-header-img').html(img_html);
                                         $(container).find('.custom-header-wrap').addClass('with-img');
                                         $(container).find('.custom-body').addClass('with-img');
                                     }
                                     var id_request = {
                                         placeId: results[i].place_id,
-                                        fields: ['name', 'rating', 'formatted_phone_number', 'geometry', 'url', 'place_id']
+                                        fields: ['name', 'rating', 'formatted_phone_number', 'geometry', 'url' , 'place_id' ]
                                     };
-                                    service.getDetails(id_request, function(details, status) {
+                                    service.getDetails(id_request, function(details, status){
                                         if (details.formatted_phone_number != undefined) {
                                             if (details.formatted_phone_number.length > 0) {
                                                 $(container).find('.links-btns-wrap .phone-btn').remove();
@@ -1117,12 +1645,12 @@ function add_experimental_map (options) {
                                           (navigator.platform.indexOf("iPad") != -1) ||
                                           (navigator.platform.indexOf("iPod") != -1)) {
                                             //map_app_url = 'http://maps.apple.com/?ll=' + marker_position_lat +','+ marker_position_lng;
-                                            map_app_url = `https://www.google.com/maps?f=d&daddr=${marker_position_lat + ',' + marker_position_lng}`;
+                                            map_app_url = `https://www.google.com/maps?f=d&daddr=${marker_position_lat +','+ marker_position_lng}`;
                                             $(container).find('.links-btns-wrap').append(`<a class="map-place circle-btn" target="_blank" href="${map_app_url}">${get_lang('Navigate to')}</a>`);
 
                                         } else {
                                             // https://www.google.com/maps?f=d&saddr=Thompson+St,+New+York,+NY,+USA&daddr=Wooster+St,+New+York,+NY,+USA&dirflg=d
-                                            map_app_url = `https://www.google.com/maps?f=d&daddr=${marker_position_lat + ',' + marker_position_lng}`;
+                                            map_app_url = `https://www.google.com/maps?f=d&daddr=${marker_position_lat +','+ marker_position_lng}`;
                                             $(container).find('.links-btns-wrap').append(`<a class="map-place circle-btn" target="_blank" href="${map_app_url}">${get_lang('Navigate to')}</a>`);
                                         }
                                     })
@@ -1133,11 +1661,11 @@ function add_experimental_map (options) {
 
                         /*                        if ($(window).width() < 992 ) {*/
                         let text = wrapper.find('.text');
-                        let img = wrapper.find('.custom-header-img img');
+                        let img =  wrapper.find('.custom-header-img img');
                         let coef = 3;
                         if (text.length > 0 || img.length > 0) {
                             coef = 3;
-                        } else {
+                        }  else {
                             coef = 5;
                         }
                         let map_bounds = map.getBounds();
@@ -1148,7 +1676,7 @@ function add_experimental_map (options) {
                         let difference_quoter = (map_lat_top - map_lat_bottom) / coef;
                         let marker_position_lat_cor = marker_position_lat + difference_quoter;
 
-                        if (detectMobile) {
+                        if (detectMobile){
                             let start;
                             newContainer.appendChild(wrapper[0]);
 
@@ -1156,39 +1684,38 @@ function add_experimental_map (options) {
                                 if (start === undefined)
                                     start = timestamp;
                                 const elapsed = ((timestamp - start) / 4);
-                                newContainer.style.bottom = (35 - elapsed) * -1 + '%';
+                                newContainer.style.bottom = (35 - elapsed) * -1 +'%';
 
-                                if (elapsed < 35) {
+                                if (elapsed < 35){
                                     window.requestAnimationFrame(openMiniCard);
                                 } else {
                                     newContainer.style.bottom = '0';
-                                    changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'), 'open');
+                                        changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'),'open');
                                 }
                             }
-
                             window.requestAnimationFrame(openMiniCard);
 
                             const cont = document.querySelector('.custom-content');
                             cont.addEventListener('touchstart', handleTouchStart, false);
                             cont.addEventListener('touchmove', handleTouchMove, false);
-                            map.panTo({lat: marker_position_lat, lng: marker_position_lng});
+                            map.panTo({lat  : marker_position_lat , lng:marker_position_lng });
                         } else {
-                            map.panTo({lat: marker_position_lat_cor, lng: marker_position_lng});
+                            map.panTo({lat  : marker_position_lat_cor , lng:marker_position_lng });
                         }
 
                         /*                        } else {
                                                     map.panTo({lat  : marker_position_lat , lng:marker_position_lng });
                                                 }*/
-                        const title = document.querySelector('.category-title');
-                        title.style.color = marker.color;
+                    const title = document.querySelector('.category-title');
+                    title.style.color = marker.color;
                     },
                     afterOpen: function() {
                         var wrapper = $(this.getWrapper());
                         wrapper.addClass('active');
-                        wrapper.find('.custom-close').on('click', () => {
+                        wrapper.find('.custom-close').on('click', ()=>{
                             closeDelayHandler();
                             clearContent(document.querySelector('.snazzy-card__window'));
-                            changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'), 'close');
+                            changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'),'close');
                             directionsRenderer.setMap(null);
                         });
                     },
@@ -1217,24 +1744,24 @@ function add_experimental_map (options) {
 
             function removeStyleSheet (id) {
                 const style = document.getElementById(id);
-                if (style) {
+                if (style){
                     style.remove();
                 }
             }
 
-            function getTouches (evt) {
+            function getTouches(evt) {
                 return evt.touches ||             // browser API
                   evt.originalEvent.touches; // jQuery
             }
 
-            function handleTouchStart (evt) {
+            function handleTouchStart(evt) {
                 const firstTouch = getTouches(evt)[0];
                 xDown = firstTouch.clientX;
                 yDown = firstTouch.clientY;
             }
 
-            function handleTouchMove (evt) {
-                if (!xDown || !yDown) {
+            function handleTouchMove(evt) {
+                if ( ! xDown || ! yDown ) {
                     return;
                 }
 
@@ -1244,18 +1771,18 @@ function add_experimental_map (options) {
                 var xDiff = xDown - xUp;
                 var yDiff = yDown - yUp;
 
-                if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
-                    if (xDiff > 0) {
+                if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+                    if ( xDiff > 0 ) {
                         /* left swipe */
                     } else {
                         /* right swipe */
                     }
                 } else {
-                    if (yDiff > 0) {
+                    if ( yDiff > 0 ) {
                         /* up swipe */
                         const isLoaded = document.getElementById('openedCardStyle');
-                        if (!isLoaded) {
-                            document.head.innerHTML += '<style id="openedCardStyle">' + mobileOpenedCard + '</style>';
+                        if (!isLoaded){
+                                document.head.innerHTML +='<style id="openedCardStyle">'+mobileOpenedCard+'</style>';
 
                             let start;
                             const card = document.querySelector('.map-parent .custom-window');
@@ -1264,16 +1791,15 @@ function add_experimental_map (options) {
                                 if (start === undefined)
                                     start = timestamp;
                                 const elapsed = (timestamp - start) / 2;
-                                card.style.height = elapsed + 'vh';
+                                card.style.height = elapsed +'vh';
 
-                                if (elapsed < 100) {
+                                if (elapsed < 100){
                                     window.requestAnimationFrame(openFullscreenCard);
                                 } else {
                                     card.style.height = '100vh';
                                 }
                             }
-
-                            window.requestAnimationFrame(openFullscreenCard);
+                                window.requestAnimationFrame(openFullscreenCard);
 
                         }
 
@@ -1282,26 +1808,25 @@ function add_experimental_map (options) {
                         const card = document.querySelector('.map-parent .custom-window');
                         const parent = card.parentElement;
                         const cardStyle = card.style.height;
-                        if (cardStyle) {
+                        if (cardStyle){
                             let start;
 
                             function closeFullscreenCard (timestamp) {
                                 if (start === undefined)
                                     start = timestamp;
                                 const elapsed = (timestamp - start) / 2;
-                                card.style.height = 100 - elapsed + 'vh';
+                                card.style.height = 100 - elapsed +'vh';
 
-                                if (elapsed < 100) {
+                                if (elapsed < 100){
                                     window.requestAnimationFrame(closeFullscreenCard);
                                 } else {
                                     closeDelayHandler();
                                     directionsRenderer.setMap(null);
                                     clearContent(document.querySelector('.snazzy-card__window'));
                                     card.style.height = '0';
-                                    changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'), 'close');
+                                    changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'),'close');
                                 }
                             }
-
                             window.requestAnimationFrame(closeFullscreenCard);
                         } else {
                             let start;
@@ -1310,19 +1835,18 @@ function add_experimental_map (options) {
                                 if (start === undefined)
                                     start = timestamp;
                                 const elapsed = ((timestamp - start) / 2) * -1;
-                                parent.style.bottom = elapsed + '%';
+                                parent.style.bottom = elapsed +'%';
 
-                                if (Math.abs(elapsed) < 35) {
+                                if (Math.abs(elapsed) < 35){
                                     window.requestAnimationFrame(closeMiniCard);
                                 } else {
                                     closeDelayHandler();
                                     directionsRenderer.setMap(null);
                                     clearContent(document.querySelector('.snazzy-card__window'));
                                     parent.style.bottom = 0;
-                                    changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'), 'close');
+                                    changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'),'close');
                                 }
                             }
-
                             window.requestAnimationFrame(closeMiniCard);
                         }
                     }
@@ -1331,7 +1855,6 @@ function add_experimental_map (options) {
                 xDown = null;
                 yDown = null;
             }
-
             snazzy_info_windows_arr.push(snazzy_info_window);
             /*        google.maps.event.addListener(marker1, 'click', (function (marker1, content) {
                         return function () {
@@ -1345,7 +1868,7 @@ function add_experimental_map (options) {
         }
 
 
-        filterMarkers = function(category) {
+        filterMarkers = function (category) {
             if (category.length === 0) {
                 for (let category in filter_markers_categories) {
                     markers_clusters[category].clearMarkers();
@@ -1354,7 +1877,7 @@ function add_experimental_map (options) {
             } else {
                 markers_clusters['all'].clearMarkers();
                 for (let category in filter_markers_categories) {
-                    markers_clusters[category].addMarkers(filter_markers_categories[category]);
+                    markers_clusters[category].addMarkers( filter_markers_categories[category]);
                 }
             }
             for (i = 0; i < map_filtered_markers_on_map.length; i++) {
@@ -1374,52 +1897,53 @@ function add_experimental_map (options) {
             }
         };
 
-        function getRoutesDuration (directionsService, originPoint, destination) {
+
+        function getRoutesDuration (directionsService,originPoint,destination) {
             let routesInterval;
-            const routesMethods = ['DRIVING', 'BICYCLING', 'WALKING'];
-            const htmlArr = [];
+            const routesMethods =['DRIVING','BICYCLING','WALKING'];
+            const htmlArr =[];
             htmlArr.length = 2;
-            let routesHtml = '';
+            let routesHtml='';
             const timeForRouteContainer = document.querySelector('.time-for-route');
-            routesMethods.forEach((routeMethod, index) => {
+            routesMethods.forEach((routeMethod, index) =>{
                 const request = {
                     origin: originPoint,
-                    destination: destination,
-                    travelMode: routeMethod
+                    destination : destination,
+                    travelMode : routeMethod
                 };
-                directionsService.route(request, (response, status) => {
-                    if (status === 'OK') {
-                        const duration = response.routes[0].legs[0].duration.value;
-                        if (duration > 60) {
-                            routesHtml = ' <div class="route__' + routeMethod.toLowerCase() + '"><span class="number"> ' + Math.round(duration / 60) + '</span><span class="word">' + get_lang('minutes') + '</span></div>';
-                        } else {
-                            routesHtml = ' <div class="route__' + routeMethod.toLowerCase() + '"><span' +
-                              ' class="number">' + duration + ' </span><span class="word">' + get_lang('seconds') + ' </span></div>';
-                        }
-                        htmlArr[index] = routesHtml;
+                directionsService.route(request, (response, status)=>{
+                   if (status === 'OK') {
+                       const duration = response.routes[0].legs[0].duration.value;
+                       if (duration > 60) {
+                           routesHtml = ' <div class="route__'+routeMethod.toLowerCase()+'"><span class="number"> ' + Math.round(duration / 60)  + '</span><span class="word">' + get_lang('minutes') + '</span></div>';
+                       } else {
+                           routesHtml = ' <div class="route__'+routeMethod.toLowerCase()+'"><span' +
+                             ' class="number">' + duration + ' </span><span class="word">' + get_lang('seconds') + ' </span></div>';
+                       }
+                       htmlArr[index] = routesHtml;
 
-                    } else {
-                        routesHtml = ' <div class="route__' + routeMethod.toLowerCase() + '"><span' +
-                          ' class="number">0</span><span' +
-                          ' class="word">' + get_lang('minutes') + '</span></div>';
+                   } else{
+                       routesHtml = ' <div class="route__'+routeMethod.toLowerCase()+'"><span' +
+                         ' class="number">0</span><span' +
+                         ' class="word">' + get_lang('minutes') + '</span></div>';
 
-                        htmlArr[index] = routesHtml;
+                       htmlArr[index] = routesHtml;
 
-                    }
+                   }
                 });
             });
-            routesInterval = setInterval(() => {
-                if (htmlArr.length === 3) {
+            routesInterval = setInterval(()=>{
+                if (htmlArr.length === 3){
                     clearInterval(routesInterval);
                     timeForRouteContainer.innerHTML = htmlArr.join('');
                     miniCardIsOpened = true;
                 }
-            }, 100);
+            },100);
         }
-
-        function get_route (directionsService, directionsRenderer, request, title) {
+        
+        function get_route (directionsService,directionsRenderer, request , title) {
             directionsRenderer.setMap(map);
-            directionsService.route(request, function(response, status) {
+            directionsService.route(request , function(response, status) {
                 if (status === 'OK') {
 
                     directionsRenderer.setDirections(response);
@@ -1441,28 +1965,28 @@ function add_experimental_map (options) {
                         let distance_value = route.legs[i].distance.value;
                         let distance_html = '';
                         if (distance_value > 1000) {
-                            distance_html = ' <div class="row"><span class="word">' + get_lang('km') + ' </span><span class="number">' + Math.floor(distance_value / 100) / 10 + '</span></div>';
+                            distance_html = ' <div class="row"><span class="word">' + get_lang('km') +' </span><span class="number">' + Math.floor(distance_value / 100) / 10 + '</span></div>';
                         } else {
-                            distance_html = ' <div class="row"><span class="word">' + get_lang('meter') + ' </span><span class="number">' + distance_value + ' </span></div>';
+                            distance_html = ' <div class="row"><span class="word">' + get_lang('meter') +' </span><span class="number">' + distance_value + ' </span></div>';
                         }
                         let duration_value = route.legs[i].duration.value;
                         let duration_html = '';
                         if (duration_value > 60) {
-                            duration_html = ' <div class="row"><span class="word">' + get_lang('minutes') + '</span><span class="number"> ' + Math.round(duration_value / 60) + '</span></div>';
+                            duration_html = ' <div class="row"><span class="word">' + get_lang('minutes') + '</span><span class="number"> ' + Math.round(duration_value / 60)  + '</span></div>';
                         } else {
                             duration_html = ' <div class="row"><span class="word">' + get_lang('seconds') + ' </span><span class="number">' + duration_value + ' </span></div>';
                         }
-                        $(container).find('.get-route-title .bottom-text').html(distance_html + '<div' +
+                        $(container).find('.get-route-title .bottom-text').html( distance_html + '<div' +
                           ' class="middle"> . </div>' + duration_html);
                         if (request.travelMode == 'WALKING') {
                             route_html += '<b>Travel mode: walking</b><br>';
-                            $(container).find('.get-route-title .top-text').html(get_lang('Walking route to this place'));
+                            $(container).find('.get-route-title .top-text').html(get_lang ('Walking route to this place'));
                         } else if (request.travelMode == 'BICYCLING') {
                             route_html += '<b>Travel mode: bicycling</b><br>';
-                            $(container).find('.get-route-title .top-text').html(get_lang('Cycling route to this place'));
+                            $(container).find('.get-route-title .top-text').html(get_lang ('Cycling route to this place'));
                         } else if (request.travelMode == 'DRIVING') {
                             route_html += '<b>Travel mode: driving</b><br>';
-                            $(container).find('.get-route-title .top-text').html(get_lang('Car route to this place'));
+                            $(container).find('.get-route-title .top-text').html(get_lang ('Car route to this place'));
                         }
                         summaryPanel.innerHTML = route_html;
                     }
@@ -1475,70 +1999,15 @@ function add_experimental_map (options) {
 
         filterMarkers('');
 
-        function makeMarker (position, icon, title, map) {
+        function makeMarker(position, icon, title, map) {
             new google.maps.Marker({
                 position: position,
                 map: map,
                 icon: icon,
-                title: title,
+                title: title
             });
         }
-    }
-
-    function addClusterСhamomile () {
-        if (map.zoom === 22){
-            const clusters = markers_clusters.all.getClusters();
-            if (clusters.length > 0){
-                clusters.forEach(cluster =>{
-                    // console.log(cluster);
-                    // changeClusterIcon(generateSvgCluster('#000000'),cluster);
-                   //  console.log(cluster);
-                   // cluster.clusterIcon_.url_ = generateSvgCluster('#000000');
-                   // cluster.markerClusterer_.redraw_();
-                });
-
-            }
-        }
-
-    }
-
-    function changeClusterIcon (newIcon, oldCluster) {
-        const map = oldCluster.getMap(),
-          markers = oldCluster.getMarkers();
-
-        oldCluster.markerClusterer_.clearMarkers();
-
-        var updatedMarkerCluster = new MarkerClusterer(map, markers,
-          {imagePath: newIcon});
-    }
-
-
-
-
-    function addClusterEvent () {
-        const clusters = markers_clusters.all.getClusters();
-        clusters.forEach(cluster =>{
-            cluster.markerClusterer_.addListener('click', (e)=>{
-                addClusterСhamomile();
-            });
-        });
-
-        // if (map.zoom === 22){
-        //     setTimeout(()=>{
-        //         const clusters = markers_clusters.all.getClusters();
-        //         if (clusters.length > 0){
-        //             clusters.forEach(cluster => {
-        //                 cluster.markerClusterer_.addListener('click', addClusterСhamomile);
-        //             });
-        //         }
-        //     },500);
-        // }
-
-
-        // cl.forEach(el => {
-        //     el.markerClusterer_.addListener('click', addClusterСhamomile);
-        // });
-    }
+    };
 
     function setInitialZoom () {
         let needZoomOut = false;
@@ -1562,10 +2031,6 @@ function add_experimental_map (options) {
         }
     }
     setInitialZoom();
-    setTimeout(()=>{
-        addClusterEvent();
-    },300);
-
 
 
     return experimental_map_obj;

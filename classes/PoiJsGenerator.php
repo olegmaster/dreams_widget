@@ -986,12 +986,9 @@ function generateSvg (iconColection,icon,color,newColor) {
              //icon_img.labelOrigin = new google.maps.Point(20, 0);
              //icon_img.scaledSize = new google.maps.Size(45,38 * 3);
              // icon_img.size = new google.maps.Size(45,38 * 3);
-             icon_img.labelOrigin = new google.maps.Point(18, 55);
-             let labelTitle = title;
-             if (labelTitle.length > 15) {
-                 labelTitle = title.substr(0, 15);
-                 labelTitle += '...';
-             }
+
+             const labelPosY = title.length > 15 ? 65 : 55;
+             icon_img.labelOrigin = new google.maps.Point(18, labelPosY);
 
              marker1 = new google.maps.Marker({
                  title: title,
@@ -1001,6 +998,7 @@ function generateSvg (iconColection,icon,color,newColor) {
                      text : labelTitle,
                      fontWeight : '700',
                      textAlign : center,
+                     className: title.length > 15 ? 'long__label-text' : '',
                  },
                  position: pos,
                  category: category,
@@ -5637,6 +5635,11 @@ function generateSvg (iconColection,icon,color,newColor) {
  body.desktop .map-parent .map-type .map-type-toggler{
      background-color: #1A2F43;
      box-shadow: 1px 1px 10px rgba(26, 47, 67, 0.5);
+ }
+
+ .long__label-text{
+  width: 120px;
+  white-space: break-spaces;
  }
 
  `;
