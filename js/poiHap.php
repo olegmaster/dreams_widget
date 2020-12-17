@@ -1,19 +1,1823 @@
-// each element contains data about the certain poi
-// this data is obtained from API
-// let poiData = [{"name":[{"lang":"en","value":"Tel Aviv Museum of Art"},{"lang":"he","value":"\u05de\u05d5\u05d6\u05d9\u05d0\u05d5\u05df \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05dc\u05d0\u05de\u05e0\u05d5\u05ea"}],"description":[{"lang":"en","value":"The Golda Meir Cultural and Art Center, Sderot Sha'ul HaMelech 27, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"The Golda Meir Cultural and Art Center, Sderot Sha'ul HaMelech 27, Tel Aviv-Yafo, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"The Golda Meir Cultural and Art Center, Sderot Sha'ul HaMelech 27, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"The Golda Meir Cultural and Art Center, Sderot Sha'ul HaMelech 27, Tel Aviv-Yafo, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":5,"url":"http:\/\/www.tamuseum.org.il\/he\/default.aspx","latitude":"32.0771722","longitude":"34.7860861","coords3d":{"x":"32.0771722","y":"34.7860861","z":0},"distanceToPoint":{"walk":"1241","bike":"2198","drive":"1756"},"timeToPoint":{"walk":"1039","bike":"580","drive":"393"},"phone":"03-607-7020","internationalPhone":"+97236077020","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"ChIJpz9FAptLHRURE7h6eDCkS_c"},{"name":[{"lang":"en","value":"The Israeli Opera"},{"lang":"he","value":"\u05d4\u05d0\u05d5\u05e4\u05e8\u05d4 \u05d4\u05d9\u05e9\u05e8\u05d0\u05dc\u05d9\u05ea"}],"description":[{"lang":"en","value":"Sderot Sha'ul HaMelech 19, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05e9\u05d3\u05e8\u05d5\u05ea \u05e9\u05d0\u05d5\u05dc \u05d4\u05de\u05dc\u05da 19, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"Sderot Sha'ul HaMelech 19, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05e9\u05d3\u05e8\u05d5\u05ea \u05e9\u05d0\u05d5\u05dc \u05d4\u05de\u05dc\u05da 19, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":2,"url":"http:\/\/www.israel-opera.co.il\/","latitude":"32.0762784","longitude":"34.7849475","coords3d":{"x":"32.0762784","y":"34.7849475","z":0},"distanceToPoint":{"walk":"1275","bike":"2232","drive":"1498"},"timeToPoint":{"walk":"1076","bike":"607","drive":"345"},"phone":"03-692-7777","internationalPhone":"+97236927777","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"ChIJF8dPS5tLHRURfw7nDQNZpIo"},{"name":[{"lang":"en","value":"Cameri Theater"},{"lang":"he","value":"\u05d4\u05ea\u05d9\u05d0\u05d8\u05e8\u05d5\u05df \u05d4\u05e7\u05d0\u05de\u05e8\u05d9"}],"description":[{"lang":"en","value":"Sderot Sha'ul HaMelech 19, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05e9\u05d3\u05e8\u05d5\u05ea \u05e9\u05d0\u05d5\u05dc \u05d4\u05de\u05dc\u05da 19, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"Sderot Sha'ul HaMelech 19, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05e9\u05d3\u05e8\u05d5\u05ea \u05e9\u05d0\u05d5\u05dc \u05d4\u05de\u05dc\u05da 19, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":2,"url":"http:\/\/www.cameri.co.il\/","latitude":"32.0767494","longitude":"34.7846172","coords3d":{"x":"32.0767494","y":"34.7846172","z":0},"distanceToPoint":{"walk":"988","bike":"1412","drive":"1542"},"timeToPoint":{"walk":"854","bike":"533","drive":"355"},"phone":"03-606-0900","internationalPhone":"03-606-0900","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"ChIJF8dPS5tLHRURZA_VUPaQ-mE"},{"name":[{"lang":"en","value":"Nehama Vahetzi"},{"lang":"he","value":"\u05e0\u05d7\u05de\u05d4 \u05d5\u05d7\u05e6\u05d9"}],"description":[{"lang":"en","value":"Ahad Ha'Am St 144, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05d0\u05d7\u05d3 \u05d4\u05e2\u05dd 144, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"Ahad Ha'Am St 144, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05d0\u05d7\u05d3 \u05d4\u05e2\u05dd 144, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":1,"url":"","latitude":"32.0720562","longitude":"34.7786152","coords3d":{"x":"32.0720562","y":"34.7786152","z":0},"distanceToPoint":{"walk":"1018","bike":"1659","drive":"2436"},"timeToPoint":{"walk":"818","bike":"395","drive":"635"},"phone":"03-685-2326","internationalPhone":"+97236852326","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"ChIJNVQ84YFLHRURqzjMQp3RVGY"},{"name":[{"lang":"en","value":"Aluf Albert Mandler Street"},{"lang":"he","value":"\u05d0\u05dc\u05d5\u05e3 \u05d0\u05dc\u05d1\u05e8\u05d8 \u05de\u05e0\u05d3\u05dc\u05e8"}],"description":[{"lang":"en","value":"Aluf Albert Mandler St, Ramat Gan, Israel"},{"lang":"he","value":"\u05d0\u05dc\u05d5\u05e3 \u05d0\u05dc\u05d1\u05e8\u05d8 \u05de\u05e0\u05d3\u05dc\u05e8, \u05e8\u05de\u05ea \u05d2\u05df, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"Aluf Albert Mandler St, Ramat Gan, Israel"},{"lang":"he","value":"\u05d0\u05dc\u05d5\u05e3 \u05d0\u05dc\u05d1\u05e8\u05d8 \u05de\u05e0\u05d3\u05dc\u05e8, \u05e8\u05de\u05ea \u05d2\u05df, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":3,"url":"","latitude":"32.0918002","longitude":"34.8192725","coords3d":{"x":"32.0918002","y":"34.8192725","z":0},"distanceToPoint":{"walk":"4363","bike":"4727","drive":"4703"},"timeToPoint":{"walk":"3530","bike":"1071","drive":"793"},"phone":"","internationalPhone":"","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"EilBbHVmIEFsYmVydCBNYW5kbGVyIFN0LCBSYW1hdCBHYW4sIElzcmFlbCIuKiwKFAoSCUVWKdksSh0VERccjfRuTU3jEhQKEgmt5JTnhkwdFRFvUhfnPr8ALQ"},{"name":[{"lang":"en","value":"Bakery"},{"lang":"he","value":"Bakery"}],"description":[{"lang":"en","value":"Dizengoff Square 6, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05db\u05d9\u05db\u05e8 \u05e6\u05d9\u05e0\u05d4 \u05d3\u05d9\u05d6\u05e0\u05d2\u05d5\u05e3 6, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"Dizengoff Square 6, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05db\u05d9\u05db\u05e8 \u05e6\u05d9\u05e0\u05d4 \u05d3\u05d9\u05d6\u05e0\u05d2\u05d5\u05e3 6, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":3,"url":"https:\/\/www.bakerytlv.co.il\/","latitude":"32.07776509999999","longitude":"34.77475909999999","coords3d":{"x":"32.07776509999999","y":"34.77475909999999","z":0},"distanceToPoint":{"walk":"1834","bike":"2597","drive":"2431"},"timeToPoint":{"walk":"1415","bike":"599","drive":"591"},"phone":"","internationalPhone":"","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"ChIJ_x-5znVLHRURJnGklZN6ogk"},{"name":[{"lang":"en","value":"Bakery"},{"lang":"he","value":"Bakery"}],"description":[{"lang":"en","value":"Dizengoff Square 6, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05db\u05d9\u05db\u05e8 \u05e6\u05d9\u05e0\u05d4 \u05d3\u05d9\u05d6\u05e0\u05d2\u05d5\u05e3 6, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"Dizengoff Square 6, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05db\u05d9\u05db\u05e8 \u05e6\u05d9\u05e0\u05d4 \u05d3\u05d9\u05d6\u05e0\u05d2\u05d5\u05e3 6, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":2,"url":"https:\/\/www.bakerytlv.co.il\/","latitude":"32.07776509999999","longitude":"34.77475909999999","coords3d":{"x":"32.07776509999999","y":"34.77475909999999","z":0},"distanceToPoint":{"walk":"1834","bike":"2597","drive":"2431"},"timeToPoint":{"walk":"1415","bike":"599","drive":"591"},"phone":"03-563-3239","internationalPhone":"+97235633239","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"ChIJ_x-5znVLHRURJnGklZN6ogk"}];
-//
-//
-// // this variable contains all poi categories
-// let poiCategoriesData  = [{"name":[{"lang":"en","value":"Restaurants"},{"lang":"he","value":"Restaurants"}],"description":[{"lang":"en","value":"Cafes Description"},{"lang":"he","value":"Cafes Description"}],"categoryId":"1","color":"#D95877","icon":"restaurants_f","iconMenu":"restaurants_i"},{"name":[{"lang":"en","value":"Culture"},{"lang":"he","value":"Culture"}],"description":[{"lang":"en","value":"Culture"},{"lang":"he","value":"Culture"}],"categoryId":"2","color":"#EB5757","icon":"culture_f","iconMenu":"culture_i"},{"name":[{"lang":"en","value":"Public Transport"},{"lang":"he","value":"Public Transport"}],"description":[{"lang":"en","value":"Public Transport"},{"lang":"he","value":"Public Transport"}],"categoryId":"3","color":"#F2994A","icon":"transport_f","iconMenu":"transport_i"},{"name":[{"lang":"en","value":"Healthcare"},{"lang":"he","value":"Healthcare"}],"description":[{"lang":"en","value":"Healthcare"},{"lang":"he","value":"Healthcare"}],"categoryId":"4","color":"#FDC536","icon":"healthcare_f","iconMenu":"healthcare_i"},{"name":[{"lang":"en","value":"General"},{"lang":"he","value":"General"}],"description":[{"lang":"en","value":"General"},{"lang":"he","value":"General"}],"categoryId":"5","color":"#6FCF97","icon":"general_f","iconMenu":"general_i"},{"name":[{"lang":"en","value":"Supermarkets"},{"lang":"he","value":"Supermarkets"}],"description":[{"lang":"en","value":"Supermarkets"},{"lang":"he","value":"Supermarkets"}],"categoryId":"6","color":"#219653","icon":"supermarkets_f","iconMenu":"supermarkets_i"},{"name":[{"lang":"en","value":"Shopping"},{"lang":"he","value":"Shopping"}],"description":[{"lang":"en","value":"Shopping"},{"lang":"he","value":"Shopping"}],"categoryId":"7","color":"#2F80ED","icon":"shopping_f","iconMenu":"shopping_i"},{"name":[{"lang":"en","value":"Parks"},{"lang":"he","value":"Parks"}],"description":[{"lang":"en","value":"Parks"},{"lang":"he","value":"Parks"}],"categoryId":"8","color":"#D95877","icon":"park_f","iconMenu":"park_i"},{"name":[{"lang":"en","value":"Business"},{"lang":"he","value":"Business"}],"description":[{"lang":"en","value":"Business"},{"lang":"he","value":"Business"}],"categoryId":"9","color":"#EB5757","icon":"business_f","iconMenu":"business_i"},{"name":[{"lang":"en","value":"Construction"},{"lang":"he","value":"Construction"}],"description":[{"lang":"en","value":"Construction"},{"lang":"he","value":"Construction"}],"categoryId":"10","color":"#F2994A","icon":"construction_f","iconMenu":"construction_i"},{"name":[{"lang":"en","value":"Beaches"},{"lang":"he","value":"Beaches"}],"description":[{"lang":"en","value":"Beaches"},{"lang":"he","value":"Beaches"}],"categoryId":"11","color":"#FDC536","icon":"beaches_f","iconMenu":"beaches_i"},{"name":[{"lang":"en","value":"Sports"},{"lang":"he","value":"Sports"}],"description":[{"lang":"en","value":"Sports"},{"lang":"he","value":"Sports"}],"categoryId":"12","color":"#6FCF97","icon":"sports_f","iconMenu":"sports_i"},{"name":[{"lang":"en","value":"Subway"},{"lang":"he","value":"Subway"}],"description":[{"lang":"en","value":"Subway"},{"lang":"he","value":"Subway"}],"categoryId":"13","color":"#219653","icon":"subway_f","iconMenu":"subway_i"},{"name":[{"lang":"en","value":"Street"},{"lang":"he","value":"Street"}],"description":[{"lang":"en","value":"Street"},{"lang":"he","value":"Street"}],"categoryId":"14","color":"#2F80ED","icon":"streets_f","iconMenu":"streets_i"},{"name":[{"lang":"en","value":"Kosher"},{"lang":"he","value":"Kosher"}],"description":[{"lang":"en","value":"Kosher"},{"lang":"he","value":"Kosher"}],"categoryId":"15","color":"#D95877","icon":"kosher_f","iconMenu":"kosher_i"},{"name":[{"lang":"en","value":"Synagogue"},{"lang":"he","value":"Synagogue"}],"description":[{"lang":"en","value":"Synagogue"},{"lang":"he","value":"Synagogue"}],"categoryId":"16","color":"#EB5757","icon":"synagogue_f","iconMenu":"synagogue_i"},{"name":[{"lang":"en","value":"For kids"},{"lang":"he","value":"For kids"}],"description":[{"lang":"en","value":"For kids"},{"lang":"he","value":"For kids"}],"categoryId":"17","color":"#F2994A","icon":"kids_f","iconMenu":"kids_i"},{"name":[{"lang":"en","value":"Office"},{"lang":"he","value":"Office"}],"description":[{"lang":"en","value":"Office"},{"lang":"he","value":"Office"}],"categoryId":"18","color":"#FDC536","icon":"office_f","iconMenu":"office_i"},{"name":[{"lang":"en","value":"Bus stations"},{"lang":"he","value":"Bus stations"}],"description":[{"lang":"en","value":"Bus stations"},{"lang":"he","value":"Bus stations"}],"categoryId":"19","color":"#6FCF97","icon":"busStation_f","iconMenu":"busStation_i"},{"name":[{"lang":"en","value":"Cafes"},{"lang":"he","value":"Cafes"}],"description":[{"lang":"en","value":"Cafes"},{"lang":"he","value":"Cafes"}],"categoryId":"20","color":"#219653","icon":"cafes_f","iconMenu":"cafes_i"},{"name":[{"lang":"en","value":"Education"},{"lang":"he","value":"Education"}],"description":[{"lang":"en","value":"Education"},{"lang":"he","value":"Education"}],"categoryId":"21","color":"#2F80ED","icon":"education_f","iconMenu":"education_i"}];
+<?php
+$lang = $_GET['lang'] ?? 'en';
+$dir = (in_array($lang, ['he']))?'rtl':'ltr';
+?>
 
-let poiData = [{"name":[{"lang":"en","value":"Tel Aviv Museum of Art"},{"lang":"he","value":"\u05de\u05d5\u05d6\u05d9\u05d0\u05d5\u05df \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05dc\u05d0\u05de\u05e0\u05d5\u05ea"}],"description":[{"lang":"en","value":"The Golda Meir Cultural and Art Center, Sderot Sha'ul HaMelech 27, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"The Golda Meir Cultural and Art Center, Sderot Sha'ul HaMelech 27, Tel Aviv-Yafo, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"The Golda Meir Cultural and Art Center, Sderot Sha'ul HaMelech 27, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"The Golda Meir Cultural and Art Center, Sderot Sha'ul HaMelech 27, Tel Aviv-Yafo, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":6,"url":"http:\/\/www.tamuseum.org.il\/he\/default.aspx","latitude":"32.0771722","longitude":"34.7860861","coords3d":{"x":"40.45733610000001","y":0,"z":"12.45"},"distanceToPoint":{"walk":"1241","bike":"2198","drive":"1756"},"timeToPoint":{"walk":"1039","bike":"580","drive":"393"},"phone":"","internationalPhone":"","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":"1970-01-01 00:00"}],"googleMapsID":"ChIJpz9FAptLHRURE7h6eDCkS_c"},{"name":[{"lang":"en","value":"The Israeli Opera"},{"lang":"he","value":"\u05d4\u05d0\u05d5\u05e4\u05e8\u05d4 \u05d4\u05d9\u05e9\u05e8\u05d0\u05dc\u05d9\u05ea"}],"description":[{"lang":"en","value":"Sderot Sha'ul HaMelech 19, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05e9\u05d3\u05e8\u05d5\u05ea \u05e9\u05d0\u05d5\u05dc \u05d4\u05de\u05dc\u05da 19, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"Sderot Sha'ul HaMelech 19, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05e9\u05d3\u05e8\u05d5\u05ea \u05e9\u05d0\u05d5\u05dc \u05d4\u05de\u05dc\u05da 19, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":2,"url":"http:\/\/www.israel-opera.co.il\/","latitude":"32.0762784","longitude":"34.7849475","coords3d":{"x":"32.0762784","y":"34.7849475","z":0},"distanceToPoint":{"walk":"1275","bike":"2232","drive":"1498"},"timeToPoint":{"walk":"1076","bike":"607","drive":"345"},"phone":"03-692-7777","internationalPhone":"+97236927777","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"ChIJF8dPS5tLHRURfw7nDQNZpIo"},{"name":[{"lang":"en","value":"Cameri Theater"},{"lang":"he","value":"\u05d4\u05ea\u05d9\u05d0\u05d8\u05e8\u05d5\u05df \u05d4\u05e7\u05d0\u05de\u05e8\u05d9"}],"description":[{"lang":"en","value":"Sderot Sha'ul HaMelech 19, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05e9\u05d3\u05e8\u05d5\u05ea \u05e9\u05d0\u05d5\u05dc \u05d4\u05de\u05dc\u05da 19, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"Sderot Sha'ul HaMelech 19, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05e9\u05d3\u05e8\u05d5\u05ea \u05e9\u05d0\u05d5\u05dc \u05d4\u05de\u05dc\u05da 19, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":2,"url":"http:\/\/www.cameri.co.il\/","latitude":"32.0767494","longitude":"34.7846172","coords3d":{"x":"32.0767494","y":"34.7846172","z":0},"distanceToPoint":{"walk":"988","bike":"1412","drive":"1542"},"timeToPoint":{"walk":"854","bike":"533","drive":"355"},"phone":"03-606-0900","internationalPhone":"03-606-0900","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"ChIJF8dPS5tLHRURZA_VUPaQ-mE"},{"name":[{"lang":"en","value":"Nehama Vahetzi"},{"lang":"he","value":"\u05e0\u05d7\u05de\u05d4 \u05d5\u05d7\u05e6\u05d9"}],"description":[{"lang":"en","value":"Ahad Ha'Am St 144, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05d0\u05d7\u05d3 \u05d4\u05e2\u05dd 144, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"Ahad Ha'Am St 144, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05d0\u05d7\u05d3 \u05d4\u05e2\u05dd 144, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":1,"url":"","latitude":"32.0720562","longitude":"34.7786152","coords3d":{"x":"32.0720562","y":"34.7786152","z":0},"distanceToPoint":{"walk":"1018","bike":"1659","drive":"2436"},"timeToPoint":{"walk":"818","bike":"395","drive":"635"},"phone":"03-685-2326","internationalPhone":"+97236852326","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"ChIJNVQ84YFLHRURqzjMQp3RVGY"},{"name":[{"lang":"en","value":"Aluf Albert Mandler Street"},{"lang":"he","value":"\u05d0\u05dc\u05d5\u05e3 \u05d0\u05dc\u05d1\u05e8\u05d8 \u05de\u05e0\u05d3\u05dc\u05e8"}],"description":[{"lang":"en","value":"Aluf Albert Mandler St, Ramat Gan, Israel"},{"lang":"he","value":"\u05d0\u05dc\u05d5\u05e3 \u05d0\u05dc\u05d1\u05e8\u05d8 \u05de\u05e0\u05d3\u05dc\u05e8, \u05e8\u05de\u05ea \u05d2\u05df, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"Aluf Albert Mandler St, Ramat Gan, Israel"},{"lang":"he","value":"\u05d0\u05dc\u05d5\u05e3 \u05d0\u05dc\u05d1\u05e8\u05d8 \u05de\u05e0\u05d3\u05dc\u05e8, \u05e8\u05de\u05ea \u05d2\u05df, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":3,"url":"","latitude":"32.0918002","longitude":"34.8192725","coords3d":{"x":"32.0918002","y":"34.8192725","z":0},"distanceToPoint":{"walk":"4363","bike":"4727","drive":"4703"},"timeToPoint":{"walk":"3530","bike":"1071","drive":"793"},"phone":"","internationalPhone":"","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"EilBbHVmIEFsYmVydCBNYW5kbGVyIFN0LCBSYW1hdCBHYW4sIElzcmFlbCIuKiwKFAoSCUVWKdksSh0VERccjfRuTU3jEhQKEgmt5JTnhkwdFRFvUhfnPr8ALQ"},{"name":[{"lang":"en","value":"Bakery"},{"lang":"he","value":"Bakery"}],"description":[{"lang":"en","value":"Dizengoff Square 6, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05db\u05d9\u05db\u05e8 \u05e6\u05d9\u05e0\u05d4 \u05d3\u05d9\u05d6\u05e0\u05d2\u05d5\u05e3 6, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"Dizengoff Square 6, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05db\u05d9\u05db\u05e8 \u05e6\u05d9\u05e0\u05d4 \u05d3\u05d9\u05d6\u05e0\u05d2\u05d5\u05e3 6, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":3,"url":"https:\/\/www.bakerytlv.co.il\/","latitude":"32.07776509999999","longitude":"34.77475909999999","coords3d":{"x":"32.07776509999999","y":"34.77475909999999","z":0},"distanceToPoint":{"walk":"1834","bike":"2597","drive":"2431"},"timeToPoint":{"walk":"1415","bike":"599","drive":"591"},"phone":"","internationalPhone":"","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"ChIJ_x-5znVLHRURJnGklZN6ogk"},{"name":[{"lang":"en","value":"Bakery"},{"lang":"he","value":"Bakery"}],"description":[{"lang":"en","value":"Dizengoff Square 6, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05db\u05d9\u05db\u05e8 \u05e6\u05d9\u05e0\u05d4 \u05d3\u05d9\u05d6\u05e0\u05d2\u05d5\u05e3 6, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"address":[{"lang":"en","value":"Dizengoff Square 6, Tel Aviv-Yafo, Israel"},{"lang":"he","value":"\u05db\u05d9\u05db\u05e8 \u05e6\u05d9\u05e0\u05d4 \u05d3\u05d9\u05d6\u05e0\u05d2\u05d5\u05e3 6, \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 \u05d9\u05e4\u05d5, \u05d9\u05e9\u05e8\u05d0\u05dc"}],"categoryId":2,"url":"https:\/\/www.bakerytlv.co.il\/","latitude":"32.07776509999999","longitude":"34.77475909999999","coords3d":{"x":"32.07776509999999","y":"34.77475909999999","z":0},"distanceToPoint":{"walk":"1834","bike":"2597","drive":"2431"},"timeToPoint":{"walk":"1415","bike":"599","drive":"591"},"phone":"03-563-3239","internationalPhone":"+97235633239","customPhone":"","promotion":[{"name":[{"lang":"en","value":""},{"lang":"he","value":""}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"url":"","timeToLive":""}],"googleMapsID":"ChIJ_x-5znVLHRURJnGklZN6ogk"}];
+let basePoiData;
+let poiData = [
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "Eleven Madison Park"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "11 Madison Ave, New York, NY 10010, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "11 Madison Ave, New York, NY 10010, USA"
+            }
+        ],
+        "categoryId": 1,
+        "url": "https://www.elevenmadisonpark.com/",
+        "latitude": "40.74165189999999",
+        "longitude": "-73.9872353",
+        "coords3d": {
+            "x": "40.74165189999999",
+            "y": "-73.9872353",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "1019",
+            "bike": "1322",
+            "drive": "1322"
+        },
+        "timeToPoint": {
+            "walk": "787",
+            "bike": "339",
+            "drive": "299"
+        },
+        "phone": "(212) 889-0905",
+        "internationalPhone": "+12128890905",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJEWbXz6ZZwokRLKmKrtPfVFY"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "Gallow Green"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "542 W 27th St, New York, NY 10001, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "542 W 27th St, New York, NY 10001, USA"
+            }
+        ],
+        "categoryId": 1,
+        "url": "https://mckittrickhotel.com/gallow-green/",
+        "latitude": "40.7507976",
+        "longitude": "-74.0041142",
+        "coords3d": {
+            "x": "40.7507976",
+            "y": "-74.0041142",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "994",
+            "bike": "1485",
+            "drive": "1779"
+        },
+        "timeToPoint": {
+            "walk": "734",
+            "bike": "345",
+            "drive": "415"
+        },
+        "phone": "",
+        "internationalPhone": "",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJPcblVLZZwokRHqDcG2pc6_0"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "Le Grainne Cafe"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "183 9th Ave, New York, NY 10011, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "183 9th Ave, New York, NY 10011, USA"
+            }
+        ],
+        "categoryId": 1,
+        "url": "http://legrainnecafe.com/",
+        "latitude": "40.7454012",
+        "longitude": "-74.00241009999999",
+        "coords3d": {
+            "x": "40.7454012",
+            "y": "-74.00241009999999",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "1040",
+            "bike": "1210",
+            "drive": "1210"
+        },
+        "timeToPoint": {
+            "walk": "777",
+            "bike": "293",
+            "drive": "272"
+        },
+        "phone": "(646) 486-3000",
+        "internationalPhone": "+16464863000",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJq_rhCrlZwokRlK2jTSCAibo"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "L'Amico"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "849 6th Ave, New York, NY 10001, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "849 6th Ave, New York, NY 10001, USA"
+            }
+        ],
+        "categoryId": 1,
+        "url": "http://www.lamico.nyc/",
+        "latitude": "40.7471585",
+        "longitude": "-73.9899532",
+        "coords3d": {
+            "x": "40.7471585",
+            "y": "-73.9899532",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "486",
+            "bike": "486",
+            "drive": "486"
+        },
+        "timeToPoint": {
+            "walk": "368",
+            "bike": "145",
+            "drive": "153"
+        },
+        "phone": "(212) 201-4065",
+        "internationalPhone": "+12122014065",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJqyVsRq9ZwokRukmFQg8jzvg"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "Porchlight"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "271 11th Ave, New York, NY 10001, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "271 11th Ave, New York, NY 10001, USA"
+            }
+        ],
+        "categoryId": 1,
+        "url": "http://porchlightbar.com/",
+        "latitude": "40.7520383",
+        "longitude": "-74.0049906",
+        "coords3d": {
+            "x": "40.7520383",
+            "y": "-74.0049906",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "1054",
+            "bike": "1822",
+            "drive": "2431"
+        },
+        "timeToPoint": {
+            "walk": "786",
+            "bike": "480",
+            "drive": "549"
+        },
+        "phone": "(212) 981-6188",
+        "internationalPhone": "+12129816188",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJL4_WOLZZwokRkCkqv1Mqrls"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "The Clocktower"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "5 Madison Ave, New York, NY 10010, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "5 Madison Ave, New York, NY 10010, USA"
+            }
+        ],
+        "categoryId": 1,
+        "url": "http://theclocktowernyc.com/?utm_source=Google%20My%20Business&utm_medium=Website%20Button",
+        "latitude": "40.741295",
+        "longitude": "-73.987368",
+        "coords3d": {
+            "x": "40.741295",
+            "y": "-73.987368",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "1050",
+            "bike": "1324",
+            "drive": "1324"
+        },
+        "timeToPoint": {
+            "walk": "808",
+            "bike": "339",
+            "drive": "305"
+        },
+        "phone": "(212) 413-4300",
+        "internationalPhone": "+12124134300",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJe_H4tKZZwokRIKL-M0_luB0"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "303 Gallery"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "555 W 21st St, New York, NY 10011, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "555 W 21st St, New York, NY 10011, USA"
+            }
+        ],
+        "categoryId": 2,
+        "url": "http://www.303gallery.com/",
+        "latitude": "40.7474893",
+        "longitude": "-74.0074328",
+        "coords3d": {
+            "x": "40.7474893",
+            "y": "-74.0074328",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "1532",
+            "bike": "2011",
+            "drive": "2011"
+        },
+        "timeToPoint": {
+            "walk": "1136",
+            "bike": "480",
+            "drive": "508"
+        },
+        "phone": "(212) 255-1121",
+        "internationalPhone": "+12122551121",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJ-xjk8sdZwokRjZbInIUdV88"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "David Zwirner"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "525 W 19th St, New York, NY 10011, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "525 W 19th St, New York, NY 10011, USA"
+            }
+        ],
+        "categoryId": 2,
+        "url": "http://www.davidzwirner.com/",
+        "latitude": "40.745866",
+        "longitude": "-74.006985",
+        "coords3d": {
+            "x": "40.745866",
+            "y": "-74.006985",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "1563",
+            "bike": "2146",
+            "drive": "2411"
+        },
+        "timeToPoint": {
+            "walk": "1167",
+            "bike": "497",
+            "drive": "545"
+        },
+        "phone": "(212) 727-2070",
+        "internationalPhone": "+12127272070",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJMf7Re8dZwokRJ0Nyj2IixlM"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "Gagosian"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "555 W 24th St, New York, NY 10011, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "555 W 24th St, New York, NY 10011, USA"
+            }
+        ],
+        "categoryId": 2,
+        "url": "https://gagosian.com/locations/west-24th/",
+        "latitude": "40.7494887",
+        "longitude": "-74.0058521",
+        "coords3d": {
+            "x": "40.7494887",
+            "y": "-74.0058521",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "1294",
+            "bike": "1536",
+            "drive": "1859"
+        },
+        "timeToPoint": {
+            "walk": "951",
+            "bike": "383",
+            "drive": "469"
+        },
+        "phone": "(212) 741-1111",
+        "internationalPhone": "+12127411111",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJu1h377dZwokRkjYPDJfKolY"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "Gladstone Gallery"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "515 W 24th St, New York, NY 10011, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "515 W 24th St, New York, NY 10011, USA"
+            }
+        ],
+        "categoryId": 2,
+        "url": "http://www.gladstonegallery.com/",
+        "latitude": "40.7489324",
+        "longitude": "-74.0044772",
+        "coords3d": {
+            "x": "40.7489324",
+            "y": "-74.0044772",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "1163",
+            "bike": "1668",
+            "drive": "1991"
+        },
+        "timeToPoint": {
+            "walk": "858",
+            "bike": "406",
+            "drive": "499"
+        },
+        "phone": "(212) 206-9300",
+        "internationalPhone": "+12122069300",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJQf--jbdZwokRvi47ZXYnNqk"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "Paula Cooper Gallery"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "524 W 26th St, New York, NY 10001, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "524 W 26th St, New York, NY 10001, USA"
+            }
+        ],
+        "categoryId": 2,
+        "url": "https://www.paulacoopergallery.com/",
+        "latitude": "40.7500545",
+        "longitude": "-74.004138",
+        "coords3d": {
+            "x": "40.7500545",
+            "y": "-74.004138",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "1022",
+            "bike": "1338",
+            "drive": "2119"
+        },
+        "timeToPoint": {
+            "walk": "755",
+            "bike": "446",
+            "drive": "507"
+        },
+        "phone": "(212) 255-1105",
+        "internationalPhone": "+12122551105",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJvULUjsdZwokRLlEwdkXOLm8"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "Ace Hotel New York"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "20 W 29th St, New York, NY 10001, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "20 W 29th St, New York, NY 10001, USA"
+            }
+        ],
+        "categoryId": 22,
+        "url": "https://www.acehotel.com/newyork/",
+        "latitude": "40.7457029",
+        "longitude": "-73.9883598",
+        "coords3d": {
+            "x": "40.7457029",
+            "y": "-73.9883598",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "575",
+            "bike": "741",
+            "drive": "741"
+        },
+        "timeToPoint": {
+            "walk": "446",
+            "bike": "189",
+            "drive": "244"
+        },
+        "phone": "(212) 679-2222",
+        "internationalPhone": "+12126792222",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJT2h1HKZZwokR_Nwoxn8RfU0"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "Moxy NYC Chelsea"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "105 W 28th St, New York, NY 10001, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "105 W 28th St, New York, NY 10001, USA"
+            }
+        ],
+        "categoryId": 22,
+        "url": "https://www.marriott.com/hotels/travel/nycos-moxy-nyc-chelsea/?scid=bb1a189a-fec3-4d19-a255-54ba596febe2&y_source=1_OTM1NDczNi03MTUtbG9jYXRpb24uZ29vZ2xlX3dlYnNpdGVfb3ZlcnJpZGU%3D",
+        "latitude": "40.7464653",
+        "longitude": "-73.9909617",
+        "coords3d": {
+            "x": "40.7464653",
+            "y": "-73.9909617",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "298",
+            "bike": "298",
+            "drive": "298"
+        },
+        "timeToPoint": {
+            "walk": "231",
+            "bike": "80",
+            "drive": "97"
+        },
+        "phone": "(212) 514-6699",
+        "internationalPhone": "+12125146699",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJnZ6IScZZwokR6bdW6qeMr24"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "Soho House New York"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "29-35 9th Ave, New York, NY 10014, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "29-35 9th Ave, New York, NY 10014, USA"
+            }
+        ],
+        "categoryId": 22,
+        "url": "https://www.sohohouse.com/houses/soho-house-new-york?utm_source=google&utm_medium=organic&utm_campaign=googlemybusiness",
+        "latitude": "40.7406374",
+        "longitude": "-74.00592309999999",
+        "coords3d": {
+            "x": "40.7406374",
+            "y": "-74.00592309999999",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "1620",
+            "bike": "1909",
+            "drive": "2476"
+        },
+        "timeToPoint": {
+            "walk": "1223",
+            "bike": "441",
+            "drive": "571"
+        },
+        "phone": "(212) 627-9800",
+        "internationalPhone": "+12126279800",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJQy-Jj79ZwokRBqj3oqd0q7c"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "The High Line Hotel"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "180 10th Ave, New York, NY 10011, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "180 10th Ave, New York, NY 10011, USA"
+            }
+        ],
+        "categoryId": 22,
+        "url": "http://www.thehighlinehotel.com/",
+        "latitude": "40.7459912",
+        "longitude": "-74.0049983",
+        "coords3d": {
+            "x": "40.7459912",
+            "y": "-74.0049983",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "1360",
+            "bike": "1499",
+            "drive": "1723"
+        },
+        "timeToPoint": {
+            "walk": "1011",
+            "bike": "409",
+            "drive": "417"
+        },
+        "phone": "(212) 929-3888",
+        "internationalPhone": "+12129293888",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJ-1XDX7hZwokRHLjn63mDetU"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "The Standard, High Line"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "848 Washington St, New York, NY 10014, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "848 Washington St, New York, NY 10014, USA"
+            }
+        ],
+        "categoryId": 22,
+        "url": "http://www.standardhotels.com/new-york/properties/high-line?utm_source=google&utm_campaign=google_my_business&utm_medium=organic",
+        "latitude": "40.74081380000001",
+        "longitude": "-74.00786339999999",
+        "coords3d": {
+            "x": "40.74081380000001",
+            "y": "-74.00786339999999",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "1843",
+            "bike": "2294",
+            "drive": "2002"
+        },
+        "timeToPoint": {
+            "walk": "1383",
+            "bike": "687",
+            "drive": "510"
+        },
+        "phone": "(212) 645-4646",
+        "internationalPhone": "+12126454646",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJN-93ZsBZwokRKqmdupb-XFA"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "Cinépolis Chelsea"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "260 W 23rd St, New York, NY 10011, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "260 W 23rd St, New York, NY 10011, USA"
+            }
+        ],
+        "categoryId": 22,
+        "url": "http://www.cinepolisusa.com/chelsea.aspx",
+        "latitude": "40.74483470000001",
+        "longitude": "-73.9980698",
+        "coords3d": {
+            "x": "40.74483470000001",
+            "y": "-73.9980698",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "646",
+            "bike": "693",
+            "drive": "693"
+        },
+        "timeToPoint": {
+            "walk": "481",
+            "bike": "151",
+            "drive": "149"
+        },
+        "phone": "(212) 691-5519",
+        "internationalPhone": "+12126915519",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJOf6_VLpZwokRmUSK-XxBH0U"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "Gotham Comedy Club"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "208 W 23rd St, New York, NY 10011, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "208 W 23rd St, New York, NY 10011, USA"
+            }
+        ],
+        "categoryId": 22,
+        "url": "http://gothamcomedyclub.com/",
+        "latitude": "40.7442304",
+        "longitude": "-73.996455",
+        "coords3d": {
+            "x": "40.7442304",
+            "y": "-73.996455",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "542",
+            "bike": "542",
+            "drive": "542"
+        },
+        "timeToPoint": {
+            "walk": "407",
+            "bike": "128",
+            "drive": "113"
+        },
+        "phone": "(212) 367-9000",
+        "internationalPhone": "+12123679000",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJpaxZnKRZwokRCPtV5DWaE50"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "SVA Theatre"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "333 W 23rd St, New York, NY 10011, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "333 W 23rd St, New York, NY 10011, USA"
+            }
+        ],
+        "categoryId": 22,
+        "url": "https://svatheatre.com/",
+        "latitude": "40.7460403",
+        "longitude": "-73.9996948",
+        "coords3d": {
+            "x": "40.7460403",
+            "y": "-73.9996948",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "693",
+            "bike": "881",
+            "drive": "878"
+        },
+        "timeToPoint": {
+            "walk": "509",
+            "bike": "201",
+            "drive": "199"
+        },
+        "phone": "(212) 592-2980",
+        "internationalPhone": "+12125922980",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJueJgN7pZwokRobG_4FxnwcE"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "The Well"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "2 E 15th St, New York, NY 10003, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "2 E 15th St, New York, NY 10003, USA"
+            }
+        ],
+        "categoryId": 22,
+        "url": "",
+        "latitude": "40.736546",
+        "longitude": "-73.99297490000001",
+        "coords3d": {
+            "x": "40.736546",
+            "y": "-73.99297490000001",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "1624",
+            "bike": "2024",
+            "drive": "2024"
+        },
+        "timeToPoint": {
+            "walk": "1244",
+            "bike": "466",
+            "drive": "539"
+        },
+        "phone": "",
+        "internationalPhone": "",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJyyyedJhZwokRyoDzrQZlUbI"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "Bluemercury"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "865 Broadway, New York, NY 10003, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "865 Broadway, New York, NY 10003, USA"
+            }
+        ],
+        "categoryId": 7,
+        "url": "https://bluemercury.com/apps/store-locator/s/union-square",
+        "latitude": "40.7375407",
+        "longitude": "-73.990341",
+        "coords3d": {
+            "x": "40.7375407",
+            "y": "-73.990341",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "1461",
+            "bike": "1604",
+            "drive": "1640"
+        },
+        "timeToPoint": {
+            "walk": "1124",
+            "bike": "402",
+            "drive": "384"
+        },
+        "phone": "(212) 243-8100",
+        "internationalPhone": "+12122438100",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJk_TAaqJZwokRsjaKMZKxbC4"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "Diane Von Furstenberg"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "440 W 14th St, New York, NY 10014, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "440 W 14th St, New York, NY 10014, USA"
+            }
+        ],
+        "categoryId": 7,
+        "url": "https://www.dvf.com/?utm_source=google%20my%20business&utm_medium=listing&utm_campaign=visit%20website",
+        "latitude": "40.7415896",
+        "longitude": "-74.0073219",
+        "coords3d": {
+            "x": "40.7415896",
+            "y": "-74.0073219",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "1747",
+            "bike": "1907",
+            "drive": "1907"
+        },
+        "timeToPoint": {
+            "walk": "1314",
+            "bike": "416",
+            "drive": "480"
+        },
+        "phone": "(212) 741-6607",
+        "internationalPhone": "+12127416607",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJ7_bjp-FZwokRlBVC3mrIDno"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "Eataly NYC"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "43 W 23rd St, New York, NY 10010, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "43 W 23rd St, New York, NY 10010, USA"
+            }
+        ],
+        "categoryId": 7,
+        "url": "",
+        "latitude": "40.7425261",
+        "longitude": "-73.9911395",
+        "coords3d": {
+            "x": "40.7425261",
+            "y": "-73.9911395",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "897",
+            "bike": "896",
+            "drive": "896"
+        },
+        "timeToPoint": {
+            "walk": "681",
+            "bike": "229",
+            "drive": "206"
+        },
+        "phone": "",
+        "internationalPhone": "",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJAbI4OEZZwokRc0AL5sIx-84"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "Mantiques Modern"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "146 W 22nd St #1, New York, NY 10011, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "146 W 22nd St #1, New York, NY 10011, USA"
+            }
+        ],
+        "categoryId": 7,
+        "url": "http://mantiquesmodern.com/",
+        "latitude": "40.7428028",
+        "longitude": "-73.9952254",
+        "coords3d": {
+            "x": "40.7428028",
+            "y": "-73.9952254",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "665",
+            "bike": "665",
+            "drive": "665"
+        },
+        "timeToPoint": {
+            "walk": "509",
+            "bike": "181",
+            "drive": "137"
+        },
+        "phone": "(212) 206-1494",
+        "internationalPhone": "+12122061494",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJ-wMGTLtZwokR34xc9CExXeg"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "Rizzoli Bookstore"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "1133 Broadway, New York, NY 10010, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "1133 Broadway, New York, NY 10010, USA"
+            }
+        ],
+        "categoryId": 7,
+        "url": "http://www.rizzolibookstore.com/",
+        "latitude": "40.7435735",
+        "longitude": "-73.9891809",
+        "coords3d": {
+            "x": "40.7435735",
+            "y": "-73.9891809",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "721",
+            "bike": "1008",
+            "drive": "741"
+        },
+        "timeToPoint": {
+            "walk": "555",
+            "bike": "311",
+            "drive": "208"
+        },
+        "phone": "(212) 759-2424",
+        "internationalPhone": "+12127592424",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJg3UvcfpYwokRDr3VC4a_dt0"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "Madison Square Garden"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "4 Pennsylvania Plaza, New York, NY 10001, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "4 Pennsylvania Plaza, New York, NY 10001, USA"
+            }
+        ],
+        "categoryId": 22,
+        "url": "https://www.msg.com/madison-square-garden?cmp=van_thegarden",
+        "latitude": "40.7505045",
+        "longitude": "-73.9934387",
+        "coords3d": {
+            "x": "40.7505045",
+            "y": "-73.9934387",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "515",
+            "bike": "1062",
+            "drive": "1043"
+        },
+        "timeToPoint": {
+            "walk": "377",
+            "bike": "285",
+            "drive": "280"
+        },
+        "phone": "(212) 465-6741",
+        "internationalPhone": "+12124656741",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": "1970-01-01 00:00"
+            }
+        ],
+        "googleMapsID": "ChIJhRwB-yFawokR5Phil-QQ3zM"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "Pennsylvania Station"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "New York, NY 10119, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "New York, NY 10119, USA"
+            }
+        ],
+        "categoryId": 3,
+        "url": "",
+        "latitude": "40.750568",
+        "longitude": "-73.993519",
+        "coords3d": {
+            "x": "40.750568",
+            "y": "-73.993519",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "662",
+            "bike": "1292",
+            "drive": "1622"
+        },
+        "timeToPoint": {
+            "walk": "525",
+            "bike": "294",
+            "drive": "366"
+        },
+        "phone": "(800) 872-7245",
+        "internationalPhone": "+18008727245",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJy62yFa5ZwokRun79NAZCVXk"
+    },
+    {
+        "name": [
+            {
+                "lang": "en",
+                "value": "Whole Foods Market"
+            }
+        ],
+        "description": [
+            {
+                "lang": "en",
+                "value": "250 7th Ave, New York, NY 10001, USA"
+            }
+        ],
+        "address": [
+            {
+                "lang": "en",
+                "value": "250 7th Ave, New York, NY 10001, USA"
+            }
+        ],
+        "categoryId": 7,
+        "url": "https://www.wholefoodsmarket.com/stores/chelsea",
+        "latitude": "40.7449592",
+        "longitude": "-73.99529129999999",
+        "coords3d": {
+            "x": "40.7449592",
+            "y": "-73.99529129999999",
+            "z": 0
+        },
+        "distanceToPoint": {
+            "walk": "412",
+            "bike": "412",
+            "drive": "1084"
+        },
+        "timeToPoint": {
+            "walk": "306",
+            "bike": "128",
+            "drive": "261"
+        },
+        "phone": "(212) 924-5969",
+        "internationalPhone": "+12129245969",
+        "customPhone": "",
+        "promotion": [
+            {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "description": [
+                    {
+                        "lang": "en",
+                        "value": ""
+                    }
+                ],
+                "url": "",
+                "timeToLive": ""
+            }
+        ],
+        "googleMapsID": "ChIJu9jzyANbwokRIb60wMQSvqQ"
+    }
+];
+let langCount = 1;
+/*basePoiData.forEach(function(item){
+    if (langCount == 1) {
+        let newArrayElement = {
+            "name": [
+                { "lang": "en", "value": item.name.en },
+            ],
+            "description": [
+                { "lang": "en", "value": item.description.en },
+            ],
+            "address": [
+                { "lang": "en", "value": item.address.en },
+            ],
+            "categoryId": item.categoryId,
+            "url": item.url,
+            "latitude": item.latitude,
+            "longitude": item.longitude,
+            "coords3d": item.coords3d,
+            "distanceToPoint": item.distanceToPoint,
+            "timeToPoint": item.timeToPoint,
+            "phone": item.phone,
+            "internationalPhone": item.internationalPhone,
+            "customPhone": item.customPhone,
+            "promotion": [
+                {
+                    "name": [
+                        { "lang": "en", "value": "" },
+                    ],
+                    "description": [
+                        { "lang": "en", "value": "" },
+                    ],
+                    "url": "",
+                    "timeToLive": "1970-01-01 00:00"
+                }
+            ],
+            "googleMapsID": item.googleMapsID
+        };
+        poiData.push(newArrayElement);
+    } else {
+        let newArrayElement = {
+            "name": [
+                { "lang": "en", "value": item.name.en },
+                { "lang": "he", "value": item.name.he }
+            ],
+            "description": [
+                { "lang": "en", "value": item.description.en },
+                { "lang": "he", "value": item.description.he }
+            ],
+            "address": [
+                { "lang": "en", "value": item.address.en },
+                { "lang": "he", "value": item.address.he }
+            ],
+            "categoryId": item.categoryId,
+            "url": item.url,
+            "latitude": item.latitude,
+            "longitude": item.longitude,
+            "coords3d": item.coords3d,
+            "distanceToPoint": item.distanceToPoint,
+            "timeToPoint": item.timeToPoint,
+            "phone": item.phone,
+            "internationalPhone": item.internationalPhone,
+            "customPhone": item.customPhone,
+            "promotion": [
+                {
+                    "name": [
+                        { "lang": "en", "value": "" },
+                        { "lang": "he", "value": "" }
+                    ],
+                    "description": [
+                        { "lang": "en", "value": "" },
+                        { "lang": "he", "value": "" }
+                    ],
+                    "url": "",
+                    "timeToLive": "1970-01-01 00:00"
+                }
+            ],
+            "googleMapsID": item.googleMapsID
+        };
+        poiData.push(newArrayElement);
+    }
+
+
+});*/
+
 
 // this variable contains all poi categories
-let poiCategoriesData  = [{"name":[{"lang":"en","value":"Restaurants"},{"lang":"he","value":"Restaurants"}],"description":[{"lang":"en","value":"Cafes Description"},{"lang":"he","value":"Cafes Description"}],"categoryId":"1","color":"#D95877","icon":"restaurants_f","iconMenu":"restaurants_i"},{"name":[{"lang":"en","value":"Culture"},{"lang":"he","value":"Culture"}],"description":[{"lang":"en","value":"Culture"},{"lang":"he","value":"Culture"}],"categoryId":"2","color":"#EB5757","icon":"culture_f","iconMenu":"culture_i"},{"name":[{"lang":"en","value":"Public Transport(min)"},{"lang":"he","value":"Public Transport(min)"}],"description":[{"lang":"en","value":"Public Transport(min)"},{"lang":"he","value":"Public Transport(min)"}],"categoryId":"3","color":"#F2994A","icon":"transport_f","iconMenu":"transport_i"},{"name":[{"lang":"en","value":"Healthcare"},{"lang":"he","value":"Healthcare"}],"description":[{"lang":"en","value":"Healthcare"},{"lang":"he","value":"Healthcare"}],"categoryId":"4","color":"#FDC536","icon":"healthcare_f","iconMenu":"healthcare_i"},{"name":[{"lang":"en","value":"General"},{"lang":"he","value":"General"}],"description":[{"lang":"en","value":"General"},{"lang":"he","value":"General"}],"categoryId":"5","color":"#6FCF97","icon":"general_f","iconMenu":"general_i"},{"name":[{"lang":"en","value":"Supermarkets"},{"lang":"he","value":"Supermarkets"}],"description":[{"lang":"en","value":"Supermarkets"},{"lang":"he","value":"Supermarkets"}],"categoryId":"6","color":"#219653","icon":"supermarkets_f","iconMenu":"supermarkets_i"},{"name":[{"lang":"en","value":"Shopping"},{"lang":"he","value":"Shopping"}],"description":[{"lang":"en","value":"Shopping"},{"lang":"he","value":"Shopping"}],"categoryId":"7","color":"#2F80ED","icon":"shopping_f","iconMenu":"shopping_i"},{"name":[{"lang":"en","value":"Parks"},{"lang":"he","value":"Parks"}],"description":[{"lang":"en","value":"Parks"},{"lang":"he","value":"Parks"}],"categoryId":"8","color":"#D95877","icon":"park_f","iconMenu":"park_i"},{"name":[{"lang":"en","value":"Business"},{"lang":"he","value":"Business"}],"description":[{"lang":"en","value":"Business"},{"lang":"he","value":"Business"}],"categoryId":"9","color":"#EB5757","icon":"business_f","iconMenu":"business_i"},{"name":[{"lang":"en","value":"Construction"},{"lang":"he","value":"Construction"}],"description":[{"lang":"en","value":"Construction"},{"lang":"he","value":"Construction"}],"categoryId":"10","color":"#F2994A","icon":"construction_f","iconMenu":"construction_i"},{"name":[{"lang":"en","value":"Beaches"},{"lang":"he","value":"Beaches"}],"description":[{"lang":"en","value":"Beaches"},{"lang":"he","value":"Beaches"}],"categoryId":"11","color":"#FDC536","icon":"beaches_f","iconMenu":"beaches_i"},{"name":[{"lang":"en","value":"Sports"},{"lang":"he","value":"Sports"}],"description":[{"lang":"en","value":"Sports"},{"lang":"he","value":"Sports"}],"categoryId":"12","color":"#6FCF97","icon":"sports_f","iconMenu":"sports_i"},{"name":[{"lang":"en","value":"Subway"},{"lang":"he","value":"Subway"}],"description":[{"lang":"en","value":"Subway"},{"lang":"he","value":"Subway"}],"categoryId":"13","color":"#219653","icon":"subway_f","iconMenu":"subway_i"},{"name":[{"lang":"en","value":"Street"},{"lang":"he","value":"Street"}],"description":[{"lang":"en","value":"Street"},{"lang":"he","value":"Street"}],"categoryId":"14","color":"#2F80ED","icon":"streets_f","iconMenu":"streets_i"},{"name":[{"lang":"en","value":"Kosher"},{"lang":"he","value":"Kosher"}],"description":[{"lang":"en","value":"Kosher"},{"lang":"he","value":"Kosher"}],"categoryId":"15","color":"#D95877","icon":"kosher_f","iconMenu":"kosher_i"},{"name":[{"lang":"en","value":"Synagogue"},{"lang":"he","value":"Synagogue"}],"description":[{"lang":"en","value":"Synagogue"},{"lang":"he","value":"Synagogue"}],"categoryId":"16","color":"#EB5757","icon":"synagogue_f","iconMenu":"synagogue_i"},{"name":[{"lang":"en","value":"For kids"},{"lang":"he","value":"For kids"}],"description":[{"lang":"en","value":"For kids"},{"lang":"he","value":"For kids"}],"categoryId":"17","color":"#F2994A","icon":"kids_f","iconMenu":"kids_i"},{"name":[{"lang":"en","value":"Office"},{"lang":"he","value":"Office"}],"description":[{"lang":"en","value":"Office"},{"lang":"he","value":"Office"}],"categoryId":"18","color":"#FDC536","icon":"office_f","iconMenu":"office_i"},{"name":[{"lang":"en","value":"Bus stations"},{"lang":"he","value":"Bus stations"}],"description":[{"lang":"en","value":"Bus stations"},{"lang":"he","value":"Bus stations"}],"categoryId":"19","color":"#6FCF97","icon":"busStation_f","iconMenu":"busStation_i"},{"name":[{"lang":"en","value":"Cafes"},{"lang":"he","value":"Cafes"}],"description":[{"lang":"en","value":"Cafes"},{"lang":"he","value":"Cafes"}],"categoryId":"20","color":"#219653","icon":"cafes_f","iconMenu":"cafes_i"},{"name":[{"lang":"en","value":"Education"},{"lang":"he","value":"Education"}],"description":[{"lang":"en","value":"Education"},{"lang":"he","value":"Education"}],"categoryId":"21","color":"#2F80ED","icon":"education_f","iconMenu":"education_i"}];
-
-
-const lang = 'en';
-const dir = 'ltr';
+let poiCategoriesData  = [{"name":[{"lang":"en","value":"Restaurants"},{"lang":"he","value":"מסעדות"}],"description":[{"lang":"en","value":"Cafes Description"},{"lang":"he","value":"Cafes Description"}],"categoryId":"1","color":"#d69131","icon":"restaurants_f","iconMenu":"restaurants_i"},{"name":[{"lang":"en","value":"Culture"},{"lang":"he","value":"Culture"}],"description":[{"lang":"en","value":"Culture"},{"lang":"he","value":"Culture"}],"categoryId":"2","color":"#EB5757","icon":"culture_f","iconMenu":"culture_i"},{"name":[{"lang":"en","value":"Public Transport(min)"},{"lang":"he","value":"תחבורה"}],"description":[{"lang":"en","value":"Public Transport(min)"},{"lang":"he","value":"תחבורה"}],"categoryId":"3","color":"#F2994A","icon":"transport_f","iconMenu":"transport_i"},{"name":[{"lang":"en","value":"Healthcare"},{"lang":"he","value":"בריאות"}],"description":[{"lang":"en","value":"Healthcare"},{"lang":"he","value":"בריאות"}],"categoryId":"4","color":"#FDC536","icon":"healthcare_f","iconMenu":"healthcare_i"},{"name":[{"lang":"en","value":"General"},{"lang":"he","value":"כללי"}],"description":[{"lang":"en","value":"General"},{"lang":"he","value":"כללי"}],"categoryId":"5","color":"#6FCF97","icon":"general_f","iconMenu":"general_i"},{"name":[{"lang":"en","value":"Supermarkets"},{"lang":"he","value":"Supermarkets"}],"description":[{"lang":"en","value":"Supermarkets"},{"lang":"he","value":"Supermarkets"}],"categoryId":"6","color":"#219653","icon":"supermarkets_f","iconMenu":"supermarkets_i"},{"name":[{"lang":"en","value":"Shopping"},{"lang":"he","value":"Shopping"}],"description":[{"lang":"en","value":"Shopping"},{"lang":"he","value":"Shopping"}],"categoryId":"7","color":"#2F80ED","icon":"shopping_f","iconMenu":"shopping_i"},{"name":[{"lang":"en","value":"Parks"},{"lang":"he","value":"Parks"}],"description":[{"lang":"en","value":"Parks"},{"lang":"he","value":"Parks"}],"categoryId":"8","color":"#D95877","icon":"park_f","iconMenu":"park_i"},{"name":[{"lang":"en","value":"Business"},{"lang":"he","value":"עסק"}],"description":[{"lang":"en","value":"עסק"},{"lang":"he","value":"Business"}],"categoryId":"9","color":"#EB5757","icon":"business_f","iconMenu":"business_i"},{"name":[{"lang":"en","value":"Construction"},{"lang":"he","value":"בניה"}],"description":[{"lang":"en","value":"Construction"},{"lang":"he","value":"בניה"}],"categoryId":"10","color":"#F2994A","icon":"construction_f","iconMenu":"construction_i"},{"name":[{"lang":"en","value":"Beaches"},{"lang":"he","value":"Beaches"}],"description":[{"lang":"en","value":"Beaches"},{"lang":"he","value":"Beaches"}],"categoryId":"11","color":"#FDC536","icon":"beaches_f","iconMenu":"beaches_i"},{"name":[{"lang":"en","value":"Sports"},{"lang":"he","value":"ספורט"}],"description":[{"lang":"en","value":"Sports"},{"lang":"he","value":"ספורט"}],"categoryId":"12","color":"#6FCF97","icon":"sports_f","iconMenu":"sports_i"},{"name":[{"lang":"en","value":"Subway"},{"lang":"he","value":"רכבת תחתית"}],"description":[{"lang":"en","value":"Subway"},{"lang":"he","value":"רכבת תחתית"}],"categoryId":"13","color":"#219653","icon":"subway_f","iconMenu":"subway_i"},{"name":[{"lang":"en","value":"Street"},{"lang":"he","value":"רחוב"}],"description":[{"lang":"en","value":"Street"},{"lang":"he","value":"רחוב"}],"categoryId":"14","color":"#2F80ED","icon":"streets_f","iconMenu":"streets_i"},{"name":[{"lang":"en","value":"Kosher"},{"lang":"he","value":"Kosher"}],"description":[{"lang":"en","value":"Kosher"},{"lang":"he","value":"Kosher"}],"categoryId":"15","color":"#D95877","icon":"kosher_f","iconMenu":"kosher_i"},{"name":[{"lang":"en","value":"Synagogue"},{"lang":"he","value":"Synagogue"}],"description":[{"lang":"en","value":"Synagogue"},{"lang":"he","value":"Synagogue"}],"categoryId":"16","color":"#EB5757","icon":"synagogue_f","iconMenu":"synagogue_i"},{"name":[{"lang":"en","value":"For kids"},{"lang":"he","value":"For kids"}],"description":[{"lang":"en","value":"For kids"},{"lang":"he","value":"For kids"}],"categoryId":"17","color":"#F2994A","icon":"kids_f","iconMenu":"kids_i"},{"name":[{"lang":"en","value":"Office"},{"lang":"he","value":"משרד"}],"description":[{"lang":"en","value":"Office"},{"lang":"he","value":"משרד"}],"categoryId":"18","color":"#FDC536","icon":"office_f","iconMenu":"office_i"},{"name":[{"lang":"en","value":"Bus stations"},{"lang":"he","value":"Bus stations"}],"description":[{"lang":"en","value":"Bus stations"},{"lang":"he","value":"Bus stations"}],"categoryId":"19","color":"#6FCF97","icon":"busStation_f","iconMenu":"busStation_i"},{"name":[{"lang":"en","value":"Cafes"},{"lang":"he","value":"Cafes"}],"description":[{"lang":"en","value":"Cafes"},{"lang":"he","value":"Cafes"}],"categoryId":"20","color":"#219653","icon":"cafes_f","iconMenu":"cafes_i"},{"name":[{"lang":"en","value":"Education"},{"lang":"he","value":"חינוך"}],"description":[{"lang":"en","value":"Education"},{"lang":"he","value":"חינוך"}],"categoryId":"21","color":"#2F80ED","icon":"education_f","iconMenu":"education_i"}];
+function get_url_param (name) {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    if (urlParams != undefined) {
+        let param = urlParams.get(name);
+        if (param != null) {
+            return param;
+        } else {
+            return false;
+        }
+    }
+}
+let lang = '<?=$lang?>';
+if (get_url_param('lang')) {
+    lang = get_url_param('lang');
+}
+const dir = '<?=$dir?>';
 let canvasClass = 'bmby-poi-wrapp';
 let mode = 'dev';
 let detectMobile = detect_mobile();
@@ -295,14 +2099,14 @@ function init_map () {
     options.popup_templates = [template_1];
     options.map_settings = {
         map_style : map_style,
-        lng : 34.7818,
-        lat : 32.0853,
-        zoom: 16,
+        lng : -73.99428967891272,
+        lat : 40.747707511623524,
+        zoom: 20,
         static_markers : {
             '0':{
-                'title': '251 West 117th Street',
-                'lat': 32.0853,
-                'lng': 34.7818,
+                'title': '225 West 28th',
+                'lat':  40.747707511623524,
+                'lng': -73.99428967891272,
                 'marker_icon': generateSvg(poiIcons,'mainBuilding','#C0C0C0','#000000'),
                 'marker_text': '',
                 // 'title': 'Odessa 2020',
@@ -358,12 +2162,12 @@ function add_experimental_map (options) {
         <div class="map-type">
             <div class="map-type-toggler roadmap"><span class="const-text">Change map type to:</span><span class="var-text">לווין</span></div>
         </div>
-        <div class="route-panel"></div> 
+        <div class="route-panel"></div>
         <div class="filter">
             <div class="filter-btn">
-                
+
             </div>
-            <div class="filters-list-wrap">            
+            <div class="filters-list-wrap">
                 <div class="filters-list"></div>
             </div>
         </div>
@@ -629,12 +2433,9 @@ function add_experimental_map (options) {
         gestureHandling : gestureHandling,
     };
     map = new google.maps.Map(map_container, mapOptions);
-    map.addListener('center_changed', ()=>{
-        mapCenterChangeHandler();
-    });
-    map.addListener('click', mapClickHandler);
-    // map.addListener('zoom_changed', addClusterEvent);
 
+    map.addListener('center_changed', mapCenterChangeHandler);
+    map.addListener('click', mapClickHandler);
 
     function mapClickHandler(){
         const card = document.querySelector('.si-wrapper-top.custom-window.open');
@@ -733,18 +2534,18 @@ function add_experimental_map (options) {
     function add_map_filter_n_clusters () {
         let static_markers = options.map_settings.static_markers;
         let markers_for_filter = options.filtered_markers;
-        let static_markers_on_map = [];
+        let static_markers_on_map  = [];
         let template_1 = popup_templates[0];
         let filter_markers_categories = [];
         let snazzy_info_windows_arr = [];
         let static_markers_keys = Object.keys(static_markers)
-        static_markers_keys.forEach(function(key) {
+        static_markers_keys.forEach(function(key){
             addMarker(static_markers[key]);
         });
 
 
         let markers_for_filter_keys = Object.keys(markers_for_filter)
-        markers_for_filter_keys.forEach(function(key) {
+        markers_for_filter_keys.forEach(function(key){
             add_filtered_Marker(markers_for_filter[key]);
         });
         /*        for (i = 0; i < static_markers.length; i++) {
@@ -754,18 +2555,18 @@ function add_experimental_map (options) {
         /*        for (i = 0; i < markers_for_filter.length; i++) {
                     add_filtered_Marker(markers_for_filter[i]);
                 }*/
-        window.markers_clusters = {};
-        let markers_list_html = '<div class="filter-list-btn active" data-category=""  data-category-zoom="' + options.map_settings.zoom + '"><span class="marker-ic all"  style="background-image: url(' + generateSvg(projectIcons, 'ALL__CATEGORY__ICON') + ')" ></span><div class="move-part"><span class="text">' + get_lang('All points of interest') + '</span></div></div>';
+        let markers_clusters = {};
+        let markers_list_html = '<div class="filter-list-btn active" data-category=""  data-category-zoom="' + options.map_settings.zoom + '"><span class="marker-ic all"  style="background-image: url(' + generateSvg(projectIcons,'ALL__CATEGORY__ICON') + ')" ></span><div class="move-part"><span class="text">' + get_lang('All points of interest') + '</span></div></div>';
 
         for (let category in filter_markers_categories) {
             let cluster_obj = {
                 url: filter_markers_categories[category][0]['cluster_ic'],
-                textColor: 'white',
-                textSize: 20,
+                textColor : 'white',
+                textSize : 20,
                 width: 48,
                 height: 44,
             };
-            let mcOptions = {
+            let  mcOptions = {
                 ignoreHidden: true,
                 styles: [
                     cluster_obj,
@@ -776,11 +2577,12 @@ function add_experimental_map (options) {
                 ]
             };
 
-            let new_cluster = new MarkerClusterer(map, filter_markers_categories[category], mcOptions);
+            let new_cluster =  new MarkerClusterer(map, filter_markers_categories[category], mcOptions);
             markers_clusters[category] = new_cluster;
 
+
             let marker_data = filter_markers_categories[category][0];
-            markers_list_html += '<div class="filter-list-btn" data-category-zoom="' + marker_data.category_zoom + '" data-category="' + category + '"><span class="marker-ic" style="background-image: url(' + marker_data.category_ic + ')"></span><div class="move-part"><span class="text" style="color:' + marker_data.color + '">' + marker_data.category_title + '</span></div></div>'
+            markers_list_html += '<div class="filter-list-btn" data-category-zoom="' + marker_data.category_zoom +'" data-category="'+ category +'"><span class="marker-ic" style="background-image: url(' + marker_data.category_ic +')"></span><div class="move-part"><span class="text" style="color:'+marker_data.color+'">' + marker_data.category_title +'</span></div></div>'
             // markers_list_html += '<div class="filter-list-btn" data-category-zoom="' + marker_data.category_zoom +'" data-category="'+ category +'"><span class="marker-ic" style="background-image: url(' + marker_data.category_ic +')"></span><div class="move-part"><span class="text">' + marker_data.category_title +'</span></div></div>'
 
         }
@@ -788,12 +2590,12 @@ function add_experimental_map (options) {
             // global cluster
             let cluster_obj = {
                 url: generateSvgCluster('#6E767E'),
-                textColor: 'white',
-                textSize: 20,
+                textColor : 'white',
+                textSize : 20,
                 width: 48,
                 height: 44,
             };
-            let mcOptions = {
+            let  mcOptions = {
                 ignoreHidden: true,
                 styles: [
                     cluster_obj,
@@ -809,25 +2611,24 @@ function add_experimental_map (options) {
 
         filter_list.html(markers_list_html);
         let filter_btns = filter_list.find('.filter-list-btn');
-        filter_btns.click(function() {
+        filter_btns.click(function(){
             filter_btns.removeClass('active');
             $(this).addClass('active');
             $($(this).attr('data-category'));
             filterMarkers($(this).attr('data-category'));
-            let target_zoom = mapGlobalOption.map_settings.zoom;
-            // let target_zoom = Number($(this).attr('data-category-zoom'));
-            // if ($(window).width() > 768) {
-            //     target_zoom = target_zoom;
-            // } else {
-            //     target_zoom = target_zoom - 2;
-            // }
+            let target_zoom = Number($(this).attr('data-category-zoom'));
+            if ($(window).width() > 768) {
+                target_zoom = target_zoom;
+            } else {
+                target_zoom = target_zoom - 2;
+            }
             console.log('target_zoom: ' + target_zoom);
             map.setZoom(target_zoom);
             map.setCenter(mapOptions.center);
-            snazzy_info_windows_arr.forEach(function(item) {
+            snazzy_info_windows_arr.forEach(function(item){
                 item.close();
             });
-            filter_list_animate()
+            filter_list_animate ()
             $(container).find('.filter-btn').toggleClass('open');
             $(container).find('.map-container').toggleClass('open');
             directionsRenderer.setMap(null);
@@ -835,12 +2636,12 @@ function add_experimental_map (options) {
         });
 
 
-        function addMarker (marker) {
+        function addMarker(marker) {
             var title = marker.title;
             var pos = new google.maps.LatLng(marker.lat, marker.lng);
 
 
-            var content = marker.marker_text;
+            var content =  marker.marker_text;
             var icon_img = new google.maps.MarkerImage();
             icon_img.url = marker.marker_icon;
             {
@@ -861,21 +2662,20 @@ function add_experimental_map (options) {
             marker1 = new google.maps.Marker({
                 title: title,
                 position: pos,
-                label: {
-                    color: '#000000',
-                    text: title,
-                    fontWeight: '700',
-                    textAlign: center,
+                label : {
+                    color : '#000000',
+                    text : title,
+                    fontWeight : '700',
+                    textAlign : center,
                 },
                 map: map,
                 icon: icon_img,
                 animation: google.maps.Animation.DROP,
-                zIndex: google.maps.Marker.MAX_ZINDEX + 100,
-                // zIndex: 99999999999999999999,
+                zIndex : 99999999999999999999,
             });
 
             static_markers_on_map.push(marker1);
-            //
+
             // Marker click listener
             let snazzy_info_window;
             var closeDelayed = false;
@@ -888,37 +2688,37 @@ function add_experimental_map (options) {
             };
         }
 
-        function add_filtered_Marker (marker) {
+        function add_filtered_Marker(marker) {
             var title = marker.title; // title
             var category = marker.category;
             var pos = new google.maps.LatLng(marker.lat, marker.lng);
             let go_to_website_text = '<div class="links-btns-wrap"></div>';
-            let url_text = marker.web_site_url.replace('https://', '').replace('http://', '').substr(0, 35);
+            let url_text = marker.web_site_url.replace('https://','').replace('http://','').substr(0, 35);
             if (marker.web_site_url.length > 35) {
                 url_text += '...';
             }
-            if (marker.web_site_url.length > 0) {
-                go_to_website_text = '<div class="links-btns-wrap"><a class="go-to-website" target="_blank" href="' + marker.web_site_url + '">' + url_text + '</a></div>';
+            if (marker.web_site_url.length  > 0) {
+                go_to_website_text = '<div class="links-btns-wrap"><a class="go-to-website" target="_blank" href="' + marker.web_site_url + '">'  + url_text +'</a></div>';
             }
             let body_text = '';
             if (marker.marker_description.length > 0) {
                 body_text = '<div class="text">' + marker.marker_description + '</div>';
             }
             let marker_array = {
-                'title': title,
-                'lat': marker.lat,
-                'lng': marker.lng
+                'title' : title,
+                'lat' : marker.lat,
+                'lng' : marker.lng
             }
             window.markers_poi_array.push(marker_array);
 
             let route_wrap = '<div class="route-wrap"></div><div class="time-for-route"></div>';
-            var content = body_text + route_wrap + go_to_website_text;
+            var content =  body_text + route_wrap + go_to_website_text;
             /*            var icon_img = {
                             url: marker.marker_icon,
                             labelOrigin : new google.maps.Point(30, 75),
                         };*/
 
-            var icon_img = new google.maps.MarkerImage();
+            var icon_img = new google.maps.MarkerImage(  );
             icon_img.url = marker.marker_icon;
             // icon_img.url = generateSvg(poiIcons,marker.icon,marker.color);
             //icon_img.labelOrigin = new google.maps.Point(20, 0);
@@ -930,25 +2730,25 @@ function add_experimental_map (options) {
 
             marker1 = new google.maps.Marker({
                 title: title,
-                label: {
-                    color: '#000000',
+                label : {
+                    color : '#000000',
                     // color : marker.color,
-                    text: title,
-                    fontWeight: '700',
-                    textAlign: center,
+                    text : title,
+                    fontWeight : '700',
+                    textAlign : center,
                     className: title.length > 15 ? 'long__label-text' : '',
                 },
                 position: pos,
                 category: category,
                 cluster_ic: marker.cluster_icon,
-                category_title: marker.category_title,
-                category_zoom: marker.category_zoom,
+                category_title :  marker.category_title,
+                category_zoom :  marker.category_zoom,
                 // category_ic: generateSvg(poiIcons,marker.iconMenu),
                 category_ic: marker.category_img,
                 map: map,
                 icon: icon_img,
                 animation: google.maps.Animation.DROP,
-                zIndex: 1,
+                zIndex : 1,
                 color: marker.color,
             });
 
@@ -990,20 +2790,20 @@ function add_experimental_map (options) {
                     body: content,
                     category_title: marker1.category_title,
                     category_icon: marker1.category_ic,
-                    category_color: marker1.category_color,
+                    category_color : marker1.category_color,
                     description: marker.marker_description,
                     route: route_wrap,
                     info: go_to_website_text,
                 }),
                 closeWhenOthersOpen: true,
-                panOnOpen: false,
+                panOnOpen : false,
                 callbacks: {
                     open: function(e) {
 
                         const newContainer = document.querySelector('.snazzy-card__window');
                         clearContent(newContainer);
                         directionsRenderer.setMap(null);
-                        changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'), 'close');
+                        changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'),'close');
 
                         var wrapper = $(this.getWrapper());
 
@@ -1019,54 +2819,57 @@ function add_experimental_map (options) {
                         let travel_mode = 'WALKING';
                         let request = {
                             origin: origin_point,
-                            destination: this._marker.getPosition(),
-                            travelMode: travel_mode
+                            destination : this._marker.getPosition(),
+                            travelMode : travel_mode
                         };
                         // directionsRenderer.setMap(null);
                         $(container).find('.route-panel').hide();
 
                         let custom_header_text = wrapper.find('.custom-header').html();
 
-                        if (!detectMobile) {
-                            get_route(directionsService, directionsRenderer, request, custom_header_text);
+                        if (!detectMobile){
+                            get_route(directionsService,directionsRenderer, request, custom_header_text);
                             content_container.find('.route-type-btn').eq(0).addClass('active');
-                            content_container.find('.route-type-btn').click(function() {
+                            content_container.find('.route-type-btn').click(function(){
                                 content_container.find('.route-type-btn').removeClass('active');
                                 $(this).addClass('active');
                                 request.travelMode = $(this).data('type');
-                                get_route(directionsService, directionsRenderer, request, custom_header_text);
+                                get_route(directionsService,directionsRenderer, request, custom_header_text);
                             });
                         } else if (detectMobile) {
-                            get_route(directionsService, directionsRenderer, request, custom_header_text);
+                            get_route(directionsService,directionsRenderer, request, custom_header_text);
                             content_container.find('.route-type-btn').eq(0).addClass('active');
-                            content_container.find('.route-type-btn').click(function() {
+                            content_container.find('.route-type-btn').click(function(){
                                 content_container.find('.route-type-btn').removeClass('active');
                                 $(this).addClass('active');
                                 request.travelMode = $(this).data('type');
-                                get_route(directionsService, directionsRenderer, request, custom_header_text);
+                                get_route(directionsService,directionsRenderer, request, custom_header_text);
                             });
-                            getRoutesDuration(directionsService, origin_point, this._marker.getPosition());
+                            getRoutesDuration(directionsService,origin_point,this._marker.getPosition());
                         }
 
                         $(this.getWrapper()).addClass('open');
-                        if (marker.marker_description.length == 0 && marker.web_site_url.length == 0) {
+                        if (marker.marker_description.length == 0 && marker.web_site_url.length  == 0) {
                             $(this.getWrapper()).addClass('min');
                         }
+
+
 
 
                         let marker_position = this._marker.getPosition();
                         let marker_position_lat = marker_position.lat();
                         let marker_position_lng = marker_position.lng();
                         marker_position_lat = 'rip' + marker_position_lat;
-                        marker_position_lat = Number(marker_position_lat.replace('rip', ''));
+                        marker_position_lat = Number(marker_position_lat.replace('rip',''));
                         marker_position_lng = 'rip' + marker_position_lng;
-                        marker_position_lng = Number(marker_position_lng.replace('rip', ''));
+                        marker_position_lng = Number(marker_position_lng.replace('rip',''));
                         let map_app_url = '';
+
 
 
                         if (marker.info_window_img.length > 5) {
                             let json_array = JSON.parse(marker.info_window_img);
-                            let img_html = '<img src="' + json_array.sizes.medium + '" alt="">';
+                            let img_html = '<img src="' + json_array.sizes.medium +  '" alt="">';
                             $(container).find('.custom-header-img').html(img_html);
                             $(container).find('.custom-header-wrap').addClass('with-img');
                             $(container).find('.custom-body').addClass('with-img');
@@ -1091,16 +2894,16 @@ function add_experimental_map (options) {
                                             }
                                         }
                                     } else {
-                                        let img_html = '<img src="' + generateSvg(projectIcons, 'POI__PLUG') + '" alt="">';
+                                        let img_html = '<img src="'+generateSvg(projectIcons,'POI__PLUG')+'" alt="">';
                                         $(container).find('.custom-header-img').html(img_html);
                                         $(container).find('.custom-header-wrap').addClass('with-img');
                                         $(container).find('.custom-body').addClass('with-img');
                                     }
                                     var id_request = {
                                         placeId: results[i].place_id,
-                                        fields: ['name', 'rating', 'formatted_phone_number', 'geometry', 'url', 'place_id']
+                                        fields: ['name', 'rating', 'formatted_phone_number', 'geometry', 'url' , 'place_id' ]
                                     };
-                                    service.getDetails(id_request, function(details, status) {
+                                    service.getDetails(id_request, function(details, status){
                                         if (details.formatted_phone_number != undefined) {
                                             if (details.formatted_phone_number.length > 0) {
                                                 $(container).find('.links-btns-wrap .phone-btn').remove();
@@ -1117,12 +2920,12 @@ function add_experimental_map (options) {
                                           (navigator.platform.indexOf("iPad") != -1) ||
                                           (navigator.platform.indexOf("iPod") != -1)) {
                                             //map_app_url = 'http://maps.apple.com/?ll=' + marker_position_lat +','+ marker_position_lng;
-                                            map_app_url = `https://www.google.com/maps?f=d&daddr=${marker_position_lat + ',' + marker_position_lng}`;
+                                            map_app_url = `https://www.google.com/maps?f=d&daddr=${marker_position_lat +','+ marker_position_lng}`;
                                             $(container).find('.links-btns-wrap').append(`<a class="map-place circle-btn" target="_blank" href="${map_app_url}">${get_lang('Navigate to')}</a>`);
 
                                         } else {
                                             // https://www.google.com/maps?f=d&saddr=Thompson+St,+New+York,+NY,+USA&daddr=Wooster+St,+New+York,+NY,+USA&dirflg=d
-                                            map_app_url = `https://www.google.com/maps?f=d&daddr=${marker_position_lat + ',' + marker_position_lng}`;
+                                            map_app_url = `https://www.google.com/maps?f=d&daddr=${marker_position_lat +','+ marker_position_lng}`;
                                             $(container).find('.links-btns-wrap').append(`<a class="map-place circle-btn" target="_blank" href="${map_app_url}">${get_lang('Navigate to')}</a>`);
                                         }
                                     })
@@ -1133,11 +2936,11 @@ function add_experimental_map (options) {
 
                         /*                        if ($(window).width() < 992 ) {*/
                         let text = wrapper.find('.text');
-                        let img = wrapper.find('.custom-header-img img');
+                        let img =  wrapper.find('.custom-header-img img');
                         let coef = 3;
                         if (text.length > 0 || img.length > 0) {
                             coef = 3;
-                        } else {
+                        }  else {
                             coef = 5;
                         }
                         let map_bounds = map.getBounds();
@@ -1148,7 +2951,7 @@ function add_experimental_map (options) {
                         let difference_quoter = (map_lat_top - map_lat_bottom) / coef;
                         let marker_position_lat_cor = marker_position_lat + difference_quoter;
 
-                        if (detectMobile) {
+                        if (detectMobile){
                             let start;
                             newContainer.appendChild(wrapper[0]);
 
@@ -1156,39 +2959,38 @@ function add_experimental_map (options) {
                                 if (start === undefined)
                                     start = timestamp;
                                 const elapsed = ((timestamp - start) / 4);
-                                newContainer.style.bottom = (35 - elapsed) * -1 + '%';
+                                newContainer.style.bottom = (35 - elapsed) * -1 +'%';
 
-                                if (elapsed < 35) {
+                                if (elapsed < 35){
                                     window.requestAnimationFrame(openMiniCard);
                                 } else {
                                     newContainer.style.bottom = '0';
-                                    changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'), 'open');
+                                        changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'),'open');
                                 }
                             }
-
                             window.requestAnimationFrame(openMiniCard);
 
                             const cont = document.querySelector('.custom-content');
                             cont.addEventListener('touchstart', handleTouchStart, false);
                             cont.addEventListener('touchmove', handleTouchMove, false);
-                            map.panTo({lat: marker_position_lat, lng: marker_position_lng});
+                            map.panTo({lat  : marker_position_lat , lng:marker_position_lng });
                         } else {
-                            map.panTo({lat: marker_position_lat_cor, lng: marker_position_lng});
+                            map.panTo({lat  : marker_position_lat_cor , lng:marker_position_lng });
                         }
 
                         /*                        } else {
                                                     map.panTo({lat  : marker_position_lat , lng:marker_position_lng });
                                                 }*/
-                        const title = document.querySelector('.category-title');
-                        title.style.color = marker.color;
+                    const title = document.querySelector('.category-title');
+                    title.style.color = marker.color;
                     },
                     afterOpen: function() {
                         var wrapper = $(this.getWrapper());
                         wrapper.addClass('active');
-                        wrapper.find('.custom-close').on('click', () => {
+                        wrapper.find('.custom-close').on('click', ()=>{
                             closeDelayHandler();
                             clearContent(document.querySelector('.snazzy-card__window'));
-                            changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'), 'close');
+                            changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'),'close');
                             directionsRenderer.setMap(null);
                         });
                     },
@@ -1217,24 +3019,24 @@ function add_experimental_map (options) {
 
             function removeStyleSheet (id) {
                 const style = document.getElementById(id);
-                if (style) {
+                if (style){
                     style.remove();
                 }
             }
 
-            function getTouches (evt) {
+            function getTouches(evt) {
                 return evt.touches ||             // browser API
                   evt.originalEvent.touches; // jQuery
             }
 
-            function handleTouchStart (evt) {
+            function handleTouchStart(evt) {
                 const firstTouch = getTouches(evt)[0];
                 xDown = firstTouch.clientX;
                 yDown = firstTouch.clientY;
             }
 
-            function handleTouchMove (evt) {
-                if (!xDown || !yDown) {
+            function handleTouchMove(evt) {
+                if ( ! xDown || ! yDown ) {
                     return;
                 }
 
@@ -1244,18 +3046,18 @@ function add_experimental_map (options) {
                 var xDiff = xDown - xUp;
                 var yDiff = yDown - yUp;
 
-                if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
-                    if (xDiff > 0) {
+                if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+                    if ( xDiff > 0 ) {
                         /* left swipe */
                     } else {
                         /* right swipe */
                     }
                 } else {
-                    if (yDiff > 0) {
+                    if ( yDiff > 0 ) {
                         /* up swipe */
                         const isLoaded = document.getElementById('openedCardStyle');
-                        if (!isLoaded) {
-                            document.head.innerHTML += '<style id="openedCardStyle">' + mobileOpenedCard + '</style>';
+                        if (!isLoaded){
+                                document.head.innerHTML +='<style id="openedCardStyle">'+mobileOpenedCard+'</style>';
 
                             let start;
                             const card = document.querySelector('.map-parent .custom-window');
@@ -1264,16 +3066,15 @@ function add_experimental_map (options) {
                                 if (start === undefined)
                                     start = timestamp;
                                 const elapsed = (timestamp - start) / 2;
-                                card.style.height = elapsed + 'vh';
+                                card.style.height = elapsed +'vh';
 
-                                if (elapsed < 100) {
+                                if (elapsed < 100){
                                     window.requestAnimationFrame(openFullscreenCard);
                                 } else {
                                     card.style.height = '100vh';
                                 }
                             }
-
-                            window.requestAnimationFrame(openFullscreenCard);
+                                window.requestAnimationFrame(openFullscreenCard);
 
                         }
 
@@ -1282,26 +3083,25 @@ function add_experimental_map (options) {
                         const card = document.querySelector('.map-parent .custom-window');
                         const parent = card.parentElement;
                         const cardStyle = card.style.height;
-                        if (cardStyle) {
+                        if (cardStyle){
                             let start;
 
                             function closeFullscreenCard (timestamp) {
                                 if (start === undefined)
                                     start = timestamp;
                                 const elapsed = (timestamp - start) / 2;
-                                card.style.height = 100 - elapsed + 'vh';
+                                card.style.height = 100 - elapsed +'vh';
 
-                                if (elapsed < 100) {
+                                if (elapsed < 100){
                                     window.requestAnimationFrame(closeFullscreenCard);
                                 } else {
                                     closeDelayHandler();
                                     directionsRenderer.setMap(null);
                                     clearContent(document.querySelector('.snazzy-card__window'));
                                     card.style.height = '0';
-                                    changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'), 'close');
+                                    changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'),'close');
                                 }
                             }
-
                             window.requestAnimationFrame(closeFullscreenCard);
                         } else {
                             let start;
@@ -1310,19 +3110,18 @@ function add_experimental_map (options) {
                                 if (start === undefined)
                                     start = timestamp;
                                 const elapsed = ((timestamp - start) / 2) * -1;
-                                parent.style.bottom = elapsed + '%';
+                                parent.style.bottom = elapsed +'%';
 
-                                if (Math.abs(elapsed) < 35) {
+                                if (Math.abs(elapsed) < 35){
                                     window.requestAnimationFrame(closeMiniCard);
                                 } else {
                                     closeDelayHandler();
                                     directionsRenderer.setMap(null);
                                     clearContent(document.querySelector('.snazzy-card__window'));
                                     parent.style.bottom = 0;
-                                    changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'), 'close');
+                                    changeBtnStyleWhenCardOpened(document.querySelector('.custom-window'),'close');
                                 }
                             }
-
                             window.requestAnimationFrame(closeMiniCard);
                         }
                     }
@@ -1331,7 +3130,6 @@ function add_experimental_map (options) {
                 xDown = null;
                 yDown = null;
             }
-
             snazzy_info_windows_arr.push(snazzy_info_window);
             /*        google.maps.event.addListener(marker1, 'click', (function (marker1, content) {
                         return function () {
@@ -1345,7 +3143,7 @@ function add_experimental_map (options) {
         }
 
 
-        filterMarkers = function(category) {
+        filterMarkers = function (category) {
             if (category.length === 0) {
                 for (let category in filter_markers_categories) {
                     markers_clusters[category].clearMarkers();
@@ -1354,7 +3152,7 @@ function add_experimental_map (options) {
             } else {
                 markers_clusters['all'].clearMarkers();
                 for (let category in filter_markers_categories) {
-                    markers_clusters[category].addMarkers(filter_markers_categories[category]);
+                    markers_clusters[category].addMarkers( filter_markers_categories[category]);
                 }
             }
             for (i = 0; i < map_filtered_markers_on_map.length; i++) {
@@ -1374,52 +3172,53 @@ function add_experimental_map (options) {
             }
         };
 
-        function getRoutesDuration (directionsService, originPoint, destination) {
+
+        function getRoutesDuration (directionsService,originPoint,destination) {
             let routesInterval;
-            const routesMethods = ['DRIVING', 'BICYCLING', 'WALKING'];
-            const htmlArr = [];
+            const routesMethods =['DRIVING','BICYCLING','WALKING'];
+            const htmlArr =[];
             htmlArr.length = 2;
-            let routesHtml = '';
+            let routesHtml='';
             const timeForRouteContainer = document.querySelector('.time-for-route');
-            routesMethods.forEach((routeMethod, index) => {
+            routesMethods.forEach((routeMethod, index) =>{
                 const request = {
                     origin: originPoint,
-                    destination: destination,
-                    travelMode: routeMethod
+                    destination : destination,
+                    travelMode : routeMethod
                 };
-                directionsService.route(request, (response, status) => {
-                    if (status === 'OK') {
-                        const duration = response.routes[0].legs[0].duration.value;
-                        if (duration > 60) {
-                            routesHtml = ' <div class="route__' + routeMethod.toLowerCase() + '"><span class="number"> ' + Math.round(duration / 60) + '</span><span class="word">' + get_lang('minutes') + '</span></div>';
-                        } else {
-                            routesHtml = ' <div class="route__' + routeMethod.toLowerCase() + '"><span' +
-                              ' class="number">' + duration + ' </span><span class="word">' + get_lang('seconds') + ' </span></div>';
-                        }
-                        htmlArr[index] = routesHtml;
+                directionsService.route(request, (response, status)=>{
+                   if (status === 'OK') {
+                       const duration = response.routes[0].legs[0].duration.value;
+                       if (duration > 60) {
+                           routesHtml = ' <div class="route__'+routeMethod.toLowerCase()+'"><span class="number"> ' + Math.round(duration / 60)  + '</span><span class="word">' + get_lang('minutes') + '</span></div>';
+                       } else {
+                           routesHtml = ' <div class="route__'+routeMethod.toLowerCase()+'"><span' +
+                             ' class="number">' + duration + ' </span><span class="word">' + get_lang('seconds') + ' </span></div>';
+                       }
+                       htmlArr[index] = routesHtml;
 
-                    } else {
-                        routesHtml = ' <div class="route__' + routeMethod.toLowerCase() + '"><span' +
-                          ' class="number">0</span><span' +
-                          ' class="word">' + get_lang('minutes') + '</span></div>';
+                   } else{
+                       routesHtml = ' <div class="route__'+routeMethod.toLowerCase()+'"><span' +
+                         ' class="number">0</span><span' +
+                         ' class="word">' + get_lang('minutes') + '</span></div>';
 
-                        htmlArr[index] = routesHtml;
+                       htmlArr[index] = routesHtml;
 
-                    }
+                   }
                 });
             });
-            routesInterval = setInterval(() => {
-                if (htmlArr.length === 3) {
+            routesInterval = setInterval(()=>{
+                if (htmlArr.length === 3){
                     clearInterval(routesInterval);
                     timeForRouteContainer.innerHTML = htmlArr.join('');
                     miniCardIsOpened = true;
                 }
-            }, 100);
+            },100);
         }
 
-        function get_route (directionsService, directionsRenderer, request, title) {
+        function get_route (directionsService,directionsRenderer, request , title) {
             directionsRenderer.setMap(map);
-            directionsService.route(request, function(response, status) {
+            directionsService.route(request , function(response, status) {
                 if (status === 'OK') {
 
                     directionsRenderer.setDirections(response);
@@ -1441,28 +3240,28 @@ function add_experimental_map (options) {
                         let distance_value = route.legs[i].distance.value;
                         let distance_html = '';
                         if (distance_value > 1000) {
-                            distance_html = ' <div class="row"><span class="word">' + get_lang('km') + ' </span><span class="number">' + Math.floor(distance_value / 100) / 10 + '</span></div>';
+                            distance_html = ' <div class="row"><span class="word">' + get_lang('km') +' </span><span class="number">' + Math.floor(distance_value / 100) / 10 + '</span></div>';
                         } else {
-                            distance_html = ' <div class="row"><span class="word">' + get_lang('meter') + ' </span><span class="number">' + distance_value + ' </span></div>';
+                            distance_html = ' <div class="row"><span class="word">' + get_lang('meter') +' </span><span class="number">' + distance_value + ' </span></div>';
                         }
                         let duration_value = route.legs[i].duration.value;
                         let duration_html = '';
                         if (duration_value > 60) {
-                            duration_html = ' <div class="row"><span class="word">' + get_lang('minutes') + '</span><span class="number"> ' + Math.round(duration_value / 60) + '</span></div>';
+                            duration_html = ' <div class="row"><span class="word">' + get_lang('minutes') + '</span><span class="number"> ' + Math.round(duration_value / 60)  + '</span></div>';
                         } else {
                             duration_html = ' <div class="row"><span class="word">' + get_lang('seconds') + ' </span><span class="number">' + duration_value + ' </span></div>';
                         }
-                        $(container).find('.get-route-title .bottom-text').html(distance_html + '<div' +
+                        $(container).find('.get-route-title .bottom-text').html( distance_html + '<div' +
                           ' class="middle"> . </div>' + duration_html);
                         if (request.travelMode == 'WALKING') {
                             route_html += '<b>Travel mode: walking</b><br>';
-                            $(container).find('.get-route-title .top-text').html(get_lang('Walking route to this place'));
+                            $(container).find('.get-route-title .top-text').html(get_lang ('Walking route to this place'));
                         } else if (request.travelMode == 'BICYCLING') {
                             route_html += '<b>Travel mode: bicycling</b><br>';
-                            $(container).find('.get-route-title .top-text').html(get_lang('Cycling route to this place'));
+                            $(container).find('.get-route-title .top-text').html(get_lang ('Cycling route to this place'));
                         } else if (request.travelMode == 'DRIVING') {
                             route_html += '<b>Travel mode: driving</b><br>';
-                            $(container).find('.get-route-title .top-text').html(get_lang('Car route to this place'));
+                            $(container).find('.get-route-title .top-text').html(get_lang ('Car route to this place'));
                         }
                         summaryPanel.innerHTML = route_html;
                     }
@@ -1475,71 +3274,15 @@ function add_experimental_map (options) {
 
         filterMarkers('');
 
-        function makeMarker (position, icon, title, map) {
+        function makeMarker(position, icon, title, map) {
             new google.maps.Marker({
                 position: position,
                 map: map,
                 icon: icon,
-                title: title,
+                title: title
             });
         }
-    }
-
-    function addClusterСhamomile () {
-        if (map.zoom === 22){
-            const clusters = markers_clusters.all.getClusters();
-            if (clusters.length > 0){
-                clusters.forEach(cluster =>{
-                    // console.log(cluster);
-                    // changeClusterIcon(generateSvgCluster('#000000'),cluster);
-                   //  console.log(cluster);
-                   // cluster.clusterIcon_.url_ = generateSvgCluster('#000000');
-                   // cluster.markerClusterer_.redraw_();
-                });
-
-            }
-        }
-
-    }
-
-    function changeClusterIcon (newIcon, oldCluster) {
-        const map = oldCluster.getMap(),
-          markers = oldCluster.getMarkers();
-
-        oldCluster.markerClusterer_.clearMarkers();
-
-        var updatedMarkerCluster = new MarkerClusterer(map, markers,
-          {imagePath: newIcon});
-    }
-
-
-
-
-
-    function addClusterEvent () {
-        const clusters = markers_clusters.all.getClusters();
-        clusters.forEach(cluster =>{
-            cluster.markerClusterer_.addListener('click', (e)=>{
-                addClusterСhamomile();
-            });
-        });
-
-        // if (map.zoom === 22){
-        //     setTimeout(()=>{
-        //         const clusters = markers_clusters.all.getClusters();
-        //         if (clusters.length > 0){
-        //             clusters.forEach(cluster => {
-        //                 cluster.markerClusterer_.addListener('click', addClusterСhamomile);
-        //             });
-        //         }
-        //     },500);
-        // }
-
-
-        // cl.forEach(el => {
-        //     el.markerClusterer_.addListener('click', addClusterСhamomile);
-        // });
-    }
+    };
 
     function setInitialZoom () {
         let needZoomOut = false;
@@ -1563,10 +3306,6 @@ function add_experimental_map (options) {
         }
     }
     setInitialZoom();
-    setTimeout(()=>{
-        addClusterEvent();
-    },300);
-
 
 
     return experimental_map_obj;
@@ -1699,7 +3438,7 @@ const hb2 = `
                 </div>
                 <div class="custom-route">{{{route}}}</div>
                 <div class="custom-info">{{{info}}}</div>
-          
+
             </div>
         </section>
 `;
@@ -5221,7 +6960,7 @@ let expMapStyle =`
       background-color: transparent;
       top: 10px;
       right: 10px;
-      // box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
+      // box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
       }
     @media (orientation: landscape) {
       .map-parent .custom-window .custom-close {
@@ -5680,7 +7419,7 @@ const mobileStyle =`
     filter: brightness(0);
 }
 .custom-route{
-    border-bottom: none;   
+    border-bottom: none;
 }
 .map-parent .custom-window .custom-close{
     top: 0;

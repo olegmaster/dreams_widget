@@ -1704,7 +1704,7 @@ function add_experimental_map (options) {
         /*        for (i = 0; i < markers_for_filter.length; i++) {
                     add_filtered_Marker(markers_for_filter[i]);
                 }*/
-        let markers_clusters = {};
+        window.markers_clusters = {};
         let markers_list_html = '<div class="filter-list-btn active" data-category=""  data-category-zoom="' + options.map_settings.zoom + '"><span class="marker-ic all"  style="background-image: url(' + generateSvg(projectIcons,'ALL__CATEGORY__ICON') + ')" ></span><div class="move-part"><span class="text">' + get_lang('All points of interest') + '</span></div></div>';
 
         for (let category in filter_markers_categories) {
@@ -2455,7 +2455,6 @@ function add_experimental_map (options) {
         }
     }
     setInitialZoom();
-
 
     return experimental_map_obj;
 }
