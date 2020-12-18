@@ -1795,7 +1795,7 @@ let langCount = 1;
 
 
 // this variable contains all poi categories
-let poiCategoriesData  = [{"name":[{"lang":"en","value":"Restaurants"},{"lang":"he","value":"מסעדות"}],"description":[{"lang":"en","value":"Cafes Description"},{"lang":"he","value":"Cafes Description"}],"categoryId":"1","color":"#d69131","icon":"restaurants_f","iconMenu":"restaurants_i"},{"name":[{"lang":"en","value":"Culture"},{"lang":"he","value":"Culture"}],"description":[{"lang":"en","value":"Culture"},{"lang":"he","value":"Culture"}],"categoryId":"2","color":"#EB5757","icon":"culture_f","iconMenu":"culture_i"},{"name":[{"lang":"en","value":"Public Transport(min)"},{"lang":"he","value":"תחבורה"}],"description":[{"lang":"en","value":"Public Transport(min)"},{"lang":"he","value":"תחבורה"}],"categoryId":"3","color":"#F2994A","icon":"transport_f","iconMenu":"transport_i"},{"name":[{"lang":"en","value":"Healthcare"},{"lang":"he","value":"בריאות"}],"description":[{"lang":"en","value":"Healthcare"},{"lang":"he","value":"בריאות"}],"categoryId":"4","color":"#FDC536","icon":"healthcare_f","iconMenu":"healthcare_i"},{"name":[{"lang":"en","value":"General"},{"lang":"he","value":"כללי"}],"description":[{"lang":"en","value":"General"},{"lang":"he","value":"כללי"}],"categoryId":"5","color":"#6FCF97","icon":"general_f","iconMenu":"general_i"},{"name":[{"lang":"en","value":"Supermarkets"},{"lang":"he","value":"Supermarkets"}],"description":[{"lang":"en","value":"Supermarkets"},{"lang":"he","value":"Supermarkets"}],"categoryId":"6","color":"#219653","icon":"supermarkets_f","iconMenu":"supermarkets_i"},{"name":[{"lang":"en","value":"Shopping"},{"lang":"he","value":"Shopping"}],"description":[{"lang":"en","value":"Shopping"},{"lang":"he","value":"Shopping"}],"categoryId":"7","color":"#2F80ED","icon":"shopping_f","iconMenu":"shopping_i"},{"name":[{"lang":"en","value":"Parks"},{"lang":"he","value":"Parks"}],"description":[{"lang":"en","value":"Parks"},{"lang":"he","value":"Parks"}],"categoryId":"8","color":"#D95877","icon":"park_f","iconMenu":"park_i"},{"name":[{"lang":"en","value":"Business"},{"lang":"he","value":"עסק"}],"description":[{"lang":"en","value":"עסק"},{"lang":"he","value":"Business"}],"categoryId":"9","color":"#EB5757","icon":"business_f","iconMenu":"business_i"},{"name":[{"lang":"en","value":"Construction"},{"lang":"he","value":"בניה"}],"description":[{"lang":"en","value":"Construction"},{"lang":"he","value":"בניה"}],"categoryId":"10","color":"#F2994A","icon":"construction_f","iconMenu":"construction_i"},{"name":[{"lang":"en","value":"Beaches"},{"lang":"he","value":"Beaches"}],"description":[{"lang":"en","value":"Beaches"},{"lang":"he","value":"Beaches"}],"categoryId":"11","color":"#FDC536","icon":"beaches_f","iconMenu":"beaches_i"},{"name":[{"lang":"en","value":"Sports"},{"lang":"he","value":"ספורט"}],"description":[{"lang":"en","value":"Sports"},{"lang":"he","value":"ספורט"}],"categoryId":"12","color":"#6FCF97","icon":"sports_f","iconMenu":"sports_i"},{"name":[{"lang":"en","value":"Subway"},{"lang":"he","value":"רכבת תחתית"}],"description":[{"lang":"en","value":"Subway"},{"lang":"he","value":"רכבת תחתית"}],"categoryId":"13","color":"#219653","icon":"subway_f","iconMenu":"subway_i"},{"name":[{"lang":"en","value":"Street"},{"lang":"he","value":"רחוב"}],"description":[{"lang":"en","value":"Street"},{"lang":"he","value":"רחוב"}],"categoryId":"14","color":"#2F80ED","icon":"streets_f","iconMenu":"streets_i"},{"name":[{"lang":"en","value":"Kosher"},{"lang":"he","value":"Kosher"}],"description":[{"lang":"en","value":"Kosher"},{"lang":"he","value":"Kosher"}],"categoryId":"15","color":"#D95877","icon":"kosher_f","iconMenu":"kosher_i"},{"name":[{"lang":"en","value":"Synagogue"},{"lang":"he","value":"Synagogue"}],"description":[{"lang":"en","value":"Synagogue"},{"lang":"he","value":"Synagogue"}],"categoryId":"16","color":"#EB5757","icon":"synagogue_f","iconMenu":"synagogue_i"},{"name":[{"lang":"en","value":"For kids"},{"lang":"he","value":"For kids"}],"description":[{"lang":"en","value":"For kids"},{"lang":"he","value":"For kids"}],"categoryId":"17","color":"#F2994A","icon":"kids_f","iconMenu":"kids_i"},{"name":[{"lang":"en","value":"Office"},{"lang":"he","value":"משרד"}],"description":[{"lang":"en","value":"Office"},{"lang":"he","value":"משרד"}],"categoryId":"18","color":"#FDC536","icon":"office_f","iconMenu":"office_i"},{"name":[{"lang":"en","value":"Bus stations"},{"lang":"he","value":"Bus stations"}],"description":[{"lang":"en","value":"Bus stations"},{"lang":"he","value":"Bus stations"}],"categoryId":"19","color":"#6FCF97","icon":"busStation_f","iconMenu":"busStation_i"},{"name":[{"lang":"en","value":"Cafes"},{"lang":"he","value":"Cafes"}],"description":[{"lang":"en","value":"Cafes"},{"lang":"he","value":"Cafes"}],"categoryId":"20","color":"#219653","icon":"cafes_f","iconMenu":"cafes_i"},{"name":[{"lang":"en","value":"Education"},{"lang":"he","value":"חינוך"}],"description":[{"lang":"en","value":"Education"},{"lang":"he","value":"חינוך"}],"categoryId":"21","color":"#2F80ED","icon":"education_f","iconMenu":"education_i"}];
+let poiCategoriesData  = [{"name":[{"lang":"en","value":"Restaurants"},{"lang":"he","value":"מסעדות"}],"description":[{"lang":"en","value":"Cafes Description"},{"lang":"he","value":"Cafes Description"}],"categoryId":"1","color":"rgb(103, 55, 135)","icon":"restaurants_f","iconMenu":"restaurants_i"},{"name":[{"lang":"en","value":"Culture"},{"lang":"he","value":"Culture"}],"description":[{"lang":"en","value":"Culture"},{"lang":"he","value":"Culture"}],"categoryId":"2","color":"rgb(30, 115, 185)","icon":"culture_f","iconMenu":"culture_i"},{"name":[{"lang":"en","value":"Public Transport"},{"lang":"he","value":"תחבורה"}],"description":[{"lang":"en","value":"Public Transport"},{"lang":"he","value":"תחבורה"}],"categoryId":"3","color":"  rgb(46, 148, 94)","icon":"transport_f","iconMenu":"transport_i"},{"name":[{"lang":"en","value":"Healthcare"},{"lang":"he","value":"בריאות"}],"description":[{"lang":"en","value":"Healthcare"},{"lang":"he","value":"בריאות"}],"categoryId":"4","color":"#FDC536","icon":"healthcare_f","iconMenu":"healthcare_i"},{"name":[{"lang":"en","value":"General"},{"lang":"he","value":"כללי"}],"description":[{"lang":"en","value":"General"},{"lang":"he","value":"כללי"}],"categoryId":"5","color":"#6FCF97","icon":"general_f","iconMenu":"general_i"},{"name":[{"lang":"en","value":"Supermarkets"},{"lang":"he","value":"Supermarkets"}],"description":[{"lang":"en","value":"Supermarkets"},{"lang":"he","value":"Supermarkets"}],"categoryId":"6","color":"#219653","icon":"supermarkets_f","iconMenu":"supermarkets_i"},{"name":[{"lang":"en","value":"Shopping"},{"lang":"he","value":"Shopping"}],"description":[{"lang":"en","value":"Shopping"},{"lang":"he","value":"Shopping"}],"categoryId":"7","color":"rgb(60, 173, 176)","icon":"shopping_f","iconMenu":"shopping_i"},{"name":[{"lang":"en","value":"Parks"},{"lang":"he","value":"Parks"}],"description":[{"lang":"en","value":"Parks"},{"lang":"he","value":"Parks"}],"categoryId":"8","color":"#D95877","icon":"park_f","iconMenu":"park_i"},{"name":[{"lang":"en","value":"Business"},{"lang":"he","value":"עסק"}],"description":[{"lang":"en","value":"עסק"},{"lang":"he","value":"Business"}],"categoryId":"9","color":"#EB5757","icon":"business_f","iconMenu":"business_i"},{"name":[{"lang":"en","value":"Construction"},{"lang":"he","value":"בניה"}],"description":[{"lang":"en","value":"Construction"},{"lang":"he","value":"בניה"}],"categoryId":"10","color":"#F2994A","icon":"construction_f","iconMenu":"construction_i"},{"name":[{"lang":"en","value":"Beaches"},{"lang":"he","value":"Beaches"}],"description":[{"lang":"en","value":"Beaches"},{"lang":"he","value":"Beaches"}],"categoryId":"11","color":"#FDC536","icon":"beaches_f","iconMenu":"beaches_i"},{"name":[{"lang":"en","value":"Sports"},{"lang":"he","value":"ספורט"}],"description":[{"lang":"en","value":"Sports"},{"lang":"he","value":"ספורט"}],"categoryId":"12","color":"#6FCF97","icon":"sports_f","iconMenu":"sports_i"},{"name":[{"lang":"en","value":"Subway"},{"lang":"he","value":"רכבת תחתית"}],"description":[{"lang":"en","value":"Subway"},{"lang":"he","value":"רכבת תחתית"}],"categoryId":"13","color":"#219653","icon":"subway_f","iconMenu":"subway_i"},{"name":[{"lang":"en","value":"Street"},{"lang":"he","value":"רחוב"}],"description":[{"lang":"en","value":"Street"},{"lang":"he","value":"רחוב"}],"categoryId":"14","color":"#2F80ED","icon":"streets_f","iconMenu":"streets_i"},{"name":[{"lang":"en","value":"Kosher"},{"lang":"he","value":"Kosher"}],"description":[{"lang":"en","value":"Kosher"},{"lang":"he","value":"Kosher"}],"categoryId":"15","color":"#D95877","icon":"kosher_f","iconMenu":"kosher_i"},{"name":[{"lang":"en","value":"Synagogue"},{"lang":"he","value":"Synagogue"}],"description":[{"lang":"en","value":"Synagogue"},{"lang":"he","value":"Synagogue"}],"categoryId":"16","color":"#EB5757","icon":"synagogue_f","iconMenu":"synagogue_i"},{"name":[{"lang":"en","value":"For kids"},{"lang":"he","value":"For kids"}],"description":[{"lang":"en","value":"For kids"},{"lang":"he","value":"For kids"}],"categoryId":"17","color":"#F2994A","icon":"kids_f","iconMenu":"kids_i"},{"name":[{"lang":"en","value":"Office"},{"lang":"he","value":"משרד"}],"description":[{"lang":"en","value":"Office"},{"lang":"he","value":"משרד"}],"categoryId":"18","color":"#FDC536","icon":"office_f","iconMenu":"office_i"},{"name":[{"lang":"en","value":"Bus stations"},{"lang":"he","value":"Bus stations"}],"description":[{"lang":"en","value":"Bus stations"},{"lang":"he","value":"Bus stations"}],"categoryId":"19","color":"#6FCF97","icon":"busStation_f","iconMenu":"busStation_i"},{"name":[{"lang":"en","value":"Cafes"},{"lang":"he","value":"Cafes"}],"description":[{"lang":"en","value":"Cafes"},{"lang":"he","value":"Cafes"}],"categoryId":"20","color":"#219653","icon":"cafes_f","iconMenu":"cafes_i"},{"name":[{"lang":"en","value":"Education"},{"lang":"he","value":"חינוך"}],"description":[{"lang":"en","value":"Education"},{"lang":"he","value":"חינוך"}],"categoryId":"21","color":"#2F80ED","icon":"education_f","iconMenu":"education_i"}];
 function get_url_param (name) {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -1904,7 +1904,7 @@ function addBasicStyle () {
     document.head.innerHTML +='<style>'+resetCss+'</style>';
     document.head.innerHTML +='<style>'+styleCss+'</style>';
     document.head.innerHTML +='<style>'+expMapStyle+'</style>';
-    document.head.innerHTML +='<style>'+newStyle+'</style>';
+    document.head.innerHTML +='<style id="newStyle">'+newStyle+'</style>';
     if (detectMobile){
         document.head.innerHTML +='<style>'+mobileStyle+'</style>';
     }
@@ -2038,11 +2038,188 @@ function init_map () {
         document.querySelector('.'+canvasClass).classList.add('for-app');
     }
 
-    map_style = [
+    // map_style = [
+    //     {
+    //         featureType: "poi",
+    //         stylers: [
+    //             { visibility: "off" }
+    //         ]
+    //     }
+    // ];
+
+    map_style= [
         {
-            featureType: "poi",
-            stylers: [
-                { visibility: "off" }
+            "featureType": "water",
+            "elementType": "geometry",
+            "stylers": [
+                {
+                    "color": "#e9e9e9"
+                },
+                {
+                    "lightness": 17
+                }
+            ]
+        },
+        {
+            "featureType": "landscape",
+            "elementType": "geometry",
+            "stylers": [
+                {
+                    "color": "#f5f5f5"
+                },
+                {
+                    "lightness": 20
+                }
+            ]
+        },
+        {
+            "featureType": "road.highway",
+            "elementType": "geometry.fill",
+            "stylers": [
+                {
+                    "color": "#ffffff"
+                },
+                {
+                    "lightness": 17
+                }
+            ]
+        },
+        {
+            "featureType": "road.highway",
+            "elementType": "geometry.stroke",
+            "stylers": [
+                {
+                    "color": "#ffffff"
+                },
+                {
+                    "lightness": 29
+                },
+                {
+                    "weight": 0.2
+                }
+            ]
+        },
+        {
+            "featureType": "road.arterial",
+            "elementType": "geometry",
+            "stylers": [
+                {
+                    "color": "#ffffff"
+                },
+                {
+                    "lightness": 18
+                }
+            ]
+        },
+        {
+            "featureType": "road.local",
+            "elementType": "geometry",
+            "stylers": [
+                {
+                    "color": "#ffffff"
+                },
+                {
+                    "lightness": 16
+                }
+            ]
+        },
+        {
+            "featureType": "poi",
+            "elementType": "geometry",
+            "stylers": [
+                {
+                    "color": "#f5f5f5"
+                },
+                {
+                    "lightness": 21
+                }
+            ]
+        },
+        {
+            "featureType": "poi.park",
+            "elementType": "geometry",
+            "stylers": [
+                {
+                    "color": "#dedede"
+                },
+                {
+                    "lightness": 21
+                }
+            ]
+        },
+        {
+            "elementType": "labels.text.stroke",
+            "stylers": [
+                {
+                    "visibility": "on"
+                },
+                {
+                    "color": "#ffffff"
+                },
+                {
+                    "lightness": 16
+                }
+            ]
+        },
+        {
+            "elementType": "labels.text.fill",
+            "stylers": [
+                {
+                    "saturation": 36
+                },
+                {
+                    "color": "#333333"
+                },
+                {
+                    "lightness": 40
+                }
+            ]
+        },
+        {
+            "elementType": "labels.icon",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "transit",
+            "elementType": "geometry",
+            "stylers": [
+                {
+                    "color": "#f2f2f2"
+                },
+                {
+                    "lightness": 19
+                }
+            ]
+        },
+        {
+            "featureType": "administrative",
+            "elementType": "geometry.fill",
+            "stylers": [
+                {
+                    "color": "#fefefe"
+                },
+                {
+                    "lightness": 20
+                }
+            ]
+        },
+        {
+            "featureType": "administrative",
+            "elementType": "geometry.stroke",
+            "stylers": [
+                {
+                    "color": "#fefefe"
+                },
+                {
+                    "lightness": 17
+                },
+                {
+                    "weight": 1.2
+                }
             ]
         }
     ];
@@ -2102,7 +2279,7 @@ function init_map () {
                 'title': '225 West 28th',
                 'lat':  40.747707511623524,
                 'lng': -73.99428967891272,
-                'marker_icon': generateSvg(poiIcons,'mainBuilding','#C0C0C0','#000000'),
+                'marker_icon': generateSvg(poiIcons,'mainBuilding','#C0C0C0','#835a60'),
                 'marker_text': '',
                 // 'title': 'Odessa 2020',
                 // 'lat': 46.435974,
@@ -2192,8 +2369,8 @@ function add_experimental_map (options) {
                     if (miniCardIsOpened){
                         clearInterval(openInterval);
                         const containerHeight = container.getBoundingClientRect().height;
-                        filterBtn.style.bottom = 10 + containerHeight +'px';
-                        mapType.style.bottom = 70 +containerHeight+'px';
+                        // filterBtn.style.bottom = 10 + containerHeight +'px';
+                        mapType.style.bottom = 10 +containerHeight+'px';
                         zoomContainer.style.bottom = 10 + containerHeight+ 'px';
                     }
                 },100);
@@ -2509,6 +2686,9 @@ function add_experimental_map (options) {
     $(container).find('.map-type-toggler').click(function(){
         let this_el = $(this);
         if (this_el.hasClass('roadmap') == true) {
+            changeMarkersLabelColor('#ffffff');
+            changeDocumentStyleProperty('newStyle','.marker__label','filter','drop-shadow(0px 0px 1px black)' +
+              ' drop-shadow(0px 0px 4px black)');
             map.setMapTypeId('satellite' );
             this_el.removeClass('roadmap');
             this_el.addClass('satellite');
@@ -2516,6 +2696,8 @@ function add_experimental_map (options) {
             map.setTilt(0);
         } else {
             map.setMapTypeId('roadmap' );
+            changeMarkersLabelColor('#000000');
+            changeDocumentStyleProperty('newStyle','.marker__label','filter','none');
             this_el.removeClass('satellite');
             this_el.addClass('roadmap');
             this_el.find('.var-text').html('לווין');
@@ -2529,7 +2711,7 @@ function add_experimental_map (options) {
     function add_map_filter_n_clusters () {
         let static_markers = options.map_settings.static_markers;
         let markers_for_filter = options.filtered_markers;
-        let static_markers_on_map  = [];
+        window.static_markers_on_map  = [];
         let template_1 = popup_templates[0];
         let filter_markers_categories = [];
         let snazzy_info_windows_arr = [];
@@ -2550,8 +2732,8 @@ function add_experimental_map (options) {
         /*        for (i = 0; i < markers_for_filter.length; i++) {
                     add_filtered_Marker(markers_for_filter[i]);
                 }*/
-        let markers_clusters = {};
-        let markers_list_html = '<div class="filter-list-btn active" data-category=""  data-category-zoom="' + options.map_settings.zoom + '"><span class="marker-ic all"  style="background-image: url(' + generateSvg(projectIcons,'ALL__CATEGORY__ICON') + ')" ></span><div class="move-part"><span class="text">' + get_lang('All points of interest') + '</span></div></div>';
+        window.markers_clusters = {};
+        let markers_list_html = '<div class="filter-list-btn active" data-category=""  data-category-zoom="' + options.map_settings.zoom + '"><span class="marker-ic all"  style="background-image: url(' + generateSvg(projectIcons,'ALL__CATEGORY__ICON','#FFFFFF','#1A2F43') + ')" ></span><div class="move-part"><span class="text">' + get_lang('All points of interest') + '</span></div></div>';
 
         for (let category in filter_markers_categories) {
             let cluster_obj = {
@@ -2611,11 +2793,12 @@ function add_experimental_map (options) {
             $(this).addClass('active');
             $($(this).attr('data-category'));
             filterMarkers($(this).attr('data-category'));
-            let target_zoom = Number($(this).attr('data-category-zoom'));
+            // let target_zoom = Number($(this).attr('data-category-zoom'));
+            let target_zoom = mapGlobalOption.map_settings.zoom;
             if ($(window).width() > 768) {
                 target_zoom = target_zoom;
             } else {
-                target_zoom = target_zoom - 2;
+                target_zoom = target_zoom;
             }
             console.log('target_zoom: ' + target_zoom);
             map.setZoom(target_zoom);
@@ -2662,13 +2845,13 @@ function add_experimental_map (options) {
                     text : title,
                     fontWeight : '700',
                     textAlign : center,
+                    className: 'marker__label',
                 },
                 map: map,
                 icon: icon_img,
                 animation: google.maps.Animation.DROP,
                 zIndex : 99999999999999999999,
             });
-
             static_markers_on_map.push(marker1);
 
             // Marker click listener
@@ -2731,7 +2914,7 @@ function add_experimental_map (options) {
                     text : title,
                     fontWeight : '700',
                     textAlign : center,
-                    className: title.length > 15 ? 'long__label-text' : '',
+                    className: title.length > 15 ? 'long__label-text marker__label' : 'marker__label',
                 },
                 position: pos,
                 category: category,
@@ -3306,6 +3489,36 @@ function add_experimental_map (options) {
     return experimental_map_obj;
 }
 
+function changeMarkersLabelColor (color) {
+    static_markers_on_map[0].label.color = color;
+    static_markers_on_map[0].setMap(null);
+    static_markers_on_map[0].setMap(map);
+    Object.values(markers_clusters).forEach(category =>{
+      const allMarkers = category.getMarkers();
+      if (allMarkers.length > 0){
+          allMarkers.forEach(marker =>{
+              marker.label.color = color;
+              marker.setMap(null);
+              marker.setMap(map);
+          });
+      }
+      const clusters = category.getClusters();
+      if (clusters.length > 0){
+          clusters.forEach(cluster =>{
+              cluster.markerClusterer_.repaint();
+          });
+      }
+    });
+}
+
+function changeDocumentStyleProperty (idStyleSheet, selector, property, value) {
+    const styleSheet = document.getElementById(idStyleSheet).sheet;
+    Object.values(styleSheet.cssRules).forEach(rule =>{
+       if (rule.selectorText === selector){
+           rule.style[property] = value;
+       }
+    });
+}
 
 
 function project(latLng) {
@@ -6675,7 +6888,7 @@ let expMapStyle =`
       width: 100vw;
       height: 100vh;
       top: 0;
-      background-color: rgba(40, 49, 75, 0.4);
+      background-color: rgba(255, 255, 255, 0.6);
       padding-bottom: 80px;
       padding-top: 0px;
       overflow-y: auto;
@@ -6697,16 +6910,10 @@ let expMapStyle =`
         font-size: 20px;
         line-height: 2; }
         .map-parent .filter .filters-list .filter-list-btn.active .move-part .text {
-          text-shadow: -2px 2px 2px black; }
+           color: #1A2F43;
+          text-shadow: 0px 3px 8px rgba(26, 47, 67, 0.5); }
         .map-parent .filter .filters-list .filter-list-btn.active .move-part:after {
-          content: '';
-          position: absolute;
-          bottom: 8px;
-          left: 5px;
-          width: 100%;
-          height: 10px;
-          background-color: #603ef2;
-          z-index: 0; }
+           }
         .map-parent .filter .filters-list .filter-list-btn .marker-ic {
           width: 30px;
           height: 30px;
@@ -6720,6 +6927,7 @@ let expMapStyle =`
           position: relative;
           z-index: 2; }
           .map-parent .filter .filters-list .filter-list-btn .move-part .text {
+            color: #1A2F43;
             position: relative;
             z-index: 1; }
     .map-parent .filter .filter-btn {
@@ -6893,7 +7101,7 @@ let expMapStyle =`
     // height: 100vh;
     transition: 0.5s; }
     .map-parent .map-container.open {
-      filter: blur(4px) grayscale(1) brightness(0.4); }
+      filter: blur(4px) grayscale(1); }
   .map-parent .custom-window {
     width: 409px; }
     .map-parent .custom-window .si-shadow-frame {
@@ -7141,7 +7349,7 @@ body.desktop .map-parent .zoom-control {
   box-shadow: 1px 1px 10px rgba(26, 47, 67, 0.5); }
 
 body.desktop .map-parent .filter .filters-list .filter-list-btn.active .move-part:after {
-  background-color: #1A2F43; }
+   }
 
 .map__go-home__btn {
   width: 52px;
@@ -7369,6 +7577,9 @@ body.desktop .map-parent .map-type .map-type-toggler{
  white-space: break-spaces;
 }
 
+.marker__label{
+    filter: none;
+}
 `;
 
 const mobileStyle =`
@@ -7888,7 +8099,8 @@ const poiIcons = {
       '</svg>',
     mainBuilding: '<svg width="36" height="44" viewBox="0 0 36 44" fill="none" xmlns="http://www.w3.org/2000/svg">' +
       '<path fill-rule="evenodd" clip-rule="evenodd" d="M34.3094 26.3754C35.394 23.9921 36 21.332 36 18.5263C36 8.29451 27.9411 0 18 0C8.05887 0 0 8.29451 0 18.5263C0 21.332 0.605981 23.9921 1.69059 26.3754C5.08668 34.3491 12.852 40.762 18 44C23.148 40.762 30.9133 34.3491 34.3094 26.3754Z" fill="#C0C0C0"/>' +
-      '<path d="M16 21.4C15.9448 21.4 15.9 21.4448 15.9 21.5V25.9H11.1V16.046L18 10.1317L24.9 16.046V25.9H20.1V21.5C20.1 21.4448 20.0552 21.4 20 21.4H16Z" fill="white" stroke="white" stroke-width="0.2" stroke-linejoin="round"/>' +
+      '<path d="M26.9736 27.8606H24.7443L24.9121 11.1502L18.1762 27.8606H16.5485L9.36676 11.1095L9.43867 27.8606H9V9H11.1406L17.9509 25.0104L24.4231 9.01678H27L26.9736 27.8606Z" fill="white"/>' +
+      '<path fill-rule="evenodd" clip-rule="evenodd" d="M8.70001 8.69995H11.339L17.944 24.2277L24.2209 8.71673H27.3004L27.2732 28.1605H24.4413L24.5962 12.7364L18.3787 28.1605H16.3508L9.67311 12.5853L9.73997 28.1605H8.70001V8.69995ZM9.30001 11.0623L9.6425 10.9912L16.7463 27.5605H17.9737L24.6339 11.038L25.2121 11.1532L25.0473 27.5605H26.6741L26.6996 9.31673H24.6253L17.9578 25.793L10.9422 9.29995H9.30001V11.0623Z" fill="white"/>' +
       '</svg>'
 };
 

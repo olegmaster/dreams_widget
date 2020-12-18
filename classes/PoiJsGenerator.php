@@ -174,7 +174,7 @@ class PoiJsGenerator implements JsGenerator
      document.head.innerHTML +='<style>'+resetCss+'</style>';
      document.head.innerHTML +='<style>'+styleCss+'</style>';
      document.head.innerHTML +='<style>'+expMapStyle+'</style>';
-     document.head.innerHTML +='<style>'+newStyle+'</style>';
+     document.head.innerHTML +='<style id="newStyle">'+newStyle+'</style>';
      if (detectMobile){
          document.head.innerHTML +='<style>'+mobileStyle+'</style>';
      }
@@ -457,8 +457,8 @@ function generateSvg (iconColection,icon,color,newColor) {
                      if (miniCardIsOpened){
                          clearInterval(openInterval);
                          const containerHeight = container.getBoundingClientRect().height;
-                         filterBtn.style.bottom = 10 + containerHeight +'px';
-                         mapType.style.bottom = 70 +containerHeight+'px';
+                         // filterBtn.style.bottom = 10 + containerHeight +'px';
+                         mapType.style.bottom = 10 +containerHeight+'px';
                          zoomContainer.style.bottom = 10 + containerHeight+ 'px';
                      }
                  },100);
@@ -774,6 +774,9 @@ function generateSvg (iconColection,icon,color,newColor) {
      $(container).find('.map-type-toggler').click(function(){
          let this_el = $(this);
          if (this_el.hasClass('roadmap') == true) {
+         changeMarkersLabelColor('#ffffff');
+         changeDocumentStyleProperty('newStyle','.marker__label','filter','drop-shadow(0px 0px 1px black)' +
+         ' drop-shadow(0px 0px 4px black)');
              map.setMapTypeId('satellite' );
              this_el.removeClass('roadmap');
              this_el.addClass('satellite');
@@ -781,6 +784,8 @@ function generateSvg (iconColection,icon,color,newColor) {
              map.setTilt(0);
          } else {
              map.setMapTypeId('roadmap' );
+             changeMarkersLabelColor('#000000');
+             changeDocumentStyleProperty('newStyle','.marker__label','filter','none');
              this_el.removeClass('satellite');
              this_el.addClass('roadmap');
              this_el.find('.var-text').html('לווין');
@@ -794,7 +799,7 @@ function generateSvg (iconColection,icon,color,newColor) {
      function add_map_filter_n_clusters () {
          let static_markers = options.map_settings.static_markers;
          let markers_for_filter = options.filtered_markers;
-         let static_markers_on_map  = [];
+         window.static_markers_on_map  = [];
          let template_1 = popup_templates[0];
          let filter_markers_categories = [];
          let snazzy_info_windows_arr = [];
@@ -815,7 +820,7 @@ function generateSvg (iconColection,icon,color,newColor) {
          /*        for (i = 0; i < markers_for_filter.length; i++) {
                      add_filtered_Marker(markers_for_filter[i]);
                  }*/
-         let markers_clusters = {};
+         window.markers_clusters = {};
          let markers_list_html = '<div class="filter-list-btn active" data-category=""  data-category-zoom="' + options.map_settings.zoom + '"><span class="marker-ic all"  style="background-image: url(' + generateSvg(projectIcons,'ALL__CATEGORY__ICON') + ')" ></span><div class="move-part"><span class="text">' + get_lang('All points of interest') + '</span></div></div>';
 
          for (let category in filter_markers_categories) {
@@ -929,6 +934,7 @@ function generateSvg (iconColection,icon,color,newColor) {
                      text : title,
                      fontWeight : '700',
                      textAlign : center,
+                     className: 'marker__label',
                  },
                  map: map,
                  icon: icon_img,
@@ -998,7 +1004,7 @@ function generateSvg (iconColection,icon,color,newColor) {
                      text : labelTitle,
                      fontWeight : '700',
                      textAlign : center,
-                     className: title.length > 15 ? 'long__label-text' : '',
+                     className: title.length > 15 ? 'long__label-text marker__label' : 'marker__label',
                  },
                  position: pos,
                  category: category,
@@ -1578,6 +1584,38 @@ function generateSvg (iconColection,icon,color,newColor) {
 
      return experimental_map_obj;
  }
+
+ function changeMarkersLabelColor (color) {
+     static_markers_on_map[0].label.color = color;
+     static_markers_on_map[0].setMap(null);
+     static_markers_on_map[0].setMap(map);
+     Object.values(markers_clusters).forEach(category =>{
+         const allMarkers = category.getMarkers();
+         if (allMarkers.length > 0){
+             allMarkers.forEach(marker =>{
+                 marker.label.color = color;
+                 marker.setMap(null);
+                 marker.setMap(map);
+             });
+         }
+         const clusters = category.getClusters();
+         if (clusters.length > 0){
+             clusters.forEach(cluster =>{
+                 cluster.markerClusterer_.repaint();
+             });
+         }
+     });
+ }
+
+ function changeDocumentStyleProperty (idStyleSheet, selector, property, value) {
+     const styleSheet = document.getElementById(idStyleSheet).sheet;
+     Object.values(styleSheet.cssRules).forEach(rule =>{
+         if (rule.selectorText === selector){
+             rule.style[property] = value;
+         }
+     });
+ }
+
 
 
 
@@ -5640,6 +5678,10 @@ function generateSvg (iconColection,icon,color,newColor) {
  .long__label-text{
   width: 120px;
   white-space: break-spaces;
+ }
+
+ .marker__label{
+     filter: none;
  }
 
  `;
