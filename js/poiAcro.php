@@ -1257,7 +1257,7 @@ function init_map () {
         zoom: 16,
         static_markers : {
             '0':{
-                'title': 'Yard TLV',
+                'title': 'YARD TEL-AVIV',
                 'lat': 32.116353,
                 'lng': 34.841586,
                 'marker_icon': generateSvg(poiIcons,'mainBuilding','#C0C0C0','#003827'),
