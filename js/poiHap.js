@@ -2453,23 +2453,23 @@ function add_experimental_map (options) {
                 }
 
                 if (parseFloat(btnGoHome.style.top) === 0){
-                    homeIcon.src = generateSvg(projectIcons,'HOME__TOP');
+                    homeIcon.src = generateSvg(projectIcons,'HOME__TOP','#1A2F43','#835a60');
                 }
 
                 if (parseFloat(btnGoHome.style.right) === 0){
-                    homeIcon.src = generateSvg(projectIcons, 'HOME__RIGHT');
+                    homeIcon.src = generateSvg(projectIcons, 'HOME__RIGHT','#1A2F43','#835a60');
                 }
 
                 if (parseFloat(btnGoHome.style.left) === 0){
-                    homeIcon.src = generateSvg(projectIcons, 'HOME__LEFT');
+                    homeIcon.src = generateSvg(projectIcons, 'HOME__LEFT','#1A2F43','#835a60');
                 }
 
                 if (parseFloat(btnGoHome.style.top) === 0 && parseFloat(btnGoHome.style.left) === 0){
-                    homeIcon.src = generateSvg(projectIcons,'HOME__TOP__LEFT');
+                    homeIcon.src = generateSvg(projectIcons,'HOME__TOP__LEFT','#1A2F43','#835a60');
                 }
 
                 if (parseFloat(btnGoHome.style.top) === 0 && parseFloat(btnGoHome.style.right) === 0){
-                    homeIcon.src = generateSvg(projectIcons, 'HOME__TOP__RIGHT');
+                    homeIcon.src = generateSvg(projectIcons, 'HOME__TOP__RIGHT','#1A2F43','#835a60');
                 }
 
             } else {
@@ -2531,43 +2531,43 @@ function add_experimental_map (options) {
 
                 if(!card){
                     if (parseFloat(btnGoHome.style.bottom) === 0){
-                        homeIcon.src = generateSvg(projectIcons, 'HOME__BOTTOM');
+                        homeIcon.src = generateSvg(projectIcons, 'HOME__BOTTOM','#1A2F43','#835a60');
                     }
 
                     if (parseFloat(btnGoHome.style.right) === 0){
-                        homeIcon.src = generateSvg(projectIcons, 'HOME__RIGHT');
+                        homeIcon.src = generateSvg(projectIcons, 'HOME__RIGHT','#1A2F43','#835a60');
                     }
 
                     if (parseFloat(btnGoHome.style.left) === 0){
-                        homeIcon.src = generateSvg(projectIcons,'HOME__LEFT');
+                        homeIcon.src = generateSvg(projectIcons,'HOME__LEFT','#1A2F43','#835a60');
                     }
 
                     if (parseFloat(btnGoHome.style.bottom) === 0 && parseFloat(btnGoHome.style.left) === 0){
-                        homeIcon.src = generateSvg(projectIcons, 'HOME__BOTTOM__LEFT');
+                        homeIcon.src = generateSvg(projectIcons, 'HOME__BOTTOM__LEFT','#1A2F43','#835a60');
                     }
 
                     if (parseFloat(btnGoHome.style.bottom) === 0 && parseFloat(btnGoHome.style.right) === 0){
-                        homeIcon.src = generateSvg(projectIcons, 'HOME__BOTTOM__RIGHT');
+                        homeIcon.src = generateSvg(projectIcons, 'HOME__BOTTOM__RIGHT','#1A2F43','#835a60');
                     }
                 } else {
                     if (Math.floor(parseFloat(btnGoHome.style.bottom)) === Math.floor(cardHeight)){
-                        homeIcon.src = generateSvg(projectIcons, 'HOME__BOTTOM');
+                        homeIcon.src = generateSvg(projectIcons, 'HOME__BOTTOM','#1A2F43','#835a60');
                     }
 
                     if (parseFloat(btnGoHome.style.right) === 0){
-                        homeIcon.src = generateSvg(projectIcons, 'HOME__RIGHT');
+                        homeIcon.src = generateSvg(projectIcons, 'HOME__RIGHT','#1A2F43','#835a60');
                     }
 
                     if (parseFloat(btnGoHome.style.left) === 0){
-                        homeIcon.src = generateSvg(projectIcons, 'HOME__LEFT');
+                        homeIcon.src = generateSvg(projectIcons, 'HOME__LEFT','#1A2F43','#835a60');
                     }
 
                     if (Math.floor(parseFloat(btnGoHome.style.bottom)) === Math.floor(cardHeight) && parseFloat(btnGoHome.style.left) === 0){
-                        homeIcon.src = generateSvg(projectIcons, 'HOME__BOTTOM__LEFT');
+                        homeIcon.src = generateSvg(projectIcons, 'HOME__BOTTOM__LEFT','#1A2F43','#835a60');
                     }
 
                     if (Math.floor(parseFloat(btnGoHome.style.bottom)) === Math.floor(cardHeight) && parseFloat(btnGoHome.style.right) === 0){
-                        homeIcon.src = generateSvg(projectIcons, 'HOME__BOTTOM__RIGHT');
+                        homeIcon.src = generateSvg(projectIcons, 'HOME__BOTTOM__RIGHT','#1A2F43','#835a60');
                     }
 
                 }
