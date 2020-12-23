@@ -1,6 +1,7 @@
 <?php
 
 require_once 'JsGenerator.php';
+require_once 'StyleSettings.php';
 
 /**
  * the class for generating JavaScript for the gallery
@@ -19,9 +20,10 @@ class GalleryJsGenerator implements JsGenerator
     private $callbackFunctionName;
     private $dir;
     private $rtlLangs = ['he'];
+    private $styleSettings;
 
     public function __construct(string $galleryData, string $canvasClass = 'bmby-gallery', string $lang = 'en', string $callbackFunctionName = '',
-    string $categoryid = '')
+    string $categoryid = '', StyleSettings $styleSettings)
     {
         $this->jsString = '';
         $this->galleryData = $galleryData;
@@ -30,6 +32,7 @@ class GalleryJsGenerator implements JsGenerator
         $this->categoryid = $categoryid;
         $this->callbackFunctionName = empty($callbackFunctionName) ? 'nonExistentFunction' : $callbackFunctionName ;
         $this->dir = (in_array($lang, $this->rtlLangs))?'rtl':'ltr';
+        $this->styleSettings = $styleSettings;
         $this->setJs();
     }
 
@@ -49,6 +52,8 @@ class GalleryJsGenerator implements JsGenerator
      */
     private function setJs()
     {
+        $bg = $this->styleSettings->bg;
+        $btn_fg = $this->styleSettings->btn_fg;
         $this->jsString = <<<EOD
 // each element contains data about the certain category and pictures belonging to it
 // this data is obtained from API
@@ -939,7 +944,7 @@ const zoomInIcon = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
 
 const basicStyle =`
 :root {
---bg-color: #1D274A;
+--bg-color: $bg;
 }
 
 html{
@@ -1016,7 +1021,7 @@ body{
   text-align: center;
   padding: 11px 0;
   margin: 0 12px;
-  cursor: pointer;
+  cursor: pointer; 
 }
 .menu__plug {
   content: '';
@@ -1027,8 +1032,8 @@ body{
   display: none;
 }
 .active {
-  border-bottom: 3px solid #603EF2;
-  color: #603EF2;
+  border-bottom: 3px solid $btn_fg;
+  color: $btn_fg;
 }
 
 .disabled{
