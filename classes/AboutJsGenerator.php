@@ -1,5 +1,6 @@
  <?php
 require_once 'JsGenerator.php';
+require_once 'StyleSettings.php';
 
  /**
   * the class for generating JavaScript for the about us
@@ -16,8 +17,9 @@ class AboutJsGenerator implements JsGenerator
     private $callbackFunctionName;
     private $dir;
     private $rtlLangs = ['he'];
+    private $styleSettings;
 
-    public function __construct(string $aboutData = '', string $canvasClass = 'bmby-about', string $callbackFunctionName = '', string $lang = 'en')
+    public function __construct(string $aboutData = '', string $canvasClass = 'bmby-about', string $callbackFunctionName = '', string $lang = 'en', StyleSettings $styleSettings)
     {
         $this->jsString = '';
         $this->aboutData = $aboutData;
@@ -25,6 +27,7 @@ class AboutJsGenerator implements JsGenerator
         $this->lang = $lang;
         $this->callbackFunctionName = empty($callbackFunctionName) ? 'nonExistentFunction' : $callbackFunctionName;
         $this->dir = (in_array($lang, $this->rtlLangs))?'rtl':'ltr';
+        $this->styleSettings = $styleSettings;
         $this->setJs();
     }
 
@@ -44,6 +47,8 @@ class AboutJsGenerator implements JsGenerator
      */
     private function setJs()
     {
+        $bg = $this->styleSettings->bg;
+        $btn_fg = $this->styleSettings->btn_fg;
         $this->jsString = <<<EOD
 let aboutUsData = $this->aboutData;
 let canvasClass = '$this->canvasClass';
@@ -370,7 +375,7 @@ function setActiveTab(parent, e) {
 
 const basicStyle = `
 :root {
---bg-color: #1D274A;
+--bg-color: $bg;
 }
 
 body{
@@ -420,8 +425,8 @@ body{
 }
 
 .active {
-  border-bottom: 3px solid #603EF2;
-  color: #603EF2;
+  border-bottom: 3px solid $btn_fg;
+  color: $btn_fg;
 }
 
 .hide-tab{
