@@ -22,14 +22,13 @@ class GalleryJsGenerator implements JsGenerator
     private $rtlLangs = ['he'];
     private $styleSettings;
 
-    public function __construct(string $galleryData, string $canvasClass = 'bmby-gallery', string $lang = 'en', string $callbackFunctionName = '',
-    string $categoryid = '', StyleSettings $styleSettings)
+    public function __construct(string $galleryData, string $canvasClass = 'bmby-gallery', string $lang = 'en', string $callbackFunctionName = '', StyleSettings $styleSettings)
     {
         $this->jsString = '';
         $this->galleryData = $galleryData;
         $this->canvasClass = $canvasClass;
         $this->lang = $lang;
-        $this->categoryid = $categoryid;
+        $this->categoryid = '';
         $this->callbackFunctionName = empty($callbackFunctionName) ? 'nonExistentFunction' : $callbackFunctionName ;
         $this->dir = (in_array($lang, $this->rtlLangs))?'rtl':'ltr';
         $this->styleSettings = $styleSettings;
