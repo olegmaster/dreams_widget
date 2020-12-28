@@ -80,6 +80,7 @@ let canvasClass = '$this->canvasClass';
 let galleryContainer;
 let timer = null;
 let imagesCount=0;
+let scroll=0;
 const userAgent = checkUserAgent();
 
 let galleries = [];
@@ -471,7 +472,16 @@ function initGallery () {
         imagesContainer.dataset.index = index;
         imagesContainer.addEventListener('wheel',onScrollGallery);
         imagesContainer.addEventListener('touchstart',onScrollGallery);
-        imagesContainer.addEventListener('touchend',onScrollGallery);
+        imagesContainer.addEventListener('touchend',()=>{
+        const scrollInterval = setInterval(()=>{
+            scroll = imagesContainer.getBoundingClientRect().y;
+               if (scroll === imagesContainer.getBoundingClientRect().y){
+                clearInterval(scrollInterval);
+                onScrollGallery();
+                }
+            },400);
+         onScrollGallery();
+        });
         imagesContainer.addEventListener('touchmove',onScrollGallery);
         imgData.sort((prev,next)=>prev.categoryId - next.categoryId);
         imgData.forEach((img,ind) =>{
@@ -882,7 +892,7 @@ function setActiveTab (id,parentIndex) {
     tabCollection.forEach(tab => {
         if (tab.dataset.categoryId === id){
             scrollContainer(tab);
-            activeTab.classList.remove('active');
+            activeTab && activeTab.classList.remove('active');
             tab.classList.add('active');
         }
     });
