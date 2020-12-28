@@ -7199,8 +7199,7 @@ let expMapStyle =`
     font-size: 0;
     transition: 0.5s;
     background-position: 2px center; }
-  .map-parent .zoom-control-btn:hover {
-    background-color: #323743; }
+
   .map-parent .zoom-control-btn.plus {
     background-image: url(CONTROLS__PLUS);
     border-top-left-radius: 25px;
@@ -7341,12 +7340,12 @@ html[dir="ltr"] .map-parent .custom-body .get-route-title .bottom-text .row {
   flex-direction: row-reverse; }
 
 body.desktop .map-parent .filter .filter-btn {
-  background-color: #1A2F43;
-  box-shadow: 1px 1px 10px rgba(26, 47, 67, 0.5); }
+  background-color: #835a60;
+  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.5); }
 
 body.desktop .map-parent .zoom-control {
-  background-color: #1A2F43;
-  box-shadow: 1px 1px 10px rgba(26, 47, 67, 0.5); }
+  background-color: #835a60;
+  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.5); }
 
 body.desktop .map-parent .filter .filters-list .filter-list-btn.active .move-part:after {
    }
@@ -7568,8 +7567,8 @@ body.desktop .map-parent .filter .filter-btn{
 }
 
 body.desktop .map-parent .map-type .map-type-toggler{
-    background-color: #1A2F43;
-    box-shadow: 1px 1px 10px rgba(26, 47, 67, 0.5);
+    background-color: #835a60;
+    box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.5);
 }
 
 .long__label-text{
