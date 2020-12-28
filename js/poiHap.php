@@ -7275,7 +7275,7 @@ let expMapStyle =`
     }
   .map-parent .map-type {
     color: white;
-    box-shadow: 1px 1px 10px rgba(26, 47, 67, 0.5);
+    box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.5);
     position: fixed;
     top: 10px;
     right: 10px;
