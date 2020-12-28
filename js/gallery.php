@@ -16,7 +16,7 @@ $styleSettings = new StyleSettings(@$_GET['bg'], @$_GET['btn_fg']);
 $apiInteractor = new WidgetApiInteractor(@$_GET['key'], @$_GET['type']);
 $galleryData = $apiInteractor->getGalleryApiData($params);
 
-$galleryJsGenerator = new GalleryJsGenerator($galleryData, $canvasClass, $lang, $callback, @$_GET['categoryid'] ?? '', $styleSettings);
+$galleryJsGenerator = new GalleryJsGenerator($galleryData, $canvasClass, $lang, $callback, $styleSettings);
 
 $galleryJsGenerator->showJs();
 
