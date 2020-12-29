@@ -56,7 +56,7 @@ class GalleryJsGenerator implements JsGenerator
         $this->jsString = <<<EOD
 // each element contains data about the certain category and pictures belonging to it
 // this data is obtained from API
-let galleryData = ($this->galleryData)?$this->galleryData:[];
+let galleryData = $this->galleryData;
 let isData = checkCRM();
 
 // this variable contains all images for all categories
