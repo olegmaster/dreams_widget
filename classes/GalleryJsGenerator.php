@@ -608,7 +608,7 @@ function manualScrollSlide (event) {
 
 function fancyboxInit () {
     $('[data-fancybox]').fancybox({
-        buttons: window.innerWidth >= 1024 && userAgent === 'iPad' ? ['close']: window.innerWidth >= 1024 ? ['full','close'] : [],
+        buttons: window.innerWidth >= 1024 && userAgent === 'iPad' ? ['close']: window.innerWidth >= 1024 ? ['full','close'] : ['close'],
         touch : {
             vertical : false,
         },
@@ -1224,6 +1224,14 @@ body{
 
 .error-page__title{
     margin: 0;
+}
+
+.fancybox-inner > .fancybox-toolbar >.fancybox-button{
+    width: 42px;
+    height: 42px;
+    background: none;
+    margin: 5px;
+    color: #ffffff;
 }
 
 }
