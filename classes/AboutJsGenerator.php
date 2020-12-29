@@ -50,7 +50,7 @@ class AboutJsGenerator implements JsGenerator
         $bg = $this->styleSettings->bg;
         $btn_fg = $this->styleSettings->btn_fg;
         $this->jsString = <<<EOD
-let aboutUsData = $this->aboutData;
+let aboutUsData = ($this->aboutData)?$this->aboutData:[];
 let canvasClass = '$this->canvasClass';
 let lang = '$this->lang';
 let dir = '$this->dir';
