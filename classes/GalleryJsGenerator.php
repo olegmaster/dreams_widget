@@ -608,7 +608,7 @@ function manualScrollSlide (event) {
 
 function fancyboxInit () {
     $('[data-fancybox]').fancybox({
-        buttons: window.innerWidth >= 1024 && userAgent === 'iPad' ? ['close']: window.innerWidth >= 1024 ? ['full','close'] : ['close'],
+        buttons: window.innerWidth >= 1024 && userAgent === 'iPad' ? ['close']: window.innerWidth >= 1024 ? ['full','close'] : [],
         touch : {
             vertical : false,
         },
