@@ -22,7 +22,7 @@ class AboutJsGenerator implements JsGenerator
     public function __construct(string $aboutData = '', string $canvasClass = 'bmby-about', string $callbackFunctionName = '', string $lang = 'en', StyleSettings $styleSettings)
     {
         $this->jsString = '';
-        $this->aboutData = $aboutData;
+        $this->aboutData = ($aboutData)?$aboutData:'';
         $this->canvasClass = $canvasClass;
         $this->lang = $lang;
         $this->callbackFunctionName = empty($callbackFunctionName) ? 'nonExistentFunction' : $callbackFunctionName;
