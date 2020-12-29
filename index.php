@@ -1,5 +1,5 @@
 <?php
 
-header('Location: ' . '/demo.php');
+echo "This is index page";
 
 
