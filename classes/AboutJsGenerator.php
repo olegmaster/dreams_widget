@@ -710,7 +710,7 @@ body{
   }
 
   .tabs-data-content__wrapper::before{
-    background: linear-gradient(180deg, #2A3549 0%, #131A2D 10%);
+    background: $bg;
 }
   .menu__item{
     margin: 0;
