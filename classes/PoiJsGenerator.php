@@ -31,7 +31,7 @@ class PoiJsGenerator implements JsGenerator
   public function __construct(string $poiData, string $poiCategoriesData, string $poiSettings, string $canvasClass = 'bmby-gallery', string $lang = 'en', string $callbackFunctionName = '')
   {
     $this->jsString = '';
-    $this->poiData = $poiData;
+    $this->poiData = !empty($poiData) ? $poiData : "[]";
     $this->poiCategoriesData = $poiCategoriesData;
 
     // $poiSettings it is the json string from API

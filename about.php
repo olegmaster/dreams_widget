@@ -4,9 +4,10 @@ $path = sprintf(
   isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off'?'https':'http',
   $_SERVER['SERVER_NAME']
 );
+
 $bgParam = (isset($_GET['bg']) && !empty($_GET['bg'])) ? '&bg=' . urlencode($_GET['bg']) : '';
 $btnFg = (isset($_GET['btn_fg']) && !empty($_GET['btn_fg'])) ? '&btn_fg=' . urlencode($_GET['btn_fg']) : '';
-$url = @"{$path}/about.js?canvas=bmby-about-wrapp&key={$_GET['key']}&type={$_GET['type']}&lang={$_GET['lang']}$bgParam$btnFg";
+$url = @"{$path}/js/about.php?canvas=bmby-about-wrapp&key={$_GET['key']}&type={$_GET['type']}&lang={$_GET['lang']}$bgParam$btnFg";
 if(@$_GET['chapterid']){
   $url.="&chapterid=".$_GET['chapterid'];
 }

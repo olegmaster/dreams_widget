@@ -25,7 +25,7 @@ class GalleryJsGenerator implements JsGenerator
     public function __construct(string $galleryData, string $canvasClass = 'bmby-gallery', string $lang = 'en', string $callbackFunctionName = '', StyleSettings $styleSettings)
     {
         $this->jsString = '';
-        $this->galleryData = $galleryData;
+        $this->galleryData = !empty($galleryData) ? $galleryData : "[]";
         $this->canvasClass = $canvasClass;
         $this->lang = $lang;
         $this->categoryid = '';
