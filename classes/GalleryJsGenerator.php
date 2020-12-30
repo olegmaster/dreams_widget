@@ -1150,7 +1150,7 @@ body{
 }
 
  .fancybox-inner >.fancybox-caption{
-  background: rgba(17, 23, 45, 0.8);
+  background: {$bg}CC;
   padding: 12px 16px 37px 16px;
   color: #fff;
   font-weight: 300;
@@ -1264,7 +1264,7 @@ body{
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(17, 23, 45, 0.8);
+    background: {$bg}CC;
     margin-top: 0;
     margin-bottom: 0;
   }
@@ -1308,7 +1308,7 @@ body{
     display: flex;
     transition: all 0.5s;
     justify-content: center;
-    background: rgba(17, 23, 45, 0.8);
+    background: {$bg}CC;
     color: #fff;
     font-weight: 300;
     line-height: 16px;
@@ -1366,10 +1366,10 @@ body{
     border-radius: 50%;
   }
    .slick-active{
-    background: #1A2F43;
+    background: $bg;
   }
     li.slick-active > button{
-    background: #603EF2;
+    background: $btn_fg;
   }
 
   .arrows__container{

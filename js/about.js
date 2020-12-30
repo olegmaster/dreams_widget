@@ -149,6 +149,10 @@ const dir = 'ltr';
 let hasUbuntuFont = false;
 let aboutUsSections = [];
 let mode = 'dev';
+// const bg = '#1D274A';
+const bg = '#835A60';
+// const btn_fg = '#603EF2';
+const btn_fg = 'black';
 let aboutUsMainContainer;
 const userAgent = checkUserAgent();
 let isData = checkCRM();
@@ -554,7 +558,7 @@ const mobileErrorIcon = `
 
 const basicStyle = `
 :root {
---bg-color: #1D274A;
+--bg-color: ${bg};
 }
 
 body{
@@ -604,8 +608,8 @@ body{
 }
 
 .active {
-  border-bottom: 3px solid #603EF2;
-  color: #603EF2;
+  border-bottom: 3px solid ${btn_fg};
+  color: ${btn_fg};
 }
 
 .hide-tab{
@@ -768,7 +772,7 @@ body{
 
   .main-container-about {
     padding: 0 10px;
-    background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%);
+    background: ${bg};
     color: #fff;
     font-family: 'Assistant', sans-serif;
     font-style: normal;
@@ -792,8 +796,8 @@ body{
   }
   
   .active {
-    border-bottom: 3px solid #603EF2;
-    color: #603EF2;
+    border-bottom: 3px solid ${btn_fg};
+    color: ${btn_fg};
     }
    .tabs-data-content__wrapper, .menu-content__wrapper{
     max-width: 1280px;

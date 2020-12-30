@@ -5,8 +5,7 @@
 
 // let galleryData = [{"categoryId":1,"name":[{"lang":"en","value":"Interior"},{"lang":"he","value":"Interior"}],"order":0,"pictures":[{"title":[{"lang":"en","value":"Image 2"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/gallery-test\/8000x4500.jpg","order":1}]},{"categoryId":2,"name":[{"lang":"en","value":"Exterior"},{"lang":"he","value":"Exterior"}],"order":1,"pictures":[{"title":[{"lang":"en","value":"Image 2"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/gallery-test\/8000x4500.jpg","order":1},{"title":[{"lang":"en","value":"Image 3"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/gallery-test\/720x720.jpg","order":2},{"title":[{"lang":"en","value":"Image 4"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/gallery-test\/4999x6000.jpg","order":2},{"title":[{"lang":"en","value":"Image 4"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/gallery-test\/405x720.jpg","order":2},{"title":[{"lang":"en","value":"Image 4"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/gallery-test\/2100x720.jpg","order":2},{"title":[{"lang":"en","value":"Image 4"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/gallery-test\/1500x1500.jpg","order":2},{"title":[{"lang":"en","value":"Image 4"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/gallery-test\/1200x720.jpg","order":2},{"title":[{"lang":"en","value":"Image 4"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/gallery-test\/1080x1920.jpg","order":2}]},{"categoryId":3,"name":[{"lang":"en","value":"Amenities"},{"lang":"he","value":"Amenities"}],"order":2,"pictures":[]},{"categoryId":4,"name":[{"lang":"en","value":"Neighborhood"},{"lang":"he","value":"Neighborhood"}],"order":3,"pictures":[]}];
 
-// let galleryData = [{"categoryId":"5f90337efd3312117923af62","name":[{"lang":"en","value":"Interior"},{"lang":"he","value":"Interior"},{"lang":"ru","value":"Interior"}],"order":0,"pictures":[{"title":[{"lang":"en","value":"new"},{"lang":"he","value":"new"},{"lang":"ru","value":""}],"imageUrl":"https:\/\/dreamsimagesdev.bmby.com\/251West117thStreet\/projectassets\/gallery\/1CE6C23B-6A85-4C66-89AB-CA4265ECDBE5\/PIA23689.jpg","order":0},{"title":[{"lang":"en","value":"Timeline"},{"lang":"he","value":"Timeline"},{"lang":"ru","value":""}],"imageUrl":"https:\/\/dreamsimagesdev.bmby.com\/251West117thStreet\/projectassets\/gallery\/E23C2A6B-3911-4F67-A936-C204CEB894B4\/mulan_2020_film-wallpaper-1600x900.jpg","order":1}]},{"categoryId":"5f90337efd3312117923af63","name":[{"lang":"en","value":"Exterior"},{"lang":"he","value":"Exterior"},{"lang":"ru","value":"Exterior"}],"order":1,"pictures":[{"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""}],"imageUrl":"https:\/\/dreamsimagesdev.bmby.com\/251West117thStreet\/projectassets\/gallery\/B55C902A-AD1C-4505-A43D-E977AD1F9B23\/5d58fdf5-2356-4d33-9ecb-15c1daa27b07.png","order":0}]},{"categoryId":"5f90337efd3312117923af64","name":[{"lang":"en","value":"Amenities"},{"lang":"he","value":"Amenities"},{"lang":"ru","value":"Amenities"}],"order":2,"pictures":[{"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""}],"imageUrl":"https:\/\/dreamsimagesdev.bmby.com\/251West117thStreet\/projectassets\/gallery\/75626F07-1F98-4F3C-B586-52AFA1A2FBC5\/dscf0585_stitch-besonhurst-2.jpg","order":0}]},{"categoryId":"5f90337efd3312117923af65","name":[{"lang":"en","value":"Neighborhood"},{"lang":"he","value":"Neighborhood"},{"lang":"ru","value":"Neighborhood"}],"order":3,"pictures":[{"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""}],"imageUrl":"https:\/\/dreamsimagesdev.bmby.com\/251West117thStreet\/projectassets\/gallery\/157905F2-9B16-4919-B06C-E3F8FFC92D03\/PIA23689.jpg","order":0}]}];
-let galleryData = [];
+let galleryData = [{"categoryId":"5f90337efd3312117923af62","name":[{"lang":"en","value":"Interior"},{"lang":"he","value":"Interior"},{"lang":"ru","value":"Interior"}],"order":0,"pictures":[{"title":[{"lang":"en","value":"new"},{"lang":"he","value":"new"},{"lang":"ru","value":""}],"imageUrl":"https:\/\/dreamsimagesdev.bmby.com\/251West117thStreet\/projectassets\/gallery\/1CE6C23B-6A85-4C66-89AB-CA4265ECDBE5\/PIA23689.jpg","order":0},{"title":[{"lang":"en","value":"Timeline"},{"lang":"he","value":"Timeline"},{"lang":"ru","value":""}],"imageUrl":"https:\/\/dreamsimagesdev.bmby.com\/251West117thStreet\/projectassets\/gallery\/E23C2A6B-3911-4F67-A936-C204CEB894B4\/mulan_2020_film-wallpaper-1600x900.jpg","order":1}]},{"categoryId":"5f90337efd3312117923af63","name":[{"lang":"en","value":"Exterior"},{"lang":"he","value":"Exterior"},{"lang":"ru","value":"Exterior"}],"order":1,"pictures":[{"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""}],"imageUrl":"https:\/\/dreamsimagesdev.bmby.com\/251West117thStreet\/projectassets\/gallery\/B55C902A-AD1C-4505-A43D-E977AD1F9B23\/5d58fdf5-2356-4d33-9ecb-15c1daa27b07.png","order":0}]},{"categoryId":"5f90337efd3312117923af64","name":[{"lang":"en","value":"Amenities"},{"lang":"he","value":"Amenities"},{"lang":"ru","value":"Amenities"}],"order":2,"pictures":[{"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""}],"imageUrl":"https:\/\/dreamsimagesdev.bmby.com\/251West117thStreet\/projectassets\/gallery\/75626F07-1F98-4F3C-B586-52AFA1A2FBC5\/dscf0585_stitch-besonhurst-2.jpg","order":0}]},{"categoryId":"5f90337efd3312117923af65","name":[{"lang":"en","value":"Neighborhood"},{"lang":"he","value":"Neighborhood"},{"lang":"ru","value":"Neighborhood"}],"order":3,"pictures":[{"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""}],"imageUrl":"https:\/\/dreamsimagesdev.bmby.com\/251West117thStreet\/projectassets\/gallery\/157905F2-9B16-4919-B06C-E3F8FFC92D03\/PIA23689.jpg","order":0}]}];
 
 let isData = checkCRM();
 // this variable contains all images for all categories
@@ -27,8 +26,10 @@ galleryData.forEach(galleryElement => {
 const lang = 'en';
 const dir = 'ltr';
 const activeCategory = null;
-const bg = '#1D274A';
-const btn_fg = '#603EF2';
+// const bg = '#1D274A';
+const bg = '#835A60';
+// const btn_fg = '#603EF2';
+const btn_fg = 'black';
 
 let canvasClass = 'bmby-gallery-wrapp';
 let galleryContainer;
@@ -1102,7 +1103,8 @@ body{
 }
 
  .fancybox-inner >.fancybox-caption{
-  background: rgba(17, 23, 45, 0.8);
+  // background: rgba(17, 23, 45, 0.8);
+  background: ${bg}CC;
   padding: 12px 16px 37px 16px;
   color: #fff;
   font-weight: 300;
@@ -1215,7 +1217,8 @@ body{
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(17, 23, 45, 0.8);
+    // background: rgba(17, 23, 45, 0.8);
+    background: ${bg}CC;
     margin-top: 0;
     margin-bottom: 0;
   }
@@ -1259,7 +1262,8 @@ body{
     display: flex;
     transition: all 0.5s;
     justify-content: center;
-    background: rgba(17, 23, 45, 0.8);
+    // background: rgba(17, 23, 45, 0.8);
+    background: ${bg}CC;
     color: #fff;
     font-weight: 300;
     line-height: 16px;
@@ -1317,10 +1321,10 @@ body{
     border-radius: 50%;
   }
    .slick-active{
-    background: #1A2F43;
+    background: ${bg};
   }
     li.slick-active > button{
-    background: #603EF2;
+    background: ${btn_fg};
   }
   
   .arrows__container{

@@ -676,7 +676,7 @@ body{
 
   .main-container-about {
     padding: 0 10px;
-    background: linear-gradient(180deg, #2A3549 0%, #131A2D 100%);
+    background: $bg;
     color: #fff;
     font-family: 'Assistant', sans-serif;
     font-style: normal;
@@ -700,8 +700,8 @@ body{
   }
 
   .active {
-    border-bottom: 3px solid #603EF2;
-    color: #603EF2;
+    border-bottom: 3px solid $btn_fg;
+    color: $btn_fg;
     }
    .tabs-data-content__wrapper, .menu-content__wrapper{
     max-width: 1280px;
