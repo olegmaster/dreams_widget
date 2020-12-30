@@ -1215,6 +1215,7 @@ body{
     font-family: 'Ubuntu',sans-serif;
     text-align: center;
     margin: 40px;
+    transform: translateY(-50px);
 }
 
 @media screen and (max-width: 1024px){
@@ -1238,6 +1239,15 @@ body{
 
 
 @media (orientation: landscape) {
+
+.error-page__icon{
+    width: 50%;
+}
+
+.error-page__title{
+    transform: translateY(-70px);
+}
+
   .images__container {
     overflow-x: scroll;
     display: flex;
@@ -1262,6 +1272,15 @@ body{
 }
 
 @media screen and (min-width: 1024px){
+
+.error-page__icon{
+    width: 20%;
+}
+
+.error-page__title{
+    transform: translateY(-30px);
+}
+
   .img__tumbs{
     width: 100vw;
     height: calc(100vh - 46px);
