@@ -1845,6 +1845,27 @@ function add_experimental_map (options) {
                     snazzy_info_window.close();
                 }, 300);
             };
+
+            const mainBuildingEnv = [
+                { lat: 32.116475384197464, lng: 34.840756561496676},
+                { lat: 32.11694146403754, lng: 34.84126870825036 },
+                { lat: 32.11600058760775, lng: 34.84248658631128 },
+                { lat: 32.115616659372854, lng: 34.84193405125421 },
+                { lat: 32.11565527944588, lng: 34.84182676289362},
+                { lat: 32.11562801821957, lng: 34.84174093220514},
+                { lat: 32.116466297204575, lng: 34.84076460812372 }
+            ];
+
+            const env = new google.maps.Polygon({
+                paths: mainBuildingEnv,
+                strokeColor: "#afc0b0",
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: "#afc0b0",
+                fillOpacity: 0.35,
+            });
+            env.setMap(map);
+
         }
 
         function add_filtered_Marker(marker) {

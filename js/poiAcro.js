@@ -1791,11 +1791,12 @@ function add_experimental_map (options) {
 
 
         function addMarker(marker) {
+
             var title = marker.title;
             var pos = new google.maps.LatLng(marker.lat, marker.lng);
 
 
-            var content =  marker.marker_text;
+            var content = marker.marker_text;
             var icon_img = new google.maps.MarkerImage();
             icon_img.url = marker.marker_icon;
             {
@@ -1816,17 +1817,17 @@ function add_experimental_map (options) {
             marker1 = new google.maps.Marker({
                 title: title,
                 position: pos,
-                label : {
-                    color : '#000000',
-                    text : title,
-                    fontWeight : '700',
-                    textAlign : center,
+                label: {
+                    color: '#000000',
+                    text: title,
+                    fontWeight: '700',
+                    textAlign: center,
                     className: 'marker__label',
                 },
                 map: map,
                 icon: icon_img,
                 animation: google.maps.Animation.DROP,
-                zIndex : 99999999999999999999,
+                zIndex: 99999999999999999999,
             });
 
             static_markers_on_map.push(marker1);
@@ -1841,6 +1842,48 @@ function add_experimental_map (options) {
                     snazzy_info_window.close();
                 }, 300);
             };
+
+            const mainBuildingEnv = [
+                { lat: 32.116475384197464, lng: 34.840756561496676},
+                { lat: 32.11694146403754, lng: 34.84126870825036 },
+                { lat: 32.11600058760775, lng: 34.84248658631128 },
+                { lat: 32.115616659372854, lng: 34.84193405125421 },
+                { lat: 32.11565527944588, lng: 34.84182676289362},
+                { lat: 32.11562801821957, lng: 34.84174093220514},
+                { lat: 32.116466297204575, lng: 34.84076460812372 }
+            ];
+
+            const env = new google.maps.Polygon({
+                paths: mainBuildingEnv,
+                strokeColor: "#afc0b0",
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: "#afc0b0",
+                fillOpacity: 0.35,
+            });
+            env.setMap(map);
+
+            /// PAINT FUNCTION
+            // const poly = new google.maps.Polyline({
+            //     strokeColor: "#000000",
+            //     strokeOpacity: 1.0,
+            //     strokeWeight: 3,
+            // });
+            // poly.setMap(map);
+            // map.addListener("click", addLatLng);
+            //
+            // function addLatLng(event) {
+            //     const path = poly.getPath();
+            //     path.push(event.latLng);
+            //     new google.maps.Marker({
+            //         position: event.latLng,
+            //         title: "#" + path.getLength(),
+            //         map: map,
+            //     });
+            //     console.log('Marker');
+            //     console.log('lat',event.latLng.lat());
+            //     console.log('lng',event.latLng.lng());
+            // }
         }
 
         function add_filtered_Marker(marker) {
