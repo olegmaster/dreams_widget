@@ -1570,6 +1570,7 @@ function add_experimental_map (options) {
         }
     }
     setInitialZoom();
+    hideAllDefaultMapLinks();
     setTimeout(()=>{
         addClusterEvent();
     },300);
@@ -1606,6 +1607,18 @@ function changeDocumentStyleProperty (idStyleSheet, selector, property, value) {
             rule.style[property] = value;
         }
     });
+}
+
+function hideAllDefaultMapLinks () {
+    const interval = setInterval(()=>{
+        const links = document.querySelectorAll('a[rel="noopener"]');
+        if (links.length > 0){
+            clearInterval(interval);
+            links.forEach(link =>{
+                link.style.display= 'none';
+            });
+        }
+    },100);
 }
 
 
@@ -4942,7 +4955,7 @@ let expMapStyle =`
 .map-parent {
   width: 100vw;
   // height: 100vh;
-  position: fixed;
+  position: relative;
   top: 0;
   overflow: hidden; }
   .map-parent .green-line {
@@ -5024,7 +5037,7 @@ let expMapStyle =`
             position: relative;
             z-index: 1; }
     .map-parent .filter .filter-btn {
-      position: fixed;
+      position: absolute;
       bottom: 10px;
       right: 10px;
       width: 55px;
@@ -5190,8 +5203,8 @@ let expMapStyle =`
         background-size: 20px; }
   .map-parent .map-container {
     width: 100%;
-    height: calc(100vh + 25px);
-    // height: 100vh;
+    // height: calc(100vh + 25px);
+     height: 100vh;
     transition: 0.5s; }
     .map-parent .map-container.open {
       filter: blur(4px) grayscale(1) brightness(0.4); }
@@ -5265,7 +5278,7 @@ let expMapStyle =`
     width: 44px;
     height: 89px;
     background-color: #603ef2;
-    position: fixed;
+    position: absolute;
     bottom: 10px;
     right: initial;
     left: 10px;
@@ -5365,7 +5378,7 @@ let expMapStyle =`
   .map-parent .map-type {
     color: white;
     box-shadow: 1px 1px 10px rgba(26, 47, 67, 0.5);
-    position: fixed;
+    position: absolute;
     top: 10px;
     right: 10px;
     // border-radius: 33px;
@@ -5447,7 +5460,7 @@ body.desktop .map-parent .filter .filters-list .filter-list-btn.active .move-par
 .map__go-home__btn {
   width: 52px;
   height: 52px;
-  position: fixed;
+  position: absolute;
   z-index: 3;
   cursor: pointer; }
 
