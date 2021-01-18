@@ -7781,7 +7781,7 @@ const mobileStyle =`
     position: absolute;
 }
 .snazzy-card__window{
-    position: fixed;
+    position: absolute;
     z-index: 2;
     bottom: -35%;
     width: 100%;
@@ -7821,7 +7821,7 @@ const mobileOpenedCard = `
     right: 10px;
     filter: unset;
     display: block;
-    position: fixed;
+    position: absolute;
 }
 .map-parent .custom-window .custom-content .custom-header-wrap.with-img{
     display: block;
