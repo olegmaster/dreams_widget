@@ -535,7 +535,10 @@ function userCoverState (naturalWidth, naturalHeight ) {
 }
 
 function closeImage () {
-    $.fancybox.close();
+   const fb = document.querySelector('.fancybox-container');
+   if (fb){
+       fb.remove();
+   }
 }
 
 function resizeImage () {
