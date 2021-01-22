@@ -5,7 +5,38 @@
 
 // let galleryData = [{"categoryId":1,"name":[{"lang":"en","value":"Interior"},{"lang":"he","value":"Interior"}],"order":0,"pictures":[{"title":[{"lang":"en","value":"Image 2"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/gallery-test\/8000x4500.jpg","order":1}]},{"categoryId":2,"name":[{"lang":"en","value":"Exterior"},{"lang":"he","value":"Exterior"}],"order":1,"pictures":[{"title":[{"lang":"en","value":"Image 2"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/gallery-test\/8000x4500.jpg","order":1},{"title":[{"lang":"en","value":"Image 3"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/gallery-test\/720x720.jpg","order":2},{"title":[{"lang":"en","value":"Image 4"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/gallery-test\/4999x6000.jpg","order":2},{"title":[{"lang":"en","value":"Image 4"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/gallery-test\/405x720.jpg","order":2},{"title":[{"lang":"en","value":"Image 4"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/gallery-test\/2100x720.jpg","order":2},{"title":[{"lang":"en","value":"Image 4"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/gallery-test\/1500x1500.jpg","order":2},{"title":[{"lang":"en","value":"Image 4"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/gallery-test\/1200x720.jpg","order":2},{"title":[{"lang":"en","value":"Image 4"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamseu.z6.web.core.windows.net\/gallery-test\/1080x1920.jpg","order":2}]},{"categoryId":3,"name":[{"lang":"en","value":"Amenities"},{"lang":"he","value":"Amenities"}],"order":2,"pictures":[]},{"categoryId":4,"name":[{"lang":"en","value":"Neighborhood"},{"lang":"he","value":"Neighborhood"}],"order":3,"pictures":[]}];
 
-let galleryData = [{"categoryId":"5f90337efd3312117923af62","name":[{"lang":"en","value":"Interior"},{"lang":"he","value":"Interior"},{"lang":"ru","value":"Interior"}],"order":0,"pictures":[{"title":[{"lang":"en","value":"new"},{"lang":"he","value":"new"},{"lang":"ru","value":""}],"imageUrl":"https:\/\/dreamsimagesdev.bmby.com\/251West117thStreet\/projectassets\/gallery\/1CE6C23B-6A85-4C66-89AB-CA4265ECDBE5\/PIA23689.jpg","order":0},{"title":[{"lang":"en","value":"Timeline"},{"lang":"he","value":"Timeline"},{"lang":"ru","value":""}],"imageUrl":"https:\/\/dreamsimagesdev.bmby.com\/251West117thStreet\/projectassets\/gallery\/E23C2A6B-3911-4F67-A936-C204CEB894B4\/mulan_2020_film-wallpaper-1600x900.jpg","order":1}]},{"categoryId":"5f90337efd3312117923af63","name":[{"lang":"en","value":"Exterior"},{"lang":"he","value":"Exterior"},{"lang":"ru","value":"Exterior"}],"order":1,"pictures":[{"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""}],"imageUrl":"https:\/\/dreamsimagesdev.bmby.com\/251West117thStreet\/projectassets\/gallery\/B55C902A-AD1C-4505-A43D-E977AD1F9B23\/5d58fdf5-2356-4d33-9ecb-15c1daa27b07.png","order":0}]},{"categoryId":"5f90337efd3312117923af64","name":[{"lang":"en","value":"Amenities"},{"lang":"he","value":"Amenities"},{"lang":"ru","value":"Amenities"}],"order":2,"pictures":[{"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""}],"imageUrl":"https:\/\/dreamsimagesdev.bmby.com\/251West117thStreet\/projectassets\/gallery\/75626F07-1F98-4F3C-B586-52AFA1A2FBC5\/dscf0585_stitch-besonhurst-2.jpg","order":0}]},{"categoryId":"5f90337efd3312117923af65","name":[{"lang":"en","value":"Neighborhood"},{"lang":"he","value":"Neighborhood"},{"lang":"ru","value":"Neighborhood"}],"order":3,"pictures":[{"title":[{"lang":"en","value":""},{"lang":"he","value":""},{"lang":"ru","value":""}],"imageUrl":"https:\/\/dreamsimagesdev.bmby.com\/251West117thStreet\/projectassets\/gallery\/157905F2-9B16-4919-B06C-E3F8FFC92D03\/PIA23689.jpg","order":0}]}];
+let galleryData = [
+      { "categoryId": "5f957cdded75ee04ed45f082", "name": [{ "lang": "en", "value": "Interior" }], "order": 0, "pictures": [] },
+      {
+          "categoryId": "5f957cdded75ee04ed45f083",
+          "name": [{ "lang": "en", "value": "Exterior" }],
+          "order": 1,
+          "pictures": [
+              { "title": [{ "lang": "en", "value": "" }], "imageUrl": "https://dreamsimages.bmby.com/hapdreams/projectassets/gallery/77CCD7F5-567F-42D7-BCB0-79BAEB3B7B8D/01 BuildingHero_Dusk 6K 01-29-2020 (1) (1) - Copy.jpg", "order": 0 },
+              { "title": [{ "lang": "en", "value": "" }], "imageUrl": "https://dreamsimages.bmby.com/hapdreams/projectassets/gallery/2933CD12-6496-41D4-917F-88A41D13CC0C/02BuildingHero 6K 01-29-2020 (2) (1) - Copy - Copy.jpg", "order": 1 }
+          ]
+      },
+      {
+          "categoryId": "5f957cdded75ee04ed45f084",
+          "name": [{ "lang": "en", "value": "Amenities" }],
+          "order": 2,
+          "pictures": [
+              { "title": [{ "lang": "en", "value": "The pool" }], "imageUrl": "https://dreamsimages.bmby.com/hapdreams/projectassets/gallery/28A539BC-3F77-4367-B0AA-DC7C047D4EAE/06 Pool_High Res_02-12-2020 - Copy.jpg", "order": 0 },
+              {
+                  "title": [{ "lang": "en", "value": "Spa" }],
+                  "imageUrl": "https://dreamsimages.bmby.com/hapdreams/projectassets/gallery/8B332A7A-47AB-4EE7-A736-5D516E30EEBC/07 Spa_Second Option_HIgh Res 01-15-2020 (1) - Copy.jpg",
+                  "order": 1
+              },
+              { "title": [{ "lang": "en", "value": "Fitness" }], "imageUrl": "https://dreamsimages.bmby.com/hapdreams/projectassets/gallery/A2ECA5D0-7CA4-42F2-AD67-27E58A0B6AF4/08_Fitness_200120 - Copy.jpg", "order": 2 },
+              { "title": [{ "lang": "en", "value": "Residents Lounge" }], "imageUrl": "https://dreamsimages.bmby.com/hapdreams/projectassets/gallery/CD02024A-F4A5-4D53-9EF8-5BC68F5CFE2E/09 Residents Lounge_6k_200212.jpg", "order": 3 },
+              { "title": [{ "lang": "en", "value": "Roof Terrace" }], "imageUrl": "https://dreamsimages.bmby.com/hapdreams/projectassets/gallery/37B5CEC9-36BD-4923-94FE-08DD1D10AA52/10_RD_cam1_200213 (1) - Copy.jpg", "order": 4 },
+              { "title": [{ "lang": "en", "value": "Roof Terrace" }], "imageUrl": "https://dreamsimages.bmby.com/hapdreams/projectassets/gallery/ADC9055F-9389-4091-8B9E-17A077196806/x_19 PH Roof Terrace (20A)_200121 - Copy.jpg", "order": 5 },
+              { "title": [{ "lang": "en", "value": "Roof top Kitchen" }], "imageUrl": "https://dreamsimages.bmby.com/hapdreams/projectassets/gallery/93594436-5893-4D26-977B-930C550F081E/10-B_RooftopKitchen_200212 - Copy.jpg", "order": 6 }
+          ]
+      },
+      { "categoryId": "5f957cdded75ee04ed45f085", "name": [{ "lang": "en", "value": "Neighborhood" }], "order": 3, "pictures": [] }
+  ]
+;
 
 let isData = checkCRM();
 // this variable contains all images for all categories
@@ -503,6 +534,10 @@ function userCoverState (naturalWidth, naturalHeight ) {
     }
 }
 
+function closeImage () {
+    $.fancybox.close();
+}
+
 function resizeImage () {
     const current = getCurrentInstance();
     const container = current.$content[0];
@@ -571,6 +606,7 @@ function fancyboxInit () {
         wheel: false,
         btnTpl:{
             full: '<button class="full-screen__zoom" onclick="resizeImage()">'+zoomInIcon+'</button>',
+            close: '<button class="close-screen__btn" onclick="closeImage()">'+closeIcon+'</button>',
         //     arrowLeft: '<button data-fancybox-prev class="fancybox-button fancybox-button--arrow_left" title="{{PREV}}">' +
         //       '<div><i class="gallery-slide__arrow fas fa-chevron-left"></i></div>' +
         //       "</button>",
@@ -991,6 +1027,9 @@ const zoomInIcon = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
   '<path fill-rule="evenodd" clip-rule="evenodd" d="M4.25758 6.35634H6.29006C7.23357 5.39578 8.54721 4.80001 10 4.80001C11.4528 4.80001 12.7664 5.39578 13.7099 6.35634H15.7424C14.536 4.45895 12.415 3.20001 10 3.20001C7.585 3.20001 5.46403 4.45895 4.25758 6.35634ZM15.7424 13.6437H13.71C12.7665 14.6042 11.4528 15.2 10 15.2C8.5472 15.2 7.23354 14.6042 6.29004 13.6437H4.25757C5.46401 15.5411 7.58499 16.8 10 16.8C12.415 16.8 14.536 15.5411 15.7424 13.6437Z" fill="#1A2F43"/>' +
   '</svg>';
 
+const closeIcon ='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 10.6L6.6 5.2 5.2 6.6l5.4' +
+  ' 5.4-5.4 5.4 1.4 1.4 5.4-5.4 5.4 5.4 1.4-1.4-5.4-5.4 5.4-5.4-1.4-1.4-5.4 5.4z"></path></svg>';
+
 
 const basicStyle =`
 :root {
@@ -1128,6 +1167,24 @@ body{
 
 .full-screen__zoom{
     border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    cursor: pointer;
+    display: inline-block;
+    height: 44px;
+    margin: 0;
+    outline: none;
+    padding: 10px;
+    position: relative;
+    transition: color .2s;
+    vertical-align: top;
+    visibility: inherit;
+    width: 44px;
+    background: transparent;
+}
+
+.close-screen__btn{
+     border: 0;
     border-radius: 0;
     box-shadow: none;
     cursor: pointer;
@@ -1440,6 +1497,15 @@ li.slick-active > button{
     color: #1A2F43;
 }
 .full-screen__zoom{
+    width: 42px;
+    height: 42px;
+    background: #F7F7F7;
+    border-radius: 30px;
+    margin-right: 32px;
+    margin-bottom: 22px;
+}
+
+.close-screen__btn {
     width: 42px;
     height: 42px;
     background: #F7F7F7;

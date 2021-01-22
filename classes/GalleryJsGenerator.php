@@ -549,6 +549,10 @@ function userCoverState (naturalWidth, naturalHeight ) {
     }
 }
 
+function closeImage () {
+    $.fancybox.close();
+}
+
 function resizeImage () {
     const current = getCurrentInstance();
     const container = current.\$content[0];
@@ -617,6 +621,7 @@ function fancyboxInit () {
         wheel: false,
         btnTpl:{
             full: '<button class="full-screen__zoom" onclick="resizeImage()">'+zoomInIcon+'</button>',
+            close: '<button class="close-screen__btn" onclick="closeImage()">'+closeIcon+'</button>',
         //     arrowLeft: '<button data-fancybox-prev class="fancybox-button fancybox-button--arrow_left" title="{{PREV}}">' +
         //       '<div><i class="gallery-slide__arrow fas fa-chevron-left"></i></div>' +
         //       "</button>",
@@ -1038,6 +1043,9 @@ const zoomInIcon = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
   '<path fill-rule="evenodd" clip-rule="evenodd" d="M4.25758 6.35634H6.29006C7.23357 5.39578 8.54721 4.80001 10 4.80001C11.4528 4.80001 12.7664 5.39578 13.7099 6.35634H15.7424C14.536 4.45895 12.415 3.20001 10 3.20001C7.585 3.20001 5.46403 4.45895 4.25758 6.35634ZM15.7424 13.6437H13.71C12.7665 14.6042 11.4528 15.2 10 15.2C8.5472 15.2 7.23354 14.6042 6.29004 13.6437H4.25757C5.46401 15.5411 7.58499 16.8 10 16.8C12.415 16.8 14.536 15.5411 15.7424 13.6437Z" fill="#1A2F43"/>' +
   '</svg>';
 
+  const closeIcon ='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 10.6L6.6 5.2 5.2 6.6l5.4' +
+    ' 5.4-5.4 5.4 1.4 1.4 5.4-5.4 5.4 5.4 1.4-1.4-5.4-5.4 5.4-5.4-1.4-1.4-5.4 5.4z"></path></svg>';
+
 
 const basicStyle =`
 :root {
@@ -1174,6 +1182,24 @@ body{
 
 .full-screen__zoom{
     border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    cursor: pointer;
+    display: inline-block;
+    height: 44px;
+    margin: 0;
+    outline: none;
+    padding: 10px;
+    position: relative;
+    transition: color .2s;
+    vertical-align: top;
+    visibility: inherit;
+    width: 44px;
+    background: transparent;
+}
+
+.close-screen__btn{
+     border: 0;
     border-radius: 0;
     box-shadow: none;
     cursor: pointer;
@@ -1485,6 +1511,15 @@ li.slick-active > button{
     color: #1A2F43;
 }
 .full-screen__zoom{
+    width: 42px;
+    height: 42px;
+    background: #F7F7F7;
+    border-radius: 30px;
+    margin-right: 32px;
+    margin-bottom: 22px;
+}
+
+.close-screen__btn {
     width: 42px;
     height: 42px;
     background: #F7F7F7;
