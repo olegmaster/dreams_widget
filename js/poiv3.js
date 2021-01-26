@@ -88,12 +88,12 @@ function initMap () {
   // Home Marker data
   options.staticMarkers = {
       '0':{
-      'title': '251 West 117th Street',
-      'lat': 32.0853,
-      'lng': 34.7818,
-      'markerIcon': generateSvg(poiIcons,'mainBuilding','#C0C0C0','#000000'),
-      'markerText': '',
-    }
+        'title': '251 West 117th Street',
+        'lat': 32.0853,
+        'lng': 34.7818,
+        'markerIcon': generateSvg(poiIcons,'mainBuilding','#C0C0C0','#000000'),
+        'markerText': '',
+      }
   };
 
   preparePoiData(options.filteredMarkers);
@@ -192,18 +192,16 @@ function addMarker (marker, staticLabelPosY, zIndex = 1) {
 }
 
 function preparePoiData (objectToAssign) {
-  let key = 0;
-  const objWithKey ={};
+  const poiWithCategory ={};
 
   poiCategoriesData.forEach(category =>{
     if (category.data.length > 0){
       const categoryName = category.name.filter(elName=>elName.lang === lang)[0].value;
-      objWithKey[categoryName] =[];
+      poiWithCategory[categoryName] =[];
       category.data.forEach(catData =>{
         const dataName = catData.name.filter(dataElementName => dataElementName.lang === lang)[0].value;
         const description = catData.description.filter(dataDescription => dataDescription.lang === lang)[0].value;
         const obj = {
-          [key]:{
             'category': categoryName,
             'title': dataName,
             'lat': catData.latitude,
@@ -217,15 +215,12 @@ function preparePoiData (objectToAssign) {
             'infoWindowImg': 'null',
             'markerDescription': description,
             'webSiteUrl': catData.url,
-          }
         };
-        objWithKey[categoryName].push(obj[key]);
-        key++;
-        // Object.assign(objectToAssign,obj);
+        poiWithCategory[categoryName].push(obj);
       });
     }
   });
-  Object.assign(objectToAssign,objWithKey);
+  Object.assign(objectToAssign,poiWithCategory);
 }
 
 
