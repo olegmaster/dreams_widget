@@ -8,7 +8,8 @@ const lang = 'en';
 const dir = 'ltr';
 let canvasClass = 'bmby-poi-wrapp';
 let map;
-const options = {};
+let directionsRenderer;
+const mapData = {};
 
 const query = '?key=AIzaSyDuH95F2ljG3Z-AtGByCNYMkaUwwGc-SUc&libraries=places';
 
@@ -86,13 +87,13 @@ function initMap () {
   mapContainer.classList.add('map__container');
   document.querySelector('.'+canvasClass).append(mapContainer);
 
-  options.filteredMarkers = {};
-  options.mapSettings = {
-    zoom: 16,
+  mapData.filteredMarkers = {};
+  mapData.mapSettings = {
+    zoom: 14,
   };
 
   // Home Marker data
-  options.staticMarkers = {
+  mapData.staticMarkers = {
       '0':{
         'title': '251 West 117th Street',
         'lat': 32.0853,
@@ -102,7 +103,7 @@ function initMap () {
       }
   };
 
-  preparePoiData(options.filteredMarkers);
+  preparePoiData(mapData.filteredMarkers);
 
   const  mapStyle = [
     {
@@ -113,18 +114,9 @@ function initMap () {
     }
   ];
 
-  // const directionsService = new google.maps.DirectionsService;
-  // const directionsRenderer = new google.maps.DirectionsRenderer({
-  //   suppressMarkers: true,
-  //   preserveViewport: true,
-  //   provideRouteAlternatives: true,
-  // });
-  //
-  // directionsRenderer.setMap(map);
-
-  const startPoint = new google.maps.LatLng(options.staticMarkers['0'].lat,options.staticMarkers['0'].lng);
-  const mapOptions = {
-    zoom: options.mapSettings.zoom,
+  const startPoint = new google.maps.LatLng(mapData.staticMarkers['0'].lat,mapData.staticMarkers['0'].lng);
+  const mapmapData = {
+    zoom: mapData.mapSettings.zoom,
     center: startPoint,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     mapTypeControl: false,
@@ -138,13 +130,20 @@ function initMap () {
     gestureHandling : 'cooperative',
   };
 
-  map = new google.maps.Map(mapContainer, mapOptions);
+  map = new google.maps.Map(mapContainer, mapmapData);
 
-  addStaticMarkers(options);
-  addPoiMarkers(options);
-  addPoiClusters(options);
+  directionsRenderer = new google.maps.DirectionsRenderer({
+    suppressMarkers: true,
+    preserveViewport: true,
+    provideRouteAlternatives: true,
+  });
 
-  console.log(options);
+  directionsRenderer.setMap(map);
+
+  addStaticMarkers();
+  addPoiMarkers();
+  addPoiClusters();
+
 }
 
 function addPoiListener (marker) {
@@ -178,7 +177,7 @@ function getPlacePhoto (marker) {
 
   const service = new google.maps.places.PlacesService(map);
 
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     service.getDetails(request, (result,status) =>{
       if (status === google.maps.places.PlacesServiceStatus.OK){
         const photos = result.photos;
@@ -198,6 +197,26 @@ function getPlacePhoto (marker) {
   });
 }
 
+function getRoute (marker,travelMode) {
+  const request = {
+    origin: new google.maps.LatLng(mapData.staticMarkers['0'].lat,mapData.staticMarkers['0'].lng),
+    destination: marker.getPosition(),
+    travelMode
+  };
+
+  const service = new google.maps.DirectionsService();
+
+  return new Promise((resolve) => {
+    service.route(request, (result,status) =>{
+      if (status === 'OK'){
+        resolve(result);
+      } else {
+        resolve('Can not find any route');
+      }
+    });
+  });
+}
+
 function buildInfoWindowContent (marker) {
   const routeData = convertMarkerDistanceAndTime(marker);
 
@@ -208,19 +227,54 @@ function buildInfoWindowContent (marker) {
   const categoryContainer = createHtmlElement(mainContainer,'','div',['snazzy-content__category-container']);
   const categoryImg = createHtmlElement(categoryContainer,'','img',['snazzy-content__category-img']);
   categoryImg.src = marker.category_ic;
-  const description = createHtmlElement(mainContainer,marker.markerDescription,'p',['snazzy-content__description']);
+  const categoryTitle = createHtmlElement(categoryContainer,marker.category,'span',['snazzy-content__category-title']);
+  const description = createHtmlElement(mainContainer,marker.data.markerDescription,'p',['snazzy-content__description']);
   const routeContainer = createHtmlElement(mainContainer,'','div',['snazzy-content__route-container']);
   const routeIconContainer = createHtmlElement(routeContainer,'','div',['snazzy-content__route-icons-container']);
-  routeIconContainer.dataset.selectedRoute = 'walk';
+  routeIconContainer.dataset.selectedRoute = 'WALKING';
+  routeIconContainer.addEventListener('click', (e)=> routesHandler(e.target));
   const carIconContainer = createHtmlElement(routeIconContainer,'','div',['snazzy-content__car-route-container']);
+  carIconContainer.dataset.routeType = 'DRIVING';
   const bikeIconContainer = createHtmlElement(routeIconContainer,'','div',['snazzy-content__bike-route-container']);
+  bikeIconContainer.dataset.routeType = 'BICYCLING';
   const walkIconContainer = createHtmlElement(routeIconContainer,'','div',['snazzy-content__walk-route-container']);
+  walkIconContainer.dataset.routeType = 'WALKING';
   const distanceContainer = createHtmlElement(routeContainer,'','div',['snazzy-content__distance-container']);
   const time = createHtmlElement(distanceContainer,routeData.timeToPoint.walk+' mins','span',['snazzy-content__time-route']);
   const separator = createHtmlElement(distanceContainer,' . ','span',['snazzy-content__distance-separator']);
   const distance = createHtmlElement(distanceContainer,routeData.distanceToPoint.walk+' km','span',['snazzy-content__distance-route']);
+  const socialContainer = createHtmlElement(mainContainer,'','div',['snazzy-content__social-container']);
+  if (marker.data.webSiteUrl){
+    const webUrl = createHtmlElement(socialContainer,marker.data.webSiteUrl,'a',['snazzy-content__website-link']);
+    webUrl.href = marker.data.webSiteUrl;
+  }
+  if (marker.data.phone){
+    const phone = createHtmlElement(socialContainer,marker.data.phone,'a',['snazzy-content__phone']);
+    phone.href = 'tel:'+ marker.data.phone;
+  }
+  if (marker.data.internationalPhone){
+    const internationalPhone = createHtmlElement(socialContainer,marker.data.internationalPhone,'a',['snazzy-content__international-phone']);
+    internationalPhone.href = 'tel:'+ marker.data.internationalPhone;
+  }
+  const navigateBtn = createHtmlElement(socialContainer,'Navigate to','button',['snazzy-content__navigate-btn']);
+  navigateBtn.addEventListener('click', () => navigateBtnHandler(marker, routeIconContainer.dataset.selectedRoute));
+
 
   return mainContainer;
+}
+
+function routesHandler (selectedRoute) {
+  console.log(selectedRoute);
+
+}
+
+function navigateBtnHandler (marker, travelMode) {
+  const route = getRoute(marker,travelMode);
+  route.then((dataRoute) =>{
+    if (typeof dataRoute !== 'string'){
+      directionsRenderer.setDirections(dataRoute);
+    }
+  });
 }
 
 function convertMarkerDistanceAndTime (marker) {
@@ -239,10 +293,10 @@ function convertMarkerDistanceAndTime (marker) {
 }
 
 
-function addPoiClusters (options) {
+function addPoiClusters () {
   let allMarkersForCluster = [];
 
-  Object.values(options.allPoiMarkers).forEach(markers =>{
+  Object.values(mapData.allPoiMarkers).forEach(markers =>{
     allMarkersForCluster = allMarkersForCluster.concat(markers);
   });
 
@@ -253,7 +307,7 @@ function addPoiClusters (options) {
       width: 48,
       height: 44,
     };
-    const clusterOptions = {
+    const clustermapData = {
       ignoreHidden: true,
       styles: [
         clusterObj,
@@ -264,20 +318,20 @@ function addPoiClusters (options) {
       ]
     };
 
-  options.clusters = new MarkerClusterer(map, allMarkersForCluster, clusterOptions);
+  mapData.clusters = new MarkerClusterer(map, allMarkersForCluster, clustermapData);
 }
 
-function addStaticMarkers (options) {
-  Object.values(options.staticMarkers).forEach(marker =>{
+function addStaticMarkers () {
+  Object.values(mapData.staticMarkers).forEach(marker =>{
     const zIndex = google.maps.Marker.MAX_ZINDEX + 100;
     addMarker(marker, 55, zIndex);
   });
 }
 
-function addPoiMarkers (options) {
-  options.allPoiMarkers = {};
-  Object.entries(options.filteredMarkers).forEach(([category,markers]) =>{
-    options.allPoiMarkers[category] = [];
+function addPoiMarkers () {
+  mapData.allPoiMarkers = {};
+  Object.entries(mapData.filteredMarkers).forEach(([category,markers]) =>{
+    mapData.allPoiMarkers[category] = [];
     markers.forEach(marker =>{
       const buildedMarker = addMarker(marker);
       buildedMarker.data = {
@@ -286,11 +340,12 @@ function addPoiMarkers (options) {
         'phone': marker.phone,
         'googleMapsID': marker.googleMapsID,
         'internationalPhone': marker.internationalPhone,
-        'webSiteUrl': marker.url,
+        'webSiteUrl': marker.webSiteUrl,
         'infoWindowImg': marker.infoWindowImg,
-      }
+        'markerDescription': marker.markerDescription,
+      };
       addPoiListener(buildedMarker);
-      options.allPoiMarkers[category].push(buildedMarker);
+      mapData.allPoiMarkers[category].push(buildedMarker);
     });
   });
 }
