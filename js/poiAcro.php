@@ -4,908 +4,908 @@ $dir = (in_array($lang, ['he']))?'rtl':'ltr';
 ?>
 
 let basePoiData = [
-    {
-        "name": {
-            "he": "כביש 2",
-            "en": "Highway 2"
-        },
-        "description": {
-            "he": "כביש 2, הרצליה, ישראל",
-            "en": "Highway 2, Herzliya, Israel"
-        },
-        "address": {
-            "he": "כביש 2, הרצליה, ישראל",
-            "en": "Highway 2, Herzliya, Israel"
-        },
-        "categoryId": 3,
-        "url": "",
-        "latitude": "32.142755",
-        "longitude": "34.801914",
-        "coords3d": {
-            "x": "32.142755",
-            "y": "34.801914",
-            "z": 0
-        },
-        "distanceToPoint": {
-            "walk": "9768",
-            "bike": "10240",
-            "drive": "12695"
-        },
-        "timeToPoint": {
-            "walk": "7268",
-            "bike": "2343",
-            "drive": "1020"
-        },
-        "phone": "",
-        "internationalPhone": "",
-        "customPhone": "",
-        "promotion": [
-            {
-                "name": {
-                    "he": "",
-                    "en": ""
-                },
-                "description": {
-                    "he": "",
-                    "en": ""
-                },
-                "url": "",
-                "timeToLive": ""
-            }
-        ],
-        "googleMapsID": {
-            "value": "EhtIaWdod2F5IDIsIEhlcnpsaXlhLCBJc3JhZWwiLiosChQKEgkvkRxt0xQdFRFdn0bFjI1wrxIUChIJb-UlwQ1IHRURxMFKFMsjoEY"
-        }
-    },
-    {
-        "name": {
-            "he": "כביש 4",
-            "en": "Road 4"
-        },
-        "description": {
-            "he": "דרך אלוף שדה, רמת גן, ישראל",
-            "en": "Aluf Sade Rd, Ramat Gan, Israel"
-        },
-        "address": {
-            "he": "דרך אלוף שדה, רמת גן, ישראל",
-            "en": "Aluf Sade Rd, Ramat Gan, Israel"
-        },
-        "categoryId": 3,
-        "url": "",
-        "latitude": "32.054798",
-        "longitude": "34.833797",
-        "coords3d": {
-            "x": "32.054798",
-            "y": "34.833797",
-            "z": 0
-        },
-        "distanceToPoint": {
-            "walk": "8375",
-            "bike": "11001",
-            "drive": "9960"
-        },
-        "timeToPoint": {
-            "walk": "6387",
-            "bike": "2235",
-            "drive": "943"
-        },
-        "phone": "",
-        "internationalPhone": "",
-        "customPhone": "",
-        "promotion": [
-            {
-                "name": {
-                    "he": "",
-                    "en": ""
-                },
-                "description": {
-                    "he": "",
-                    "en": ""
-                },
-                "url": "",
-                "timeToLive": ""
-            }
-        ],
-        "googleMapsID": {
-            "value": "ChIJbcFHpFhKHRURWENZykHbPZw"
-        }
-    },
-    {
-        "name": {
-            "he": "כביש 5",
-            "en": "Road 5"
-        },
-        "description": {
-            "he": "מחלף הכפר הירוק, רמת השרון",
-            "en": "HaKfar HaYarok Interchange, Ramat Hasharon"
-        },
-        "address": {
-            "he": "מחלף הכפר הירוק, רמת השרון",
-            "en": "HaKfar HaYarok Interchange, Ramat Hasharon"
-        },
-        "categoryId": 3,
-        "url": "",
-        "latitude": "32.1345857",
-        "longitude": "34.83336240000001",
-        "coords3d": {
-            "x": "32.1345857",
-            "y": "34.83336240000001",
-            "z": 0
-        },
-        "distanceToPoint": {
-            "walk": "3321",
-            "bike": "3716",
-            "drive": "4171"
-        },
-        "timeToPoint": {
-            "walk": "2564",
-            "bike": "960",
-            "drive": "556"
-        },
-        "phone": "",
-        "internationalPhone": "",
-        "customPhone": "",
-        "promotion": [
-            {
-                "name": {
-                    "he": "",
-                    "en": ""
-                },
-                "description": {
-                    "he": "",
-                    "en": ""
-                },
-                "url": "",
-                "timeToLive": ""
-            }
-        ],
-        "googleMapsID": {
-            "value": "ChIJo8MNS7NJHRUR5J2UVBcUc60"
-        }
-    },
-    {
-        "name": {
-            "he": "הרכבת הקלה קו ירוק",
-            "en": "Light rail green line"
-        },
-        "description": {
-            "he": "הרכבת הקלה קו ירוק - תחנת נווה שרת",
-            "en": "Light rail green line - Neve Sharett station"
-        },
-        "address": {
-            "he": "נווה שרת, תל אביב יפו, ישראל",
-            "en": "Neve Sharett, Tel Aviv-Yafo, Israel"
-        },
-        "categoryId": 3,
-        "url": "",
-        "latitude": "32.115780",
-        "longitude": "34.842316",
-        "coords3d": {
-            "x": "32.115780",
-            "y": "34.842316",
-            "z": 0
-        },
-        "distanceToPoint": {
-            "walk": "689",
-            "bike": "689",
-            "drive": "689"
-        },
-        "timeToPoint": {
-            "walk": "528",
-            "bike": "153",
-            "drive": "200"
-        },
-        "phone": "",
-        "internationalPhone": "",
-        "customPhone": "",
-        "promotion": [
-            {
-                "name": {
-                    "he": "",
-                    "en": ""
-                },
-                "description": {
-                    "he": "",
-                    "en": ""
-                },
-                "url": "",
-                "timeToLive": ""
-            }
-        ],
-        "googleMapsID": {
-            "value": "ChIJf5S0WcdJHRUR0dMsNg8pvNY"
-        }
-    },
-    {
-        "name": {
-            "he": "בי\"ס יסודי משה שרת",
-            "en": "Moshe Sharett School"
-        },
-        "description": {
-            "he": "בית אל 45, תל אביב יפו, ישראל",
-            "en": "Beit El St 45, Tel Aviv-Yafo, Israel"
-        },
-        "address": {
-            "he": "בית אל 45, תל אביב יפו, ישראל",
-            "en": "Beit El St 45, Tel Aviv-Yafo, Israel"
-        },
-        "categoryId": 21,
-        "url": "https://www.tlv-edu.gov.il/sites/sharetmoshe/Pages/default.aspx",
-        "latitude": "32.117255",
-        "longitude": "34.8418849",
-        "coords3d": {
-            "x": "32.117255",
-            "y": "34.8418849",
-            "z": 0
-        },
-        "distanceToPoint": {
-            "walk": "371",
-            "bike": "371",
-            "drive": "371"
-        },
-        "timeToPoint": {
-            "walk": "295",
-            "bike": "106",
-            "drive": "61"
-        },
-        "phone": "03-647-4683",
-        "internationalPhone": "03-647-4683",
-        "customPhone": "",
-        "promotion": [
-            {
-                "name": {
-                    "he": "",
-                    "en": ""
-                },
-                "description": {
-                    "he": "",
-                    "en": ""
-                },
-                "url": "",
-                "timeToLive": ""
-            }
-        ],
-        "googleMapsID": {
-            "value": "ChIJwxEISMdJHRUReSCjwj0qGLY"
-        }
-    },
-    {
-        "name": {
-            "he": "מרכז קהילתי נווה שרת",
-            "en": "Neve Sharett Community Center"
-        },
-        "description": {
-            "he": "קהילת קליבלנד 4, תל אביב יפו, ישראל",
-            "en": "Kehilat Cleveland St 4, Tel Aviv-Yafo, Israel"
-        },
-        "address": {
-            "he": "קהילת קליבלנד 4, תל אביב יפו, ישראל",
-            "en": "Kehilat Cleveland St 4, Tel Aviv-Yafo, Israel"
-        },
-        "categoryId": 21,
-        "url": "https://www.tel-aviv.gov.il/Residents/CommunityAndSports/Pages/NeveSharet.aspx",
-        "latitude": "32.1170807",
-        "longitude": "34.8428001",
-        "coords3d": {
-            "x": "32.1170807",
-            "y": "34.8428001",
-            "z": 0
-        },
-        "distanceToPoint": {
-            "walk": "398",
-            "bike": "537",
-            "drive": "142"
-        },
-        "timeToPoint": {
-            "walk": "301",
-            "bike": "128",
-            "drive": "37"
-        },
-        "phone": "03-649-0740",
-        "internationalPhone": "03-649-0740",
-        "customPhone": "",
-        "promotion": [
-            {
-                "name": {
-                    "he": "",
-                    "en": ""
-                },
-                "description": {
-                    "he": "",
-                    "en": ""
-                },
-                "url": "",
-                "timeToLive": ""
-            }
-        ],
-        "googleMapsID": {
-            "value": "ChIJ_c84pbhJHRUR762_HR49c7o"
-        }
-    },
-    {
-        "name": {
-            "he": "בית ספר עירוני י\"ד חטיבת ביניים",
-            "en": "Ironi Yud Dalet - Middle School"
-        },
-        "description": {
-            "he": "28,, Raoul Wallenberg 26, Tel Aviv-Yafo, ישראל",
-            "en": "28,, Raoul Wallenberg 26, Tel Aviv-Yafo, Israel"
-        },
-        "address": {
-            "he": "28,, Raoul Wallenberg 26, Tel Aviv-Yafo, ישראל",
-            "en": "28,, Raoul Wallenberg 26, Tel Aviv-Yafo, Israel"
-        },
-        "categoryId": 21,
-        "url": "https://www.tlv-edu.gov.il/sites/ironiud/Pages/default.aspx",
-        "latitude": "32.1127898",
-        "longitude": "34.8400781",
-        "coords3d": {
-            "x": "32.1127898",
-            "y": "34.8400781",
-            "z": 0
-        },
-        "distanceToPoint": {
-            "walk": "643",
-            "bike": "683",
-            "drive": "683"
-        },
-        "timeToPoint": {
-            "walk": "468",
-            "bike": "189",
-            "drive": "155"
-        },
-        "phone": "03-647-0020",
-        "internationalPhone": "03-647-0020",
-        "customPhone": "",
-        "promotion": [
-            {
-                "name": {
-                    "he": "",
-                    "en": ""
-                },
-                "description": {
-                    "he": "",
-                    "en": ""
-                },
-                "url": "",
-                "timeToLive": ""
-            }
-        ],
-        "googleMapsID": {
-            "value": "ChIJSRG4_r9JHRURvu0TZhLwtqY"
-        }
-    },
-    {
-        "name": {
-            "he": "אשכול גנים",
-            "en": "Kindergarten"
-        },
-        "description": {
-            "he": "אשכול גנים, נווה שרת, תל אביב יפו, ישראל",
-            "en": "Kindergarten, Neve Sharett, Tel Aviv-Yafo, Israel"
-        },
-        "address": {
-            "he": "נווה שרת, תל אביב יפו, ישראל",
-            "en": "Neve Sharett, Tel Aviv-Yafo, Israel"
-        },
-        "categoryId": 21,
-        "url": "",
-        "latitude": "32.116334",
-        "longitude": "34.841711",
-        "coords3d": {
-            "x": "32.116334",
-            "y": "34.841711",
-            "z": 0
-        },
-        "distanceToPoint": {
-            "walk": "689",
-            "bike": "689",
-            "drive": "689"
-        },
-        "timeToPoint": {
-            "walk": "528",
-            "bike": "153",
-            "drive": "200"
-        },
-        "phone": "",
-        "internationalPhone": "",
-        "customPhone": "",
-        "promotion": [
-            {
-                "name": {
-                    "he": "",
-                    "en": ""
-                },
-                "description": {
-                    "he": "",
-                    "en": ""
-                },
-                "url": "",
-                "timeToLive": ""
-            }
-        ],
-        "googleMapsID": {
-            "value": "ChIJf5S0WcdJHRUR0dMsNg8pvNY"
-        }
-    },
-    {
-        "name": {
-            "he": "קאנטרי קהילתי נווה שרת",
-            "en": "Neve Sharet Country Club"
-        },
-        "description": {
-            "he": "ראול ולנברג 43, תל אביב יפו, ישראל",
-            "en": "Raoul Wallenberg St 43, Tel Aviv-Yafo, Israel"
-        },
-        "address": {
-            "he": "ראול ולנברג 43, תל אביב יפו, ישראל",
-            "en": "Raoul Wallenberg St 43, Tel Aviv-Yafo, Israel"
-        },
-        "categoryId": 12,
-        "url": "https://www.tel-aviv.gov.il/Residents/CommunityAndSports/Pages/NeveSharet.aspx",
-        "latitude": "32.1176035",
-        "longitude": "34.8440835",
-        "coords3d": {
-            "x": "32.1176035",
-            "y": "34.8440835",
-            "z": 0
-        },
-        "distanceToPoint": {
-            "walk": "899",
-            "bike": "986",
-            "drive": "183"
-        },
-        "timeToPoint": {
-            "walk": "658",
-            "bike": "189",
-            "drive": "57"
-        },
-        "phone": "03-649-0740",
-        "internationalPhone": "03-649-0740",
-        "customPhone": "",
-        "promotion": [
-            {
-                "name": {
-                    "he": "",
-                    "en": ""
-                },
-                "description": {
-                    "he": "",
-                    "en": ""
-                },
-                "url": "",
-                "timeToLive": ""
-            }
-        ],
-        "googleMapsID": {
-            "value": "ChIJu41n-JRJHRURIq10LHxXNGo"
-        }
-    },
-    {
-        "name": {
-            "he": "פארק הירקון",
-            "en": "HaYarkon Park"
-        },
-        "description": {
-            "he": "תל אביב יפו, ישראל",
-            "en": "Tel Aviv-Yafo, Israel"
-        },
-        "address": {
-            "he": "תל אביב יפו, ישראל",
-            "en": "Tel Aviv-Yafo, Israel"
-        },
-        "categoryId": 12,
-        "url": "",
-        "latitude": "32.1061267",
-        "longitude": "34.8315914",
-        "coords3d": {
-            "x": "32.1061267",
-            "y": "34.8315914",
-            "z": 0
-        },
-        "distanceToPoint": {
-            "walk": "1641",
-            "bike": "2785",
-            "drive": "2327"
-        },
-        "timeToPoint": {
-            "walk": "1182",
-            "bike": "444",
-            "drive": "350"
-        },
-        "phone": "",
-        "internationalPhone": "",
-        "customPhone": "",
-        "promotion": [
-            {
-                "name": {
-                    "he": "",
-                    "en": ""
-                },
-                "description": {
-                    "he": "",
-                    "en": ""
-                },
-                "url": "",
-                "timeToLive": ""
-            }
-        ],
-        "googleMapsID": {
-            "value": "ChIJDfMxMZBJHRURv3XezNE7ccE"
-        }
-    },
-    {
-        "name": {
-            "he": "אסותא מרכזים רפואיים",
-            "en": "Assuta Hospital in Ramat HaHayal"
-        },
-        "description": {
-            "he": "הברזל 20, תל אביב יפו, ישראל",
-            "en": "HaBarzel St 20, Tel Aviv-Yafo, Israel"
-        },
-        "address": {
-            "he": "הברזל 20, תל אביב יפו, ישראל",
-            "en": "HaBarzel St 20, Tel Aviv-Yafo, Israel"
-        },
-        "categoryId": 4,
-        "url": "http://www.assuta.co.il/",
-        "latitude": "32.1079742",
-        "longitude": "34.8387463",
-        "coords3d": {
-            "x": "32.1079742",
-            "y": "34.8387463",
-            "z": 0
-        },
-        "distanceToPoint": {
-            "walk": "1102",
-            "bike": "3277",
-            "drive": "1972"
-        },
-        "timeToPoint": {
-            "walk": "795",
-            "bike": "534",
-            "drive": "354"
-        },
-        "phone": "03-764-4444",
-        "internationalPhone": "03-764-4444",
-        "customPhone": "",
-        "promotion": [
-            {
-                "name": {
-                    "he": "",
-                    "en": ""
-                },
-                "description": {
-                    "he": "",
-                    "en": ""
-                },
-                "url": "",
-                "timeToLive": ""
-            }
-        ],
-        "googleMapsID": {
-            "value": "ChIJV147nJRJHRURZfloDWSGMfA"
-        }
-    },
-    {
-        "name": {
-            "he": "בית הופעות זאפה תל אביב",
-            "en": "Zappa"
-        },
-        "description": {
-            "he": "ראול ולנברג 24, תל אביב יפו, ישראל",
-            "en": "Raoul Wallenberg St 24, Tel Aviv-Yafo, Israel"
-        },
-        "address": {
-            "he": "ראול ולנברג 24, תל אביב יפו, ישראל",
-            "en": "Raoul Wallenberg St 24, Tel Aviv-Yafo, Israel"
-        },
-        "categoryId": 9,
-        "url": "http://www.zappa-club.co.il/",
-        "latitude": "32.1119048",
-        "longitude": "34.8397772",
-        "coords3d": {
-            "x": "32.1119048",
-            "y": "34.8397772",
-            "z": 0
-        },
-        "distanceToPoint": {
-            "walk": "576",
-            "bike": "616",
-            "drive": "616"
-        },
-        "timeToPoint": {
-            "walk": "422",
-            "bike": "178",
-            "drive": "133"
-        },
-        "phone": "03-762-6666",
-        "internationalPhone": "03-762-6666",
-        "customPhone": "",
-        "promotion": [
-            {
-                "name": {
-                    "he": "",
-                    "en": ""
-                },
-                "description": {
-                    "he": "",
-                    "en": ""
-                },
-                "url": "",
-                "timeToLive": ""
-            }
-        ],
-        "googleMapsID": {
-            "value": "ChIJi-wBFZVJHRUR9KnHkel3IHs"
-        }
-    },
-    {
-        "name": {
-            "he": "שוק צפון",
-            "en": "North Market"
-        },
-        "description": {
-            "he": "ראול ולנברג 20, תל אביב יפו, ישראל",
-            "en": "Raoul Wallenberg St 20, Tel Aviv-Yafo, Israel"
-        },
-        "address": {
-            "he": "ראול ולנברג 20, תל אביב יפו, ישראל",
-            "en": "Raoul Wallenberg St 20, Tel Aviv-Yafo, Israel"
-        },
-        "categoryId": 9,
-        "url": "http://www.shuktzafon.co.il/",
-        "latitude": "32.1098503",
-        "longitude": "34.8377789",
-        "coords3d": {
-            "x": "32.1098503",
-            "y": "34.8377789",
-            "z": 0
-        },
-        "distanceToPoint": {
-            "walk": "827",
-            "bike": "1246",
-            "drive": "3026"
-        },
-        "timeToPoint": {
-            "walk": "597",
-            "bike": "289",
-            "drive": "426"
-        },
-        "phone": "03-643-2000",
-        "internationalPhone": "03-643-2000",
-        "customPhone": "",
-        "promotion": [
-            {
-                "name": {
-                    "he": "",
-                    "en": ""
-                },
-                "description": {
-                    "he": "",
-                    "en": ""
-                },
-                "url": "",
-                "timeToLive": ""
-            }
-        ],
-        "googleMapsID": {
-            "value": "ChIJvddvWJRJHRURCITRG85x-bo"
-        }
-    },
-    {
-        "name": {
-            "he": "פארק נווה שרת",
-            "en": "Park Neve Sharett"
-        },
-        "description": {
-            "he": "תל אביב יפו, ישראל",
-            "en": "Tel Aviv-Yafo, Israel"
-        },
-        "address": {
-            "he": "תל אביב יפו, ישראל",
-            "en": "Tel Aviv-Yafo, Israel"
-        },
-        "categoryId": 8,
-        "url": "",
-        "latitude": "32.118032",
-        "longitude": "34.84087689999999",
-        "coords3d": {
-            "x": "32.118032",
-            "y": "34.84087689999999",
-            "z": 0
-        },
-        "distanceToPoint": {
-            "walk": "689",
-            "bike": "689",
-            "drive": "689"
-        },
-        "timeToPoint": {
-            "walk": "528",
-            "bike": "153",
-            "drive": "200"
-        },
-        "phone": "",
-        "internationalPhone": "",
-        "customPhone": "",
-        "promotion": [
-            {
-                "name": {
-                    "he": "",
-                    "en": ""
-                },
-                "description": {
-                    "he": "",
-                    "en": ""
-                },
-                "url": "",
-                "timeToLive": ""
-            }
-        ],
-        "googleMapsID": {
-            "value": "ChIJVV5pRQZJHRUR6T4-nQee2QU"
-        }
-    },
-    {
-        "name": {
-            "he": "פארק ראול ולנברג",
-            "en": "Park Raul Wallenberg"
-        },
-        "description": {
-            "he": "תל אביב יפו, ישראל",
-            "en": "Tel Aviv-Yafo, Israel"
-        },
-        "address": {
-            "he": "תל אביב יפו, ישראל",
-            "en": "Tel Aviv-Yafo, Israel"
-        },
-        "categoryId": 8,
-        "url": "",
-        "latitude": "32.1153221",
-        "longitude": "34.8391596",
-        "coords3d": {
-            "x": "32.1153221",
-            "y": "34.8391596",
-            "z": 0
-        },
-        "distanceToPoint": {
-            "walk": "489",
-            "bike": "624",
-            "drive": "998"
-        },
-        "timeToPoint": {
-            "walk": "377",
-            "bike": "145",
-            "drive": "210"
-        },
-        "phone": "",
-        "internationalPhone": "",
-        "customPhone": "",
-        "promotion": [
-            {
-                "name": {
-                    "he": "",
-                    "en": ""
-                },
-                "description": {
-                    "he": "",
-                    "en": ""
-                },
-                "url": "",
-                "timeToLive": ""
-            }
-        ],
-        "googleMapsID": {
-            "value": "ChIJuZetYfdJHRURbtKGHtRPXD0"
-        }
-    },
-    {
-        "name": {
-            "he": "קרית עתידים",
-            "en": "Kiryat Atidim"
-        },
-        "description": {
-            "he": "קרית עתידים, תל אביב יפו, ישראל",
-            "en": "Kiryat Atidim, Tel Aviv-Yafo, Israel"
-        },
-        "address": {
-            "he": "קרית עתידים, תל אביב יפו, ישראל",
-            "en": "Kiryat Atidim, Tel Aviv-Yafo, Israel"
-        },
-        "categoryId": 9,
-        "url": "",
-        "latitude": "32.11516",
-        "longitude": "34.842959",
-        "coords3d": {
-            "x": "32.11516",
-            "y": "34.842959",
-            "z": 0
-        },
-        "distanceToPoint": {
-            "walk": "165",
-            "bike": "250",
-            "drive": "250"
-        },
-        "timeToPoint": {
-            "walk": "123",
-            "bike": "37",
-            "drive": "60"
-        },
-        "phone": "",
-        "internationalPhone": "",
-        "customPhone": "",
-        "promotion": [
-            {
-                "name": {
-                    "he": "",
-                    "en": ""
-                },
-                "description": {
-                    "he": "",
-                    "en": ""
-                },
-                "url": "",
-                "timeToLive": ""
-            }
-        ],
-        "googleMapsID": {
-            "value": "ChIJB3-l4cBJHRURdFP_FbuNtfw"
-        }
-    },
-    {
-        "name": {
-            "he": "פארק הירקון",
-            "en": "Park Hayarkon"
-        },
-        "description": {
-            "he": "תל אביב יפו, ישראל",
-            "en": "Tel Aviv-Yafo, Israel"
-        },
-        "address": {
-            "he": "תל אביב יפו, ישראל",
-            "en": "Tel Aviv-Yafo, Israel"
-        },
-        "categoryId": 8,
-        "url": "",
-        "latitude": "32.0968053",
-        "longitude": "34.7909425",
-        "coords3d": {
-            "x": "32.0968053",
-            "y": "34.7909425",
-            "z": 0
-        },
-        "distanceToPoint": {
-            "walk": "5909",
-            "bike": "9405",
-            "drive": "6122"
-        },
-        "timeToPoint": {
-            "walk": "4384",
-            "bike": "1681",
-            "drive": "719"
-        },
-        "phone": "",
-        "internationalPhone": "",
-        "customPhone": "",
-        "promotion": [
-            {
-                "name": {
-                    "he": "",
-                    "en": ""
-                },
-                "description": {
-                    "he": "",
-                    "en": ""
-                },
-                "url": "",
-                "timeToLive": ""
-            }
-        ],
-        "googleMapsID": {
-            "value": "ChIJ5RjvtehLHRURY8r7jEpUcc0"
-        }
-    }
-];
+                      {
+                          "name": {
+                              "he": "כביש 2",
+                              "en": "Highway 2"
+                          },
+                          "description": {
+                              "he": "כביש 2, הרצליה, ישראל",
+                              "en": "Highway 2, Herzliya, Israel"
+                          },
+                          "address": {
+                              "he": "כביש 2, הרצליה, ישראל",
+                              "en": "Highway 2, Herzliya, Israel"
+                          },
+                          "categoryId": 3,
+                          "url": "",
+                          "latitude": "32.142755",
+                          "longitude": "34.801914",
+                          "coords3d": {
+                              "x": "32.142755",
+                              "y": "34.801914",
+                              "z": 0
+                          },
+                          "distanceToPoint": {
+                              "walk": "9768",
+                              "bike": "10240",
+                              "drive": "12695"
+                          },
+                          "timeToPoint": {
+                              "walk": "7268",
+                              "bike": "2343",
+                              "drive": "1020"
+                          },
+                          "phone": "",
+                          "internationalPhone": "",
+                          "customPhone": "",
+                          "promotion": [
+                              {
+                                  "name": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "description": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "url": "",
+                                  "timeToLive": ""
+                              }
+                          ],
+                          "googleMapsID": {
+                              "value": "EhtIaWdod2F5IDIsIEhlcnpsaXlhLCBJc3JhZWwiLiosChQKEgkvkRxt0xQdFRFdn0bFjI1wrxIUChIJb-UlwQ1IHRURxMFKFMsjoEY"
+                          }
+                      },
+                      {
+                          "name": {
+                              "he": "כביש 4",
+                              "en": "Road 4"
+                          },
+                          "description": {
+                              "he": "דרך אלוף שדה, רמת גן, ישראל",
+                              "en": "Aluf Sade Rd, Ramat Gan, Israel"
+                          },
+                          "address": {
+                              "he": "דרך אלוף שדה, רמת גן, ישראל",
+                              "en": "Aluf Sade Rd, Ramat Gan, Israel"
+                          },
+                          "categoryId": 3,
+                          "url": "",
+                          "latitude": "32.054798",
+                          "longitude": "34.833797",
+                          "coords3d": {
+                              "x": "32.054798",
+                              "y": "34.833797",
+                              "z": 0
+                          },
+                          "distanceToPoint": {
+                              "walk": "8375",
+                              "bike": "11001",
+                              "drive": "9960"
+                          },
+                          "timeToPoint": {
+                              "walk": "6387",
+                              "bike": "2235",
+                              "drive": "943"
+                          },
+                          "phone": "",
+                          "internationalPhone": "",
+                          "customPhone": "",
+                          "promotion": [
+                              {
+                                  "name": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "description": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "url": "",
+                                  "timeToLive": ""
+                              }
+                          ],
+                          "googleMapsID": {
+                              "value": "ChIJbcFHpFhKHRURWENZykHbPZw"
+                          }
+                      },
+                      {
+                          "name": {
+                              "he": "כביש 5",
+                              "en": "Road 5"
+                          },
+                          "description": {
+                              "he": "מחלף הכפר הירוק, רמת השרון",
+                              "en": "HaKfar HaYarok Interchange, Ramat Hasharon"
+                          },
+                          "address": {
+                              "he": "מחלף הכפר הירוק, רמת השרון",
+                              "en": "HaKfar HaYarok Interchange, Ramat Hasharon"
+                          },
+                          "categoryId": 3,
+                          "url": "",
+                          "latitude": "32.1345857",
+                          "longitude": "34.83336240000001",
+                          "coords3d": {
+                              "x": "32.1345857",
+                              "y": "34.83336240000001",
+                              "z": 0
+                          },
+                          "distanceToPoint": {
+                              "walk": "3321",
+                              "bike": "3716",
+                              "drive": "4171"
+                          },
+                          "timeToPoint": {
+                              "walk": "2564",
+                              "bike": "960",
+                              "drive": "556"
+                          },
+                          "phone": "",
+                          "internationalPhone": "",
+                          "customPhone": "",
+                          "promotion": [
+                              {
+                                  "name": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "description": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "url": "",
+                                  "timeToLive": ""
+                              }
+                          ],
+                          "googleMapsID": {
+                              "value": "ChIJo8MNS7NJHRUR5J2UVBcUc60"
+                          }
+                      },
+                      {
+                          "name": {
+                              "he": "הרכבת הקלה קו ירוק",
+                              "en": "Light rail green line"
+                          },
+                          "description": {
+                              "he": "הרכבת הקלה קו ירוק - תחנת נווה שרת",
+                              "en": "Light rail green line - Neve Sharett station"
+                          },
+                          "address": {
+                              "he": "נווה שרת, תל אביב יפו, ישראל",
+                              "en": "Neve Sharett, Tel Aviv-Yafo, Israel"
+                          },
+                          "categoryId": 3,
+                          "url": "",
+                          "latitude": "32.115780",
+                          "longitude": "34.842316",
+                          "coords3d": {
+                              "x": "32.115780",
+                              "y": "34.842316",
+                              "z": 0
+                          },
+                          "distanceToPoint": {
+                              "walk": "689",
+                              "bike": "689",
+                              "drive": "689"
+                          },
+                          "timeToPoint": {
+                              "walk": "528",
+                              "bike": "153",
+                              "drive": "200"
+                          },
+                          "phone": "",
+                          "internationalPhone": "",
+                          "customPhone": "",
+                          "promotion": [
+                              {
+                                  "name": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "description": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "url": "",
+                                  "timeToLive": ""
+                              }
+                          ],
+                          "googleMapsID": {
+                              "value": "ChIJf5S0WcdJHRUR0dMsNg8pvNY"
+                          }
+                      },
+                      {
+                          "name": {
+                              "he": "בי\"ס יסודי משה שרת",
+                              "en": "Moshe Sharett School"
+                          },
+                          "description": {
+                              "he": "בית אל 45, תל אביב יפו, ישראל",
+                              "en": "Beit El St 45, Tel Aviv-Yafo, Israel"
+                          },
+                          "address": {
+                              "he": "בית אל 45, תל אביב יפו, ישראל",
+                              "en": "Beit El St 45, Tel Aviv-Yafo, Israel"
+                          },
+                          "categoryId": 21,
+                          "url": "https://www.tlv-edu.gov.il/sites/sharetmoshe/Pages/default.aspx",
+                          "latitude": "32.117255",
+                          "longitude": "34.8418849",
+                          "coords3d": {
+                              "x": "32.117255",
+                              "y": "34.8418849",
+                              "z": 0
+                          },
+                          "distanceToPoint": {
+                              "walk": "371",
+                              "bike": "371",
+                              "drive": "371"
+                          },
+                          "timeToPoint": {
+                              "walk": "295",
+                              "bike": "106",
+                              "drive": "61"
+                          },
+                          "phone": "03-647-4683",
+                          "internationalPhone": "03-647-4683",
+                          "customPhone": "",
+                          "promotion": [
+                              {
+                                  "name": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "description": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "url": "",
+                                  "timeToLive": ""
+                              }
+                          ],
+                          "googleMapsID": {
+                              "value": "ChIJwxEISMdJHRUReSCjwj0qGLY"
+                          }
+                      },
+                      {
+                          "name": {
+                              "he": "מרכז קהילתי נווה שרת",
+                              "en": "Neve Sharett Community Center"
+                          },
+                          "description": {
+                              "he": "קהילת קליבלנד 4, תל אביב יפו, ישראל",
+                              "en": "Kehilat Cleveland St 4, Tel Aviv-Yafo, Israel"
+                          },
+                          "address": {
+                              "he": "קהילת קליבלנד 4, תל אביב יפו, ישראל",
+                              "en": "Kehilat Cleveland St 4, Tel Aviv-Yafo, Israel"
+                          },
+                          "categoryId": 21,
+                          "url": "https://www.tel-aviv.gov.il/Residents/CommunityAndSports/Pages/NeveSharet.aspx",
+                          "latitude": "32.1170807",
+                          "longitude": "34.8428001",
+                          "coords3d": {
+                              "x": "32.1170807",
+                              "y": "34.8428001",
+                              "z": 0
+                          },
+                          "distanceToPoint": {
+                              "walk": "398",
+                              "bike": "537",
+                              "drive": "142"
+                          },
+                          "timeToPoint": {
+                              "walk": "301",
+                              "bike": "128",
+                              "drive": "37"
+                          },
+                          "phone": "03-649-0740",
+                          "internationalPhone": "03-649-0740",
+                          "customPhone": "",
+                          "promotion": [
+                              {
+                                  "name": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "description": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "url": "",
+                                  "timeToLive": ""
+                              }
+                          ],
+                          "googleMapsID": {
+                              "value": "ChIJ_c84pbhJHRUR762_HR49c7o"
+                          }
+                      },
+                      {
+                          "name": {
+                              "he": "בית ספר עירוני י\"ד חטיבת ביניים",
+                              "en": "Ironi Yud Dalet - Middle School"
+                          },
+                          "description": {
+                              "he": "28,, Raoul Wallenberg 26, Tel Aviv-Yafo, ישראל",
+                              "en": "28,, Raoul Wallenberg 26, Tel Aviv-Yafo, Israel"
+                          },
+                          "address": {
+                              "he": "28,, Raoul Wallenberg 26, Tel Aviv-Yafo, ישראל",
+                              "en": "28,, Raoul Wallenberg 26, Tel Aviv-Yafo, Israel"
+                          },
+                          "categoryId": 21,
+                          "url": "https://www.tlv-edu.gov.il/sites/ironiud/Pages/default.aspx",
+                          "latitude": "32.1127898",
+                          "longitude": "34.8400781",
+                          "coords3d": {
+                              "x": "32.1127898",
+                              "y": "34.8400781",
+                              "z": 0
+                          },
+                          "distanceToPoint": {
+                              "walk": "643",
+                              "bike": "683",
+                              "drive": "683"
+                          },
+                          "timeToPoint": {
+                              "walk": "468",
+                              "bike": "189",
+                              "drive": "155"
+                          },
+                          "phone": "03-647-0020",
+                          "internationalPhone": "03-647-0020",
+                          "customPhone": "",
+                          "promotion": [
+                              {
+                                  "name": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "description": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "url": "",
+                                  "timeToLive": ""
+                              }
+                          ],
+                          "googleMapsID": {
+                              "value": "ChIJSRG4_r9JHRURvu0TZhLwtqY"
+                          }
+                      },
+                      {
+                          "name": {
+                              "he": "אשכול גנים",
+                              "en": "Kindergarten"
+                          },
+                          "description": {
+                              "he": "אשכול גנים, נווה שרת, תל אביב יפו, ישראל",
+                              "en": "Kindergarten, Neve Sharett, Tel Aviv-Yafo, Israel"
+                          },
+                          "address": {
+                              "he": "נווה שרת, תל אביב יפו, ישראל",
+                              "en": "Neve Sharett, Tel Aviv-Yafo, Israel"
+                          },
+                          "categoryId": 21,
+                          "url": "",
+                          "latitude": "32.116507",
+                          "longitude": "34.842038",
+                          "coords3d": {
+                              "x": 0,
+                              "y": 0,
+                              "z": 0
+                          },
+                          "distanceToPoint": {
+                              "walk": "689",
+                              "bike": "689",
+                              "drive": "689"
+                          },
+                          "timeToPoint": {
+                              "walk": "528",
+                              "bike": "153",
+                              "drive": "200"
+                          },
+                          "phone": "",
+                          "internationalPhone": "",
+                          "customPhone": "",
+                          "promotion": [
+                              {
+                                  "name": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "description": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "url": "",
+                                  "timeToLive": ""
+                              }
+                          ],
+                          "googleMapsID": {
+                              "value": "ChIJf5S0WcdJHRUR0dMsNg8pvNY"
+                          }
+                      },
+                      {
+                          "name": {
+                              "he": "קאנטרי קהילתי נווה שרת",
+                              "en": "Neve Sharet Country Club"
+                          },
+                          "description": {
+                              "he": "ראול ולנברג 43, תל אביב יפו, ישראל",
+                              "en": "Raoul Wallenberg St 43, Tel Aviv-Yafo, Israel"
+                          },
+                          "address": {
+                              "he": "ראול ולנברג 43, תל אביב יפו, ישראל",
+                              "en": "Raoul Wallenberg St 43, Tel Aviv-Yafo, Israel"
+                          },
+                          "categoryId": 12,
+                          "url": "https://www.tel-aviv.gov.il/Residents/CommunityAndSports/Pages/NeveSharet.aspx",
+                          "latitude": "32.1176035",
+                          "longitude": "34.8440835",
+                          "coords3d": {
+                              "x": "32.1176035",
+                              "y": "34.8440835",
+                              "z": 0
+                          },
+                          "distanceToPoint": {
+                              "walk": "899",
+                              "bike": "986",
+                              "drive": "183"
+                          },
+                          "timeToPoint": {
+                              "walk": "658",
+                              "bike": "189",
+                              "drive": "57"
+                          },
+                          "phone": "03-649-0740",
+                          "internationalPhone": "03-649-0740",
+                          "customPhone": "",
+                          "promotion": [
+                              {
+                                  "name": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "description": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "url": "",
+                                  "timeToLive": ""
+                              }
+                          ],
+                          "googleMapsID": {
+                              "value": "ChIJu41n-JRJHRURIq10LHxXNGo"
+                          }
+                      },
+                      {
+                          "name": {
+                              "he": "פארק הירקון",
+                              "en": "HaYarkon Park"
+                          },
+                          "description": {
+                              "he": "תל אביב יפו, ישראל",
+                              "en": "Tel Aviv-Yafo, Israel"
+                          },
+                          "address": {
+                              "he": "תל אביב יפו, ישראל",
+                              "en": "Tel Aviv-Yafo, Israel"
+                          },
+                          "categoryId": 12,
+                          "url": "",
+                          "latitude": "32.1061267",
+                          "longitude": "34.8315914",
+                          "coords3d": {
+                              "x": "32.1061267",
+                              "y": "34.8315914",
+                              "z": 0
+                          },
+                          "distanceToPoint": {
+                              "walk": "1641",
+                              "bike": "2785",
+                              "drive": "2327"
+                          },
+                          "timeToPoint": {
+                              "walk": "1182",
+                              "bike": "444",
+                              "drive": "350"
+                          },
+                          "phone": "",
+                          "internationalPhone": "",
+                          "customPhone": "",
+                          "promotion": [
+                              {
+                                  "name": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "description": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "url": "",
+                                  "timeToLive": ""
+                              }
+                          ],
+                          "googleMapsID": {
+                              "value": "ChIJDfMxMZBJHRURv3XezNE7ccE"
+                          }
+                      },
+                      {
+                          "name": {
+                              "he": "אסותא מרכזים רפואיים",
+                              "en": "Assuta Hospital in Ramat HaHayal"
+                          },
+                          "description": {
+                              "he": "הברזל 20, תל אביב יפו, ישראל",
+                              "en": "HaBarzel St 20, Tel Aviv-Yafo, Israel"
+                          },
+                          "address": {
+                              "he": "הברזל 20, תל אביב יפו, ישראל",
+                              "en": "HaBarzel St 20, Tel Aviv-Yafo, Israel"
+                          },
+                          "categoryId": 4,
+                          "url": "http://www.assuta.co.il/",
+                          "latitude": "32.1079742",
+                          "longitude": "34.8387463",
+                          "coords3d": {
+                              "x": "32.1079742",
+                              "y": "34.8387463",
+                              "z": 0
+                          },
+                          "distanceToPoint": {
+                              "walk": "1102",
+                              "bike": "3277",
+                              "drive": "1972"
+                          },
+                          "timeToPoint": {
+                              "walk": "795",
+                              "bike": "534",
+                              "drive": "354"
+                          },
+                          "phone": "03-764-4444",
+                          "internationalPhone": "03-764-4444",
+                          "customPhone": "",
+                          "promotion": [
+                              {
+                                  "name": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "description": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "url": "",
+                                  "timeToLive": ""
+                              }
+                          ],
+                          "googleMapsID": {
+                              "value": "ChIJV147nJRJHRURZfloDWSGMfA"
+                          }
+                      },
+                      {
+                          "name": {
+                              "he": "בית הופעות זאפה תל אביב",
+                              "en": "Zappa"
+                          },
+                          "description": {
+                              "he": "ראול ולנברג 24, תל אביב יפו, ישראל",
+                              "en": "Raoul Wallenberg St 24, Tel Aviv-Yafo, Israel"
+                          },
+                          "address": {
+                              "he": "ראול ולנברג 24, תל אביב יפו, ישראל",
+                              "en": "Raoul Wallenberg St 24, Tel Aviv-Yafo, Israel"
+                          },
+                          "categoryId": 9,
+                          "url": "http://www.zappa-club.co.il/",
+                          "latitude": "32.1119048",
+                          "longitude": "34.8397772",
+                          "coords3d": {
+                              "x": "32.1119048",
+                              "y": "34.8397772",
+                              "z": 0
+                          },
+                          "distanceToPoint": {
+                              "walk": "576",
+                              "bike": "616",
+                              "drive": "616"
+                          },
+                          "timeToPoint": {
+                              "walk": "422",
+                              "bike": "178",
+                              "drive": "133"
+                          },
+                          "phone": "03-762-6666",
+                          "internationalPhone": "03-762-6666",
+                          "customPhone": "",
+                          "promotion": [
+                              {
+                                  "name": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "description": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "url": "",
+                                  "timeToLive": ""
+                              }
+                          ],
+                          "googleMapsID": {
+                              "value": "ChIJi-wBFZVJHRUR9KnHkel3IHs"
+                          }
+                      },
+                      {
+                          "name": {
+                              "he": "שוק צפון",
+                              "en": "North Market"
+                          },
+                          "description": {
+                              "he": "ראול ולנברג 20, תל אביב יפו, ישראל",
+                              "en": "Raoul Wallenberg St 20, Tel Aviv-Yafo, Israel"
+                          },
+                          "address": {
+                              "he": "ראול ולנברג 20, תל אביב יפו, ישראל",
+                              "en": "Raoul Wallenberg St 20, Tel Aviv-Yafo, Israel"
+                          },
+                          "categoryId": 9,
+                          "url": "http://www.shuktzafon.co.il/",
+                          "latitude": "32.1098503",
+                          "longitude": "34.8377789",
+                          "coords3d": {
+                              "x": "32.1098503",
+                              "y": "34.8377789",
+                              "z": 0
+                          },
+                          "distanceToPoint": {
+                              "walk": "827",
+                              "bike": "1246",
+                              "drive": "3026"
+                          },
+                          "timeToPoint": {
+                              "walk": "597",
+                              "bike": "289",
+                              "drive": "426"
+                          },
+                          "phone": "03-643-2000",
+                          "internationalPhone": "03-643-2000",
+                          "customPhone": "",
+                          "promotion": [
+                              {
+                                  "name": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "description": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "url": "",
+                                  "timeToLive": ""
+                              }
+                          ],
+                          "googleMapsID": {
+                              "value": "ChIJvddvWJRJHRURCITRG85x-bo"
+                          }
+                      },
+                      {
+                          "name": {
+                              "he": "פארק נווה שרת",
+                              "en": "Park Neve Sharett"
+                          },
+                          "description": {
+                              "he": "תל אביב יפו, ישראל",
+                              "en": "Tel Aviv-Yafo, Israel"
+                          },
+                          "address": {
+                              "he": "תל אביב יפו, ישראל",
+                              "en": "Tel Aviv-Yafo, Israel"
+                          },
+                          "categoryId": 8,
+                          "url": "",
+                          "latitude": "32.118032",
+                          "longitude": "34.84087689999999",
+                          "coords3d": {
+                              "x": "32.118032",
+                              "y": "34.84087689999999",
+                              "z": 0
+                          },
+                          "distanceToPoint": {
+                              "walk": "689",
+                              "bike": "689",
+                              "drive": "689"
+                          },
+                          "timeToPoint": {
+                              "walk": "528",
+                              "bike": "153",
+                              "drive": "200"
+                          },
+                          "phone": "",
+                          "internationalPhone": "",
+                          "customPhone": "",
+                          "promotion": [
+                              {
+                                  "name": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "description": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "url": "",
+                                  "timeToLive": ""
+                              }
+                          ],
+                          "googleMapsID": {
+                              "value": "ChIJVV5pRQZJHRUR6T4-nQee2QU"
+                          }
+                      },
+                      {
+                          "name": {
+                              "he": "פארק ראול ולנברג",
+                              "en": "Park Raul Wallenberg"
+                          },
+                          "description": {
+                              "he": "תל אביב יפו, ישראל",
+                              "en": "Tel Aviv-Yafo, Israel"
+                          },
+                          "address": {
+                              "he": "תל אביב יפו, ישראל",
+                              "en": "Tel Aviv-Yafo, Israel"
+                          },
+                          "categoryId": 8,
+                          "url": "",
+                          "latitude": "32.1153221",
+                          "longitude": "34.8391596",
+                          "coords3d": {
+                              "x": "32.1153221",
+                              "y": "34.8391596",
+                              "z": 0
+                          },
+                          "distanceToPoint": {
+                              "walk": "489",
+                              "bike": "624",
+                              "drive": "998"
+                          },
+                          "timeToPoint": {
+                              "walk": "377",
+                              "bike": "145",
+                              "drive": "210"
+                          },
+                          "phone": "",
+                          "internationalPhone": "",
+                          "customPhone": "",
+                          "promotion": [
+                              {
+                                  "name": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "description": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "url": "",
+                                  "timeToLive": ""
+                              }
+                          ],
+                          "googleMapsID": {
+                              "value": "ChIJuZetYfdJHRURbtKGHtRPXD0"
+                          }
+                      },
+                      {
+                          "name": {
+                              "he": "קרית עתידים",
+                              "en": "Kiryat Atidim"
+                          },
+                          "description": {
+                              "he": "קרית עתידים, תל אביב יפו, ישראל",
+                              "en": "Kiryat Atidim, Tel Aviv-Yafo, Israel"
+                          },
+                          "address": {
+                              "he": "קרית עתידים, תל אביב יפו, ישראל",
+                              "en": "Kiryat Atidim, Tel Aviv-Yafo, Israel"
+                          },
+                          "categoryId": 9,
+                          "url": "",
+                          "latitude": "32.11516",
+                          "longitude": "34.842959",
+                          "coords3d": {
+                              "x": "32.11516",
+                              "y": "34.842959",
+                              "z": 0
+                          },
+                          "distanceToPoint": {
+                              "walk": "165",
+                              "bike": "250",
+                              "drive": "250"
+                          },
+                          "timeToPoint": {
+                              "walk": "123",
+                              "bike": "37",
+                              "drive": "60"
+                          },
+                          "phone": "",
+                          "internationalPhone": "",
+                          "customPhone": "",
+                          "promotion": [
+                              {
+                                  "name": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "description": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "url": "",
+                                  "timeToLive": ""
+                              }
+                          ],
+                          "googleMapsID": {
+                              "value": "ChIJB3-l4cBJHRURdFP_FbuNtfw"
+                          }
+                      },
+                      {
+                          "name": {
+                              "he": "פארק הירקון",
+                              "en": "Park Hayarkon"
+                          },
+                          "description": {
+                              "he": "תל אביב יפו, ישראל",
+                              "en": "Tel Aviv-Yafo, Israel"
+                          },
+                          "address": {
+                              "he": "תל אביב יפו, ישראל",
+                              "en": "Tel Aviv-Yafo, Israel"
+                          },
+                          "categoryId": 8,
+                          "url": "",
+                          "latitude": "32.0968053",
+                          "longitude": "34.7909425",
+                          "coords3d": {
+                              "x": "32.0968053",
+                              "y": "34.7909425",
+                              "z": 0
+                          },
+                          "distanceToPoint": {
+                              "walk": "5909",
+                              "bike": "9405",
+                              "drive": "6122"
+                          },
+                          "timeToPoint": {
+                              "walk": "4384",
+                              "bike": "1681",
+                              "drive": "719"
+                          },
+                          "phone": "",
+                          "internationalPhone": "",
+                          "customPhone": "",
+                          "promotion": [
+                              {
+                                  "name": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "description": {
+                                      "he": "",
+                                      "en": ""
+                                  },
+                                  "url": "",
+                                  "timeToLive": ""
+                              }
+                          ],
+                          "googleMapsID": {
+                              "value": "ChIJ5RjvtehLHRURY8r7jEpUcc0"
+                          }
+                      }
+                  ];
 let poiData = [];
 basePoiData.forEach(function(item){
     let newArrayElement = {
@@ -1257,7 +1257,7 @@ function init_map () {
         zoom: 16,
         static_markers : {
             '0':{
-                'title': 'Yard TLV',
+                'title': 'YARD TEL-AVIV',
                 'lat': 32.116353,
                 'lng': 34.841586,
                 'marker_icon': generateSvg(poiIcons,'mainBuilding','#C0C0C0','#003827'),
@@ -1845,6 +1845,27 @@ function add_experimental_map (options) {
                     snazzy_info_window.close();
                 }, 300);
             };
+
+            const mainBuildingEnv = [
+                { lat: 32.116475384197464, lng: 34.840756561496676},
+                { lat: 32.11694146403754, lng: 34.84126870825036 },
+                { lat: 32.11600058760775, lng: 34.84248658631128 },
+                { lat: 32.115616659372854, lng: 34.84193405125421 },
+                { lat: 32.11565527944588, lng: 34.84182676289362},
+                { lat: 32.11562801821957, lng: 34.84174093220514},
+                { lat: 32.116466297204575, lng: 34.84076460812372 }
+            ];
+
+            const env = new google.maps.Polygon({
+                paths: mainBuildingEnv,
+                strokeColor: "#afc0b0",
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: "#afc0b0",
+                fillOpacity: 0.35,
+            });
+            env.setMap(map);
+
         }
 
         function add_filtered_Marker(marker) {
@@ -2465,6 +2486,7 @@ function add_experimental_map (options) {
         }
     }
     setInitialZoom();
+    hideAllDefaultMapLinks();
 
     return experimental_map_obj;
 }
@@ -2498,6 +2520,18 @@ function changeDocumentStyleProperty (idStyleSheet, selector, property, value) {
             rule.style[property] = value;
         }
     });
+}
+
+function hideAllDefaultMapLinks () {
+    const interval = setInterval(()=>{
+        const links = document.querySelectorAll('a[rel="noopener"]');
+        if (links.length > 0){
+            clearInterval(interval);
+            links.forEach(link =>{
+                link.style.display= 'none';
+            });
+        }
+    },100);
 }
 
 
@@ -5835,7 +5869,7 @@ let expMapStyle =`
 .map-parent {
   width: 100vw;
   // height: 100vh;
-  position: fixed;
+  position: relative;
   top: 0;
   overflow: hidden; }
   .map-parent .green-line {
@@ -5917,7 +5951,7 @@ let expMapStyle =`
             position: relative;
             z-index: 1; }
     .map-parent .filter .filter-btn {
-      position: fixed;
+      position: absolute;
       bottom: 10px;
       right: 10px;
       width: 55px;
@@ -6083,8 +6117,8 @@ let expMapStyle =`
         background-size: 20px; }
   .map-parent .map-container {
     width: 100%;
-    height: calc(100vh + 25px);
-    // height: 100vh;
+    // height: calc(100vh + 25px);
+    height: 100vh;
     transition: 0.5s; }
     .map-parent .map-container.open {
       filter: blur(4px) grayscale(1) brightness(0.4); }
@@ -6158,7 +6192,7 @@ let expMapStyle =`
     width: 44px;
     height: 89px;
     background-color: #603ef2;
-    position: fixed;
+    position: absolute;
     bottom: 10px;
     right: initial;
     left: 10px;
@@ -6258,7 +6292,7 @@ let expMapStyle =`
   .map-parent .map-type {
     color: white;
     box-shadow: 1px 1px 10px rgba(26, 47, 67, 0.5);
-    position: fixed;
+    position: absolute;
     top: 10px;
     right: 10px;
     // border-radius: 33px;
@@ -6340,7 +6374,7 @@ body.desktop .map-parent .filter .filters-list .filter-list-btn.active .move-par
 .map__go-home__btn {
   width: 52px;
   height: 52px;
-  position: fixed;
+  position: absolute;
   z-index: 3;
   cursor: pointer; }
 
@@ -6658,7 +6692,7 @@ const mobileStyle =`
     position: absolute;
 }
 .snazzy-card__window{
-    position: fixed;
+    position: absolute;
     z-index: 2;
     bottom: -35%;
     width: 100%;
@@ -6698,7 +6732,7 @@ const mobileOpenedCard = `
     right: 10px;
     filter: unset;
     display: block;
-    position: fixed;
+    position: absolute;
 }
 .map-parent .custom-window .custom-content .custom-header-wrap.with-img{
     display: block;

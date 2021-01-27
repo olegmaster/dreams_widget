@@ -1,7 +1,6 @@
 <?php
 
 require_once 'JsGenerator.php';
-require_once 'StyleSettings.php';
 
 /**
  * the class for generating JavaScript for the gallery
@@ -20,9 +19,9 @@ class GalleryJsGenerator implements JsGenerator
     private $callbackFunctionName;
     private $dir;
     private $rtlLangs = ['he'];
-    private $styleSettings;
 
-    public function __construct(string $galleryData, string $canvasClass = 'bmby-gallery', string $lang = 'en', string $callbackFunctionName = '', StyleSettings $styleSettings)
+
+    public function __construct(string $galleryData, string $canvasClass = 'bmby-gallery', string $lang = 'en', string $callbackFunctionName = '')
     {
         $this->jsString = '';
         $this->galleryData = !empty($galleryData) ? $galleryData : "[]";
@@ -31,7 +30,6 @@ class GalleryJsGenerator implements JsGenerator
         $this->categoryid = '';
         $this->callbackFunctionName = empty($callbackFunctionName) ? 'nonExistentFunction' : $callbackFunctionName ;
         $this->dir = (in_array($lang, $this->rtlLangs))?'rtl':'ltr';
-        $this->styleSettings = $styleSettings;
         $this->setJs();
     }
 
@@ -51,9 +49,70 @@ class GalleryJsGenerator implements JsGenerator
      */
     private function setJs()
     {
-        $bg = $this->styleSettings->bg;
-        $btn_fg = $this->styleSettings->btn_fg;
         $this->jsString = <<<EOD
+
+// Incoming styles from CRM
+let styles = {
+    "button": {
+        "shape": "roundedCorners"
+    },
+    "font": "Ubuntu",
+    "colors": [
+        {
+            "key": "brand1",
+            "value": "26, 47, 67, 1"
+        },
+        {
+            "key": "brand2",
+            "value": "193, 172, 135, 1"
+        },
+        {
+            "key": "text",
+            "value": "0, 0, 0, 1"
+        },
+        {
+            "key": "subtext",
+            "value": "77, 77, 77, 1"
+        },
+        {
+            "key": "favorites",
+            "value": "217, 88, 119, 1"
+        },
+        {
+            "key": "concession",
+            "value": "168, 138, 87, 1"
+        },
+        {
+            "key": "white",
+            "value": "255, 255, 255, 1"
+        },
+        {
+            "key": "grayMidLite",
+            "value": "192, 192, 192, 1"
+        },
+        {
+            "key": "grayLight",
+            "value": "247, 247, 247, 1"
+        },
+        {
+            "key": "available",
+            "value": "47, 180, 237, 1"
+        },
+        {
+            "key": "errors",
+            "value": "235, 87, 87, 1"
+        },
+        {
+            "key": "hoveredButton",
+            "value": "40, 72, 103, 1"
+        },
+        {
+            "key": "pressedButton",
+            "value": "40, 72, 103, 1"
+        }
+    ]
+};
+
 // each element contains data about the certain category and pictures belonging to it
 // this data is obtained from API
 let galleryData = $this->galleryData;
@@ -82,6 +141,10 @@ let timer = null;
 let imagesCount=0;
 let scroll=0;
 const userAgent = checkUserAgent();
+
+let styleColors = {};
+
+parseCrmColor();
 
 let galleries = [];
 
@@ -745,8 +808,7 @@ function getNaturalImageSize (slide) {
 }
 
 function addUbuntuFont() {
-    // document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">';
-    document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@600&family=Ubuntu:wght@300&display=swap" rel="stylesheet">';
+    document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">';
 }
 
 function addBasicStyle () {
@@ -953,6 +1015,19 @@ function showErrorPage () {
     const text = creatHtmlElement(wrapper,'Sorry, this page is unavailable','h1',['error-page__title']);
 }
 
+function parseCrmColor () {
+    styles.colors.forEach(color =>{
+       styleColors[color.key] = color.value;
+    });
+}
+
+function changeColorOpacity (rgbaString, newOpacity) {
+    let parseString = rgbaString.split(',');
+    parseString[3] = newOpacity;
+
+    return parseString.join(',');
+}
+
 //#1A2F43
 
 const desktopErrorIcon = `<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1052,7 +1127,13 @@ const zoomInIcon = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
 
 const basicStyle =`
 :root {
---bg-color: $bg;
+--white: rgba(${styleColors.white});
+--text: rgba(${styleColors.text});
+--caption-bg-color: rgba(${changeColorOpacity(styleColors.white,0.8)});
+--brand1: rgba(${styleColors.brand1});
+--grayMidLite: rgba(${styleColors.grayMidLite});
+--subtext: rgba(${styleColors.subtext});
+--errors: rgba(${styleColors.errors});
 }
 
 html{
@@ -1065,12 +1146,12 @@ body{
 }
 
 .main-container-gallery {
-  font-family: 'Assistant', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 18px;
-  color: #fff;
-  font-weight: 600;
+  color: var(--grayMidLite);
+  font-weight: 500;
   position: relative;
-  background: var(--bg-color);
+  background: var(--white);
 }
 
 .image__href{
@@ -1088,7 +1169,7 @@ body{
     font-style: normal;
     font-weight: 300;
     font-size: 14px;
-    color: #ffff;
+    color: var(--text);
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -1105,7 +1186,7 @@ body{
   position: -webkit-sticky;
   z-index: 5;
   top:0;
-  background: var(--bg-color);
+  background: var(--white);
   width: 100%;
 }
 .menu__items {
@@ -1129,7 +1210,7 @@ body{
   text-align: center;
   padding: 11px 0;
   margin: 0 12px;
-  cursor: pointer; 
+  cursor: pointer;
 }
 .menu__plug {
   content: '';
@@ -1140,8 +1221,8 @@ body{
   display: none;
 }
 .active {
-  border-bottom: 3px solid $btn_fg;
-  color: $btn_fg;
+  border-bottom: 3px solid var(--brand1);
+  color: var(--brand1);
 }
 
 .disabled{
@@ -1156,14 +1237,15 @@ body{
   font-family: 'Ubuntu', sans-serif;
 }
 .fancybox-bg {
-  background: var(--bg-color) !important;
+  background: var(--white) !important;
   opacity: 1 !important;
 }
 
  .fancybox-inner >.fancybox-caption{
-  background: {$bg}CC;
+  // background: rgba(17, 23, 45, 0.8);
+  background: var(--caption-bg-color);
   padding: 12px 16px 37px 16px;
-  color: #fff;
+  color: var(--grayMidLite);
   font-weight: 300;
   text-align: start;
   line-height: 16px;
@@ -1247,6 +1329,10 @@ body{
     transform: translateY(-50px);
 }
 
+.fancybox-caption__body{
+    color: var(--text);
+}
+
 @media screen and (max-width: 1024px){
 .error-page__icon{
     width: 70%;
@@ -1254,6 +1340,7 @@ body{
 
 .error-page__title{
     margin: 0;
+    color: var(--errors);
 }
 
 .fancybox-inner > .fancybox-toolbar >.fancybox-button{
@@ -1266,7 +1353,6 @@ body{
 
 }
 
-
 @media (orientation: landscape) {
 
 .error-page__icon{
@@ -1275,6 +1361,7 @@ body{
 
 .error-page__title{
     transform: translateY(-70px);
+    color: var(--errors);
 }
 
   .images__container {
@@ -1293,7 +1380,8 @@ body{
     bottom: 0;
     left: 0;
     width: 100%;
-    background: {$bg}CC;
+    // background: rgba(17, 23, 45, 0.8);
+    background: var(--caption-bg-color);
     margin-top: 0;
     margin-bottom: 0;
   }
@@ -1308,6 +1396,8 @@ body{
 
 .error-page__title{
     transform: translateY(-30px);
+    color: var(--errors);
+    // font-weight: 300;
 }
 
   .img__tumbs{
@@ -1337,8 +1427,9 @@ body{
     display: flex;
     transition: all 0.5s;
     justify-content: center;
-    background: {$bg}CC;
-    color: #fff;
+    // background: rgba(17, 23, 45, 0.8);
+    background: var(--caption-bg-color);
+    color: var(--text);
     font-weight: 300;
     line-height: 16px;
   }
@@ -1369,10 +1460,10 @@ body{
   .next-btn,.prev-btn{
     padding: 15px;
     cursor: pointer;
-    color: #fff;
+    color: var(--brand1);
   }
    .next-btn[aria-disabled="true"],.prev-btn[aria-disabled="true"]{
-    color: #C0C0C0;
+    color: var(--grayMidLite);
     cursor: default;
   }
 
@@ -1383,7 +1474,7 @@ body{
     height: 10px;
     width: 10px;
     padding: 0;
-    background: #fff;
+    background: var(--subtext);
     border-radius: 50%;
     border-style: none;
     cursor:pointer;
@@ -1395,10 +1486,10 @@ body{
     border-radius: 50%;
   }
    .slick-active{
-    background: $bg;
+    background: var(--white);
   }
     li.slick-active > button{
-    background: $btn_fg;
+    background: var(--brand1);
   }
 
   .arrows__container{
@@ -1474,49 +1565,49 @@ const rtlStyle =`
 const desktopStyle =`
 @media screen and (min-width: 1024px){
 .main-container-gallery {
-  color: #6E767E;
-  background: #F7F7F7;
+  color: var(--grayMidLite);
+  background: var(--white);
 }
 
 .slick-active{
-  background: #F7F7F7;
+  background: var(--white);
 }
 
 .image-caption__text{
- background: rgba(247, 247, 247, 0.8);
+ background: var(--caption-bg-color);
  // background: linear-gradient(180deg, rgba(247, 247, 247, 0.5) 50%, rgba(247, 247, 247, 0.9) 100%);
-  color: #1A2F43;
+  color: var(--text);
 }
 .menu__container{
-  background: #F7F7F7;
+  background: var(--white);
 }
 .next-btn, .prev-btn{
-  color: #1A2F43;
+  color: var(--brand1);
 }
 li.slick-active > button{
-   background: #1A2F43;
+   background: var(--brand1);
 }
 .dots__btn-style{
-   background: #6E767E;
+   background: var(--subtext);
 }
 .fancybox-stage > .fancybox-slide > .fancybox-content{
-  background: #F7F7F7;
+  background: var(--white);
 }
 .fancybox-bg{
-   background: #F7F7F7 !important;
+   background: var(--white) !important;
 }
 
 .fancybox-inner > .fancybox-stage > .fancybox-slide, .fancybox-inner > .fancybox-stage > .fancybox-slide--image{
     padding: 0;
 }
 .active {
-    border-bottom: 3px solid #1A2F43;
-    color: #1A2F43;
+    border-bottom: 3px solid  var(--brand1);
+    color: var(--brand1);
 }
 .full-screen__zoom{
     width: 42px;
     height: 42px;
-    background: #F7F7F7;
+    background: var(--white);
     border-radius: 30px;
     margin-right: 32px;
     margin-bottom: 22px;
@@ -1525,7 +1616,7 @@ li.slick-active > button{
 .close-screen__btn {
     width: 42px;
     height: 42px;
-    background: #F7F7F7;
+    background: var(--white);
     border-radius: 30px;
     margin-right: 32px;
     margin-bottom: 22px;
@@ -1534,11 +1625,11 @@ li.slick-active > button{
 .fancybox-inner > .fancybox-toolbar >.fancybox-button{
     width: 42px;
     height: 42px;
-    background: #F7F7F7;
+    background: var(--white);
     border-radius: 30px;
     margin-right: 32px;
     margin-bottom: 22px;
-    color: #1A2F43;
+    color: var(--brand1);
 }
 
 }

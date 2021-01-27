@@ -1,70 +1,226 @@
- <?php
-require_once 'JsGenerator.php';
-require_once 'StyleSettings.php';
+// let aboutUsData = [{
+//     "chapter": [{
+//         "lang": "en",
+//         "value": "Chapter 14"
+//     }, {
+//         "lang": "he",
+//         "value": "Chapter 1"
+//     }, {
+//         "lang": "ru",
+//         "value": "Chapter 1"
+//     }],
+//     "order": 1,
+//     "sections": [{
+//         "title": [{
+//             "lang": "en",
+//             "value": "Section 1"
+//         }, {
+//             "lang": "he",
+//             "value": "\u05e1\u05e7\u05e9\u05df 1"
+//         }, {
+//             "lang": "ru",
+//             "value": "\u0441\u0435\u043a\u0442\u0446\u0438\u044f 1"
+//         }],
+//         "description": [{
+//             "lang": "en",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }, {
+//             "lang": "he",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }, {
+//             "lang": "ru",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }],
+//         "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg",
+//         "order": 1
+//     }, {
+//         "title": [{
+//             "lang": "en",
+//             "value": "Section 3"
+//         }, {
+//             "lang": "he",
+//             "value": "Section 3"
+//         }, {
+//             "lang": "ru",
+//             "value": "Section 3"
+//         }],
+//         "description": [{
+//             "lang": "en",
+//             "value": "jjkhjk"
+//         }, {
+//             "lang": "he",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }, {
+//             "lang": "ru",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }],
+//         "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg",
+//         "order": 2
+//     }, {
+//         "title": [{
+//             "lang": "en",
+//             "value": "Section 7"
+//         }, {
+//             "lang": "he",
+//             "value": "Section 7"
+//         }, {
+//             "lang": "ru",
+//             "value": "Section 7"
+//         }],
+//         "description": [{
+//             "lang": "en",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }, {
+//             "lang": "he",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }, {
+//             "lang": "ru",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }],
+//         "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg",
+//         "order": 4
+//     }, {
+//         "title": [{
+//             "lang": "en",
+//             "value": "Section 8"
+//         }, {
+//             "lang": "he",
+//             "value": "Section 8"
+//         }, {
+//             "lang": "ru",
+//             "value": "Section 8"
+//         }],
+//         "description": [{
+//             "lang": "en",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }, {
+//             "lang": "he",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }, {
+//             "lang": "ru",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }],
+//         "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/4B955B0C-FD2F-474F-8A74-4840D8523468\/kitajskaya_grusha_frukty_razdelochnaya_doska_108809_1024x768.jpg",
+//         "order": 5
+//     }]
+// }, {
+//     "chapter": [{
+//         "lang": "en",
+//         "value": "Chapter 2"
+//     }, {
+//         "lang": "he",
+//         "value": "Chapter 2"
+//     }, {
+//         "lang": "ru",
+//         "value": "Chapter 2"
+//     }],
+//     "order": 2,
+//     "sections": [{
+//         "title": [{
+//             "lang": "en",
+//             "value": "Section 6"
+//         }, {
+//             "lang": "he",
+//             "value": "Section 1 ch 2"
+//         }, {
+//             "lang": "ru",
+//             "value": "Section 1 ch 2"
+//         }],
+//         "description": [{
+//             "lang": "en",
+//             "value": ""
+//         }, {
+//             "lang": "he",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }, {
+//             "lang": "ru",
+//             "value": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at beatae consectetur corporis cupiditate dicta dolores eaque eos est facere illum inventore ipsa, iste iure libero minus nemo nobis obcaecati odit officiis optio possimus provident quaerat quas quibusdam quod ratione reprehenderit sapiente sed sit soluta sunt temporibus ut."
+//         }],
+//         "imageUrl": "https:\/\/dreamseu.z6.web.core.windows.net\/251West117thStreet\/projectassets\/about\/A4BC8BC9-40A4-440B-8A0A-B140486233EE\/the_lion_king_2021-wallpaper-1600x900.jpg",
+//         "order": 3
+//     }]
+// }];
 
- /**
-  * the class for generating JavaScript for the about us
-  * the generated js will be used for building the about us page
-  * Class AboutJsGenerator
-  */
-class AboutJsGenerator implements JsGenerator
-{
+let aboutUsData = [{"chapter":[{"lang":"en","value":"About Maverick"},{"lang":"he","value":"The Project"}],"order":1,"sections":[{"title":[{"lang":"en","value":"CREATIVITY ADDRESSED"},{"lang":"he","value":"Section 6"}],"description":[{"lang":"en","value":"<p><span style=\"background-color:rgb(197, 166, 168); color:rgb(0, 0, 0)\">A natural addition to Chelsea, rising at<\/span><br \/>\n<span style=\"background-color:rgb(197, 166, 168); color:rgb(0, 0, 0)\">the crossroads of the city\u2019s most exciting<\/span><br \/>\n<span style=\"background-color:rgb(197, 166, 168); color:rgb(0, 0, 0)\">neighborhoods. Impeccably appointed<\/span><br \/>\n<span style=\"background-color:rgb(197, 166, 168); color:rgb(0, 0, 0)\">condominium residences complemented by<\/span><br \/>\n<span style=\"background-color:rgb(197, 166, 168); color:rgb(0, 0, 0)\">three levels of exceptional indoor and outdoor<\/span><br \/>\n<span style=\"background-color:rgb(197, 166, 168); color:rgb(0, 0, 0)\">amenities. Everything you ever wanted comes<\/span><br \/>\n<span style=\"background-color:rgb(197, 166, 168); color:rgb(0, 0, 0)\">together at a place designed just for yo<\/span><\/p>\n"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamsimages.bmby.com\/251West117thStreet\/projectassets\/about\/3BABB7EB-27DC-43A9-A318-D26F078430F4\/kitajskaya_grusha_frukty_razdelochnaya_doska_108809_1024x768.jpg","order":1},{"title":[{"lang":"en","value":"Luxurious Amenities"},{"lang":"he","value":"Luxurious Amenities"}],"description":[{"lang":"en","value":"<p>HAP Eight is a post-war condominium building in downtown Manhattan's\u00a0Chelsea\u00a0neighborhood finished in 2018. Situated at 215 West 28th Street, between Seventh Avenue and Eighth Avenue, the building contains 117 units and rises 21 stories. The elevatored building's amenities\u00a0include:\u00a0elevator, children's playroom, fitness center, rooftop\u00a0terrace\u00a0and courtyard<\/p>\n"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamsimages.bmby.com\/251West117thStreet\/projectassets\/about\/64002E3C-69FD-489E-A7A6-69227BC9521C\/kitajskaya_grusha_frukty_razdelochnaya_doska_108809_1024x768.jpg","order":2}]},{"chapter":[{"lang":"en","value":"About HAP"},{"lang":"he","value":"About the Project"}],"order":2,"sections":[{"title":[{"lang":"en","value":"HAP Investments is an international, full-service real estate development company headquartered in New York City"},{"lang":"he","value":"Section 1"}],"description":[{"lang":"en","value":"<p>The firm is keenly focused on identifying and investing in projects strategically situated in emerging and prime markets in the New York metropolitan area. Founded in 1998 by partners Eran Polack, Amir Hasid and Nir Amsel, HAP Investments has successfully acquired, designed and developed a diverse portfolio of residential and commercial real estate that is renowned for its location, proximity to mass transit, and innovative, high-quality construction and design. Its U.S. portfolio is currently comprised of 11 residential projects totaling more 1.8 million square feet in various stages of development, completion and operation.<\/p>\n\n<p>HAP Investments leverages its two decades of experience, knowledge and expertise along with its strategic partnerships to continually assess and stay ahead of market trends and best position its developments for financial success. The firm collaborates with global partners including top lenders, investors, architects and brokers to ensure each project is distinctive and delivered on time and within budget. The company\u2019s development approach is combined with its respect for the communities in which it works, creating buildings that enhance the lives of both its residents and neighbors.<\/p>\n\n<p>The company\u2019s talented team of seasoned professionals are passionate and fiercely committed to every project and adhere to a hands-on approach to all aspects of development from start to finish. From land acquisition through design, construction and property management, HAP Investments carefully oversees every development to deliver premier quality and maximum value. Known for its entrepreneurial spirit and ability to navigate complex projects, HAP Investments has earned a stellar reputation for always persevering and building high-quality developments despite any challenge.<\/p>\n"},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamsimages.bmby.com\/251West117thStreet\/projectassets\/about\/97CD2A95-9DF5-4E17-B395-BCA2075FB452\/kitajskaya_grusha_frukty_razdelochnaya_doska_108809_1024x768.jpg","order":1},{"title":[{"lang":"en","value":"Hap section"},{"lang":"he","value":"Hap section"}],"description":[{"lang":"en","value":""},{"lang":"he","value":""}],"imageUrl":"https:\/\/dreamsimages.bmby.com\/251West117thStreet\/projectassets\/about\/CFDC6065-758F-424A-9CD8-3087BA5B19D6\/kitajskaya_grusha_frukty_razdelochnaya_doska_108809_1024x768.jpg","order":2}]}];
 
-    private $jsString;
-    private $aboutData;
-    private $canvasClass;
-    private $lang;
-    private $callbackFunctionName;
-    private $dir;
-    private $rtlLangs = ['he'];
-    private $styleSettings;
 
-    public function __construct(string $aboutData = '', string $canvasClass = 'bmby-about', string $callbackFunctionName = '', string $lang = 'en', StyleSettings $styleSettings)
-    {
-        $this->jsString = '';
-        $this->aboutData = !empty($aboutData) ? $aboutData : "[]";
-        $this->canvasClass = $canvasClass;
-        $this->lang = $lang;
-        $this->callbackFunctionName = empty($callbackFunctionName) ? 'nonExistentFunction' : $callbackFunctionName;
-        $this->dir = (in_array($lang, $this->rtlLangs))?'rtl':'ltr';
-        $this->styleSettings = $styleSettings;
-        $this->setJs();
-    }
+let styles = {
+    "button": {
+        "shape": "roundedCorners"
+    },
+    "font": "Ubuntu",
+    "colors": [
+        {
+            "key": "brand1",
+            "value": "26, 47, 67, 1"
+        },
+        {
+            "key": "brand2",
+            "value": "193, 172, 135, 1"
+        },
+        {
+            "key": "text",
+            "value": "0, 0, 0, 1"
+        },
+        {
+            "key": "subtext",
+            "value": "77, 77, 77, 1"
+        },
+        {
+            "key": "favorites",
+            "value": "217, 88, 119, 1"
+        },
+        {
+            "key": "concession",
+            "value": "168, 138, 87, 1"
+        },
+        {
+            "key": "white",
+            "value": "255, 255, 255, 1"
+        },
+        {
+            "key": "grayMidLite",
+            "value": "192, 192, 192, 1"
+        },
+        {
+            "key": "grayLight",
+            "value": "247, 247, 247, 1"
+        },
+        {
+            "key": "available",
+            "value": "47, 180, 237, 1"
+        },
+        {
+            "key": "errors",
+            "value": "235, 87, 87, 1"
+        },
+        {
+            "key": "hoveredButton",
+            "value": "40, 72, 103, 1"
+        },
+        {
+            "key": "pressedButton",
+            "value": "40, 72, 103, 1"
+        }
+    ]
+};
 
-    /**
-     * this method is used to output javascript from php file
-     * and it can be added in the html page like a regular javascript file
-     */
-    public function showJs()
-    {
-        header('Content-Type: application/javascript');
-        echo $this->jsString;
-    }
+let styleColors = {};
 
-    /**
-     * this method generates javascript string and save it to the class property so we can use it
-     * and insert into the js string necessary javascript variables which are are generated by php
-     */
-    private function setJs()
-    {
-        $bg = $this->styleSettings->bg;
-        $btn_fg = $this->styleSettings->btn_fg;
-        $this->jsString = <<<EOD
-let aboutUsData = $this->aboutData;
-let canvasClass = '$this->canvasClass';
-let lang = '$this->lang';
-let dir = '$this->dir';
- 
+parseCrmColor();
+
+let canvasClass = 'bmby-about-wrapp';
+let lang = 'en';
+const dir = 'ltr';
 let hasUbuntuFont = false;
 let aboutUsSections = [];
-
-let mode = 'prod';
+let mode = 'dev';
 let aboutUsMainContainer;
 const userAgent = checkUserAgent();
 let isData = checkCRM();
-let activeTabInd = isData ? aboutUsData[0].order : 0;
-try{
-    $this->callbackFunctionName();
+let activeTabInd =  isData ? aboutUsData[0].order : 0;
+try {
+    callbackFunction();
 } catch (e) {
     if (mode === 'dev') {
         console.log('unable to run callback');
@@ -78,13 +234,13 @@ window.addEventListener("DOMContentLoaded", function (event) {
     addFont();
     addBasicStyle();
     if (!isData){
-            showErrorPage();
-            return;
-        }
+        showErrorPage();
+        return;
+    }
     const userAgent = checkUserAgent();
-        if (userAgent && userAgent !== 'Windows'){
-            reduceImage();
-        }
+    if (userAgent && userAgent !== 'Windows'){
+        reduceImage();
+    }
     insertMenu(aboutUsData[0].order);
     orientationHandler();
 });
@@ -125,32 +281,32 @@ function checkUserAgent () {
 }
 
 function orientationHandler() {
-   setTimeout(()=>{
-           const isPortrait = isWindowInPortrait();
-           if (window.innerWidth < 1024) {
-               clearContent();
-               if (!isData){
-                       showErrorPage();
-                       return;
-                   }
-               insertMenu(activeTabInd);
+    setTimeout(()=>{
+        const isPortrait = isWindowInPortrait();
+        if (window.innerWidth < 1024) {
+            clearContent();
+            if (!isData){
+                showErrorPage();
+                return;
+            }
+            insertMenu(activeTabInd);
 
-               if (aboutUsData.length > 1){
-                   const contentWrapper = document.querySelector('.tabs-data-content__wrapper');
-                   if (!isPortrait && dir === 'ltr') {
-                       contentWrapper.style.marginLeft = 114 + 'px';
-                   } else if (!isPortrait && dir === 'rtl') {
-                       contentWrapper.style.marginRight = 114 + 'px';
-                   } else {
-                       contentWrapper.style.marginRight = 0 + 'px';
-                       contentWrapper.style.marginLeft = 0 + 'px';
-                   }
-               }
-           } else {
-               clearContent();
-               insertMenu(activeTabInd);
-           }
-       }, 250);
+            if (aboutUsData.length > 1){
+                const contentWrapper = document.querySelector('.tabs-data-content__wrapper');
+                if (!isPortrait && dir === 'ltr') {
+                    contentWrapper.style.marginLeft = 114 + 'px';
+                } else if (!isPortrait && dir === 'rtl') {
+                    contentWrapper.style.marginRight = 114 + 'px';
+                } else {
+                    contentWrapper.style.marginRight = 0 + 'px';
+                    contentWrapper.style.marginLeft = 0 + 'px';
+                }
+            }
+        } else {
+            clearContent();
+            insertMenu(activeTabInd);
+        }
+    }, 250);
 }
 
 function clearContent() {
@@ -177,7 +333,6 @@ function creatHtmlElement(parent, elementName, elementTag, elementClass) {
 
 function addFont() {
     document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">';
-    document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@600&family=Ubuntu:wght@300&display=swap" rel="stylesheet">';
 }
 
 function addBasicStyle() {
@@ -394,6 +549,13 @@ function showErrorPage () {
     const text = creatHtmlElement(wrapper,'Sorry, this page is unavailable','h1',['error-page__title']);
 }
 
+function parseCrmColor () {
+    styles.colors.forEach(color =>{
+        styleColors[color.key] = color.value;
+    });
+}
+
+
 const desktopErrorIcon = `<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M40.708 13.279C40.708 13.279 51 14 51 24C51 32 47 36 47 36H40L40.708 13.279Z" fill="#2E7D32"/>
 <path d="M32 12H36C39.212 12 43.547 14.186 44.326 17.302C45.413 21.651 45.069 26.235 43.345 30.373L41 36H34L32 12Z" fill="#4CAF50"/>
@@ -463,7 +625,12 @@ const mobileErrorIcon = `
 
 const basicStyle = `
 :root {
---bg-color: $bg;
+--white: rgba(${styleColors.white});
+--grayMidLite: rgba(${styleColors.grayMidLite});
+--brand1: rgba(${styleColors.brand1});
+--text: rgba(${styleColors.text});
+--subtext: rgba(${styleColors.subtext});
+--errors: rgba(${styleColors.errors});
 }
 
 body{
@@ -477,12 +644,12 @@ body{
 }
 
 .main-container-about {
-  font-family: 'Assistant', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 18px;
-  color: #FFFFFF;
-  font-weight: 600;
+  color: var(--grayMidLite);
+  font-weight: 500;
   position: relative;
-  background: var(--bg-color);
+  background: var(--white);
 }
 
 .menu__items {
@@ -513,12 +680,12 @@ body{
 }
 
 .active {
-  border-bottom: 3px solid $btn_fg;
-  color: $btn_fg;
+  border-bottom: 3px solid var(--brand1);
+  color: var(--brand1);
 }
 
 .hide-tab{
- display: none;
+ display: none;  
 }
 
 .about-us__img-container{
@@ -539,12 +706,12 @@ body{
     z-index: -1;
     top:0;
     left:0;
-    background: var(--bg-color);
+    background: var(--white);
 }
 
 .tab-content__title{
   font-size: 18px;
-  color: #fff;
+  color: var(--text);
   margin: 24px 16px 12px 16px;
 }
 
@@ -552,7 +719,7 @@ body{
   font-size: 14px;
   font-weight: 300;
   line-height: 16px;
-  color: #fff;
+  color: var(--text);
   padding: 0 16px 24px 16px;
 }
 
@@ -588,7 +755,7 @@ body{
     font-weight: 300;
     text-align: center;
     margin: 40px;
-    color: #6E767E;
+    color: var(--errors);
     transform: translateY(-50px);
 }
 
@@ -599,8 +766,9 @@ body{
 
 .error-page__title{
     margin: 0;
-    color: #ffffff;
+    color: var(--errors);
 }
+
 
 }
 
@@ -676,9 +844,9 @@ body{
 
   .main-container-about {
     padding: 0 10px;
-    background: $bg;
-    color: #fff;
-    font-family: 'Assistant', sans-serif;
+    background: var(--white);
+    color: var(--grayMidLite);
+    font-family: 'Ubuntu', sans-serif;
     font-style: normal;
   }
   .menu__items{
@@ -688,7 +856,7 @@ body{
     position: inherit;
     width: 100%;
     top: 0;
-    color: #fff;
+    color: var(--grayMidLite);
   }
   .menu-content__wrapper::after{
     content: '';
@@ -698,19 +866,19 @@ body{
     margin-top: -2px;
     background: #fff ;
   }
-
+  
   .active {
-    border-bottom: 3px solid $btn_fg;
-    color: $btn_fg;
+    border-bottom: 3px solid var(--brand1);
+    color: var(--brand1);
     }
    .tabs-data-content__wrapper, .menu-content__wrapper{
     max-width: 1280px;
     width: 100%;
     margin: 0 auto;
   }
-
+  
   .tabs-data-content__wrapper::before{
-    background: $bg;
+    background: var(--white);
 }
   .menu__item{
     margin: 0;
@@ -747,7 +915,7 @@ body{
     font-weight: 500;
   }
   .tab-content__text{
-    color: #fff;
+    color: var(--text);
     font-weight: 300;
     font-size: 16px;
     padding-top: 48px;
@@ -766,7 +934,7 @@ const desktopStyle = `
 @media screen and (min-width: 1024px) {
   .main-container-about {
     padding: 0 10px;
-    background: #F7F7F7;
+    background: var(--white);
     font-family: 'Ubuntu', sans-serif;
     font-style: normal;
   }
@@ -777,7 +945,7 @@ const desktopStyle = `
     position: inherit;
     width: 100%;
     top: 0;
-    color: #C0C0C0;
+    color: var(--grayMidLite);
   }
   .menu-content__wrapper::after{
     content: '';
@@ -785,21 +953,21 @@ const desktopStyle = `
     display:block;
     height: 1px;
     margin-top: -2px;
-    background: #C0C0C0 ;
+    background: var(--grayMidLite);
   }
-
+  
   .active {
-    border-bottom: 3px solid #1A2F43;
-    color: #1A2F43;
+    border-bottom: 3px solid var(--brand1);
+    color: var(--brand1);
     }
    .tabs-data-content__wrapper, .menu-content__wrapper{
     max-width: 1280px;
     width: 100%;
     margin: 0 auto;
   }
-
+  
   .tabs-data-content__wrapper::before{
-    background: #F7F7F7;
+    background: var(--white);
 }
   .menu__item{
     margin: 0;
@@ -831,12 +999,12 @@ const desktopStyle = `
     flex-direction: row-reverse;
   }
    .tab-content__title{
-    color: #1A2F43;
+    color: var(--text);
     font-size: 30px;
     font-weight: 500;
   }
   .tab-content__text{
-    color: #03233A;
+    color: var(--text);
     font-weight: 300;
     font-size: 16px;
     padding-top: 48px;
@@ -1003,8 +1171,3 @@ const desktopStyle = `
     }
 
 }(window, document));
-
-EOD;
-
-    }
-}

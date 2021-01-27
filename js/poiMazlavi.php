@@ -529,7 +529,7 @@ basePoiData.forEach(function(item){
 
 
 // this variable contains all poi categories
-let poiCategoriesData  = [{"name":[{"lang":"en","value":"Restaurants"},{"lang":"he","value":"מסעדות"}],"description":[{"lang":"en","value":"Cafes Description"},{"lang":"he","value":"Cafes Description"}],"categoryId":"1","color":"#d69131","icon":"restaurants_f","iconMenu":"restaurants_i"},{"name":[{"lang":"en","value":"Culture"},{"lang":"he","value":"Culture"}],"description":[{"lang":"en","value":"Culture"},{"lang":"he","value":"Culture"}],"categoryId":"2","color":"#EB5757","icon":"culture_f","iconMenu":"culture_i"},{"name":[{"lang":"en","value":"Public Transport(min)"},{"lang":"he","value":"תחבורה"}],"description":[{"lang":"en","value":"Public Transport(min)"},{"lang":"he","value":"תחבורה"}],"categoryId":"3","color":"#F2994A","icon":"transport_f","iconMenu":"transport_i"},{"name":[{"lang":"en","value":"Healthcare"},{"lang":"he","value":"בריאות"}],"description":[{"lang":"en","value":"Healthcare"},{"lang":"he","value":"בריאות"}],"categoryId":"4","color":"#FDC536","icon":"healthcare_f","iconMenu":"healthcare_i"},{"name":[{"lang":"en","value":"General"},{"lang":"he","value":"כללי"}],"description":[{"lang":"en","value":"General"},{"lang":"he","value":"כללי"}],"categoryId":"5","color":"#6FCF97","icon":"general_f","iconMenu":"general_i"},{"name":[{"lang":"en","value":"Supermarkets"},{"lang":"he","value":"Supermarkets"}],"description":[{"lang":"en","value":"Supermarkets"},{"lang":"he","value":"Supermarkets"}],"categoryId":"6","color":"#219653","icon":"supermarkets_f","iconMenu":"supermarkets_i"},{"name":[{"lang":"en","value":"Shopping"},{"lang":"he","value":"Shopping"}],"description":[{"lang":"en","value":"Shopping"},{"lang":"he","value":"Shopping"}],"categoryId":"7","color":"#2F80ED","icon":"shopping_f","iconMenu":"shopping_i"},{"name":[{"lang":"en","value":"Parks"},{"lang":"he","value":"Parks"}],"description":[{"lang":"en","value":"Parks"},{"lang":"he","value":"Parks"}],"categoryId":"8","color":"#D95877","icon":"park_f","iconMenu":"park_i"},{"name":[{"lang":"en","value":"Business"},{"lang":"he","value":"עסק"}],"description":[{"lang":"en","value":"עסק"},{"lang":"he","value":"Business"}],"categoryId":"9","color":"#EB5757","icon":"business_f","iconMenu":"business_i"},{"name":[{"lang":"en","value":"Construction"},{"lang":"he","value":"בניה"}],"description":[{"lang":"en","value":"Construction"},{"lang":"he","value":"בניה"}],"categoryId":"10","color":"#F2994A","icon":"construction_f","iconMenu":"construction_i"},{"name":[{"lang":"en","value":"Beaches"},{"lang":"he","value":"Beaches"}],"description":[{"lang":"en","value":"Beaches"},{"lang":"he","value":"Beaches"}],"categoryId":"11","color":"#FDC536","icon":"beaches_f","iconMenu":"beaches_i"},{"name":[{"lang":"en","value":"Sports"},{"lang":"he","value":"ספורט"}],"description":[{"lang":"en","value":"Sports"},{"lang":"he","value":"ספורט"}],"categoryId":"12","color":"#6FCF97","icon":"sports_f","iconMenu":"sports_i"},{"name":[{"lang":"en","value":"Subway"},{"lang":"he","value":"רכבת תחתית"}],"description":[{"lang":"en","value":"Subway"},{"lang":"he","value":"רכבת תחתית"}],"categoryId":"13","color":"#219653","icon":"subway_f","iconMenu":"subway_i"},{"name":[{"lang":"en","value":"Street"},{"lang":"he","value":"רחוב"}],"description":[{"lang":"en","value":"Street"},{"lang":"he","value":"רחוב"}],"categoryId":"14","color":"#2F80ED","icon":"streets_f","iconMenu":"streets_i"},{"name":[{"lang":"en","value":"Kosher"},{"lang":"he","value":"Kosher"}],"description":[{"lang":"en","value":"Kosher"},{"lang":"he","value":"Kosher"}],"categoryId":"15","color":"#D95877","icon":"kosher_f","iconMenu":"kosher_i"},{"name":[{"lang":"en","value":"Synagogue"},{"lang":"he","value":"Synagogue"}],"description":[{"lang":"en","value":"Synagogue"},{"lang":"he","value":"Synagogue"}],"categoryId":"16","color":"#EB5757","icon":"synagogue_f","iconMenu":"synagogue_i"},{"name":[{"lang":"en","value":"For kids"},{"lang":"he","value":"For kids"}],"description":[{"lang":"en","value":"For kids"},{"lang":"he","value":"For kids"}],"categoryId":"17","color":"#F2994A","icon":"kids_f","iconMenu":"kids_i"},{"name":[{"lang":"en","value":"Office"},{"lang":"he","value":"משרד"}],"description":[{"lang":"en","value":"Office"},{"lang":"he","value":"משרד"}],"categoryId":"18","color":"#FDC536","icon":"office_f","iconMenu":"office_i"},{"name":[{"lang":"en","value":"Bus stations"},{"lang":"he","value":"Bus stations"}],"description":[{"lang":"en","value":"Bus stations"},{"lang":"he","value":"Bus stations"}],"categoryId":"19","color":"#6FCF97","icon":"busStation_f","iconMenu":"busStation_i"},{"name":[{"lang":"en","value":"Cafes"},{"lang":"he","value":"Cafes"}],"description":[{"lang":"en","value":"Cafes"},{"lang":"he","value":"Cafes"}],"categoryId":"20","color":"#219653","icon":"cafes_f","iconMenu":"cafes_i"},{"name":[{"lang":"en","value":"Education"},{"lang":"he","value":"חינוך"}],"description":[{"lang":"en","value":"Education"},{"lang":"he","value":"חינוך"}],"categoryId":"21","color":"#2F80ED","icon":"education_f","iconMenu":"education_i"}];
+let poiCategoriesData  = [{"name":[{"lang":"en","value":"Restaurants"},{"lang":"he","value":"מסעדות"}],"description":[{"lang":"en","value":"Cafes Description"},{"lang":"he","value":"Cafes Description"}],"categoryId":"1","color":"#d69131","icon":"restaurants_f","iconMenu":"restaurants_i"},{"name":[{"lang":"en","value":"Culture"},{"lang":"he","value":"Culture"}],"description":[{"lang":"en","value":"Culture"},{"lang":"he","value":"Culture"}],"categoryId":"2","color":"#EB5757","icon":"culture_f","iconMenu":"culture_i"},{"name":[{"lang":"en","value":"Public Transport(min)"},{"lang":"he","value":"תחבורה"}],"description":[{"lang":"en","value":"Public Transport(min)"},{"lang":"he","value":"תחבורה"}],"categoryId":"3","color":"#F2994A","icon":"transport_f","iconMenu":"transport_i"},{"name":[{"lang":"en","value":"Healthcare"},{"lang":"he","value":"בריאות"}],"description":[{"lang":"en","value":"Healthcare"},{"lang":"he","value":"בריאות"}],"categoryId":"4","color":"#FDC536","icon":"healthcare_f","iconMenu":"healthcare_i"},{"name":[{"lang":"en","value":"General"},{"lang":"he","value":"כללי"}],"description":[{"lang":"en","value":"General"},{"lang":"he","value":"כללי"}],"categoryId":"5","color":"#6FCF97","icon":"general_f","iconMenu":"general_i"},{"name":[{"lang":"en","value":"Supermarkets"},{"lang":"he","value":"Supermarkets"}],"description":[{"lang":"en","value":"Supermarkets"},{"lang":"he","value":"Supermarkets"}],"categoryId":"6","color":"#219653","icon":"supermarkets_f","iconMenu":"supermarkets_i"},{"name":[{"lang":"en","value":"Shopping"},{"lang":"he","value":"Shopping"}],"description":[{"lang":"en","value":"Shopping"},{"lang":"he","value":"Shopping"}],"categoryId":"7","color":"#2F80ED","icon":"shopping_f","iconMenu":"shopping_i"},{"name":[{"lang":"en","value":"Parks"},{"lang":"he","value":"פארקים"}],"description":[{"lang":"en","value":"Parks"},{"lang":"he","value":"פארקים"}],"categoryId":"8","color":"#D95877","icon":"park_f","iconMenu":"park_i"},{"name":[{"lang":"en","value":"Business"},{"lang":"he","value":"עסק"}],"description":[{"lang":"en","value":"עסק"},{"lang":"he","value":"Business"}],"categoryId":"9","color":"#EB5757","icon":"business_f","iconMenu":"business_i"},{"name":[{"lang":"en","value":"Construction"},{"lang":"he","value":"בניה"}],"description":[{"lang":"en","value":"Construction"},{"lang":"he","value":"בניה"}],"categoryId":"10","color":"#F2994A","icon":"construction_f","iconMenu":"construction_i"},{"name":[{"lang":"en","value":"Beaches"},{"lang":"he","value":"Beaches"}],"description":[{"lang":"en","value":"Beaches"},{"lang":"he","value":"Beaches"}],"categoryId":"11","color":"#FDC536","icon":"beaches_f","iconMenu":"beaches_i"},{"name":[{"lang":"en","value":"Sports"},{"lang":"he","value":"ספורט"}],"description":[{"lang":"en","value":"Sports"},{"lang":"he","value":"ספורט"}],"categoryId":"12","color":"#6FCF97","icon":"sports_f","iconMenu":"sports_i"},{"name":[{"lang":"en","value":"Subway"},{"lang":"he","value":"רכבת תחתית"}],"description":[{"lang":"en","value":"Subway"},{"lang":"he","value":"רכבת תחתית"}],"categoryId":"13","color":"#219653","icon":"subway_f","iconMenu":"subway_i"},{"name":[{"lang":"en","value":"Street"},{"lang":"he","value":"רחוב"}],"description":[{"lang":"en","value":"Street"},{"lang":"he","value":"רחוב"}],"categoryId":"14","color":"#2F80ED","icon":"streets_f","iconMenu":"streets_i"},{"name":[{"lang":"en","value":"Kosher"},{"lang":"he","value":"Kosher"}],"description":[{"lang":"en","value":"Kosher"},{"lang":"he","value":"Kosher"}],"categoryId":"15","color":"#D95877","icon":"kosher_f","iconMenu":"kosher_i"},{"name":[{"lang":"en","value":"Synagogue"},{"lang":"he","value":"Synagogue"}],"description":[{"lang":"en","value":"Synagogue"},{"lang":"he","value":"Synagogue"}],"categoryId":"16","color":"#EB5757","icon":"synagogue_f","iconMenu":"synagogue_i"},{"name":[{"lang":"en","value":"For kids"},{"lang":"he","value":"For kids"}],"description":[{"lang":"en","value":"For kids"},{"lang":"he","value":"For kids"}],"categoryId":"17","color":"#F2994A","icon":"kids_f","iconMenu":"kids_i"},{"name":[{"lang":"en","value":"Office"},{"lang":"he","value":"משרד"}],"description":[{"lang":"en","value":"Office"},{"lang":"he","value":"משרד"}],"categoryId":"18","color":"#FDC536","icon":"office_f","iconMenu":"office_i"},{"name":[{"lang":"en","value":"Bus stations"},{"lang":"he","value":"Bus stations"}],"description":[{"lang":"en","value":"Bus stations"},{"lang":"he","value":"Bus stations"}],"categoryId":"19","color":"#6FCF97","icon":"busStation_f","iconMenu":"busStation_i"},{"name":[{"lang":"en","value":"Cafes"},{"lang":"he","value":"Cafes"}],"description":[{"lang":"en","value":"Cafes"},{"lang":"he","value":"Cafes"}],"categoryId":"20","color":"#219653","icon":"cafes_f","iconMenu":"cafes_i"},{"name":[{"lang":"en","value":"Education"},{"lang":"he","value":"חינוך"}],"description":[{"lang":"en","value":"Education"},{"lang":"he","value":"חינוך"}],"categoryId":"21","color":"#2F80ED","icon":"education_f","iconMenu":"education_i"}];
 
 function get_url_param (name) {
     const queryString = window.location.search;
@@ -2042,6 +2042,7 @@ function add_experimental_map (options) {
         }
     }
     setInitialZoom();
+    hideAllDefaultMapLinks();
 
 
     return experimental_map_obj;
@@ -2076,6 +2077,18 @@ function changeDocumentStyleProperty (idStyleSheet, selector, property, value) {
             rule.style[property] = value;
         }
     });
+}
+
+function hideAllDefaultMapLinks () {
+    const interval = setInterval(()=>{
+        const links = document.querySelectorAll('a[rel="noopener"]');
+        if (links.length > 0){
+            clearInterval(interval);
+            links.forEach(link =>{
+                link.style.display= 'none';
+            });
+        }
+    },100);
 }
 
 
@@ -5412,7 +5425,7 @@ let expMapStyle =`
 .map-parent {
   width: 100vw;
   // height: 100vh;
-  position: fixed;
+  position: relative;
   top: 0;
   overflow: hidden; }
   .map-parent .green-line {
@@ -5494,7 +5507,7 @@ let expMapStyle =`
             position: relative;
             z-index: 1; }
     .map-parent .filter .filter-btn {
-      position: fixed;
+      position: absolute;
       bottom: 10px;
       right: 10px;
       width: 55px;
@@ -5660,8 +5673,8 @@ let expMapStyle =`
         background-size: 20px; }
   .map-parent .map-container {
     width: 100%;
-    height: calc(100vh + 25px);
-    // height: 100vh;
+    // height: calc(100vh + 25px);
+    height: 100vh;
     transition: 0.5s; }
     .map-parent .map-container.open {
       filter: blur(4px) grayscale(1) brightness(0.4); }
@@ -5735,7 +5748,7 @@ let expMapStyle =`
     width: 44px;
     height: 89px;
     background-color: #603ef2;
-    position: fixed;
+    position: absolute;
     bottom: 10px;
     right: initial;
     left: 10px;
@@ -5835,7 +5848,7 @@ let expMapStyle =`
   .map-parent .map-type {
     color: white;
     box-shadow: 1px 1px 10px rgba(26, 47, 67, 0.5);
-    position: fixed;
+    position: absolute;
     top: 10px;
     right: 10px;
     // border-radius: 33px;
@@ -5917,7 +5930,7 @@ body.desktop .map-parent .filter .filters-list .filter-list-btn.active .move-par
 .map__go-home__btn {
   width: 52px;
   height: 52px;
-  position: fixed;
+  position: absolute;
   z-index: 3;
   cursor: pointer; }
 
@@ -6235,7 +6248,7 @@ const mobileStyle =`
     position: absolute;
 }
 .snazzy-card__window{
-    position: fixed;
+    position: absolute;
     z-index: 2;
     bottom: -35%;
     width: 100%;
@@ -6275,7 +6288,7 @@ const mobileOpenedCard = `
     right: 10px;
     filter: unset;
     display: block;
-    position: fixed;
+    position: absolute;
 }
 .map-parent .custom-window .custom-content .custom-header-wrap.with-img{
     display: block;

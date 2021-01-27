@@ -5,8 +5,10 @@ $path = sprintf(
   $_SERVER['SERVER_NAME']
 );
 
-$url = "{$path}/about.js?canvas=bmby-about-wrapp&key={$_GET['key']}&type={$_GET['type']}&lang={$_GET['lang']}";
-if($_GET['chapterid']){
+$bgParam = (isset($_GET['bg']) && !empty($_GET['bg'])) ? '&bg=' . urlencode($_GET['bg']) : '';
+$btnFg = (isset($_GET['btn_fg']) && !empty($_GET['btn_fg'])) ? '&btn_fg=' . urlencode($_GET['btn_fg']) : '';
+$url = @"{$path}/js/about.php?canvas=bmby-about-wrapp&key={$_GET['key']}&type={$_GET['type']}&lang={$_GET['lang']}$bgParam$btnFg";
+if(@$_GET['chapterid']){
   $url.="&chapterid=".$_GET['chapterid'];
 }
 ?>

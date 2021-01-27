@@ -17,9 +17,8 @@ class AboutJsGenerator implements JsGenerator
     private $callbackFunctionName;
     private $dir;
     private $rtlLangs = ['he'];
-    private $styleSettings;
 
-    public function __construct(string $aboutData = '', string $canvasClass = 'bmby-about', string $callbackFunctionName = '', string $lang = 'en', StyleSettings $styleSettings)
+    public function __construct(string $aboutData = '', string $canvasClass = 'bmby-about', string $callbackFunctionName = '', string $lang = 'en')
     {
         $this->jsString = '';
         $this->aboutData = !empty($aboutData) ? $aboutData : "[]";
@@ -27,7 +26,6 @@ class AboutJsGenerator implements JsGenerator
         $this->lang = $lang;
         $this->callbackFunctionName = empty($callbackFunctionName) ? 'nonExistentFunction' : $callbackFunctionName;
         $this->dir = (in_array($lang, $this->rtlLangs))?'rtl':'ltr';
-        $this->styleSettings = $styleSettings;
         $this->setJs();
     }
 
@@ -47,9 +45,74 @@ class AboutJsGenerator implements JsGenerator
      */
     private function setJs()
     {
-        $bg = $this->styleSettings->bg;
-        $btn_fg = $this->styleSettings->btn_fg;
         $this->jsString = <<<EOD
+
+// Incoming styles from CRM
+let styles = {
+    "button": {
+        "shape": "roundedCorners"
+    },
+    "font": "Ubuntu",
+    "colors": [
+        {
+            "key": "brand1",
+            "value": "26, 47, 67, 1"
+        },
+        {
+            "key": "brand2",
+            "value": "193, 172, 135, 1"
+        },
+        {
+            "key": "text",
+            "value": "0, 0, 0, 1"
+        },
+        {
+            "key": "subtext",
+            "value": "77, 77, 77, 1"
+        },
+        {
+            "key": "favorites",
+            "value": "217, 88, 119, 1"
+        },
+        {
+            "key": "concession",
+            "value": "168, 138, 87, 1"
+        },
+        {
+            "key": "white",
+            "value": "255, 255, 255, 1"
+        },
+        {
+            "key": "grayMidLite",
+            "value": "192, 192, 192, 1"
+        },
+        {
+            "key": "grayLight",
+            "value": "247, 247, 247, 1"
+        },
+        {
+            "key": "available",
+            "value": "47, 180, 237, 1"
+        },
+        {
+            "key": "errors",
+            "value": "235, 87, 87, 1"
+        },
+        {
+            "key": "hoveredButton",
+            "value": "40, 72, 103, 1"
+        },
+        {
+            "key": "pressedButton",
+            "value": "40, 72, 103, 1"
+        }
+    ]
+};
+
+let styleColors = {};
+
+parseCrmColor();
+
 let aboutUsData = $this->aboutData;
 let canvasClass = '$this->canvasClass';
 let lang = '$this->lang';
@@ -177,7 +240,6 @@ function creatHtmlElement(parent, elementName, elementTag, elementClass) {
 
 function addFont() {
     document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">';
-    document.head.innerHTML += '<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@600&family=Ubuntu:wght@300&display=swap" rel="stylesheet">';
 }
 
 function addBasicStyle() {
@@ -463,7 +525,12 @@ const mobileErrorIcon = `
 
 const basicStyle = `
 :root {
---bg-color: $bg;
+--white: rgba(${styleColors.white});
+--grayMidLite: rgba(${styleColors.grayMidLite});
+--brand1: rgba(${styleColors.brand1});
+--text: rgba(${styleColors.text});
+--subtext: rgba(${styleColors.subtext});
+--errors: rgba(${styleColors.errors});
 }
 
 body{
@@ -477,12 +544,12 @@ body{
 }
 
 .main-container-about {
-  font-family: 'Assistant', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 18px;
-  color: #FFFFFF;
-  font-weight: 600;
+  color: var(--grayMidLite);
+  font-weight: 500;
   position: relative;
-  background: var(--bg-color);
+  background: var(--white);
 }
 
 .menu__items {
@@ -513,8 +580,8 @@ body{
 }
 
 .active {
-  border-bottom: 3px solid $btn_fg;
-  color: $btn_fg;
+  border-bottom: 3px solid var(--brand1);
+  color: var(--brand1);
 }
 
 .hide-tab{
@@ -539,12 +606,12 @@ body{
     z-index: -1;
     top:0;
     left:0;
-    background: var(--bg-color);
+    background: var(--white);
 }
 
 .tab-content__title{
   font-size: 18px;
-  color: #fff;
+  color: var(--text);
   margin: 24px 16px 12px 16px;
 }
 
@@ -552,7 +619,7 @@ body{
   font-size: 14px;
   font-weight: 300;
   line-height: 16px;
-  color: #fff;
+  color: var(--text);
   padding: 0 16px 24px 16px;
 }
 
@@ -588,7 +655,7 @@ body{
     font-weight: 300;
     text-align: center;
     margin: 40px;
-    color: #6E767E;
+    color: var(--errors);
     transform: translateY(-50px);
 }
 
@@ -599,8 +666,9 @@ body{
 
 .error-page__title{
     margin: 0;
-    color: #ffffff;
+    color: var(--errors);
 }
+
 
 }
 
@@ -676,9 +744,9 @@ body{
 
   .main-container-about {
     padding: 0 10px;
-    background: $bg;
-    color: #fff;
-    font-family: 'Assistant', sans-serif;
+    background: var(--white);
+    color: var(--grayMidLite);
+    font-family: 'Ubuntu', sans-serif;
     font-style: normal;
   }
   .menu__items{
@@ -688,7 +756,7 @@ body{
     position: inherit;
     width: 100%;
     top: 0;
-    color: #fff;
+    color: var(--grayMidLite);
   }
   .menu-content__wrapper::after{
     content: '';
@@ -700,8 +768,8 @@ body{
   }
 
   .active {
-    border-bottom: 3px solid $btn_fg;
-    color: $btn_fg;
+    border-bottom: 3px solid var(--brand1);
+    color: var(--brand1);
     }
    .tabs-data-content__wrapper, .menu-content__wrapper{
     max-width: 1280px;
@@ -710,7 +778,7 @@ body{
   }
 
   .tabs-data-content__wrapper::before{
-    background: $bg;
+    background: var(--white);
 }
   .menu__item{
     margin: 0;
@@ -747,7 +815,7 @@ body{
     font-weight: 500;
   }
   .tab-content__text{
-    color: #fff;
+    color: var(--text);
     font-weight: 300;
     font-size: 16px;
     padding-top: 48px;
@@ -766,7 +834,7 @@ const desktopStyle = `
 @media screen and (min-width: 1024px) {
   .main-container-about {
     padding: 0 10px;
-    background: #F7F7F7;
+    background: var(--white);
     font-family: 'Ubuntu', sans-serif;
     font-style: normal;
   }
@@ -777,7 +845,7 @@ const desktopStyle = `
     position: inherit;
     width: 100%;
     top: 0;
-    color: #C0C0C0;
+    color: var(--grayMidLite);
   }
   .menu-content__wrapper::after{
     content: '';
@@ -785,12 +853,12 @@ const desktopStyle = `
     display:block;
     height: 1px;
     margin-top: -2px;
-    background: #C0C0C0 ;
+    background: var(--grayMidLite);
   }
 
   .active {
-    border-bottom: 3px solid #1A2F43;
-    color: #1A2F43;
+    border-bottom: 3px solid var(--brand1);
+    color: var(--brand1);
     }
    .tabs-data-content__wrapper, .menu-content__wrapper{
     max-width: 1280px;
@@ -799,7 +867,7 @@ const desktopStyle = `
   }
 
   .tabs-data-content__wrapper::before{
-    background: #F7F7F7;
+    background: var(--white);
 }
   .menu__item{
     margin: 0;
@@ -831,12 +899,12 @@ const desktopStyle = `
     flex-direction: row-reverse;
   }
    .tab-content__title{
-    color: #1A2F43;
+    color: var(--text);
     font-size: 30px;
     font-weight: 500;
   }
   .tab-content__text{
-    color: #03233A;
+    color: var(--text);
     font-weight: 300;
     font-size: 16px;
     padding-top: 48px;
