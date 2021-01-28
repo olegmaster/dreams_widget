@@ -151,6 +151,7 @@ function initMap () {
   mapContainer.classList.add('map__container');
   document.querySelector('.'+canvasClass).append(mapContainer);
 
+  mapData.snazzyWindow = [];
   mapData.filteredMarkers = {};
   mapData.mapSettings = {
     zoom: 14,
@@ -216,21 +217,42 @@ function addPoiListener (marker) {
   const snazzyInfoWindow = new SnazzyInfoWindow({
     marker: marker,
     wrapperClass: 'snazzy-window',
+    closeButtonMarkup: '<button type="button" class="custom-close"></button>',
     content: '',
     closeWhenOthersOpen: true,
     panOnOpen: false,
     callbacks: {
       open: () => openSnazzyInfoWindowHandler(marker, snazzyInfoWindow),
       afterClose: () => afterCloseSnazzyInfoWindowHandler(),
+      afterOpen: () => addCloseListener(snazzyInfoWindow),
+      beforeClose: () => clearInfoWindowArray() ,
     }
   });
+}
+
+function clearInfoWindowArray () {
+  mapData.snazzyWindow.splice(0,1)
+}
+
+function addCloseListener (snazzyInfoWindow) {
+  const closeBtn = document.querySelector('.custom-close');
+  closeBtn.addEventListener('click',() => snazzyInfoWindow.close());
+
+  mapData.snazzyWindow.push(snazzyInfoWindow);
 }
 
 function afterCloseSnazzyInfoWindowHandler () {
   directionsRenderer.setMap(null);
 }
 
+function closePrevInfoWindow () {
+  if (mapData.snazzyWindow.length > 0){
+    mapData.snazzyWindow[0].close();
+  }
+}
+
 function openSnazzyInfoWindowHandler (marker, snazzyInfoWindow) {
+  closePrevInfoWindow(); // If other InfoWindow is opened.
 
   const snazzyContainer = document.querySelector('.snazzy-window');
   const createdInfoWindowContent = buildInfoWindowContent(marker);
@@ -295,13 +317,15 @@ function buildInfoWindowContent (marker) {
   const photoContainer = createHtmlElement(mainContainer,'','div',['snazzy-content__photo-container']);
   const img = createHtmlElement(photoContainer,'','img',['snazzy-content__img']);
   img.src = marker.data.infoWindowImg;
-  const title = createHtmlElement(mainContainer,marker.title,'h3',['snazzy-content__title']);
-  const categoryContainer = createHtmlElement(mainContainer,'','div',['snazzy-content__category-container']);
-  const categoryImg = createHtmlElement(categoryContainer,'','img',['snazzy-content__category-img']);
+  const infoWrapper = createHtmlElement(mainContainer,'','div',['snazzy-content__info-wrapper']);
+  const title = createHtmlElement(infoWrapper,marker.title,'h3',['snazzy-content__title']);
+  const categoryContainer = createHtmlElement(infoWrapper,'','div',['snazzy-content__category-container']);
+  const categoryImageContainer = createHtmlElement(categoryContainer,'','div',['snazzy-content__category-img__container']);
+  const categoryImg = createHtmlElement(categoryImageContainer,'','img',['snazzy-content__category-img']);
   categoryImg.src = marker.category_ic;
   const categoryTitle = createHtmlElement(categoryContainer,marker.category,'span',['snazzy-content__category-title']);
-  const description = createHtmlElement(mainContainer,marker.data.markerDescription,'p',['snazzy-content__description']);
-  const routeContainer = createHtmlElement(mainContainer,'','div',['snazzy-content__route-container']);
+  const description = createHtmlElement(infoWrapper,marker.data.markerDescription,'p',['snazzy-content__description']);
+  const routeContainer = createHtmlElement(infoWrapper,'','div',['snazzy-content__route-container']);
   const routeIconContainer = createHtmlElement(routeContainer,'','div',['snazzy-content__route-icons-container']);
   routeIconContainer.dataset.selectedRoute = 'WALKING';
   routeIconContainer.addEventListener('click', (e)=> routesHandler(e.target));
@@ -315,7 +339,7 @@ function buildInfoWindowContent (marker) {
   const time = createHtmlElement(distanceContainer,routeData.timeToPoint.walk+' mins','span',['snazzy-content__time-route']);
   const separator = createHtmlElement(distanceContainer,' . ','span',['snazzy-content__distance-separator']);
   const distance = createHtmlElement(distanceContainer,routeData.distanceToPoint.walk+' km','span',['snazzy-content__distance-route']);
-  const socialContainer = createHtmlElement(mainContainer,'','div',['snazzy-content__social-container']);
+  const socialContainer = createHtmlElement(infoWrapper,'','div',['snazzy-content__social-container']);
   if (marker.data.webSiteUrl){
     const webUrl = createHtmlElement(socialContainer,marker.data.webSiteUrl,'a',['snazzy-content__website-link']);
     webUrl.href = marker.data.webSiteUrl;
@@ -639,6 +663,7 @@ let basicStyleCss = `
 --brand1: rgba(${styleColors.brand1});
 --subtext: rgba(${styleColors.subtext});
 --grayMidLite: rgba(${styleColors.grayMidLite});
+--text: rgba(${styleColors.text});
   
 }
 
@@ -774,6 +799,118 @@ img {
 .si-float-wrapper{
   position: absolute;
 }
+
+.snazzy-window{
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+}
+
+.snazzy-content__container{
+  width: 406px;
+  background: var(--white);
+  border-radius: 6px;
+  box-shadow: 0px 5px 9px rgb(46 70 81 / 15%);
+}
+
+.snazzy-content__category-container{
+  display: flex;
+  margin-top: 5px;
+}
+
+.snazzy-content__img{
+  border-radius: 6px 6px 0 0;
+}
+
+.custom-close{
+  width: 13px;
+  height: 13px;
+  border: none;
+  background-color: transparent;
+  background-image: url(CLOSE__BTN);
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  position: absolute;
+  right: 25px;
+  top: 25px;
+}
+
+.snazzy-content__info-wrapper{
+  padding: 16px 16px 0 16px;
+}
+
+.snazzy-content__title{
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 500;
+  font-size: 30px;
+  color: var(--text);
+}
+
+.snazzy-content__category-title{
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.snazzy-content__category-img__container{
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.snazzy-content__description{
+  font-size: 14px;
+  color: var(--subtext);
+  margin: 12px 0; 
+}
+
+.snazzy-content__car-route-container, .snazzy-content__bike-route-container, .snazzy-content__walk-route-container{
+  width: 24px;
+  height: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.snazzy-content__car-route-container{
+   background-image: url(CAR__ICON);
+}
+
+.snazzy-content__bike-route-container{
+    background-image: url(BICYCLE__ICON);
+}
+
+.snazzy-content__walk-route-container{
+  background-image: url(WALKING__ICON);
+}
+
+.snazzy-content__route-container, .snazzy-content__route-icons-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.snazzy-content__route-container{
+  padding: 15px 0;
+  border-top: 1px solid var(--grayMidLite);
+  border-bottom: 1px solid var(--grayMidLite);
+}
+
+.snazzy-content__route-icons-container{
+  width: 96px;
+}
+
+.snazzy-content__distance-separator{
+  margin: 0 8px;
+}
+
+.snazzy-content__distance-container{
+  display: flex;
+}
+
+.snazzy-content__time-route, .snazzy-content__distance-route{
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--brand1);
+}
+
 
 
 
