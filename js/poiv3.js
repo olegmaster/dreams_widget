@@ -3,6 +3,66 @@ let poiData = [{"name":[{"lang":"en","value":"Tel Aviv Museum of Art"},{"lang":"
 // this variable contains all poi categories
 let poiCategoriesData  = [{"name":[{"lang":"en","value":"Restaurants"},{"lang":"he","value":"Restaurants"}],"description":[{"lang":"en","value":"Cafes Description"},{"lang":"he","value":"Cafes Description"}],"categoryId":"1","color":"#D95877","icon":"restaurants_f","iconMenu":"restaurants_i"},{"name":[{"lang":"en","value":"Culture"},{"lang":"he","value":"Culture"}],"description":[{"lang":"en","value":"Culture"},{"lang":"he","value":"Culture"}],"categoryId":"2","color":"#EB5757","icon":"culture_f","iconMenu":"culture_i"},{"name":[{"lang":"en","value":"Public Transport(min)"},{"lang":"he","value":"Public Transport(min)"}],"description":[{"lang":"en","value":"Public Transport(min)"},{"lang":"he","value":"Public Transport(min)"}],"categoryId":"3","color":"#F2994A","icon":"transport_f","iconMenu":"transport_i"},{"name":[{"lang":"en","value":"Healthcare"},{"lang":"he","value":"Healthcare"}],"description":[{"lang":"en","value":"Healthcare"},{"lang":"he","value":"Healthcare"}],"categoryId":"4","color":"#FDC536","icon":"healthcare_f","iconMenu":"healthcare_i"},{"name":[{"lang":"en","value":"General"},{"lang":"he","value":"General"}],"description":[{"lang":"en","value":"General"},{"lang":"he","value":"General"}],"categoryId":"5","color":"#6FCF97","icon":"general_f","iconMenu":"general_i"},{"name":[{"lang":"en","value":"Supermarkets"},{"lang":"he","value":"Supermarkets"}],"description":[{"lang":"en","value":"Supermarkets"},{"lang":"he","value":"Supermarkets"}],"categoryId":"6","color":"#219653","icon":"supermarkets_f","iconMenu":"supermarkets_i"},{"name":[{"lang":"en","value":"Shopping"},{"lang":"he","value":"Shopping"}],"description":[{"lang":"en","value":"Shopping"},{"lang":"he","value":"Shopping"}],"categoryId":"7","color":"#2F80ED","icon":"shopping_f","iconMenu":"shopping_i"},{"name":[{"lang":"en","value":"Parks"},{"lang":"he","value":"Parks"}],"description":[{"lang":"en","value":"Parks"},{"lang":"he","value":"Parks"}],"categoryId":"8","color":"#D95877","icon":"park_f","iconMenu":"park_i"},{"name":[{"lang":"en","value":"Business"},{"lang":"he","value":"Business"}],"description":[{"lang":"en","value":"Business"},{"lang":"he","value":"Business"}],"categoryId":"9","color":"#EB5757","icon":"business_f","iconMenu":"business_i"},{"name":[{"lang":"en","value":"Construction"},{"lang":"he","value":"Construction"}],"description":[{"lang":"en","value":"Construction"},{"lang":"he","value":"Construction"}],"categoryId":"10","color":"#F2994A","icon":"construction_f","iconMenu":"construction_i"},{"name":[{"lang":"en","value":"Beaches"},{"lang":"he","value":"Beaches"}],"description":[{"lang":"en","value":"Beaches"},{"lang":"he","value":"Beaches"}],"categoryId":"11","color":"#FDC536","icon":"beaches_f","iconMenu":"beaches_i"},{"name":[{"lang":"en","value":"Sports"},{"lang":"he","value":"Sports"}],"description":[{"lang":"en","value":"Sports"},{"lang":"he","value":"Sports"}],"categoryId":"12","color":"#6FCF97","icon":"sports_f","iconMenu":"sports_i"},{"name":[{"lang":"en","value":"Subway"},{"lang":"he","value":"Subway"}],"description":[{"lang":"en","value":"Subway"},{"lang":"he","value":"Subway"}],"categoryId":"13","color":"#219653","icon":"subway_f","iconMenu":"subway_i"},{"name":[{"lang":"en","value":"Street"},{"lang":"he","value":"Street"}],"description":[{"lang":"en","value":"Street"},{"lang":"he","value":"Street"}],"categoryId":"14","color":"#2F80ED","icon":"streets_f","iconMenu":"streets_i"},{"name":[{"lang":"en","value":"Kosher"},{"lang":"he","value":"Kosher"}],"description":[{"lang":"en","value":"Kosher"},{"lang":"he","value":"Kosher"}],"categoryId":"15","color":"#D95877","icon":"kosher_f","iconMenu":"kosher_i"},{"name":[{"lang":"en","value":"Synagogue"},{"lang":"he","value":"Synagogue"}],"description":[{"lang":"en","value":"Synagogue"},{"lang":"he","value":"Synagogue"}],"categoryId":"16","color":"#EB5757","icon":"synagogue_f","iconMenu":"synagogue_i"},{"name":[{"lang":"en","value":"For kids"},{"lang":"he","value":"For kids"}],"description":[{"lang":"en","value":"For kids"},{"lang":"he","value":"For kids"}],"categoryId":"17","color":"#F2994A","icon":"kids_f","iconMenu":"kids_i"},{"name":[{"lang":"en","value":"Office"},{"lang":"he","value":"Office"}],"description":[{"lang":"en","value":"Office"},{"lang":"he","value":"Office"}],"categoryId":"18","color":"#FDC536","icon":"office_f","iconMenu":"office_i"},{"name":[{"lang":"en","value":"Bus stations"},{"lang":"he","value":"Bus stations"}],"description":[{"lang":"en","value":"Bus stations"},{"lang":"he","value":"Bus stations"}],"categoryId":"19","color":"#6FCF97","icon":"busStation_f","iconMenu":"busStation_i"},{"name":[{"lang":"en","value":"Cafes"},{"lang":"he","value":"Cafes"}],"description":[{"lang":"en","value":"Cafes"},{"lang":"he","value":"Cafes"}],"categoryId":"20","color":"#219653","icon":"cafes_f","iconMenu":"cafes_i"},{"name":[{"lang":"en","value":"Education"},{"lang":"he","value":"Education"}],"description":[{"lang":"en","value":"Education"},{"lang":"he","value":"Education"}],"categoryId":"21","color":"#2F80ED","icon":"education_f","iconMenu":"education_i"}];
 
+let styles = {
+  "button": {
+    "shape": "roundedCorners"
+  },
+  "font": "Ubuntu",
+  "colors": [
+    {
+      "key": "brand1",
+      "value": "26, 47, 67, 1"
+    },
+    {
+      "key": "brand2",
+      "value": "193, 172, 135, 1"
+    },
+    {
+      "key": "text",
+      "value": "0, 0, 0, 1"
+    },
+    {
+      "key": "subtext",
+      "value": "77, 77, 77, 1"
+    },
+    {
+      "key": "favorites",
+      "value": "217, 88, 119, 1"
+    },
+    {
+      "key": "concession",
+      "value": "168, 138, 87, 1"
+    },
+    {
+      "key": "white",
+      "value": "255, 255, 255, 1"
+    },
+    {
+      "key": "grayMidLite",
+      "value": "192, 192, 192, 1"
+    },
+    {
+      "key": "grayLight",
+      "value": "247, 247, 247, 1"
+    },
+    {
+      "key": "available",
+      "value": "47, 180, 237, 1"
+    },
+    {
+      "key": "errors",
+      "value": "235, 87, 87, 1"
+    },
+    {
+      "key": "hoveredButton",
+      "value": "40, 72, 103, 1"
+    },
+    {
+      "key": "pressedButton",
+      "value": "40, 72, 103, 1"
+    }
+  ]
+};
 
 const lang = 'en';
 const dir = 'ltr';
@@ -10,8 +70,11 @@ let canvasClass = 'bmby-poi-wrapp';
 let map;
 let directionsRenderer;
 const mapData = {};
+const styleColors ={};
 
 const query = '?key=AIzaSyDuH95F2ljG3Z-AtGByCNYMkaUwwGc-SUc&libraries=places';
+
+parseCrmColor();
 
 function createHtmlElement(parent, elementName, elementTag, elementClass) {
   const el = document.createElement(elementTag);
@@ -32,6 +95,7 @@ function createHtmlElement(parent, elementName, elementTag, elementClass) {
 document.addEventListener("DOMContentLoaded",()=>{
   addPoiToCategory();
   addFont();
+  loadDefaultIcons();
   addBasicStyle();
   const scriptInterval = setInterval(()=>{
     addScripts();
@@ -44,7 +108,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 function addBasicStyle () {
   document.head.innerHTML +='<style>'+resetCss+'</style>';
-  document.head.innerHTML +='<style>'+styleCss+'</style>';
+  document.head.innerHTML +='<style>'+basicStyleCss+'</style>';
 }
 
 function addFont() {
@@ -140,6 +204,8 @@ function initMap () {
 
   directionsRenderer.setMap(map);
 
+  hideAllDefaultMapLinks();
+  addMapControls();
   addStaticMarkers();
   addPoiMarkers();
   addPoiClusters();
@@ -154,19 +220,31 @@ function addPoiListener (marker) {
     closeWhenOthersOpen: true,
     panOnOpen: false,
     callbacks: {
-      open: () => openSnazzyInfoWindowHandler(marker),
+      open: () => openSnazzyInfoWindowHandler(marker, snazzyInfoWindow),
+      afterClose: () => afterCloseSnazzyInfoWindowHandler(),
     }
   });
 }
 
-function openSnazzyInfoWindowHandler (marker) {
-    const placePhoto = getPlacePhoto(marker);
-    placePhoto.then((url) => {
-      marker.data.infoWindowImg = url;
-      const snazzyContainer = document.querySelector('.snazzy-window');
-      const createdInfoWindowContent = buildInfoWindowContent(marker);
-      snazzyContainer.append(createdInfoWindowContent);
-    });
+function afterCloseSnazzyInfoWindowHandler () {
+  directionsRenderer.setMap(null);
+}
+
+function openSnazzyInfoWindowHandler (marker, snazzyInfoWindow) {
+
+  const snazzyContainer = document.querySelector('.snazzy-window');
+  const createdInfoWindowContent = buildInfoWindowContent(marker);
+
+  snazzyInfoWindow.setContent(createdInfoWindowContent);
+
+  // if (!marker.data.sendPhotoRequest){
+  //   const placePhoto = getPlacePhoto(marker);
+  //   placePhoto.then((url) => {
+  //     marker.data.infoWindowImg = url;
+  //     const img = document.querySelector('.snazzy-content__img');
+  //     img.src = url;
+  //   });
+  // }
 }
 
 function getPlacePhoto (marker) {
@@ -180,20 +258,14 @@ function getPlacePhoto (marker) {
   return new Promise((resolve) => {
     service.getDetails(request, (result,status) =>{
       if (status === google.maps.places.PlacesServiceStatus.OK){
+        marker.data.sendPhotoRequest = true;
         const photos = result.photos;
 
-        if (photos){
+        if (photos) {
           resolve(result.photos[0].getUrl());
-        } else {
-          resolve(generateSvg(projectIcons, 'POI__PLUG'));
         }
-
-      } else {
-        resolve(generateSvg(projectIcons, 'POI__PLUG'));
       }
-
     });
-
   });
 }
 
@@ -209,9 +281,8 @@ function getRoute (marker,travelMode) {
   return new Promise((resolve) => {
     service.route(request, (result,status) =>{
       if (status === 'OK'){
+        marker.data.routeResponce[travelMode] = result;
         resolve(result);
-      } else {
-        resolve('Can not find any route');
       }
     });
   });
@@ -221,7 +292,8 @@ function buildInfoWindowContent (marker) {
   const routeData = convertMarkerDistanceAndTime(marker);
 
   const mainContainer = createHtmlElement('','','div',['snazzy-content__container']);
-  const img = createHtmlElement(mainContainer,'','img',['snazzy-content__img']);
+  const photoContainer = createHtmlElement(mainContainer,'','div',['snazzy-content__photo-container']);
+  const img = createHtmlElement(photoContainer,'','img',['snazzy-content__img']);
   img.src = marker.data.infoWindowImg;
   const title = createHtmlElement(mainContainer,marker.title,'h3',['snazzy-content__title']);
   const categoryContainer = createHtmlElement(mainContainer,'','div',['snazzy-content__category-container']);
@@ -269,12 +341,17 @@ function routesHandler (selectedRoute) {
 }
 
 function navigateBtnHandler (marker, travelMode) {
-  const route = getRoute(marker,travelMode);
-  route.then((dataRoute) =>{
-    if (typeof dataRoute !== 'string'){
-      directionsRenderer.setDirections(dataRoute);
-    }
-  });
+  directionsRenderer.setMap(map);
+
+  const isRouteExist = marker.data.routeResponce[travelMode];
+  if (!isRouteExist){
+    const route = getRoute(marker,travelMode);
+    route.then((dataRoute) =>{
+        directionsRenderer.setDirections(dataRoute);
+    });
+  } else {
+    directionsRenderer.setDirections(isRouteExist);
+  }
 }
 
 function convertMarkerDistanceAndTime (marker) {
@@ -324,7 +401,7 @@ function addPoiClusters () {
 function addStaticMarkers () {
   Object.values(mapData.staticMarkers).forEach(marker =>{
     const zIndex = google.maps.Marker.MAX_ZINDEX + 100;
-    addMarker(marker, 55, zIndex);
+    addMarker(marker, 55, zIndex, false);
   });
 }
 
@@ -343,6 +420,8 @@ function addPoiMarkers () {
         'webSiteUrl': marker.webSiteUrl,
         'infoWindowImg': marker.infoWindowImg,
         'markerDescription': marker.markerDescription,
+        'sendPhotoRequest': marker.sendPhotoRequest,
+        'routeResponce': marker.routeResponce,
       };
       addPoiListener(buildedMarker);
       mapData.allPoiMarkers[category].push(buildedMarker);
@@ -350,7 +429,7 @@ function addPoiMarkers () {
   });
 }
 
-function addMarker (marker, staticLabelPosY, zIndex = 1) {
+function addMarker (marker, staticLabelPosY, zIndex = 1, addLongClass = true ) {
   const title = marker.title;
   const labelPosY = title.length > 15 ? staticLabelPosY || 65 : staticLabelPosY || 55;
   const pos = new google.maps.LatLng(marker.lat, marker.lng);
@@ -366,7 +445,7 @@ function addMarker (marker, staticLabelPosY, zIndex = 1) {
       text: title,
       fontWeight: '700',
       textAlign: 'center',
-      className: title.length > 15 ? 'long__label-text marker__label' : 'marker__label',
+      className: title.length > 15 && addLongClass ? 'long__label-text marker__label' : 'marker__label',
     },
     category: marker.category,
     cluster_ic: marker.clusterIcon,
@@ -415,14 +494,20 @@ function preparePoiData (objectToAssign) {
             'categoryTitle': categoryName,
             'categoryZoom': 16,
             'categoryImg': generateSvg(poiIcons,category.iconMenu,'white',category.color),
-            'infoWindowImg': 'null',
+            'infoWindowImg': generateSvg(projectIcons, 'POI__PLUG'),
             'markerDescription': description,
             'distanceToPoint': catData.distanceToPoint,
             'timeToPoint': catData.timeToPoint,
             'phone': catData.phone,
             'googleMapsID': catData.googleMapsID,
             'internationalPhone': catData.internationalPhone,
+            'sendPhotoRequest': false,
             'webSiteUrl': catData.url,
+            'routeResponce': {
+                'WALKING': null,
+                'DRIVING': null,
+                'BICYCLING': null,
+            }
         };
         poiWithCategory[categoryName].push(obj);
       });
@@ -431,12 +516,74 @@ function preparePoiData (objectToAssign) {
   Object.assign(objectToAssign,poiWithCategory);
 }
 
+function addMapControls () {
+  const mainContainer = document.querySelector('.'+canvasClass);
+  const goHomeBtn = createHtmlElement(mainContainer,'','div',['map__go-home__btn']);
+  const homeBtnImg = createHtmlElement(goHomeBtn,'','img',['home-btn__img']);
+  homeBtnImg.src ='#';
+  homeBtnImg.alt ='home button';
+  const menuBtn = createHtmlElement(mainContainer,'','div',['menu-btn']);
+  const asideMenuContainer = createHtmlElement(mainContainer,'','div',['aside-menu__container']);
+  const asideMenuWrapper = createHtmlElement(asideMenuContainer,'','div',['aside-menu__wrapper']);
+  const closeAsideMenuBtn = createHtmlElement(asideMenuWrapper,'','div',['aside-menu__close-btn']);
+  const closeBtnImg = createHtmlElement(closeAsideMenuBtn,'','img',['aside-menu__close-btn__img']);
+  closeBtnImg.src = generateSvg(projectIcons,'CLOSE__BTN','white',styleColors.brand1.split(','),true);
+  //Aside map section
+  const mapTypeContainer = createHtmlElement(asideMenuWrapper,'','div',['aside-menu__type-container']);
+  const mapTypeTitle = createHtmlElement(mapTypeContainer,'Map','h3',['aside-menu__map-type__title']);
+  const mapTypeTriggersContainer = createHtmlElement(mapTypeContainer,'','div',['aside-menu__map-type-trigger__container']);
+  const satelliteContainer = createHtmlElement(mapTypeTriggersContainer,'','div',['aside-menu__satellite__container']);
+  const satelliteIcon = createHtmlElement(satelliteContainer,'','div',['aside-menu__satellite-icon']);
+  const satelliteText = createHtmlElement(satelliteContainer,'Satellite','span',['aside-menu__satellite-text']);
+  const roadContainer = createHtmlElement(mapTypeTriggersContainer,'','div',['aside-menu__road__container']);
+  const roadIcon = createHtmlElement(roadContainer,'','div',['aside-menu__road-icon']);
+  const roadText = createHtmlElement(roadContainer,'Road map','span',['aside-menu__road-text']);
+  //Aside Neighborhood section
+  const filterContainer = createHtmlElement(asideMenuWrapper,'','div',['aside-menu__filter-container']);
+  const filterTitle = createHtmlElement(filterContainer,'Neighborhood','h3',['aside-menu__filter__title']);
+  const allPointsOfInterestContainer = createHtmlElement(filterContainer,'','div',['aside-menu__filter-points']);
 
-function generateSvg (iconColection,icon,color,newColor) {
+  menuBtn.addEventListener('click',() => menuBtnHadler(asideMenuContainer));
+  closeBtnImg.addEventListener('click', () => menuBtnHadler(asideMenuContainer));
+}
+
+function menuBtnHadler (asideMenu) {
+  asideMenu.classList.toggle('open-aside-menu');
+}
+
+function hideAllDefaultMapLinks () {
+  const interval = setInterval(()=>{
+    const links = document.querySelectorAll('a[rel="noopener"]');
+    if (links.length > 0){
+      clearInterval(interval);
+      links.forEach(link =>{
+        link.style.display= 'none';
+      });
+    }
+  },100);
+}
+
+function parseCrmColor () {
+  styles.colors.forEach(color =>{
+    styleColors[color.key] = color.value;
+  });
+}
+
+function loadDefaultIcons () {
+  Object.keys(projectIcons).forEach(key =>{
+    const regExp = new RegExp(key,'g');
+    basicStyleCss = basicStyleCss.replace(regExp, generateSvg(projectIcons,key));
+  });
+}
+
+function generateSvg (iconColection,icon,color,newColor,convertRgbaToHex = false) {
   let iconSvg;
   const getIcon = iconColection[icon];
   if (getIcon){
     if (color && newColor){
+      if (convertRgbaToHex){
+        newColor = rgbaToHexA(newColor);
+      }
       const regExp = new RegExp(color,'g');
       iconSvg = getIcon.replace(regExp,newColor);
     } else {
@@ -448,6 +595,24 @@ function generateSvg (iconColection,icon,color,newColor) {
   } else {
     return generateSvgCluster(color|| '#C0C0C0');
   }
+}
+
+function rgbaToHexA(rgba) {
+  let r = (+rgba[0]).toString(16),
+      g = (+rgba[1]).toString(16),
+      b = (+rgba[2]).toString(16),
+      a = Math.round(+rgba[3] * 255).toString(16);
+
+  if (r.length == 1)
+    r = '0' + r;
+  if (g.length == 1)
+    g = '0' + g;
+  if (b.length == 1)
+    b = '0' + b;
+  if (a.length == 1)
+    a = '0' + a;
+
+  return '#' + r + g + b + a;
 }
 
 function generateSvgCluster (color) {
@@ -468,8 +633,12 @@ function generateSvgCluster (color) {
 }
 
 
-const styleCss = `
+let basicStyleCss = `
 :root {
+--white: rgba(${styleColors.white});
+--brand1: rgba(${styleColors.brand1});
+--subtext: rgba(${styleColors.subtext});
+--grayMidLite: rgba(${styleColors.grayMidLite});
   
 }
 
@@ -477,12 +646,137 @@ const styleCss = `
     font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
     height: 100vh;
-    color: #03233A;
+    position: relative;
+    overflow: hidden;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .map__container{
   height: 100%;
 }
+
+.gmnoprint, .gm-style-cc{
+  display: none;
+}
+
+.map__go-home__btn {
+  width: 52px;
+  height: 52px;
+  position: absolute;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.menu-btn{
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  left: 32px;
+  top: 228px;
+  background-color: var(--white);
+  border-radius: 30px;
+  background-image: url(MENU__ICON);
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.aside-menu__container {
+  position: absolute;
+  top: 0;
+  left: -500px;
+  background: var(--white);
+  height: 100%;
+  transition: left 0.4s;
+  width: 412px;
+  box-shadow: 0px -8px 14px rgba(46, 70, 81, 0.5);
+}
+
+.aside-menu__wrapper{
+  height: 100%;
+  padding: 106px 32px 0 32px;
+}
+
+.open-aside-menu{
+  left: 0;
+}
+
+.aside-menu__close-btn{
+  width: 13px;
+  height: 13px;
+  cursor: pointer;
+  position: absolute;
+  right: 46px;
+  top: 46px;
+}
+
+.aside-menu__map-type-trigger__container{
+  display: flex;
+  margin-top: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--grayMidLite);
+}
+
+.aside-menu__map-type__title, .aside-menu__filter__title{
+  font-size: 18px;
+  color: var(--brand1);
+  font-weight: 500;
+}
+
+.aside-menu__satellite-text, .aside-menu__road-text{
+  font-size: 16px;
+  color: var(--brand1);
+  font-weight: 500;
+}
+
+.aside-menu__satellite__container, .aside-menu__road__container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 40px;
+  cursor: pointer;
+}
+
+.aside-menu__filter-container{
+  margin-top: 32px;
+}
+
+.aside-menu__satellite-icon , .aside-menu__road-icon{
+  width: 42px;
+  height: 42px;
+  background-image: url(SATELLITE__ICON);
+  background-position: center;
+  background-color: var(--subtext);
+  background-repeat: no-repeat;
+  border-radius: 30px;
+  margin-bottom: 16px;
+}
+
+.aside-menu__road-icon{
+  background-image: url(MAP__ICON);
+}
+
+
+.long__label-text{
+ width: 120px;
+ white-space: break-spaces;
+}
+
+.marker__label{
+    filter: none;
+}
+
+.si-float-wrapper{
+  position: absolute;
+}
+
+
+
 
 `;
 
@@ -868,31 +1162,6 @@ const poiIcons = {
 const projectIcons = {
   'FILTER__ICON': '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
     '<path d="M20 4H4V7L10 14V20H14V14L20 6V4Z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/>' +
-    '</svg>',
-  'CONTROLS__PLUS': '<svg width="39px" height="39px" viewBox="0 0 39 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">' +
-    '    <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->' +
-    '    <title>7433DEED-1601-4CF9-B68C-471F725EEB04</title>' +
-    '    <desc>Created with sketchtool.</desc>' +
-    '    <g id="Asset-Artboard-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">' +
-    '        <g id="Atoms-/-Icons-/-View-Mode-/-Controls-/--ic_plus">' +
-    '            <rect id="body" fill="#FFFFFF" opacity="0" x="0" y="0" width="39" height="39"></rect>' +
-    '            <g id="ic_plus" transform="translate(14.733333, 14.733333)" stroke="#ffffff" stroke-linecap="round" stroke-width="1.8">' +
-    '                <path d="M10.4,5.2 L-1.84741111e-15,5.2" id="Line-Copy" transform="translate(5.200000, 5.200000) rotate(90.000000) translate(-5.200000, -5.200000) "></path>' +
-    '                <path d="M10.4,5.2 L-2.89064168e-14,5.2" id="Line-Copy-2" transform="translate(5.200000, 5.200000) rotate(0.000000) translate(-5.200000, -5.200000) "></path>' +
-    '            </g>' +
-    '        </g>' +
-    '    </g>' +
-    '</svg>',
-  'CONTROLS__MINUS': '<svg width="39px" height="39px" viewBox="0 0 39 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">' +
-    '    <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->' +
-    '    <title>53237C0B-0DD6-41A2-81E7-16DF6DDEF453</title>' +
-    '    <desc>Created with sketchtool.</desc>' +
-    '    <g id="Asset-Artboard-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">' +
-    '        <g id="Atoms-/-Icons-/-View-Mode-/-Controls-/--ic_minus">' +
-    '            <rect id="body" fill="#FFFFFF" opacity="0" x="0" y="0" width="39" height="39"></rect>' +
-    '            <path d="M25.1333333,19.5 L14.7333333,19.5" id="ic_minus" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" transform="translate(19.933333, 19.500000) rotate(0.000000) translate(-19.933333, -19.500000) "></path>' +
-    '        </g>' +
-    '    </g>' +
     '</svg>',
   'CLOSE__BTN': '<svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: white;overflow:' +
     ' hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M584.319739 510.60714l424.530581-422.236674c20.063427-20.013878 20.149677-52.409348 0.178007-72.423226-20.021219-20.201061-52.321262-20.201061-72.386523-0.266093L512.069015 438.090323 91.115094 15.897692C71.229858-4.031771 38.749423-4.202437 18.735911 15.811441-1.287056 35.739068-1.32935 68.176746 18.649844 88.190624L439.423739 510.341047 15.15738 932.392189C-4.905698 952.327524-4.992426 984.714001 14.935165 1004.820737 24.964511 1014.943362 38.046937 1019.933325 51.21543 1019.933325c13.075269 0 26.158429-4.989963 36.143346-14.932563L511.760714 582.850523 936.469302 1008.886017c10.028961 10.122589 23.11157 15.111833 36.28043 15.111833 13.075269 0 26.157878-4.989244 36.100588-14.931898 20.013878-20.021421 20.063427-52.409366 0.086251-72.430768l-424.616832-426.028043 0 0z" /></svg>',
@@ -1466,5 +1735,13 @@ const projectIcons = {
     '<path d="M9.54734 7.09475L4.64209 3.82458V16.9053L9.54734 20.1754V7.09475Z" fill="white" stroke="white" stroke-width="1.6" stroke-linejoin="round"/>' +
     '<path d="M19.3579 7.09475L14.4526 3.82458V16.9053L19.3579 20.1754V7.09475Z" fill="white" stroke="white" stroke-width="1.6" stroke-linejoin="round"/>' +
     '<path d="M4.64209 16.9053L9.54734 20.1754L14.4526 16.9053L19.3579 20.1754V7.09475L14.4526 3.82458L9.54734 7.09475L4.64209 3.82458V16.9053Z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/>' +
+    '</svg>',
+  'MENU__ICON': '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+    '<path d="M4 8H13" stroke="#03233A" stroke-width="1.6" stroke-linecap="round"/>' +
+    '<path d="M11 16H20" stroke="#03233A" stroke-width="1.6" stroke-linecap="round"/>' +
+    '<path d="M20 8H17" stroke="#03233A" stroke-width="1.6" stroke-linecap="round"/>' +
+    '<path d="M4 16H7" stroke="#03233A" stroke-width="1.6" stroke-linecap="round"/>' +
+    '<circle cx="15" cy="8" r="2" stroke="#03233A" stroke-width="1.6"/>' +
+    '<circle cx="9" cy="16" r="2" stroke="#03233A" stroke-width="1.6"/>' +
     '</svg>'
 };
