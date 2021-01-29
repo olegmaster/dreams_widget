@@ -19,9 +19,10 @@ class GalleryJsGenerator implements JsGenerator
     private $callbackFunctionName;
     private $dir;
     private $rtlLangs = ['he'];
+    private $stylesFromApi;
 
 
-    public function __construct(string $galleryData, string $canvasClass = 'bmby-gallery', string $lang = 'en', string $callbackFunctionName = '')
+    public function __construct(string $galleryData, string $canvasClass = 'bmby-gallery', string $lang = 'en', string $callbackFunctionName = '', $stylesFromApi = '')
     {
         $this->jsString = '';
         $this->galleryData = !empty($galleryData) ? $galleryData : "[]";
@@ -30,6 +31,7 @@ class GalleryJsGenerator implements JsGenerator
         $this->categoryid = '';
         $this->callbackFunctionName = empty($callbackFunctionName) ? 'nonExistentFunction' : $callbackFunctionName ;
         $this->dir = (in_array($lang, $this->rtlLangs))?'rtl':'ltr';
+        $this->stylesFromApi = empty($stylesFromApi) ? "{}" : $stylesFromApi;
         $this->setJs();
     }
 
@@ -52,66 +54,7 @@ class GalleryJsGenerator implements JsGenerator
         $this->jsString = <<<EOD
 
 // Incoming styles from CRM
-let styles = {
-    "button": {
-        "shape": "roundedCorners"
-    },
-    "font": "Ubuntu",
-    "colors": [
-        {
-            "key": "brand1",
-            "value": "26, 47, 67, 1"
-        },
-        {
-            "key": "brand2",
-            "value": "193, 172, 135, 1"
-        },
-        {
-            "key": "text",
-            "value": "0, 0, 0, 1"
-        },
-        {
-            "key": "subtext",
-            "value": "77, 77, 77, 1"
-        },
-        {
-            "key": "favorites",
-            "value": "217, 88, 119, 1"
-        },
-        {
-            "key": "concession",
-            "value": "168, 138, 87, 1"
-        },
-        {
-            "key": "white",
-            "value": "255, 255, 255, 1"
-        },
-        {
-            "key": "grayMidLite",
-            "value": "192, 192, 192, 1"
-        },
-        {
-            "key": "grayLight",
-            "value": "247, 247, 247, 1"
-        },
-        {
-            "key": "available",
-            "value": "47, 180, 237, 1"
-        },
-        {
-            "key": "errors",
-            "value": "235, 87, 87, 1"
-        },
-        {
-            "key": "hoveredButton",
-            "value": "40, 72, 103, 1"
-        },
-        {
-            "key": "pressedButton",
-            "value": "40, 72, 103, 1"
-        }
-    ]
-};
+let styles = $this->stylesFromApi;
 
 // each element contains data about the certain category and pictures belonging to it
 // this data is obtained from API
@@ -1127,13 +1070,13 @@ const zoomInIcon = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
 
 const basicStyle =`
 :root {
---white: rgba(${styleColors.white});
---text: rgba(${styleColors.text});
---caption-bg-color: rgba(${changeColorOpacity(styleColors.white,0.8)});
---brand1: rgba(${styleColors.brand1});
---grayMidLite: rgba(${styleColors.grayMidLite});
---subtext: rgba(${styleColors.subtext});
---errors: rgba(${styleColors.errors});
+--white: rgba(\${styleColors.white});
+--text: rgba(\${styleColors.text});
+--caption-bg-color: rgba(\${changeColorOpacity(styleColors.white,0.8)});
+--brand1: rgba(\${styleColors.brand1});
+--grayMidLite: rgba(\${styleColors.grayMidLite});
+--subtext: rgba(\${styleColors.subtext});
+--errors: rgba(\${styleColors.errors});
 }
 
 html{

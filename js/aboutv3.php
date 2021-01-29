@@ -13,7 +13,8 @@ $params = @$_GET['chapterid'] ? [chapterId => $_GET['chapterid']]: null;
 
 $apiInteractor = new WidgetApiInteractor($_GET['key'] ?? '', $_GET['type'] ?? '');
 $aboutData = $apiInteractor->getAboutUsPageData($params);
+$stylesFromApi = $apiInteractor->getStyles();
 
-$aboutJsGenerator = new AboutJsGenerator($aboutData, $canvasClass, $callback, $lang);
+$aboutJsGenerator = new AboutJsGenerator($aboutData, $canvasClass, $callback, $lang, $stylesFromApi);
 
 $aboutJsGenerator->showJs();

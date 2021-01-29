@@ -19,6 +19,7 @@ class WidgetApiInteractor extends ApiHelper
     private $poiCategoriesFnc = 'api/dreamsv3/poicategories';
     private $poiFnc = 'api/dreamsv3/poi';
     private $poiSettingsFnc = 'api/dreamsv3/poisettings';
+    private $styleFnc = 'api/dreamsv2/style';
 
     // API key or projectGuid
     private $apiKey;
@@ -87,6 +88,13 @@ class WidgetApiInteractor extends ApiHelper
      */
     public function getPoiSettingsData(){
         return $this->sendRequest($this->poiSettingsFnc);
+    }
+
+    /**
+     * @return bool|string
+     */
+    public function getStyles(){
+        return $this->sendRequest($this->styleFnc);
     }
 
   /**

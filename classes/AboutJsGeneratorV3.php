@@ -17,8 +17,9 @@ class AboutJsGenerator implements JsGenerator
     private $callbackFunctionName;
     private $dir;
     private $rtlLangs = ['he'];
+    private $stylesFromApi;
 
-    public function __construct(string $aboutData = '', string $canvasClass = 'bmby-about', string $callbackFunctionName = '', string $lang = 'en')
+    public function __construct(string $aboutData = '', string $canvasClass = 'bmby-about', string $callbackFunctionName = '', string $lang = 'en', $stylesFromApi = '')
     {
         $this->jsString = '';
         $this->aboutData = !empty($aboutData) ? $aboutData : "[]";
@@ -26,6 +27,7 @@ class AboutJsGenerator implements JsGenerator
         $this->lang = $lang;
         $this->callbackFunctionName = empty($callbackFunctionName) ? 'nonExistentFunction' : $callbackFunctionName;
         $this->dir = (in_array($lang, $this->rtlLangs))?'rtl':'ltr';
+        $this->stylesFromApi = empty($stylesFromApi) ? "{}" : $stylesFromApi;
         $this->setJs();
     }
 
@@ -48,66 +50,7 @@ class AboutJsGenerator implements JsGenerator
         $this->jsString = <<<EOD
 
 // Incoming styles from CRM
-let styles = {
-    "button": {
-        "shape": "roundedCorners"
-    },
-    "font": "Ubuntu",
-    "colors": [
-        {
-            "key": "brand1",
-            "value": "26, 47, 67, 1"
-        },
-        {
-            "key": "brand2",
-            "value": "193, 172, 135, 1"
-        },
-        {
-            "key": "text",
-            "value": "0, 0, 0, 1"
-        },
-        {
-            "key": "subtext",
-            "value": "77, 77, 77, 1"
-        },
-        {
-            "key": "favorites",
-            "value": "217, 88, 119, 1"
-        },
-        {
-            "key": "concession",
-            "value": "168, 138, 87, 1"
-        },
-        {
-            "key": "white",
-            "value": "255, 255, 255, 1"
-        },
-        {
-            "key": "grayMidLite",
-            "value": "192, 192, 192, 1"
-        },
-        {
-            "key": "grayLight",
-            "value": "247, 247, 247, 1"
-        },
-        {
-            "key": "available",
-            "value": "47, 180, 237, 1"
-        },
-        {
-            "key": "errors",
-            "value": "235, 87, 87, 1"
-        },
-        {
-            "key": "hoveredButton",
-            "value": "40, 72, 103, 1"
-        },
-        {
-            "key": "pressedButton",
-            "value": "40, 72, 103, 1"
-        }
-    ]
-};
+let styles = $this->stylesFromApi;
 
 let styleColors = {};
 
@@ -525,12 +468,12 @@ const mobileErrorIcon = `
 
 const basicStyle = `
 :root {
---white: rgba(${styleColors.white});
---grayMidLite: rgba(${styleColors.grayMidLite});
---brand1: rgba(${styleColors.brand1});
---text: rgba(${styleColors.text});
---subtext: rgba(${styleColors.subtext});
---errors: rgba(${styleColors.errors});
+--white: rgba(\${styleColors.white});
+--grayMidLite: rgba(\${styleColors.grayMidLite});
+--brand1: rgba(\${styleColors.brand1});
+--text: rgba(\${styleColors.text});
+--subtext: rgba(\${styleColors.subtext});
+--errors: rgba(\${styleColors.errors});
 }
 
 body{

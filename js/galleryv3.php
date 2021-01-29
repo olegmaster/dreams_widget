@@ -13,8 +13,9 @@ $params = @$_GET['categoryid'] ? ['categoryId' => $_GET['categoryid']] : null;
 
 $apiInteractor = new WidgetApiInteractor(@$_GET['key'], @$_GET['type']);
 $galleryData = $apiInteractor->getGalleryApiData($params);
+$stylesFromApi = $apiInteractor->getStyles();
 
-$galleryJsGenerator = new GalleryJsGenerator($galleryData, $canvasClass, $lang, $callback);
+$galleryJsGenerator = new GalleryJsGenerator($galleryData, $canvasClass, $lang, $callback, $stylesFromApi);
 
 $galleryJsGenerator->showJs();
 
