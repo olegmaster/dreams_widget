@@ -226,6 +226,13 @@ function addPoiListener (marker) {
     wrapperClass: 'snazzy-window',
     closeButtonMarkup: '<button type="button" class="custom-close"></button>',
     closeWhenOthersOpen: true,
+    panOnOpen: true,
+    edgeOffset: {
+      top: 50,
+      right: window.innerWidth / 2 - 200,
+      left: window.innerWidth / 2 - 200,
+      bottom: 100,
+    },
     border: false,
     offset:{
       top: '0px',
@@ -733,6 +740,8 @@ function addFilter (domContainer) {
 
 function menuBtnHandler (asideMenu) {
   asideMenu.classList.toggle('open-aside-menu');
+  const center = new google.maps.LatLng(mapData.staticMarkers['0'].lat,mapData.staticMarkers['0'].lng);
+  mapCenterChangeHandler(undefined, center);
 }
 
 function hideAllDefaultMapLinks () {
@@ -816,7 +825,7 @@ function generateSvgCluster (color) {
   return ('data:image/svg+xml;base64,' + encoded);
 }
 
-function mapCenterChangeHandler(btnGoHome, center){
+function mapCenterChangeHandler(btnGoHome = document.querySelector('.map__go-home__btn'), center){
   const destPixel = getPixel(center, map.getZoom());
   const mapPixel = getPixel(map.getCenter(), map.getZoom());
   let diffX = (destPixel.x - mapPixel.x);
@@ -825,37 +834,106 @@ function mapCenterChangeHandler(btnGoHome, center){
   const min = 0;
   const scale = (1740 / window.innerWidth) * 3;
   let addY = window.innerWidth / window.innerHeight;
-  let cardHeight = 0;
   let asideMenuWidth = 0;
+  let asideMenuInPercent = 0;
   const homeIcon = document.querySelector('.home-btn__img');
-  const card = document.querySelector('.si-wrapper-top.custom-window.open.active');
+
   const openAsideMenu = document.querySelector('.aside-menu__container.open-aside-menu');
   if (openAsideMenu){
     asideMenuWidth = openAsideMenu.getBoundingClientRect().width;
+    asideMenuInPercent = Number((asideMenuWidth * 100 / window.innerWidth).toFixed(4));
   }
   let mapHeight = window.innerHeight / 1.7;
 
-  if (card){
-    mapHeight = mapHeight - card.getBoundingClientRect().height;
-  }
 
-  if (Math.abs(diffX) > window.innerWidth / 1.7 || (diffY > window.innerHeight / 2.7 && Math.abs(diffY) > mapHeight) ||(diffY < (window.innerHeight / 2) * -1 && Math.abs(diffY) > mapHeight) || (!card && Math.abs(diffY) > mapHeight )){
 
-    if (card){
-      cardHeight = card.getBoundingClientRect().height;
-    }
+  if (Math.abs(diffX - asideMenuWidth) > window.innerWidth / 1.7 || (diffY > window.innerHeight / 2.7 && Math.abs(diffY) > mapHeight) ||(diffY < (window.innerHeight / 2) * -1 && Math.abs(diffY) > mapHeight)){
 
     diffX = diffX * scale;
     diffY = diffY * scale;
 
+    // TOP / LEFT / RIGTH - sector
     if (diffY < 0){
       removeAllStyleProporty(btnGoHome);
       const calcY = max - (Math.abs(diffY) / max) * addY;
       if (calcY <= max && calcY > min){
-        btnGoHome.style.top = calcY +'%';
-      } else {
-        btnGoHome.style.top = 0;
+            btnGoHome.style.top = calcY +'%';
+          } else {
+            btnGoHome.style.top = 0;
       }
+
+      // LEFT
+      if (diffX < 0){
+            const calcX = max - (Math.abs(diffX) / max);
+
+            if (calcX <= max && calcX > min){
+              if (openAsideMenu){
+                if (calcX > asideMenuInPercent){
+                  btnGoHome.style.left = calcX +'%';
+                } else {
+                  btnGoHome.style.left = asideMenuInPercent+'%';
+                }
+
+              } else {
+                btnGoHome.style.left = calcX +'%';
+              }
+            } else {
+              btnGoHome.style.left = asideMenuInPercent+'%';
+            }
+      }
+
+      //RIGHT
+      if (diffX > 0){
+        const calcX = max - (diffX / max);
+            if (calcX <= max && calcX > min){
+              btnGoHome.style.right = calcX +'%';
+            } else {
+              btnGoHome.style.right = 0;
+            }
+      }
+
+      const correctionObject = {
+        top: 0,
+        left: asideMenuInPercent,
+        right: 0,
+        bottom: 0
+      };
+
+      setCurrentHomeIcon(btnGoHome,homeIcon,correctionObject);
+    }
+
+
+    // BOTTOM / LEFT / RIGHT
+    if (diffY > 0){
+      removeAllStyleProporty(btnGoHome);
+        const calcY = max - (Math.abs(diffY) / max) * addY;
+        if (calcY <= max && calcY > min){
+            btnGoHome.style.bottom = calcY+'%';
+        } else {
+            btnGoHome.style.bottom = 0;
+        }
+
+      // LEFT
+      if (diffX < 0){
+        const calcX = max - (Math.abs(diffX) / max);
+
+        if (calcX <= max && calcX > min){
+          if (openAsideMenu){
+            if (calcX > asideMenuInPercent){
+              btnGoHome.style.left = calcX +'%';
+            } else {
+              btnGoHome.style.left = asideMenuInPercent+'%';
+            }
+
+          } else {
+            btnGoHome.style.left = calcX +'%';
+          }
+        } else {
+          btnGoHome.style.left = asideMenuInPercent+'%';
+        }
+      }
+
+      //RIGHT
       if (diffX > 0){
         const calcX = max - (diffX / max);
         if (calcX <= max && calcX > min){
@@ -864,159 +942,15 @@ function mapCenterChangeHandler(btnGoHome, center){
           btnGoHome.style.right = 0;
         }
       }
-      if (diffX < 0){
-        const calcX = max - (Math.abs(diffX) / max);
-        if (calcX <= max && calcX > min){
-          if (openAsideMenu){
-            if (calcX > ((asideMenuWidth * 100) / window.innerWidth)){
-              btnGoHome.style.left = calcX +'%';
-            } else {
-              btnGoHome.style.left = asideMenuWidth +'px';
-            }
-          } else {
-            btnGoHome.style.left = calcX +'%';
-          }
-        }else {
-          btnGoHome.style.left = 0;
-        }
-      }
 
-      if (parseFloat(btnGoHome.style.top) > 0 && parseFloat(btnGoHome.style.left) > 0){
-        if (parseFloat(btnGoHome.style.top) > parseFloat(btnGoHome.style.left)){
-          btnGoHome.style.left = 0;
-        }else {
-          btnGoHome.style.top = 0;
-        }
-      }
+      const correctionObject = {
+        top: 0,
+        left: asideMenuInPercent,
+        right: 0,
+        bottom: 0
+      };
 
-      if (parseFloat(btnGoHome.style.top) > 0 && parseFloat(btnGoHome.style.right) > 0){
-        if (parseFloat(btnGoHome.style.top) > parseFloat(btnGoHome.style.right)){
-          btnGoHome.style.right = 0;
-        }else {
-          btnGoHome.style.top = 0;
-        }
-      }
-
-      if (parseFloat(btnGoHome.style.top) === 0){
-        homeIcon.src = generateSvg(projectIcons,'HOME__TOP');
-      }
-
-      if (parseFloat(btnGoHome.style.right) === 0){
-        homeIcon.src = generateSvg(projectIcons, 'HOME__RIGHT');
-      }
-
-      if (parseFloat(btnGoHome.style.left) === 0){
-        homeIcon.src = generateSvg(projectIcons, 'HOME__LEFT');
-      }
-
-      if (parseFloat(btnGoHome.style.top) === 0 && parseFloat(btnGoHome.style.left) === 0){
-        homeIcon.src = generateSvg(projectIcons,'HOME__TOP__LEFT');
-      }
-
-      if (parseFloat(btnGoHome.style.top) === 0 && parseFloat(btnGoHome.style.right) === 0){
-        homeIcon.src = generateSvg(projectIcons, 'HOME__TOP__RIGHT');
-      }
-
-    } else {
-      removeAllStyleProporty(btnGoHome);
-      const calcY = max - (Math.abs(diffY) / max) * addY;
-      if (calcY <= max && calcY > min){
-        if (card){
-          if (calcY > ((cardHeight * 100) / window.innerHeight)){
-            btnGoHome.style.bottom = calcY+'%';
-          } else {
-            btnGoHome.style.bottom = cardHeight+'px';
-          }
-        } else {
-          btnGoHome.style.bottom = calcY+'%';
-        }
-      } else {
-        if (card){
-          btnGoHome.style.bottom = cardHeight+'px';
-        }else {
-          btnGoHome.style.bottom = 0;
-        }
-      }
-
-      if(diffX > 0){
-        const calcX = max - (diffX / max);
-        if (calcX <= max && calcX > min){
-          btnGoHome.style.right = calcX +'%';
-        } else {
-          btnGoHome.style.right = 0;
-        }
-      }
-      if (diffX < 0){
-        const calcX = max - (Math.abs(diffX) / max);
-        if (calcX <= max && calcX > min){
-          btnGoHome.style.left = calcX +'%';
-        }else {
-          btnGoHome.style.left = 0;
-        }
-      }
-
-      if (!card){
-        if (parseFloat(btnGoHome.style.bottom) > 0 && parseFloat(btnGoHome.style.left) > 0){
-          if (parseFloat(btnGoHome.style.bottom) > parseFloat(btnGoHome.style.left)){
-            btnGoHome.style.left = 0;
-          }else {
-            btnGoHome.style.bottom = 0;
-          }
-        }
-
-        if (parseFloat(btnGoHome.style.bottom) > 0 && parseFloat(btnGoHome.style.right) > 0){
-          if (parseFloat(btnGoHome.style.bottom) > parseFloat(btnGoHome.style.right)){
-            btnGoHome.style.right = 0;
-          }else {
-            btnGoHome.style.bottom = 0;
-          }
-        }
-      }
-
-
-      if(!card){
-        if (parseFloat(btnGoHome.style.bottom) === 0){
-          homeIcon.src = generateSvg(projectIcons, 'HOME__BOTTOM');
-        }
-
-        if (parseFloat(btnGoHome.style.right) === 0){
-          homeIcon.src = generateSvg(projectIcons, 'HOME__RIGHT');
-        }
-
-        if (parseFloat(btnGoHome.style.left) === 0){
-          homeIcon.src = generateSvg(projectIcons,'HOME__LEFT');
-        }
-
-        if (parseFloat(btnGoHome.style.bottom) === 0 && parseFloat(btnGoHome.style.left) === 0){
-          homeIcon.src = generateSvg(projectIcons, 'HOME__BOTTOM__LEFT');
-        }
-
-        if (parseFloat(btnGoHome.style.bottom) === 0 && parseFloat(btnGoHome.style.right) === 0){
-          homeIcon.src = generateSvg(projectIcons, 'HOME__BOTTOM__RIGHT');
-        }
-      } else {
-        if (Math.floor(parseFloat(btnGoHome.style.bottom)) === Math.floor(cardHeight)){
-          homeIcon.src = generateSvg(projectIcons, 'HOME__BOTTOM');
-        }
-
-        if (parseFloat(btnGoHome.style.right) === 0){
-          homeIcon.src = generateSvg(projectIcons, 'HOME__RIGHT');
-        }
-
-        if (parseFloat(btnGoHome.style.left) === 0){
-          homeIcon.src = generateSvg(projectIcons, 'HOME__LEFT');
-        }
-
-        if (Math.floor(parseFloat(btnGoHome.style.bottom)) === Math.floor(cardHeight) && parseFloat(btnGoHome.style.left) === 0){
-          homeIcon.src = generateSvg(projectIcons, 'HOME__BOTTOM__LEFT');
-        }
-
-        if (Math.floor(parseFloat(btnGoHome.style.bottom)) === Math.floor(cardHeight) && parseFloat(btnGoHome.style.right) === 0){
-          homeIcon.src = generateSvg(projectIcons, 'HOME__BOTTOM__RIGHT');
-        }
-
-      }
-
+      setCurrentHomeIcon(btnGoHome,homeIcon,correctionObject);
     }
 
   } else {
@@ -1030,6 +964,48 @@ function removeAllStyleProporty(btnGoHome){
   btnGoHome.style.removeProperty('bottom');
   btnGoHome.style.removeProperty('left');
   btnGoHome.style.removeProperty('right');
+}
+
+function setCurrentHomeIcon (btnGoHome,homeIcon, correctionSideObject) {
+  const top = parseFloat(btnGoHome.style.top);
+  const left = parseFloat(btnGoHome.style.left);
+  const right = parseFloat(btnGoHome.style.right);
+  const bottom = parseFloat(btnGoHome.style.bottom);
+
+  // TOP - LEFT / RIGHT
+  if (top === correctionSideObject.top){
+    homeIcon.src = generateSvg(projectIcons,'HOME__TOP');
+  }
+
+  if (right === correctionSideObject.right){
+    homeIcon.src = generateSvg(projectIcons, 'HOME__RIGHT');
+  }
+
+  if (left === correctionSideObject.left){
+    homeIcon.src = generateSvg(projectIcons, 'HOME__LEFT');
+  }
+
+  if (top === correctionSideObject.top && left === correctionSideObject.left){
+    homeIcon.src = generateSvg(projectIcons,'HOME__TOP__LEFT');
+  }
+
+  if (top === correctionSideObject.top && right === correctionSideObject.right){
+    homeIcon.src = generateSvg(projectIcons, 'HOME__TOP__RIGHT');
+  }
+
+  //BOTTOM / LEFT / RIGHT
+  if (bottom === correctionSideObject.bottom){
+    homeIcon.src = generateSvg(projectIcons, 'HOME__BOTTOM');
+  }
+
+  if (bottom === correctionSideObject.bottom && left === correctionSideObject.left){
+    homeIcon.src = generateSvg(projectIcons,'HOME__BOTTOM__LEFT');
+  }
+
+  if (bottom === correctionSideObject.bottom && right === correctionSideObject.right){
+    homeIcon.src = generateSvg(projectIcons, 'HOME__BOTTOM__RIGHT');
+  }
+
 }
 
 function smoothlyAnimatePanTo(map, destLatLng) {
