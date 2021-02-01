@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 function addBasicStyle () {
   document.head.innerHTML +='<style>'+resetCss+'</style>';
-  document.head.innerHTML +='<style>'+basicStyleCss+'</style>';
+  document.head.innerHTML +='<style id="basicStyle">'+basicStyleCss+'</style>';
 }
 
 function addFont() {
@@ -152,6 +152,7 @@ function initMap () {
   document.querySelector('.'+canvasClass).append(mapContainer);
 
   mapData.snazzyWindow = [];
+  mapData.staticMarkersOnMap=[];
   mapData.filteredMarkers = {};
   mapData.mapSettings = {
     zoom: 14,
@@ -206,11 +207,17 @@ function initMap () {
   directionsRenderer.setMap(map);
 
   hideAllDefaultMapLinks();
-  addMapControls();
   addStaticMarkers();
   addPoiMarkers();
   addPoiClusters();
+  addMapControls();
 
+  const btnGoHome = document.querySelector('.map__go-home__btn');
+  btnGoHome.addEventListener('click', ()=> smoothlyAnimatePanTo(map, startPoint));
+
+  map.addListener('center_changed', ()=>{
+    mapCenterChangeHandler(btnGoHome, startPoint);
+  });
 }
 
 function addPoiListener (marker) {
@@ -218,16 +225,33 @@ function addPoiListener (marker) {
     marker: marker,
     wrapperClass: 'snazzy-window',
     closeButtonMarkup: '<button type="button" class="custom-close"></button>',
-    content: '',
     closeWhenOthersOpen: true,
-    panOnOpen: false,
+    panOnOpen: true,
+    edgeOffset: {
+      top: 50,
+      right: window.innerWidth / 2 - 200,
+      left: window.innerWidth / 2 - 200,
+      bottom: 100,
+    },
+    border: false,
+    offset:{
+      top: '0px',
+      left: '0px',
+    },
     callbacks: {
       open: () => openSnazzyInfoWindowHandler(marker, snazzyInfoWindow),
-      afterClose: () => afterCloseSnazzyInfoWindowHandler(),
+      afterClose: () => resetMapRenderer(),
       afterOpen: () => addCloseListener(snazzyInfoWindow),
       beforeClose: () => clearInfoWindowArray() ,
     }
   });
+}
+
+function setInfoWindowPosition (snazzyInfoWindow) {
+  const contentHeight = snazzyInfoWindow._html.content.getBoundingClientRect().height;
+  const contentWidth = snazzyInfoWindow._html.content.getBoundingClientRect().width;
+  snazzyInfoWindow._opts.offset.top = '-' + (contentHeight + 55) + 'px';
+  snazzyInfoWindow._opts.offset.left = '-' + (contentWidth / 2) + 'px';
 }
 
 function clearInfoWindowArray () {
@@ -241,7 +265,7 @@ function addCloseListener (snazzyInfoWindow) {
   mapData.snazzyWindow.push(snazzyInfoWindow);
 }
 
-function afterCloseSnazzyInfoWindowHandler () {
+function resetMapRenderer () {
   directionsRenderer.setMap(null);
 }
 
@@ -258,6 +282,8 @@ function openSnazzyInfoWindowHandler (marker, snazzyInfoWindow) {
   const createdInfoWindowContent = buildInfoWindowContent(marker);
 
   snazzyInfoWindow.setContent(createdInfoWindowContent);
+
+  setInfoWindowPosition(snazzyInfoWindow);
 
   // if (!marker.data.sendPhotoRequest){
   //   const placePhoto = getPlacePhoto(marker);
@@ -324,25 +350,28 @@ function buildInfoWindowContent (marker) {
   const categoryImg = createHtmlElement(categoryImageContainer,'','img',['snazzy-content__category-img']);
   categoryImg.src = marker.category_ic;
   const categoryTitle = createHtmlElement(categoryContainer,marker.category,'span',['snazzy-content__category-title']);
+  categoryTitle.style.color = marker.color;
   const description = createHtmlElement(infoWrapper,marker.data.markerDescription,'p',['snazzy-content__description']);
   const routeContainer = createHtmlElement(infoWrapper,'','div',['snazzy-content__route-container']);
   const routeIconContainer = createHtmlElement(routeContainer,'','div',['snazzy-content__route-icons-container']);
   routeIconContainer.dataset.selectedRoute = 'WALKING';
-  routeIconContainer.addEventListener('click', (e)=> routesHandler(e.target));
-  const carIconContainer = createHtmlElement(routeIconContainer,'','div',['snazzy-content__car-route-container']);
+  routeIconContainer.addEventListener('click', (e)=> routesHandler(e.target,routeData));
+  const carIconContainer = createHtmlElement(routeIconContainer,'','div',['snazzy-content__car-route-container','disable-route']);
   carIconContainer.dataset.routeType = 'DRIVING';
-  const bikeIconContainer = createHtmlElement(routeIconContainer,'','div',['snazzy-content__bike-route-container']);
+  const bikeIconContainer = createHtmlElement(routeIconContainer,'','div',['snazzy-content__bike-route-container','disable-route']);
   bikeIconContainer.dataset.routeType = 'BICYCLING';
   const walkIconContainer = createHtmlElement(routeIconContainer,'','div',['snazzy-content__walk-route-container']);
   walkIconContainer.dataset.routeType = 'WALKING';
   const distanceContainer = createHtmlElement(routeContainer,'','div',['snazzy-content__distance-container']);
-  const time = createHtmlElement(distanceContainer,routeData.timeToPoint.walk+' mins','span',['snazzy-content__time-route']);
+  const time = createHtmlElement(distanceContainer,routeData.timeToPoint.WALKING+' mins','span',['snazzy-content__time-route']);
   const separator = createHtmlElement(distanceContainer,' . ','span',['snazzy-content__distance-separator']);
-  const distance = createHtmlElement(distanceContainer,routeData.distanceToPoint.walk+' km','span',['snazzy-content__distance-route']);
+  const distance = createHtmlElement(distanceContainer,routeData.distanceToPoint.WALKING+' km','span',['snazzy-content__distance-route']);
   const socialContainer = createHtmlElement(infoWrapper,'','div',['snazzy-content__social-container']);
   if (marker.data.webSiteUrl){
-    const webUrl = createHtmlElement(socialContainer,marker.data.webSiteUrl,'a',['snazzy-content__website-link']);
+    const miniUrl = minimizeUrl(marker.data.webSiteUrl);
+    const webUrl = createHtmlElement(socialContainer,miniUrl,'a',['snazzy-content__website-link']);
     webUrl.href = marker.data.webSiteUrl;
+    webUrl.target = '_blank';
   }
   if (marker.data.phone){
     const phone = createHtmlElement(socialContainer,marker.data.phone,'a',['snazzy-content__phone']);
@@ -359,9 +388,38 @@ function buildInfoWindowContent (marker) {
   return mainContainer;
 }
 
-function routesHandler (selectedRoute) {
-  console.log(selectedRoute);
+function minimizeUrl (url) {
+  const [protocol,,link] = url.split('/');
+  return protocol+'//'+link;
+}
 
+function routesHandler (selectedRoute, routeData) {
+  if (selectedRoute.dataset.routeType){
+    const parent = selectedRoute.parentElement;
+    parent.dataset.selectedRoute = selectedRoute.dataset.routeType;
+    const activeRoute = getActiveRoute();
+    activeRoute.classList.add('disable-route');
+    const distance = routeData.distanceToPoint[selectedRoute.dataset.routeType];
+    const time = routeData.timeToPoint[selectedRoute.dataset.routeType];
+    setNewRoute(selectedRoute,distance,time);
+  }
+}
+
+function setNewRoute (selectedRoute, routeDistance, routeTime) {
+  const routeTimeElement = document.querySelector('.snazzy-content__time-route');
+  const routeDistanceElement = document.querySelector('.snazzy-content__distance-route');
+  routeTimeElement.textContent = routeTime + ' mins';
+  routeDistanceElement.textContent = routeDistance + ' km';
+  selectedRoute.classList.remove('disable-route');
+}
+
+function getActiveRoute () {
+  const routes = document.querySelector('.snazzy-content__route-icons-container');
+  for (let route of routes.children){
+    if (!route.classList.contains('disable-route')){
+      return route;
+    }
+  }
 }
 
 function navigateBtnHandler (marker, travelMode) {
@@ -381,18 +439,17 @@ function navigateBtnHandler (marker, travelMode) {
 function convertMarkerDistanceAndTime (marker) {
   return {
     distanceToPoint: {
-      bike: Number((marker.data.distanceToPoint.bike / 1000).toFixed(1)),
-      drive: Number((marker.data.distanceToPoint.drive / 1000).toFixed(1)),
-      walk: Number((marker.data.distanceToPoint.walk / 1000).toFixed(1)),
+      'BICYCLING': Number((marker.data.distanceToPoint.bike / 1000).toFixed(1)),
+      'DRIVING': Number((marker.data.distanceToPoint.drive / 1000).toFixed(1)),
+      'WALKING': Number((marker.data.distanceToPoint.walk / 1000).toFixed(1)),
     },
     timeToPoint: {
-      bike: Math.round(Number(marker.data.timeToPoint.bike) / 60),
-      drive: Math.round(Number(marker.data.timeToPoint.drive) / 60),
-      walk: Math.round(Number(marker.data.timeToPoint.walk) / 60)
+      'BICYCLING': Math.round(Number(marker.data.timeToPoint.bike) / 60),
+      'DRIVING': Math.round(Number(marker.data.timeToPoint.drive) / 60),
+      'WALKING': Math.round(Number(marker.data.timeToPoint.walk) / 60)
     }
   }
 }
-
 
 function addPoiClusters () {
   let allMarkersForCluster = [];
@@ -425,12 +482,14 @@ function addPoiClusters () {
 function addStaticMarkers () {
   Object.values(mapData.staticMarkers).forEach(marker =>{
     const zIndex = google.maps.Marker.MAX_ZINDEX + 100;
-    addMarker(marker, 55, zIndex, false);
+    const static = addMarker(marker, 55, zIndex, false);
+    mapData.staticMarkersOnMap.push(static);
   });
 }
 
 function addPoiMarkers () {
   mapData.allPoiMarkers = {};
+  mapData.allPoiMarkersWithoutCategory = [];
   Object.entries(mapData.filteredMarkers).forEach(([category,markers]) =>{
     mapData.allPoiMarkers[category] = [];
     markers.forEach(marker =>{
@@ -449,6 +508,7 @@ function addPoiMarkers () {
       };
       addPoiListener(buildedMarker);
       mapData.allPoiMarkers[category].push(buildedMarker);
+      mapData.allPoiMarkersWithoutCategory.push(buildedMarker);
     });
   });
 }
@@ -556,23 +616,132 @@ function addMapControls () {
   const mapTypeContainer = createHtmlElement(asideMenuWrapper,'','div',['aside-menu__type-container']);
   const mapTypeTitle = createHtmlElement(mapTypeContainer,'Map','h3',['aside-menu__map-type__title']);
   const mapTypeTriggersContainer = createHtmlElement(mapTypeContainer,'','div',['aside-menu__map-type-trigger__container']);
-  const satelliteContainer = createHtmlElement(mapTypeTriggersContainer,'','div',['aside-menu__satellite__container']);
+  const satelliteContainer = createHtmlElement(mapTypeTriggersContainer,'','div',['aside-menu__map-type']);
+  satelliteContainer.dataset.mapType ='satellite';
   const satelliteIcon = createHtmlElement(satelliteContainer,'','div',['aside-menu__satellite-icon']);
+  satelliteIcon.dataset.mapType ='satellite';
   const satelliteText = createHtmlElement(satelliteContainer,'Satellite','span',['aside-menu__satellite-text']);
-  const roadContainer = createHtmlElement(mapTypeTriggersContainer,'','div',['aside-menu__road__container']);
+  satelliteText.dataset.mapType ='satellite';
+  const roadContainer = createHtmlElement(mapTypeTriggersContainer,'','div',['aside-menu__map-type','active__map-type']);
+  roadContainer.dataset.mapType ='roadmap';
   const roadIcon = createHtmlElement(roadContainer,'','div',['aside-menu__road-icon']);
+  roadIcon.dataset.mapType ='roadmap';
   const roadText = createHtmlElement(roadContainer,'Road map','span',['aside-menu__road-text']);
+  roadText.dataset.mapType ='roadmap';
   //Aside Neighborhood section
   const filterContainer = createHtmlElement(asideMenuWrapper,'','div',['aside-menu__filter-container']);
   const filterTitle = createHtmlElement(filterContainer,'Neighborhood','h3',['aside-menu__filter__title']);
   const allPointsOfInterestContainer = createHtmlElement(filterContainer,'','div',['aside-menu__filter-points']);
 
-  menuBtn.addEventListener('click',() => menuBtnHadler(asideMenuContainer));
-  closeBtnImg.addEventListener('click', () => menuBtnHadler(asideMenuContainer));
+  addFilter(allPointsOfInterestContainer);
+
+  mapTypeTriggersContainer.addEventListener('click', (e) => changeMapTypeHandler(e.target,asideMenuContainer));
+  allPointsOfInterestContainer.addEventListener('click', (e) => filterHandler(e.target,asideMenuContainer));
+  menuBtn.addEventListener('click',() => menuBtnHandler(asideMenuContainer));
+  closeBtnImg.addEventListener('click', () => menuBtnHandler(asideMenuContainer));
 }
 
-function menuBtnHadler (asideMenu) {
+function changeDocumentStyleProperty (idStyleSheet, selector, property, value) {
+  const styleSheet = document.getElementById(idStyleSheet).sheet;
+  Object.values(styleSheet.cssRules).forEach(rule =>{
+    if (rule.selectorText === selector){
+      rule.style[property] = value;
+    }
+  });
+}
+
+function changeMarkersLabelColor (color) {
+  mapData.staticMarkersOnMap[0].label.color = color;
+  mapData.staticMarkersOnMap[0].setMap(null);
+  mapData.staticMarkersOnMap[0].setMap(map);
+  mapData.allPoiMarkersWithoutCategory.forEach(marker =>{
+    marker.label.color = color;
+    marker.setMap(null);
+    marker.setMap(map);
+  });
+  mapData.clusters.repaint();
+}
+
+function changeMapTypeHandler (selectedMapType,filterContainer) {
+  if (selectedMapType.dataset.mapType){
+    const type = selectedMapType.dataset.mapType;
+    const activeMapType = document.querySelector('.active__map-type');
+    activeMapType.classList.remove('active__map-type');
+    const clickedMapTypeContainer = document.querySelector('.aside-menu__map-type[data-map-type="'+ type +'"]');
+    clickedMapTypeContainer.classList.add('active__map-type');
+    map.setMapTypeId(type);
+    if (type === 'roadmap'){
+      changeMarkersLabelColor('#000000');
+      changeDocumentStyleProperty('basicStyle','.marker__label','filter','none');
+    } else {
+      changeMarkersLabelColor('#ffffff');
+      changeDocumentStyleProperty('basicStyle','.marker__label','filter','drop-shadow(0px 0px 1px black)' +
+        ' drop-shadow(0px 0px 4px black)');
+    }
+    menuBtnHandler(filterContainer);
+  }
+}
+
+function filterHandler (selectedFilter, filterContainer) {
+  if (selectedFilter.dataset.filterCategory){
+    const category = selectedFilter.dataset.filterCategory;
+    const categoryMarkers = mapData.allPoiMarkers[category];
+    if (categoryMarkers){
+      closePrevInfoWindow();
+      setActiveFilter(selectedFilter);
+      mapData.clusters.clearMarkers();
+      categoryMarkers.forEach(marker => {
+        marker.setAnimation(google.maps.Animation.DROP);
+      });
+      mapData.clusters.addMarkers(categoryMarkers);
+      mapData.clusters.repaint();
+      map.setZoom(mapData.mapSettings.zoom);
+      menuBtnHandler(filterContainer);
+    } else {
+      closePrevInfoWindow();
+      setActiveFilter();
+      mapData.clusters.clearMarkers();
+      mapData.allPoiMarkersWithoutCategory.forEach(marker =>{
+        marker.setAnimation(google.maps.Animation.DROP);
+      });
+      mapData.clusters.addMarkers(mapData.allPoiMarkersWithoutCategory);
+      mapData.clusters.repaint();
+      map.setZoom(mapData.mapSettings.zoom);
+      menuBtnHandler(filterContainer);
+    }
+  }
+}
+
+function setActiveFilter (newFilterCategory) {
+  const activeFilter = document.querySelector('.pressed-btn');
+  activeFilter.classList.remove('pressed-btn');
+  if (newFilterCategory){
+    newFilterCategory.classList.add('pressed-btn');
+  } else {
+    const defaultCategory = document.querySelector('.filter__btn[data-filter-category="All"]');
+    defaultCategory.classList.add('pressed-btn');
+  }
+}
+
+function addFilter (domContainer) {
+  const allBtn = createHtmlElement(domContainer,'All','button',['filter__btn','pressed-btn']);
+  allBtn.dataset.filterCategory = 'All';
+  const allBtnImg = createHtmlElement(allBtn,'','img',['filter__poi-icon']);
+  allBtnImg.src = generateSvg(projectIcons,'ALL__CATEGORY__ICON','#03233A',styleColors.brand1.split(','),true);
+
+  Object.entries(mapData.allPoiMarkers).forEach(([category,markers]) =>{
+    const btn = createHtmlElement(domContainer,category,'button',['filter__btn']);
+    btn.dataset.filterCategory = category;
+    btn.style.color = markers[0].color;
+    const img = createHtmlElement(btn,'','img',['filter__poi-icon']);
+    img.src = markers[0].category_ic;
+  });
+}
+
+function menuBtnHandler (asideMenu) {
   asideMenu.classList.toggle('open-aside-menu');
+  const center = new google.maps.LatLng(mapData.staticMarkers['0'].lat,mapData.staticMarkers['0'].lng);
+  mapCenterChangeHandler(undefined, center);
 }
 
 function hideAllDefaultMapLinks () {
@@ -621,11 +790,11 @@ function generateSvg (iconColection,icon,color,newColor,convertRgbaToHex = false
   }
 }
 
-function rgbaToHexA(rgba) {
-  let r = (+rgba[0]).toString(16),
-      g = (+rgba[1]).toString(16),
-      b = (+rgba[2]).toString(16),
-      a = Math.round(+rgba[3] * 255).toString(16);
+function rgbaToHexA(rgbaArray) {
+  let r = (+rgbaArray[0]).toString(16),
+      g = (+rgbaArray[1]).toString(16),
+      b = (+rgbaArray[2]).toString(16),
+      a = Math.round(+rgbaArray[3] * 255).toString(16);
 
   if (r.length == 1)
     r = '0' + r;
@@ -656,6 +825,281 @@ function generateSvgCluster (color) {
   return ('data:image/svg+xml;base64,' + encoded);
 }
 
+function mapCenterChangeHandler(btnGoHome = document.querySelector('.map__go-home__btn'), center){
+  const destPixel = getPixel(center, map.getZoom());
+  const mapPixel = getPixel(map.getCenter(), map.getZoom());
+  let diffX = (destPixel.x - mapPixel.x);
+  let diffY = (destPixel.y - mapPixel.y);
+  const max = 50;
+  const min = 0;
+  const scale = (1740 / window.innerWidth) * 3;
+  let addY = window.innerWidth / window.innerHeight;
+  let asideMenuWidth = 0;
+  let asideMenuInPercent = 0;
+  const homeIcon = document.querySelector('.home-btn__img');
+
+  const openAsideMenu = document.querySelector('.aside-menu__container.open-aside-menu');
+  if (openAsideMenu){
+    asideMenuWidth = openAsideMenu.getBoundingClientRect().width;
+    asideMenuInPercent = Number((asideMenuWidth * 100 / window.innerWidth).toFixed(4));
+  }
+  let mapHeight = window.innerHeight / 1.7;
+
+
+
+  if (Math.abs(diffX - asideMenuWidth) > window.innerWidth / 1.7 || (diffY > window.innerHeight / 2.7 && Math.abs(diffY) > mapHeight) ||(diffY < (window.innerHeight / 2) * -1 && Math.abs(diffY) > mapHeight)){
+
+    diffX = diffX * scale;
+    diffY = diffY * scale;
+
+    // TOP / LEFT / RIGTH - sector
+    if (diffY < 0){
+      removeAllStyleProporty(btnGoHome);
+      const calcY = max - (Math.abs(diffY) / max) * addY;
+      if (calcY <= max && calcY > min){
+            btnGoHome.style.top = calcY +'%';
+          } else {
+            btnGoHome.style.top = 0;
+      }
+
+      // LEFT
+      if (diffX < 0){
+            const calcX = max - (Math.abs(diffX) / max);
+
+            if (calcX <= max && calcX > min){
+              if (openAsideMenu){
+                if (calcX > asideMenuInPercent){
+                  btnGoHome.style.left = calcX +'%';
+                } else {
+                  btnGoHome.style.left = asideMenuInPercent+'%';
+                }
+
+              } else {
+                btnGoHome.style.left = calcX +'%';
+              }
+            } else {
+              btnGoHome.style.left = asideMenuInPercent+'%';
+            }
+      }
+
+      //RIGHT
+      if (diffX > 0){
+        const calcX = max - (diffX / max);
+            if (calcX <= max && calcX > min){
+              btnGoHome.style.right = calcX +'%';
+            } else {
+              btnGoHome.style.right = 0;
+            }
+      }
+
+      const correctionObject = {
+        top: 0,
+        left: asideMenuInPercent,
+        right: 0,
+        bottom: 0
+      };
+
+      setCurrentHomeIcon(btnGoHome,homeIcon,correctionObject);
+    }
+
+
+    // BOTTOM / LEFT / RIGHT
+    if (diffY > 0){
+      removeAllStyleProporty(btnGoHome);
+        const calcY = max - (Math.abs(diffY) / max) * addY;
+        if (calcY <= max && calcY > min){
+            btnGoHome.style.bottom = calcY+'%';
+        } else {
+            btnGoHome.style.bottom = 0;
+        }
+
+      // LEFT
+      if (diffX < 0){
+        const calcX = max - (Math.abs(diffX) / max);
+
+        if (calcX <= max && calcX > min){
+          if (openAsideMenu){
+            if (calcX > asideMenuInPercent){
+              btnGoHome.style.left = calcX +'%';
+            } else {
+              btnGoHome.style.left = asideMenuInPercent+'%';
+            }
+
+          } else {
+            btnGoHome.style.left = calcX +'%';
+          }
+        } else {
+          btnGoHome.style.left = asideMenuInPercent+'%';
+        }
+      }
+
+      //RIGHT
+      if (diffX > 0){
+        const calcX = max - (diffX / max);
+        if (calcX <= max && calcX > min){
+          btnGoHome.style.right = calcX +'%';
+        } else {
+          btnGoHome.style.right = 0;
+        }
+      }
+
+      const correctionObject = {
+        top: 0,
+        left: asideMenuInPercent,
+        right: 0,
+        bottom: 0
+      };
+
+      setCurrentHomeIcon(btnGoHome,homeIcon,correctionObject);
+    }
+
+  } else {
+    removeAllStyleProporty(btnGoHome);
+  }
+
+}
+
+function removeAllStyleProporty(btnGoHome){
+  btnGoHome.style.removeProperty('top');
+  btnGoHome.style.removeProperty('bottom');
+  btnGoHome.style.removeProperty('left');
+  btnGoHome.style.removeProperty('right');
+}
+
+function setCurrentHomeIcon (btnGoHome,homeIcon, correctionSideObject) {
+  const top = parseFloat(btnGoHome.style.top);
+  const left = parseFloat(btnGoHome.style.left);
+  const right = parseFloat(btnGoHome.style.right);
+  const bottom = parseFloat(btnGoHome.style.bottom);
+
+  // TOP - LEFT / RIGHT
+  if (top === correctionSideObject.top){
+    homeIcon.src = generateSvg(projectIcons,'HOME__TOP');
+  }
+
+  if (right === correctionSideObject.right){
+    homeIcon.src = generateSvg(projectIcons, 'HOME__RIGHT');
+  }
+
+  if (left === correctionSideObject.left){
+    homeIcon.src = generateSvg(projectIcons, 'HOME__LEFT');
+  }
+
+  if (top === correctionSideObject.top && left === correctionSideObject.left){
+    homeIcon.src = generateSvg(projectIcons,'HOME__TOP__LEFT');
+  }
+
+  if (top === correctionSideObject.top && right === correctionSideObject.right){
+    homeIcon.src = generateSvg(projectIcons, 'HOME__TOP__RIGHT');
+  }
+
+  //BOTTOM / LEFT / RIGHT
+  if (bottom === correctionSideObject.bottom){
+    homeIcon.src = generateSvg(projectIcons, 'HOME__BOTTOM');
+  }
+
+  if (bottom === correctionSideObject.bottom && left === correctionSideObject.left){
+    homeIcon.src = generateSvg(projectIcons,'HOME__BOTTOM__LEFT');
+  }
+
+  if (bottom === correctionSideObject.bottom && right === correctionSideObject.right){
+    homeIcon.src = generateSvg(projectIcons, 'HOME__BOTTOM__RIGHT');
+  }
+
+}
+
+function smoothlyAnimatePanTo(map, destLatLng) {
+  if(willAnimatePanTo(map, destLatLng)) {
+    map.panTo(destLatLng);
+    map.setZoom(mapData.mapSettings.zoom);
+  } else {
+    smoothlyAnimatePanToWorkarround(map, destLatLng);
+  }
+}
+
+function smoothlyAnimatePanToWorkarround(map, destLatLng, optionalAnimationEndCallback) {
+  let initialZoom = map.getZoom();
+  let listener;
+
+  function zoomIn() {
+    map.setZoom(mapData.mapSettings.zoom);
+    google.maps.event.removeListener(listener);
+    //here you should (re?)enable only the ui controls that make sense to your app
+    map.setOptions({draggable: true, zoomControl: true, scrollwheel: true, disableDoubleClickZoom: false});
+  }
+
+  function zoomOut() {
+    if(willAnimatePanTo(map, destLatLng)) {
+      google.maps.event.removeListener(listener);
+      listener = google.maps.event.addListener(map, 'idle', zoomIn);
+      map.panTo(destLatLng)
+    } else {
+      map.setZoom(getOptimalZoomOut(destLatLng, map.getZoom()));
+    }
+  }
+
+  //here you should disable all the ui controls that your app uses
+  map.setOptions({draggable: false, zoomControl: false, scrollwheel: false, disableDoubleClickZoom: true});
+  map.setZoom(getOptimalZoomOut(destLatLng, initialZoom));
+  listener = google.maps.event.addListener(map, 'idle', zoomOut);
+}
+
+function getOptimalZoomOut(latLng, currentZoom) {
+  if(willAnimatePanTo(map, latLng, currentZoom - 1)) {
+    return currentZoom - 1
+  } else if(willAnimatePanTo(map, latLng, currentZoom - 2)) {
+    return currentZoom - 2
+  } else {
+    return currentZoom - 3
+  }
+}
+
+function willAnimatePanTo(map, destLatLng, optionalZoomLevel) {
+  let dimen = getMapDimenInPixels(map);
+
+  let mapCenter = map.getCenter();
+  optionalZoomLevel = !!optionalZoomLevel ? optionalZoomLevel : map.getZoom();
+
+  let destPixel = getPixel(destLatLng, optionalZoomLevel);
+  let mapPixel = getPixel(mapCenter, optionalZoomLevel);
+  let diffX = Math.abs(destPixel.x - mapPixel.x);
+  let diffY = Math.abs(destPixel.y - mapPixel.y);
+
+  return diffX < dimen.width && diffY < dimen.height
+}
+
+function project(latLng) {
+  let TILE_SIZE = 256;
+
+  let siny = Math.sin(latLng.lat() * Math.PI / 180);
+
+  // Truncating to 0.9999 effectively limits latitude to 89.189. This is
+  // about a third of a tile past the edge of the world tile.
+  siny = Math.min(Math.max(siny, -0.9999), 0.9999);
+
+  return new google.maps.Point(
+    TILE_SIZE * (0.5 + latLng.lng() / 360),
+    TILE_SIZE * (0.5 - Math.log((1 + siny) / (1 - siny)) / (4 * Math.PI)))
+}
+
+function getPixel(latLng, zoom) {
+  let scale = 1 << zoom;
+  let worldCoordinate = project(latLng);
+  return new google.maps.Point(
+    Math.floor(worldCoordinate.x * scale),
+    Math.floor(worldCoordinate.y * scale))
+}
+
+function getMapDimenInPixels(map) {
+  let zoom = map.getZoom();
+  let bounds = map.getBounds();
+  let southWestPixel = getPixel(bounds.getSouthWest(), zoom);
+  let northEastPixel = getPixel(bounds.getNorthEast(), zoom);
+  return {
+    width: Math.abs(southWestPixel.x - northEastPixel.x),
+    height: Math.abs(southWestPixel.y - northEastPixel.y)
+  }
+}
 
 let basicStyleCss = `
 :root {
@@ -664,7 +1108,7 @@ let basicStyleCss = `
 --subtext: rgba(${styleColors.subtext});
 --grayMidLite: rgba(${styleColors.grayMidLite});
 --text: rgba(${styleColors.text});
-  
+--pressedButton: rgba(${styleColors.pressedButton});
 }
 
 .${canvasClass}{
@@ -673,6 +1117,7 @@ let basicStyleCss = `
     height: 100vh;
     position: relative;
     overflow: hidden;
+    outline: none;
 }
 
 img {
@@ -753,13 +1198,10 @@ img {
   font-weight: 500;
 }
 
-.aside-menu__satellite-text, .aside-menu__road-text{
+.aside-menu__map-type{
   font-size: 16px;
-  color: var(--brand1);
+  color: inherit;
   font-weight: 500;
-}
-
-.aside-menu__satellite__container, .aside-menu__road__container{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -800,9 +1242,14 @@ img {
   position: absolute;
 }
 
+.si-content-wrapper{
+  position: relative;
+}
+
 .snazzy-window{
   font-family: 'Ubuntu', sans-serif;
   font-weight: 300;
+  cursor: default;
 }
 
 .snazzy-content__container{
@@ -868,6 +1315,7 @@ img {
   height: 24px;
   background-position: center;
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .snazzy-content__car-route-container{
@@ -910,6 +1358,107 @@ img {
   font-size: 16px;
   color: var(--brand1);
 }
+
+.snazzy-content__social-container{
+   display: flex;
+   flex-direction: column;
+   margin-top: 12px;
+}
+
+.snazzy-content__website-link, .snazzy-content__phone, .snazzy-content__international-phone, .snazzy-content__navigate-btn{
+  font-size: 16px;
+  color: var(--brand1);
+  text-decoration: none;
+  margin-bottom: 16px;
+}
+
+.snazzy-content__website-link:before, .snazzy-content__phone:before, .snazzy-content__international-phone:before, .snazzy-content__navigate-btn:before {
+  content: '';
+  width: 16px;
+  background-size: 16px;
+  height: 16px;
+  background-position-y: 2px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  margin-right: 8px;
+}
+
+.snazzy-content__website-link:before{
+  background-image: url(GLOBE__ICON);
+}
+
+.snazzy-content__phone:before, .snazzy-content__international-phone:before{
+  background-image: url(PHONE__ICON);
+}
+
+.snazzy-content__navigate-btn:before{
+  background-image: url(COMPASS__ICON);
+}
+
+.snazzy-content__navigate-btn{
+  border: none;
+  background: transparent;
+  width: 105px;
+  text-align: start;
+  padding: 0;
+  cursor: pointer;
+}
+
+.disable-route {
+  filter: grayscale(1) invert(1);
+}
+
+.aside-menu__filter-points{
+  display: flex;
+  flex-wrap: wrap;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 500;
+  margin-top: 48px;
+}
+
+.filter__btn{
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  background-color: var(--white);
+  border: none;
+  box-shadow: 0px 5px 9px rgb(46 70 81 / 15%);
+  border-radius: 30px;
+  padding: 7px 25px 7px 0;
+  font-size: 16px;
+  color: var(--brand1);
+  font-family: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+  outline: none;
+  margin-right: 16px;
+  margin-bottom: 16px;
+}
+
+.filter__poi-icon{
+  margin-left: 21px;
+  margin-right: 13px;
+  width: 24px;
+  height: 24px;
+}
+
+.disable__map-type{
+  color: var(--subtext);
+}
+
+.pressed-btn{
+  background-color: var(--pressedButton);
+  color: #fff !important;
+}
+
+.pressed-btn > img {
+  filter: brightness(10);
+}
+
+.active__map-type{
+  color: var(--brand1);
+}
+
 
 
 
@@ -1863,8 +2412,10 @@ const projectIcons = {
     '</filter>' +
     '</defs>' +
     '</svg>',
-  'ALL__CATEGORY__ICON': '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"' +
-    ' width="19px" height="25px" viewBox="0 0 19 25"><!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com --><title>ic_all</title><desc>Created with Sketch.</desc><g id="One-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="0.00-Home-02" transform="translate(-64.000000, -4213.000000)" fill="#FFFFFF" fill-rule="nonzero" stroke="#FFFFFF" stroke-width="0.1"><g id="MAP-&gt;" transform="translate(0.000000, 3571.000000)"><g id="Categories" transform="translate(65.000000, 640.000000)"><g id="All-points"><g id="ic_all" transform="translate(0.000000, 3.000000)"><path d="M8.5,0 C3.8131,0 0,3.75352031 0,8.3671875 C0,9.92599453 0.438647222,11.4472422 1.26881389,12.7670266 L8.01616111,23.4703793 C8.14540833,23.6754219 8.37311389,23.8 8.61800833,23.8 C8.61989722,23.8 8.62173889,23.8 8.62362778,23.8 C8.87064722,23.7980941 9.098825,23.6696578 9.22571111,23.4610359 L15.801075,12.6539766 C16.5854361,11.3620828 17,9.87974258 17,8.3671875 C17,3.75352031 13.1869,0 8.5,0 Z M14.5853389,11.9380242 L8.60728889,21.7633336 L2.47288611,12.0322945 C1.78188333,10.9337758 1.40722222,9.66642578 1.40722222,8.3671875 C1.40722222,4.52246484 4.59425,1.38523438 8.5,1.38523438 C12.40575,1.38523438 15.5880556,4.52246484 15.5880556,8.3671875 C15.5880556,9.62789023 15.2380917,10.8628406 14.5853389,11.9380242 Z" id="Shape"></path><path d="M8.5,4.08 C6.062812,4.08 4.08,5.910288 4.08,8.16 C4.08,10.3953413 6.030546,12.24 8.5,12.24 C10.9999029,12.24 12.92,10.3707707 12.92,8.16 C12.92,5.910288 10.937188,4.08 8.5,4.08 Z M8.5,10.8890667 C6.86671178,10.8890667 5.54351111,9.66357067 5.54351111,8.16 C5.54351111,6.660192 6.875208,5.43093333 8.5,5.43093333 C10.124792,5.43093333 11.4515778,6.660192 11.4515778,8.16 C11.4515778,9.64162933 10.1591698,10.8890667 8.5,10.8890667 Z" id="Shape"></path></g></g></g></g></g></g></svg>',
+  'ALL__CATEGORY__ICON': '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+    '<path fill-rule="evenodd" clip-rule="evenodd" d="M18.8425 10.7171L18.8423 10.7708C18.8345 11.787 18.6051 12.7505 18.2001 13.6153C16.9093 16.5606 13.9572 18.9294 12.0001 20.1253C10.0433 18.9295 7.09155 16.5611 5.80051 13.6163C5.38813 12.736 5.15771 11.7534 5.15771 10.7171C5.15771 6.93813 8.22115 3.87469 12.0001 3.87469C15.779 3.87469 18.8425 6.93813 18.8425 10.7171ZM12.0001 14.1921C14.0082 14.1921 15.6361 12.5642 15.6361 10.5561C15.6361 8.54804 14.0082 6.92015 12.0001 6.92015C9.99198 6.92015 8.36409 8.54804 8.36409 10.5561C8.36409 12.5642 9.99198 14.1921 12.0001 14.1921Z" fill="#03233A"/>' +
+    '<path d="M18.8423 10.7708L19.3423 10.7747L19.3423 10.7729L18.8423 10.7708ZM18.8425 10.7171L19.3425 10.7192V10.7171H18.8425ZM18.2001 13.6153L17.7472 13.4032L17.7422 13.4146L18.2001 13.6153ZM12.0001 20.1253L11.7394 20.552C11.8994 20.6498 12.1008 20.6498 12.2608 20.552L12.0001 20.1253ZM5.80051 13.6163L6.25858 13.4155L6.25329 13.4042L5.80051 13.6163ZM19.3423 10.7729L19.3425 10.7192L18.3425 10.715L18.3423 10.7687L19.3423 10.7729ZM18.653 13.8274C19.0878 12.8987 19.3339 11.8643 19.3423 10.7747L18.3423 10.767C18.335 11.7097 18.1224 12.6023 17.7473 13.4033L18.653 13.8274ZM12.2608 20.552C14.2493 19.3368 17.306 16.901 18.6581 13.816L17.7422 13.4146C16.5126 16.2201 13.665 18.5219 11.7394 19.6987L12.2608 20.552ZM5.34259 13.8171C6.69487 16.9016 9.75113 19.3369 11.7394 20.552L12.2608 19.6987C10.3354 18.5221 7.48824 16.2207 6.25844 13.4156L5.34259 13.8171ZM4.65771 10.7171C4.65771 11.8283 4.90489 12.8831 5.34773 13.8284L6.25329 13.4042C5.87136 12.5889 5.65771 11.6786 5.65771 10.7171H4.65771ZM12.0001 3.37469C7.94501 3.37469 4.65771 6.66199 4.65771 10.7171H5.65771C5.65771 7.21428 8.4973 4.37469 12.0001 4.37469V3.37469ZM19.3425 10.7171C19.3425 6.66199 16.0552 3.37469 12.0001 3.37469V4.37469C15.5029 4.37469 18.3425 7.21428 18.3425 10.7171H19.3425ZM15.1361 10.5561C15.1361 12.2881 13.732 13.6921 12.0001 13.6921V14.6921C14.2843 14.6921 16.1361 12.8404 16.1361 10.5561H15.1361ZM12.0001 7.42015C13.732 7.42015 15.1361 8.82418 15.1361 10.5561H16.1361C16.1361 8.2719 14.2843 6.42015 12.0001 6.42015V7.42015ZM8.86409 10.5561C8.86409 8.82418 10.2681 7.42015 12.0001 7.42015V6.42015C9.71584 6.42015 7.86409 8.2719 7.86409 10.5561H8.86409ZM12.0001 13.6921C10.2681 13.6921 8.86409 12.2881 8.86409 10.5561H7.86409C7.86409 12.8404 9.71584 14.6921 12.0001 14.6921V13.6921Z" fill="#03233A"/>' +
+    '</svg>',
   'SATELLITE__ICON': '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
     '<path d="M14.0156 6L23.0156 18H0.984375L6.98438 9.98438L11.4844 15.9844L13.0781 14.8125L10.2656 11.0156L14.0156 6Z" fill="white"/>' +
     '</svg>',
