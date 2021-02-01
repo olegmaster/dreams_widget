@@ -17,7 +17,7 @@ class AboutJsGenerator implements JsGenerator
     private $callbackFunctionName;
     private $dir;
     private $rtlLangs = ['he'];
-    private $stylesFromApi;
+    private $styles;
 
     public function __construct(string $aboutData = '', string $canvasClass = 'bmby-about', string $callbackFunctionName = '', string $lang = 'en', $stylesFromApi = '')
     {
@@ -27,7 +27,7 @@ class AboutJsGenerator implements JsGenerator
         $this->lang = $lang;
         $this->callbackFunctionName = empty($callbackFunctionName) ? 'nonExistentFunction' : $callbackFunctionName;
         $this->dir = (in_array($lang, $this->rtlLangs))?'rtl':'ltr';
-        $this->stylesFromApi = empty($stylesFromApi) ? "{}" : $stylesFromApi;
+        $this->styles = empty($stylesFromApi) ? "{}" : $stylesFromApi;
         $this->setJs();
     }
 
@@ -50,7 +50,7 @@ class AboutJsGenerator implements JsGenerator
         $this->jsString = <<<EOD
 
 // Incoming styles from CRM
-let styles = $this->stylesFromApi;
+let styles = $this->styles;
 
 let styleColors = {};
 
